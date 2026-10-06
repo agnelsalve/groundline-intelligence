@@ -1,0 +1,23 @@
+# Secrets — API keys live here, never in git
+.env
+*.env
+!.env.example
+
+# n8n local state (contains credentials DB)
+.n8n/
+*.sqlite
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+node_modules/
+
+# Large or temporary files
+*.mp4
+*.mov
+tmp/
+
+# Temporary credential file written (and deleted) by scripts/setup-credentials.ps1
+data/cache/*.tmp.json

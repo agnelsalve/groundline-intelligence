@@ -1,0 +1,1660 @@
+{
+  "id": "GroundlineV2Main",
+  "name": "Groundline v2 — Brand Intelligence Agent (INFO 7375 A4)",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Groundline v2 — Brand Intelligence Agent\n**INFO 7375 Branding & AI · Northeastern · Fall 2026 · Assignment 4**\n\nA3 collected the data. v2 **thinks about it**: Muse Spark judges every record, routes risks and openings to alerts, writes cited briefs on Weave and its competitors, and a second AI pass **fact-checks every claim** before anything is sent.\n\n**Run:** *Execute workflow* (or weekly, Monday 07:00). Output → `outputs/` + Gmail",
+        "width": 600,
+        "height": 280,
+        "color": 7
+      },
+      "name": "Note: title",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### ① Collect (A3, extended)\n**News RSS** incl. Weave **competitors** (Podium, Birdeye, NexHealth…) and **Reddit** practice owners · **arXiv** · **Hacker News** · **NewsAPI** (optional)\n\nEvery fetch retries 3× and never stops the run.",
+        "width": 1000,
+        "height": 1100,
+        "color": 5
+      },
+      "name": "Note: collect",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### ② Validate → Dedupe (A3)\nRejects records missing title / URL / source / date, bad dates, off-topic items and duplicates. Every rejection keeps its reason.",
+        "width": 460,
+        "height": 480,
+        "color": 4
+      },
+      "name": "Note: clean",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### ③ Save clean data (A3)\nDataset, quality report, rejects log, raw snapshot.",
+        "width": 780,
+        "height": 1060,
+        "color": 6
+      },
+      "name": "Note: save",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### ④ AI judges every record — Muse Spark\nCache → batches of 10 → 3 in parallel.\nRetries with backoff, Gemini backup, JSON repair, circuit breaker; anything the AI can't judge falls back to A3's keyword rules **and is labelled**.",
+        "width": 680,
+        "height": 300,
+        "color": 3
+      },
+      "name": "Note: judge",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### ⑤ Decide → act\nHigh risk to Weave → **risk alert email**.\nCompetitor stumble → **opportunity email**.\nEverything else → weekly brief. Repeat alerts are suppressed.",
+        "width": 860,
+        "height": 300,
+        "color": 2
+      },
+      "name": "Note: route",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3240,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### ⑥ Write → fact-check → deliver\nMuse Spark writes cited briefs (numbers computed, not generated). An **independent AI fact-checker** rules on every claim against its sources; unsupported claims are removed. HTML briefs, dashboard, CSV, chart, and the weekly email.",
+        "width": 1980,
+        "height": 300,
+        "color": 4
+      },
+      "name": "Note: brief",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        380
+      ]
+    },
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "name": "Every Monday 07:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -200,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Run config — the one place to change the collection window and output folders.\n// Every downstream node reads these values via $('Run config').\nconst LOOKBACK_DAYS = 45;          // AI-industry sources (same as A3)\nconst BRAND_LOOKBACK_DAYS = 90;    // Weave + competitor sources: brand news is sparser\n\nlet dataDir, outDir;\ntry {\n  dataDir = $env.GROUNDLINE_DATA_DIR;\n  outDir = $env.GROUNDLINE_OUTPUT_DIR;\n} catch (e) {\n  throw new Error('n8n is blocking environment variables. Start n8n with scripts/start-n8n.ps1 (it sets N8N_BLOCK_ENV_ACCESS_IN_NODE=false).');\n}\nif (!dataDir || !outDir) {\n  throw new Error('GROUNDLINE_DATA_DIR / GROUNDLINE_OUTPUT_DIR are not set. Start n8n with scripts/start-n8n.ps1 so the workflow knows where to save files.');\n}\n\nconst now = new Date();\nconst since = new Date(now.getTime() - Math.max(LOOKBACK_DAYS, BRAND_LOOKBACK_DAYS) * 86400000);\nconst slash = (p) => p.split('\\\\').join('/').replace(/\\/$/, '');\n\nreturn [{\n  json: {\n    run_id: now.toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z',\n    run_date: now.toISOString().slice(0, 10),\n    collected_at: now.toISOString(),\n    lookback_days: LOOKBACK_DAYS,\n    brand_lookback_days: BRAND_LOOKBACK_DAYS,\n    since_iso: since.toISOString(),\n    since_unix: Math.floor(new Date(now.getTime() - LOOKBACK_DAYS * 86400000).getTime() / 1000),\n    data_dir: slash(dataDir),\n    out_dir: slash(outDir),\n  },\n}];\n"
+      },
+      "name": "Run config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        20,
+        420
+      ],
+      "notes": "windows · output folders",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Source 1 — News RSS feeds. No key, no rate limit.\n// A3: three AI desks + Google News searches for agents, grounding and Weave.\n// v2: adds Weave's direct competitors and practice-owner discussion on Reddit,\n// so the agent can compare Weave against the market instead of seeing it alone.\n// Brand feeds use a longer window (90 days) because brand news is sparser.\nconst cfg = $('Run config').first().json;\nconst gnews = (q, days) =>\n  'https://news.google.com/rss/search?q=' + encodeURIComponent(`${q} when:${days}d`) +\n  '&hl=en-US&gl=US&ceid=US:en';\nconst A = cfg.lookback_days;\nconst B = cfg.brand_lookback_days;\n\nconst feeds = [\n  // --- AI market context (unchanged from A3)\n  { feed_id: 'techcrunch_ai',          source_name: 'TechCrunch',            focus_hint: 'AI',    window_days: A, url: 'https://techcrunch.com/category/artificial-intelligence/feed/' },\n  { feed_id: 'mit_tech_review_ai',     source_name: 'MIT Technology Review', focus_hint: 'AI',    window_days: A, url: 'https://www.technologyreview.com/topic/artificial-intelligence/feed' },\n  { feed_id: 'the_verge_ai',           source_name: 'The Verge',             focus_hint: 'AI',    window_days: A, url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml' },\n  { feed_id: 'gnews_ai_agents',        source_name: 'Google News',           focus_hint: 'AI',    window_days: A, url: gnews('\"AI agents\" (analytics OR enterprise OR data)', A) },\n  { feed_id: 'gnews_ai_grounding',     source_name: 'Google News',           focus_hint: 'AI',    window_days: A, url: gnews('\"AI hallucinations\" OR \"retrieval-augmented generation\" OR \"AI grounding\"', A) },\n  { feed_id: 'gnews_ai_customer_comms', source_name: 'Google News',          focus_hint: 'AI',    window_days: B, url: gnews('\"AI receptionist\" OR \"AI front desk\" OR \"patient communication\" AI', B) },\n  // --- The brand\n  { feed_id: 'gnews_weave',            source_name: 'Google News',           focus_hint: 'Weave', window_days: B, url: gnews('\"Weave Communications\" OR \"getweave\" OR \"NYSE: WEAV\"', B) },\n  // --- Competitors (v2). Deliberately broad: \"Podium\" also matches F1 race results,\n  // and telling those apart is a job for the AI relevance check, not a keyword list.\n  { feed_id: 'gnews_podium',           source_name: 'Google News',           focus_hint: 'Competitor', entity_hint: 'Podium',        window_days: B, url: gnews('\"Podium\" (software OR ServiceTitan OR \"text marketing\" OR reviews OR \"local business\" OR AI)', B) },\n  { feed_id: 'gnews_birdeye',          source_name: 'Google News',           focus_hint: 'Competitor', entity_hint: 'Birdeye',       window_days: B, url: gnews('\"Birdeye\"', B) },\n  { feed_id: 'gnews_nexhealth',        source_name: 'Google News',           focus_hint: 'Competitor', entity_hint: 'NexHealth',     window_days: B, url: gnews('\"NexHealth\" OR \"Solutionreach\" OR \"RevenueWell\" OR \"Lighthouse 360\"', B) },\n  // --- Practice owners talking (v2, optional: Reddit often throttles anonymous readers)\n  { feed_id: 'reddit_practice_owners', source_name: 'Reddit',                focus_hint: 'Competitor', window_days: 365,\n    url: 'https://www.reddit.com/r/Dentistry+Optometry+veterinaryprofession+smallbusiness/search.rss?q=' +\n         encodeURIComponent('weave OR podium OR nexhealth OR birdeye OR solutionreach') + '&restrict_sr=1&sort=new&t=year' },\n];\n\nreturn feeds.map((f) => ({ json: f }));\n"
+      },
+      "name": "RSS feed list",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        60
+      ],
+      "notes": "11 feeds: AI desks, Weave, 3 competitor searches, Reddit",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize RSS → common record shape.\n// Also emits one status row per feed (ok / empty / unavailable) so a dead\n// feed shows up in the quality report instead of silently disappearing.\nconst feeds = $('RSS feed list').all().map((i) => i.json);\n\nconst out = [];\nconst stats = Object.fromEntries(feeds.map((f) => [f.feed_id, { fetched: 0, error: null }]));\n\nfor (const item of $input.all()) {\n  const { _feed, ...j } = item.json || {};\n  const feed = _feed || feeds[0];\n  if (j.error) { stats[feed.feed_id].error = String(j.error.message || j.error); continue; }\n  if (!j.title && !j.link) continue; // empty placeholder from alwaysOutputData\n  stats[feed.feed_id].fetched++;\n  out.push({\n    json: {\n      _type: 'record',\n      source_type: 'news_rss',\n      feed_id: feed.feed_id,\n      source_name: feed.source_name,\n      focus_hint: feed.focus_hint,\n      entity_hint: feed.entity_hint || '',\n      window_days: feed.window_days,\n      title: j.title,\n      summary: j.contentSnippet || j.content || j.summary || '',\n      author: j.creator || j.author || '',\n      url: j.link,\n      published_raw: j.isoDate || j.pubDate || '',\n      engagement_points: null,\n      engagement_comments: null,\n      raw: j,\n    },\n  });\n}\n\nfor (const f of feeds) {\n  const s = stats[f.feed_id];\n  out.push({ json: {\n    _type: 'status', source_type: 'news_rss', feed_id: f.feed_id, fetched: s.fetched,\n    status: s.error ? 'unavailable' : s.fetched ? 'ok' : 'empty',\n    message: s.error ? `Source unavailable: ${s.error}` : s.fetched ? '' : 'Feed returned no items',\n  }});\n}\nreturn out;\n"
+      },
+      "name": "Normalize RSS",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Loop RSS",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        480,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "name": "Fetch RSS feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        700,
+        180
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tag each response with the feed it came from.\n// The loop fetches one feed per run, so run N belongs to feed N in the list.\n// Tagging here means every record — and every error — is credited to the right feed.\nconst feeds = $('RSS feed list').all();\nconst feed = feeds[$runIndex]?.json;\nif (!feed) throw new Error(`No feed at position ${$runIndex} in RSS feed list`);\nreturn $input.all().map((i) => ({ json: { ...i.json, _feed: feed } }));\n"
+      },
+      "name": "Tag RSS source",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        920,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://export.arxiv.org/api/query?search_query=%28abs:%22retrieval-augmented%22+OR+abs:%22LLM+agents%22+OR+abs:%22AI+agents%22%29+AND+%28abs:hallucination+OR+abs:grounding+OR+abs:faithfulness+OR+abs:groundedness%29&sortBy=submittedDate&sortOrder=descending&max_results=35",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "groundline-intelligence/2.0 (INFO 7375 coursework)"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "name": "Fetch arXiv papers",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        340
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput",
+      "notes": "RAG / agents × hallucination / grounding",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize arXiv (Atom XML) → common record shape.\n// Research signal: what is being published on grounding, hallucination and agents.\n// The HTTP node returns the raw XML as text; each <entry> is one paper.\nconst out = [];\nlet fetched = 0, error = null;\n\nconst tag = (xml, name) => {\n  const m = xml.match(new RegExp(`<${name}[^>]*>([\\\\s\\\\S]*?)</${name}>`));\n  return m ? m[1].trim() : '';\n};\n\nfor (const item of $input.all()) {\n  const j = item.json || {};\n  if (j.error) { error = String(j.error.message || j.error); continue; }\n  const xml = typeof j.data === 'string' ? j.data : '';\n  if (!xml.includes('<feed')) { if (xml) error = 'Response was not an Atom feed'; continue; }\n\n  for (const entry of xml.split('<entry>').slice(1)) {\n    fetched++;\n    const authors = [...entry.matchAll(/<name>([^<]+)<\\/name>/g)].map((m) => m[1].trim());\n    const absLink = (entry.match(/<link[^>]*rel=\"alternate\"[^>]*href=\"([^\"]+)\"/) || entry.match(/<id>([^<]+)<\\/id>/) || [])[1] || '';\n    const categories = [...entry.matchAll(/<category[^>]*term=\"([^\"]+)\"/g)].map((m) => m[1]);\n    const paper = {\n      id: tag(entry, 'id'),\n      title: tag(entry, 'title'),\n      summary: tag(entry, 'summary'),\n      published: tag(entry, 'published'),\n      updated: tag(entry, 'updated'),\n      authors,\n      categories,\n    };\n    out.push({\n      json: {\n        _type: 'record',\n        source_type: 'research_api',\n        feed_id: 'arxiv_grounding_agents',\n        source_name: 'arXiv',\n        focus_hint: 'AI',\n        title: paper.title,\n        summary: paper.summary,\n        author: authors.length > 3 ? `${authors.slice(0, 3).join(', ')} et al.` : authors.join(', '),\n        url: absLink.replace(/^http:\\/\\//, 'https://'),\n        published_raw: paper.published,\n        engagement_points: null,\n        engagement_comments: null,\n        raw: paper,\n      },\n    });\n  }\n}\n\nout.push({ json: {\n  _type: 'status', source_type: 'research_api', feed_id: 'arxiv_grounding_agents', fetched,\n  status: error ? 'unavailable' : fetched ? 'ok' : 'empty',\n  message: error ? `Source unavailable: ${error}` : fetched ? '' : 'Query returned no papers',\n}});\nreturn out;\n"
+      },
+      "name": "Normalize arXiv",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Source 3 — Hacker News (Algolia search API). No key.\n// Practitioner signal: what engineers are actually discussing.\n// Only stories inside the window with >20 points, to skip low-signal posts.\nconst cfg = $('Run config').first().json;\nconst queries = [\n  { feed_id: 'hn_ai_agents',    q: 'AI agents' },\n  { feed_id: 'hn_agentic',      q: 'agentic' },\n  { feed_id: 'hn_evals',        q: 'evals' },\n  { feed_id: 'hn_ai_safety',    q: 'AI safety' },\n  { feed_id: 'hn_hallucination', q: 'hallucination' },\n];\n\nreturn queries.map(({ feed_id, q }) => ({\n  json: {\n    feed_id,\n    query: q,\n    url:\n      'https://hn.algolia.com/api/v1/search?tags=story&hitsPerPage=20' +\n      '&query=' + encodeURIComponent(q) +\n      '&numericFilters=' + encodeURIComponent(`points>20,created_at_i>${cfg.since_unix}`),\n  },\n}));\n"
+      },
+      "name": "HN query list",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        560
+      ],
+      "notes": "5 searches · >20 points",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize Hacker News (Algolia JSON) → common record shape.\n// Each input item is one query's response; the stories are in .hits.\nconst queries = $('HN query list').all().map((i) => i.json);\n\nconst out = [];\nconst stats = Object.fromEntries(queries.map((q) => [q.feed_id, { fetched: 0, error: null }]));\n\nfor (const item of $input.all()) {\n  const { _feed, ...j } = item.json || {};\n  const q = _feed || queries[0];\n  if (j.error) { stats[q.feed_id].error = String(j.error.message || j.error); continue; }\n  for (const h of j.hits || []) {\n    stats[q.feed_id].fetched++;\n    const discussion = `https://news.ycombinator.com/item?id=${h.objectID}`;\n    out.push({\n      json: {\n        _type: 'record',\n        source_type: 'community_api',\n        feed_id: q.feed_id,\n        source_name: 'Hacker News',\n        focus_hint: 'AI',\n        title: h.title,\n        summary: '',\n        author: h.author || '',\n        url: h.url || discussion,\n        discussion_url: discussion,\n        published_raw: h.created_at || '',\n        engagement_points: h.points ?? null,\n        engagement_comments: h.num_comments ?? null,\n        raw: h,\n      },\n    });\n  }\n}\n\nfor (const q of queries) {\n  const s = stats[q.feed_id];\n  out.push({ json: {\n    _type: 'status', source_type: 'community_api', feed_id: q.feed_id, fetched: s.fetched,\n    status: s.error ? 'unavailable' : s.fetched ? 'ok' : 'empty',\n    message: s.error ? `Source unavailable: ${s.error}` : s.fetched ? '' : 'Query returned no stories',\n  }});\n}\nreturn out;\n"
+      },
+      "name": "Normalize HN",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Loop HN",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        480,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "name": "Fetch Hacker News",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        680
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tag each response with the feed it came from.\n// The loop fetches one feed per run, so run N belongs to feed N in the list.\n// Tagging here means every record — and every error — is credited to the right feed.\nconst feeds = $('HN query list').all();\nconst feed = feeds[$runIndex]?.json;\nif (!feed) throw new Error(`No feed at position ${$runIndex} in HN query list`);\nreturn $input.all().map((i) => ({ json: { ...i.json, _feed: feed } }));\n"
+      },
+      "name": "Tag HN source",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        920,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Source 4 — NewsAPI (free tier: 100 requests/day, articles up to ~30 days old).\n// The key is read from the NEWSAPI_KEY environment variable (set in .env).\n// If the key is missing, the request fails cleanly and the run carries on\n// with the other sources — the quality report marks NewsAPI \"unavailable\".\nconst cfg = $('Run config').first().json;\nconst from = new Date(Math.max(new Date(cfg.since_iso).getTime(), Date.now() - 29 * 86400000))\n  .toISOString().slice(0, 10);\n\n// Only check whether a key exists; the key itself is read by the HTTP node's\n// header expression so it never lands in item data or saved files.\nlet hasKey = false;\ntry { hasKey = Boolean($env.NEWSAPI_KEY); } catch (e) { hasKey = false; }\n\nconst queries = [\n  { feed_id: 'newsapi_ai',    focus_hint: 'AI',    pageSize: 40, q: '\"AI agents\" OR \"agentic AI\" OR \"AI hallucination\" OR \"retrieval-augmented generation\"' },\n  { feed_id: 'newsapi_weave', focus_hint: 'Weave', pageSize: 20, q: '\"Weave Communications\"' },\n];\n\nreturn queries.map(({ feed_id, focus_hint, pageSize, q }) => ({\n  json: {\n    feed_id,\n    focus_hint,\n    has_key: hasKey,\n    url:\n      'https://newsapi.org/v2/everything?language=en&sortBy=relevancy' +\n      `&pageSize=${pageSize}&from=${from}&q=` + encodeURIComponent(q),\n  },\n}));\n"
+      },
+      "name": "NewsAPI query list",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        820
+      ],
+      "notes": "Optional · key from .env",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize NewsAPI → common record shape.\n// A missing/invalid key or a rate limit comes back as an error item;\n// it is logged as \"unavailable\" and never stops the run.\nconst queries = $('NewsAPI query list').all().map((i) => i.json);\n\nconst out = [];\nconst stats = Object.fromEntries(queries.map((q) => [q.feed_id, { fetched: 0, error: null }]));\n\nfor (const item of $input.all()) {\n  const { _feed, ...j } = item.json || {};\n  const q = _feed || queries[0];\n  if (!q.has_key) { stats[q.feed_id].error = 'NEWSAPI_KEY not set in .env (optional source skipped)'; continue; }\n  if (j.error || j.status === 'error') {\n    stats[q.feed_id].error = String(j.message || j.error?.message || j.error || 'request failed');\n    continue;\n  }\n  for (const a of j.articles || []) {\n    if (a.title === '[Removed]') continue; // NewsAPI placeholder for deleted articles\n    stats[q.feed_id].fetched++;\n    out.push({\n      json: {\n        _type: 'record',\n        source_type: 'news_api',\n        feed_id: q.feed_id,\n        source_name: a.source?.name || 'NewsAPI',\n        focus_hint: q.focus_hint,\n        title: a.title,\n        summary: a.description || '',\n        author: a.author || '',\n        url: a.url,\n        published_raw: a.publishedAt || '',\n        engagement_points: null,\n        engagement_comments: null,\n        raw: a,\n      },\n    });\n  }\n}\n\nfor (const q of queries) {\n  const s = stats[q.feed_id];\n  out.push({ json: {\n    _type: 'status', source_type: 'news_api', feed_id: q.feed_id, fetched: s.fetched,\n    status: s.error ? 'unavailable' : s.fetched ? 'ok' : 'empty',\n    message: s.error ? `Source unavailable: ${s.error}` : s.fetched ? '' : 'Query returned no articles',\n  }});\n}\nreturn out;\n"
+      },
+      "name": "Normalize NewsAPI",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Loop NewsAPI",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        480,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "={{ $env.NEWSAPI_KEY || 'not-set' }}"
+            },
+            {
+              "name": "User-Agent",
+              "value": "groundline-intelligence/2.0"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "name": "Fetch NewsAPI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        940
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tag each response with the feed it came from.\n// The loop fetches one feed per run, so run N belongs to feed N in the list.\n// Tagging here means every record — and every error — is credited to the right feed.\nconst feeds = $('NewsAPI query list').all();\nconst feed = feeds[$runIndex]?.json;\nif (!feed) throw new Error(`No feed at position ${$runIndex} in NewsAPI query list`);\nreturn $input.all().map((i) => ({ json: { ...i.json, _feed: feed } }));\n"
+      },
+      "name": "Tag NewsAPI source",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        920,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "name": "Merge sources",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1300,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate & Clean — every record either passes every check or is rejected\n// with a written reason. Nothing is dropped silently.\n//\n// Output: one item per candidate record with _status = kept | rejected | trimmed,\n// plus the source status rows passed through for the quality report.\n//   rejected = failed a quality check (missing field, bad date, duplicate, off-topic)\n//   trimmed  = passed every check but cut to keep the dataset balanced (per-feed cap)\n\nconst cfg = $('Run config').first().json;\nconst NOW = new Date(cfg.collected_at).getTime();\nconst DAY = 86400000;\nconst sinceFor = (r) => NOW - (r.window_days || cfg.lookback_days) * DAY; // brand feeds look back further\nconst MAX_PER_FEED = 35;        // no single feed may dominate the dataset\nconst MAX_LEGAL_NOTICES = 5;    // law-firm \"shareholder alert\" boilerplate adds little new signal\nconst SUMMARY_MAX = 400;\n\n// ---------- text helpers ----------\nconst decode = (s) => s\n  .replace(/&#(\\d+);/g, (_, n) => String.fromCharCode(+n))\n  .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))\n  .replace(/&nbsp;/g, ' ').replace(/&quot;/g, '\"').replace(/&#39;|&apos;/g, \"'\")\n  .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');\nconst clean = (s) => decode(decode(String(s ?? '')).replace(/<[^>]*>/g, ' '))\n  .replace(/[​-‍﻿]/g, '').replace(/\\s+/g, ' ').trim();\nconst truncate = (s, n) => (s.length <= n ? s : s.slice(0, s.lastIndexOf(' ', n - 1)).replace(/[,;:.\\s]+$/, '') + '…');\nconst fingerprint = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();\n\n// FNV-1a → stable 8-char id, so the same article gets the same id on every run\nconst hash8 = (s) => {\n  let h = 0x811c9dc5;\n  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }\n  return (h >>> 0).toString(16).padStart(8, '0');\n};\n\n// Same article, different URL spellings → one key. (No URL class: the n8n\n// Code sandbox doesn't provide it, so this is plain string handling.)\nconst canonicalUrl = (u) => {\n  const m = String(u || '').trim().match(/^https?:\\/\\/([^/?#]+)([^?#]*)(\\?[^#]*)?/i);\n  if (!m) return null;\n  const host = m[1].toLowerCase().replace(/^www\\./, '');\n  const path = m[2].replace(/\\/+$/, '');\n  const query = (m[3] || '').slice(1).split('&')\n    .filter((p) => p && !/^(utm_|fbclid|gclid|mc_|ref=|cmpid|oc=)/i.test(p)).join('&');\n  const arxiv = (host + path).match(/arxiv\\.org\\/(?:abs|pdf)\\/(\\d{4}\\.\\d{4,5})/);\n  if (arxiv) return `arxiv.org/abs/${arxiv[1]}`;   // v1/v2 of the same paper are one record\n  return host + path + (query ? `?${query}` : '');\n};\n\n// ---------- topic rules (transparent: matched words are saved on the record) ----------\nconst TOPICS = [\n  ['rag_grounding',   /retrieval[- ]augmented|\\bRAG\\b|grounding|grounded|hallucinat\\w*|faithful\\w*|fact[- ]check\\w*|citations?\\b/gi],\n  ['ai_agents',       /\\bagent(?:s|ic)?\\b|multi-agent|autonomous|copilot/gi],\n  ['ai_evaluation',   /\\bevals?\\b|evaluation|benchmark\\w*|accuracy|reliab\\w*/gi],\n  ['ai_trust_safety', /safety|\\btrust\\w*|governance|regulat\\w*|security|privacy|\\bbias\\b|rogue|lawsuit|copyright/gi],\n  ['ai_data_analytics', /analytics|data (?:quality|engineering|warehouse|pipeline)s?|business intelligence|snowflake|databricks/gi],\n  ['ai_industry',     /\\bA\\.?I\\.?\\b|artificial intelligence|\\bLLMs?\\b|machine learning|language models?|OpenAI|Anthropic|Gemini|\\bGPT|ChatGPT|Claude|Copilot|DeepMind|Grok|Llama|Mistral|Perplexity|Nvidia|chatbots?/gi],\n];\nconst WEAVE = /Weave Communications|\\bWEAV\\b|getweave|\\bWeave\\b/gi;\n// v2: Weave's direct competitors. Case-sensitive on purpose (\"Podium\" the company, not an F1 podium);\n// whatever still slips through is caught by the AI relevance check downstream.\nconst COMPETITORS = [\n  ['Podium', /\\bPodium\\b/], ['Birdeye', /\\bBirdeye\\b/], ['NexHealth', /\\bNexHealth\\b/],\n  ['Solutionreach', /\\bSolution[Rr]each\\b/], ['RevenueWell', /\\bRevenueWell\\b/], ['Lighthouse 360', /\\bLighthouse 360\\b/],\n];\nconst LEGAL = /shareholder alert|investigat\\w* whether|fair price|\\bLLP\\b|law firm|class action|Halper Sadeh|Brodsky|Ademi|Monteverde|Kahn Swick/i;\n\nfunction classify(r, text) {\n  const matched = new Set();\n  let topic = null;\n  const isWeave = (r.focus_hint === 'Weave' && /weave/i.test(text)) || /Weave Communications|\\bWEAV\\b|getweave/i.test(text);\n  if (isWeave) { topic = 'weave_brand'; (text.match(WEAVE) || []).forEach((m) => matched.add(m)); }\n  const rival = isWeave ? null : COMPETITORS.find(([, re]) => re.test(text));\n  if (rival) { topic = 'competitor_brand'; matched.add(rival[0]); }\n  if (!isWeave && !rival && r.focus_hint === 'Competitor') return { topic: null, focus: 'Competitor', entity: '', signal: 'news', matched: [] };\n  for (const [name, re] of TOPICS) {\n    const m = text.match(re);\n    if (m) { if (!topic) topic = name; m.forEach((w) => matched.add(w.toLowerCase())); }\n  }\n  let signal = { news_rss: 'news', news_api: 'news', research_api: 'research_paper', community_api: 'community_discussion' }[r.source_type];\n  if (isWeave) {\n    // Brand events: what kind of thing happened to Weave (for reputation monitoring)\n    if (LEGAL.test(text)) signal = 'legal_notice';\n    else if (/acqui\\w*|merger|antitrust|buyout|takeover|to be acquired/i.test(text)) signal = 'm_and_a';\n    else if (/downgrade\\w*|upgrade\\w*|price target|rating|analyst\\w*|fair value/i.test(text)) signal = 'analyst_rating';\n    else if (/shares withheld|stock sale|insider|RSU|Form 4/i.test(text)) signal = 'insider_trade';\n    else if (/earnings|revenue|EPS|income|guidance|quarter/i.test(text)) signal = 'financials';\n  }\n  if (r.feed_id.startsWith('reddit_')) signal = 'community_discussion';\n  if (signal === 'news' && /businesswire|prnewswire|globenewswire|accesswire/i.test(r.source_name + ' ' + r.url)) signal = 'press_release';\n  const entity = isWeave ? 'Weave' : rival ? rival[0] : '';\n  return { topic, focus: isWeave ? 'Weave' : rival ? 'Competitor' : 'AI', entity, signal, matched: [...matched].slice(0, 6) };\n}\n\n// ---------- process ----------\nconst items = $input.all().map((i) => i.json);\nconst statusRows = items.filter((j) => j._type === 'status');\nconst records = items.filter((j) => j._type === 'record');\n\n// Priority: primary publishers and APIs first, aggregators last, so when the\n// same story appears twice the better-attributed copy is the one kept.\nconst PRIORITY = { news_rss: 1, research_api: 1, community_api: 2, news_api: 3 };\nconst prio = (r) => (r.feed_id.startsWith('gnews_') ? 4 : r.feed_id.startsWith('reddit_') ? 2 : PRIORITY[r.source_type] || 5);\n\nconst candidates = records.map((r) => {\n  let title = clean(r.title);\n  let sourceName = clean(r.source_name);\n  let aggregator = '';\n  // Google News titles look like \"Headline - Publisher\": split them.\n  if (r.feed_id.startsWith('gnews_')) {\n    aggregator = 'Google News';\n    const cut = title.lastIndexOf(' - ');\n    if (cut > 0) { sourceName = title.slice(cut + 3).trim(); title = title.slice(0, cut).trim(); }\n  }\n  let summary = clean(r.summary);\n  if (fingerprint(summary).startsWith(fingerprint(title)) || summary.length < 25) summary = '';\n  const t = Date.parse(r.published_raw);\n  return {\n    r, title, sourceName, aggregator,\n    summary: summary ? truncate(summary, SUMMARY_MAX) : '',\n    author: clean(Array.isArray(r.author) ? r.author.join(', ') : r.author),\n    url: String(r.url || '').trim(),\n    ts: Number.isFinite(t) ? t : NaN,\n  };\n}).sort((a, b) => prio(a.r) - prio(b.r) || b.ts - a.ts);\n\nconst seenUrl = new Map();\nconst seenTitle = new Map();\nconst perFeed = {};\nlet legalCount = 0;\nconst out = [];\n\nfor (const c of candidates) {\n  const r = c.r;\n  const reasons = [];\n  if (!c.title || c.title.length < 8) reasons.push('missing_title');\n  if (!/^https?:\\/\\/\\S+\\.\\S+/.test(c.url)) reasons.push('invalid_url');\n  if (!c.sourceName) reasons.push('missing_source');\n  if (!Number.isFinite(c.ts)) reasons.push('invalid_date');\n  else if (c.ts > NOW + 86400000) reasons.push('future_date');\n  else if (c.ts < sinceFor(r)) reasons.push('outside_window');\n\n  const text = `${c.title} ${c.summary}`;\n  const cls = classify(r, text);\n  if (!reasons.length && !cls.topic) reasons.push('off_topic');\n\n  const canon = canonicalUrl(c.url);\n  const fp = fingerprint(c.title);\n  if (!reasons.length) {\n    if (seenUrl.has(canon)) reasons.push(`duplicate_url_of_${seenUrl.get(canon)}`);\n    else if (seenTitle.has(fp)) reasons.push(`duplicate_title_of_${seenTitle.get(fp)}`);\n  }\n\n  const record_id = 'GL-' + hash8(canon || c.url || c.title);\n  let status = reasons.length ? 'rejected' : 'kept';\n  let reason = reasons.map((x) => x.replace(/_of_GL-\\w+$/, '')).join('|');\n  let reasonDetail = reasons.join('|');\n\n  if (status === 'kept') {\n    seenUrl.set(canon, record_id);\n    seenTitle.set(fp, record_id);\n    perFeed[r.feed_id] = (perFeed[r.feed_id] || 0) + 1;\n    if (perFeed[r.feed_id] > MAX_PER_FEED) { status = 'trimmed'; reason = reasonDetail = 'feed_cap'; }\n    else if (cls.signal === 'legal_notice' && ++legalCount > MAX_LEGAL_NOTICES) { status = 'trimmed'; reason = reasonDetail = 'legal_notice_cap'; }\n  }\n\n  const iso = Number.isFinite(c.ts) ? new Date(c.ts).toISOString() : '';\n  const filled = [c.title, c.url, iso, c.sourceName, c.summary, c.author, cls.topic].filter(Boolean).length;\n\n  out.push({ json: {\n    _type: 'record',\n    _status: status,\n    _reason: reason,\n    _reason_detail: reasonDetail,\n    record_id,\n    published_date: iso.slice(0, 10),\n    title: c.title,\n    summary: c.summary,\n    topic: cls.topic || '',\n    focus: cls.focus,\n    entity: cls.entity,\n    signal_type: cls.signal,\n    source_name: c.sourceName,\n    source_type: r.source_type,\n    collected_via: r.feed_id,\n    aggregator: c.aggregator,\n    author: c.author,\n    url: c.url,\n    discussion_url: r.discussion_url || '',\n    engagement_points: r.engagement_points ?? '',\n    engagement_comments: r.engagement_comments ?? '',\n    matched_keywords: cls.matched.join('; '),\n    completeness_pct: Math.round((filled / 7) * 100),\n    published_at_utc: iso,\n    collected_at: cfg.collected_at,\n    run_id: cfg.run_id,\n  }});\n}\n\nreturn [...out, ...statusRows.map((s) => ({ json: s }))];\n"
+      },
+      "name": "Validate & clean",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        440
+      ],
+      "notes": "required fields · dates · topic · dedupe",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Final dataset — kept records only, internal fields removed, newest first.\n// Runs post-condition checks: if any fail, the run stops with a clear error\n// instead of writing a bad file.\nconst rows = $input.all()\n  .map((i) => i.json)\n  .filter((j) => j._type === 'record' && j._status === 'kept')\n  .sort((a, b) => b.published_at_utc.localeCompare(a.published_at_utc))\n  .map(({ _type, _status, _reason, _reason_detail, ...rest }) => rest);\n\nconst problems = [];\nconst ids = new Set(), urls = new Set();\nfor (const r of rows) {\n  if (!r.title || !r.url || !r.source_name || !r.published_date) problems.push(`${r.record_id}: missing critical field`);\n  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(r.published_date)) problems.push(`${r.record_id}: date not YYYY-MM-DD`);\n  if (ids.has(r.record_id)) problems.push(`${r.record_id}: duplicate record_id`);\n  if (urls.has(r.url)) problems.push(`${r.record_id}: duplicate url`);\n  ids.add(r.record_id); urls.add(r.url);\n}\nif (problems.length) throw new Error('Post-condition checks failed:\\n' + problems.slice(0, 20).join('\\n'));\nif (rows.length === 0) throw new Error('No records passed validation — check the source status rows in the quality report.');\n\nreturn rows.map((json) => ({ json }));\n"
+      },
+      "name": "Final dataset",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        100
+      ],
+      "notes": "kept records + post-checks",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Quality report — the run's numbers, as JSON (for machines) and Markdown (for people).\nconst cfg = $('Run config').first().json;\nconst all = $input.all().map((i) => i.json);\nconst status = all.filter((j) => j._type === 'status');\nconst recs = all.filter((j) => j._type === 'record');\nconst kept = recs.filter((r) => r._status === 'kept');\nconst rejected = recs.filter((r) => r._status === 'rejected');\nconst trimmed = recs.filter((r) => r._status === 'trimmed');\n\nconst count = (arr, key) => arr.reduce((m, r) => ((m[r[key]] = (m[r[key]] || 0) + 1), m), {});\nconst pct = (n, d) => (d ? Math.round((n / d) * 1000) / 10 : 0);\n\nconst collected = recs.length;\nconst duplicates = rejected.filter((r) => r._reason.startsWith('duplicate')).length;\nconst qualityFails = rejected.length - duplicates;\nconst unique = collected - duplicates;\n\nconst ENRICH = ['summary', 'author'];\nconst fieldFill = Object.fromEntries(\n  ['record_id', 'title', 'url', 'published_date', 'source_name', 'topic', 'summary', 'author']\n    .map((f) => [f, pct(kept.filter((r) => r[f] !== '' && r[f] != null).length, kept.length)])\n);\nconst fullyComplete = kept.filter((r) => ENRICH.every((f) => r[f])).length;\n\n// Per-source table: what each feed returned and what survived\nconst perFeed = {};\nfor (const s of status) perFeed[s.feed_id] = { source_type: s.source_type, status: s.status, message: s.message, fetched: s.fetched, kept: 0, rejected: 0, trimmed: 0 };\nfor (const r of recs) {\n  const f = perFeed[r.collected_via] || (perFeed[r.collected_via] = { source_type: r.source_type, status: 'ok', message: '', fetched: 0, kept: 0, rejected: 0, trimmed: 0 });\n  f[r._status]++;\n}\n\nconst dates = kept.map((r) => r.published_date).sort();\nconst checks = [\n  ['Every kept record has title, URL, source and date', kept.every((r) => r.title && r.url && r.source_name && r.published_date)],\n  ['Every date is YYYY-MM-DD', kept.every((r) => /^\\d{4}-\\d{2}-\\d{2}$/.test(r.published_date))],\n  ['No date in the future', kept.every((r) => Date.parse(r.published_at_utc) <= Date.parse(cfg.collected_at) + 86400000)],\n  ['No duplicate record IDs', new Set(kept.map((r) => r.record_id)).size === kept.length],\n  ['No duplicate URLs', new Set(kept.map((r) => r.url)).size === kept.length],\n  ['Every record has a topic', kept.every((r) => r.topic)],\n  ['At least 3 source systems contributed', new Set(kept.map((r) => r.source_type)).size >= 3],\n  ['Record count within 50–400 target', kept.length >= 50 && kept.length <= 400],\n].map(([check, pass]) => ({ check, pass }));\n\nconst report = {\n  run_id: cfg.run_id,\n  collected_at: cfg.collected_at,\n  window: { lookback_days: cfg.lookback_days, since: cfg.since_iso.slice(0, 10), until: cfg.run_date },\n  totals: {\n    collected, duplicates_removed: duplicates, failed_quality_checks: qualityFails,\n    unique_records: unique, trimmed_for_balance: trimmed.length, kept: kept.length,\n    quality_pass_rate_pct: pct(unique - qualityFails, unique),\n    fully_complete_records: fullyComplete, fully_complete_pct: pct(fullyComplete, kept.length),\n  },\n  kept_by: {\n    source_type: count(kept, 'source_type'), focus: count(kept, 'focus'),\n    topic: count(kept, 'topic'), signal_type: count(kept, 'signal_type'),\n  },\n  field_completeness_pct: fieldFill,\n  date_range: { earliest: dates[0] || null, latest: dates[dates.length - 1] || null },\n  rejects_by_reason: count(rejected, '_reason'),\n  trimmed_by_reason: count(trimmed, '_reason'),\n  sources: perFeed,\n  checks,\n  all_checks_passed: checks.every((c) => c.pass),\n};\n\n// ---------- Markdown ----------\nconst t = report.totals;\nconst row = (cells) => `| ${cells.join(' | ')} |`;\nconst table = (head, rows) => [row(head), row(head.map(() => '---')), ...rows.map(row)].join('\\n');\nconst obj = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]);\n\nconst md = `# Groundline — Data Quality Report\n\n**Run:** \\`${cfg.run_id}\\` · **Collected:** ${cfg.collected_at.slice(0, 16).replace('T', ' ')} UTC · **Window:** ${report.window.since} → ${report.window.until} (${cfg.lookback_days} days)\n\n## Summary\n\n${table(['Metric', 'Value'], [\n  ['Records collected (all sources)', t.collected],\n  ['Duplicates removed', t.duplicates_removed],\n  ['Unique records', t.unique_records],\n  ['Failed a quality check', t.failed_quality_checks],\n  ['**Quality pass rate** (unique records passing every check)', `**${t.quality_pass_rate_pct}%**`],\n  ['Trimmed for balance (passed, but over a per-feed cap)', t.trimmed_for_balance],\n  ['**Records in final dataset**', `**${t.kept}**`],\n  ['Records with every optional field (summary + author)', `${t.fully_complete_records} (${t.fully_complete_pct}%)`],\n  ['Date range of kept records', `${report.date_range.earliest} → ${report.date_range.latest}`],\n])}\n\n## Automated checks\n\n${table(['Check', 'Result'], checks.map((c) => [c.check, c.pass ? '✅ pass' : '❌ fail']))}\n\n## Sources\n\n${table(['Feed', 'Type', 'Status', 'Fetched', 'Kept', 'Rejected', 'Trimmed', 'Note'],\n  Object.entries(perFeed).map(([k, v]) => [`\\`${k}\\``, v.source_type, v.status === 'ok' ? '🟢 ok' : v.status === 'empty' ? '🟡 empty' : '🔴 unavailable', v.fetched, v.kept, v.rejected, v.trimmed, v.message || '']))}\n\n## Field completeness (kept records)\n\n${table(['Field', 'Filled'], Object.entries(fieldFill).map(([k, v]) => [`\\`${k}\\``, `${v}%`]))}\n\nCritical fields (title, URL, date, source) are enforced at 100%. \\`summary\\` and \\`author\\` are optional: Hacker News stories have no summary, and many news feeds omit the author.\n\n## Why records were rejected\n\n${table(['Reason', 'Count'], obj(report.rejects_by_reason).map(([k, v]) => [`\\`${k}\\``, v]))}\n\n${trimmed.length ? `Trimmed for balance: ${obj(report.trimmed_by_reason).map(([k, v]) => `\\`${k}\\` ${v}`).join(', ')}.` : ''}\n\n## Dataset composition\n\n${table(['By focus', 'Records'], obj(report.kept_by.focus))}\n\n${table(['By source type', 'Records'], obj(report.kept_by.source_type))}\n\n${table(['By topic', 'Records'], obj(report.kept_by.topic))}\n\n${table(['By signal type', 'Records'], obj(report.kept_by.signal_type))}\n`;\n\nreturn [{ json: { report_json: JSON.stringify(report, null, 2), markdown: md, all_checks_passed: report.all_checks_passed, kept: kept.length } }];\n"
+      },
+      "name": "Quality report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Rejects log — every record that did not make the dataset, and why.\n// Makes the filter auditable: anyone can check nothing good was thrown away.\nreturn $input.all()\n  .map((i) => i.json)\n  .filter((j) => j._type === 'record' && j._status !== 'kept')\n  .map((j) => ({ json: {\n    record_id: j.record_id,\n    status: j._status,\n    reason: j._reason_detail,\n    published_date: j.published_date,\n    title: j.title,\n    source_name: j.source_name,\n    collected_via: j.collected_via,\n    url: j.url,\n  }}));\n"
+      },
+      "name": "Rejects log",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Raw snapshot — every record exactly as each source returned it (under .raw),\n// saved once per run. \"Collect once, reuse forever\": cleaning can be re-run\n// against this file without hitting any source again.\nconst cfg = $('Run config').first().json;\nconst items = $input.all().map((i) => i.json);\nconst snapshot = {\n  run_id: cfg.run_id,\n  collected_at: cfg.collected_at,\n  sources: items.filter((j) => j._type === 'status'),\n  records: items.filter((j) => j._type === 'record'),\n};\nreturn [{ json: { snapshot_json: JSON.stringify(snapshot, null, 2), file_name: `raw_${cfg.run_id}.json` } }];\n"
+      },
+      "name": "Raw snapshot",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "csv",
+        "options": {
+          "fileName": "groundline_dataset.csv"
+        }
+      },
+      "name": "Dataset CSV → file",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Run config').first().json.data_dir }}/clean/groundline_dataset.csv",
+        "options": {}
+      },
+      "name": "Write Dataset CSV",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "mode": "once",
+        "options": {
+          "format": true,
+          "fileName": "groundline_dataset.json"
+        }
+      },
+      "name": "Dataset JSON → file",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Run config').first().json.data_dir }}/clean/groundline_dataset.json",
+        "options": {}
+      },
+      "name": "Write Dataset JSON",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "markdown",
+        "options": {
+          "fileName": "quality_report.md"
+        }
+      },
+      "name": "Report MD → file",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Run config').first().json.data_dir }}/clean/quality_report.md",
+        "options": {}
+      },
+      "name": "Write Report MD",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "report_json",
+        "options": {
+          "fileName": "quality_report.json"
+        }
+      },
+      "name": "Report JSON → file",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Run config').first().json.data_dir }}/clean/quality_report.json",
+        "options": {}
+      },
+      "name": "Write Report JSON",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "csv",
+        "options": {
+          "fileName": "rejects_log.csv"
+        }
+      },
+      "name": "Rejects CSV → file",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Run config').first().json.data_dir }}/clean/rejects_log.csv",
+        "options": {}
+      },
+      "name": "Write Rejects CSV",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "snapshot_json",
+        "options": {
+          "fileName": "raw.json"
+        }
+      },
+      "name": "Raw JSON → file",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Run config').first().json.data_dir }}/raw/{{ $('Raw snapshot').first().json.file_name }}",
+        "options": {}
+      },
+      "name": "Write Raw JSON",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "fileSelector": "={{ $('Run config').first().json.data_dir }}/cache/analysis_cache.json",
+        "options": {}
+      },
+      "name": "Read cache file",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2560,
+        -180
+      ],
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput",
+      "notes": "missing cache = cold start, not an error",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Load the analysis cache written by the previous run.\n// Records the AI has already judged (same record_id, same prompt version) are\n// reused instead of paid for again. A missing or corrupt cache is not an error:\n// the run simply starts cold and says so in the run metrics.\nlet cache = { analysis: {}, alerted: {} };\nlet status = 'cold_start: no cache file yet';\nconst item = $input.first();\ntry {\n  if (item && item.binary && item.binary.data) {\n    const buf = await this.helpers.getBinaryDataBuffer(0, 'data');\n    const parsed = JSON.parse(buf.toString('utf8'));\n    cache = { analysis: parsed.analysis || {}, alerted: parsed.alerted || {} };\n    status = `loaded: ${Object.keys(cache.analysis).length} analyses, ${Object.keys(cache.alerted).length} alerted records`;\n  } else if (item && item.json && item.json.error) {\n    status = 'cold_start: ' + String(item.json.error.message || item.json.error).slice(0, 120);\n  }\n} catch (e) {\n  status = 'cold_start: cache unreadable (' + e.message.slice(0, 80) + ') — it will be rebuilt';\n}\nreturn [{ json: { cache, cache_status: status } }];\n"
+      },
+      "name": "Load cache",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2780,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ─── Groundline AI client ───────────────────────────────────────────────────\n// Shared by every AI node. scripts/build_workflow.py pastes this file at the top\n// of each AI Code node, so the retry / fallback / cost rules live in one place.\n//\n// Provider chain: Muse Spark (Meta Model API) → Gemini (backup) → caller's rule fallback.\n// Both providers speak the OpenAI Chat Completions format, so one client covers both.\n//\n// What it handles:\n//   429 / 5xx / timeout / network  → retry with exponential backoff + jitter (honours Retry-After)\n//   400 \"unsupported parameter\"    → retry once without the optional params\n//   401 / 403 / 404                → don't retry; move to the next provider\n//   reply is not valid JSON, or fails the caller's schema check → one \"repair\" round-trip\n//   every provider failed          → throws AIError; the caller falls back to rules\n// Every call is metered: tokens, cost, latency, retries, provider used.\nconst __http = this.helpers.httpRequest.bind(this.helpers);\n\nconst AI = (() => {\n  const env = (k, d = '') => { try { const v = $env[k]; return v === undefined || v === null || v === '' ? d : String(v); } catch (e) { return d; } };\n  const real = (k) => k && !/^your_|_here$|^changeme$/i.test(k);\n\n  // USD per 1M tokens. Muse: Meta Model API list price. Gemini: free tier = $0.\n  const PROVIDERS = [\n    { id: 'muse', label: 'Muse Spark', base: env('MUSE_BASE_URL', 'https://api.meta.ai/v1'), key: env('MUSE_API_KEY'),\n      model: env('MUSE_MODEL', 'muse-spark-1.3'), price: { in: +env('MUSE_PRICE_IN', '1.25'), out: +env('MUSE_PRICE_OUT', '4.25') } },\n    { id: 'gemini', label: 'Gemini', base: env('GEMINI_BASE_URL', 'https://generativelanguage.googleapis.com/v1beta/openai'), key: env('GEMINI_API_KEY'),\n      model: env('GEMINI_MODEL', 'gemini-2.5-flash'), price: { in: +env('GEMINI_PRICE_IN', '0'), out: +env('GEMINI_PRICE_OUT', '0') } },\n  ].filter((p) => real(p.key));\n\n  const MAX_TRIES = +env('AI_MAX_TRIES', '4');\n  const BASE_DELAY_MS = +env('AI_BASE_DELAY_MS', '1500');\n  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));\n\n  const metrics = { calls: 0, ok: 0, failed: 0, retries: 0, repairs: 0, provider_fallbacks: 0,\n    tokens_in: 0, tokens_out: 0, cost_usd: 0, latency_ms: [], by_provider: {}, errors: [] };\n\n  class AIError extends Error { constructor(msg, kind) { super(msg); this.kind = kind; } }\n\n  function parseJson(text) {\n    if (typeof text !== 'string') throw new AIError('empty reply', 'malformed');\n    let t = text.trim().replace(/^```(?:json)?\\s*/i, '').replace(/```\\s*$/, '');\n    try { return JSON.parse(t); } catch (e) { /* fall through */ }\n    const a = t.indexOf('{'), b = t.lastIndexOf('}');\n    if (a >= 0 && b > a) { try { return JSON.parse(t.slice(a, b + 1)); } catch (e) { /* fall through */ } }\n    throw new AIError('reply is not valid JSON: ' + t.slice(0, 120), 'malformed');\n  }\n\n  const statusOf = (e) => e.status || e.httpCode || e.statusCode || (e.response && e.response.status) || 0;\n  const retryAfterMs = (e) => {\n    const h = (e.response && e.response.headers) || {};\n    const v = h['retry-after'] || h['Retry-After'];\n    return v && Number.isFinite(+v) ? Math.min(+v * 1000, 30000) : 0;\n  };\n\n  async function post(p, body, timeoutMs) {\n    const t0 = Date.now();\n    const res = await __http({\n      method: 'POST', url: p.base.replace(/\\/$/, '') + '/chat/completions',\n      headers: { Authorization: `Bearer ${p.key}`, 'Content-Type': 'application/json' },\n      body, json: true, timeout: timeoutMs,\n    });\n    return { res, ms: Date.now() - t0 };\n  }\n\n  // One provider, with retries. Returns parsed + validated JSON or throws.\n  async function callProvider(p, task) {\n    const messages = [{ role: 'system', content: task.system }, { role: 'user', content: task.user }];\n    let optional = { response_format: { type: 'json_object' }, reasoning_effort: task.effort || 'low' };\n    let repaired = false;\n    for (let attempt = 1; attempt <= MAX_TRIES; attempt++) {\n      metrics.calls++;\n      try {\n        const body = { model: p.model, messages, max_completion_tokens: task.maxTokens || 4000, temperature: task.temperature ?? 0.2, ...optional };\n        const { res, ms } = await post(p, body, task.timeoutMs || 90000);\n        const u = res.usage || {};\n        const tin = u.prompt_tokens || 0, tout = u.completion_tokens || 0;\n        const cost = (tin * p.price.in + tout * p.price.out) / 1e6;\n        metrics.tokens_in += tin; metrics.tokens_out += tout; metrics.cost_usd += cost; metrics.latency_ms.push(ms);\n        const bp = (metrics.by_provider[p.id] = metrics.by_provider[p.id] || { calls: 0, tokens_in: 0, tokens_out: 0, cost_usd: 0 });\n        bp.calls++; bp.tokens_in += tin; bp.tokens_out += tout; bp.cost_usd += cost;\n\n        const text = res.choices && res.choices[0] && res.choices[0].message && res.choices[0].message.content;\n        let data, problem;\n        try { data = parseJson(text); problem = task.validate ? task.validate(data) : null; }\n        catch (e) { problem = e.message; }\n        if (!problem) { metrics.ok++; return { data, provider: p.id, model: p.model, ms, tokens_in: tin, tokens_out: tout, cost_usd: cost, attempts: attempt }; }\n\n        // Malformed or off-schema reply: show the model its own mistake once.\n        if (repaired) throw new AIError(`invalid reply after repair: ${problem}`, 'malformed');\n        repaired = true; metrics.repairs++;\n        messages.push({ role: 'assistant', content: String(text || '').slice(0, 6000) });\n        messages.push({ role: 'user', content: `Your reply was rejected: ${problem}. Reply again with ONLY the corrected JSON object, nothing else.` });\n        continue;\n      } catch (e) {\n        if (e instanceof AIError) throw e;\n        const st = statusOf(e);\n        const msg = String(e.message || e).slice(0, 200);\n        if (st === 400 && optional.response_format && /response_format|reasoning|unsupported|unknown/i.test(JSON.stringify((e.response && e.response.data) || msg))) {\n          optional = {}; metrics.retries++; continue;          // provider rejects an optional param → drop it\n        }\n        if ([401, 403, 404].includes(st)) throw new AIError(`${p.label} ${st}: ${msg}`, 'auth');\n        const retryable = !st || st === 408 || st === 409 || st === 429 || st >= 500;\n        if (!retryable || attempt === MAX_TRIES) throw new AIError(`${p.label} ${st || 'network'}: ${msg}`, st === 429 ? 'rate_limit' : 'unavailable');\n        metrics.retries++;\n        const backoff = BASE_DELAY_MS * 2 ** (attempt - 1) + Math.floor(Math.random() * 400);\n        await sleep(Math.max(backoff, retryAfterMs(e)));\n      }\n    }\n    throw new AIError(`${p.label}: retries exhausted`, 'unavailable');\n  }\n\n  // Public: try each provider in order. task = { name, system, user, validate, effort, maxTokens, timeoutMs }\n  async function complete(task) {\n    if (!PROVIDERS.length) {\n      metrics.failed++;\n      metrics.errors.push({ task: task.name, error: 'no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)' });\n      throw new AIError('no AI provider configured', 'no_provider');\n    }\n    // task.prefer lets a caller pick a different model first — the fact-checker uses this\n    // so that, when both keys exist, a second model checks the first one's work.\n    const order = task.prefer ? [...PROVIDERS].sort((a, b) => (b.id === task.prefer) - (a.id === task.prefer)) : PROVIDERS;\n    let last;\n    for (let i = 0; i < order.length; i++) {\n      try { return await callProvider(order[i], task); }\n      catch (e) {\n        last = e;\n        metrics.errors.push({ task: task.name, provider: order[i].id, kind: e.kind || 'error', error: String(e.message).slice(0, 240) });\n        if (i < order.length - 1) metrics.provider_fallbacks++;\n      }\n    }\n    metrics.failed++;\n    throw last;\n  }\n\n  // Run async jobs with a concurrency cap (keeps us under provider rate limits).\n  async function pool(jobs, limit) {\n    const out = new Array(jobs.length); let next = 0;\n    const worker = async () => { while (next < jobs.length) { const i = next++; out[i] = await jobs[i](); } };\n    await Promise.all(Array.from({ length: Math.min(limit, jobs.length) }, worker));\n    return out;\n  }\n\n  function summary() {\n    const l = [...metrics.latency_ms].sort((a, b) => a - b);\n    const pct = (q) => (l.length ? l[Math.min(l.length - 1, Math.floor(q * l.length))] : 0);\n    return { ...metrics, latency_ms: undefined, cost_usd: +metrics.cost_usd.toFixed(6),\n      latency_p50_ms: pct(0.5), latency_p95_ms: pct(0.95), latency_max_ms: l[l.length - 1] || 0,\n      providers_configured: PROVIDERS.map((p) => `${p.id}:${p.model}`) };\n  }\n\n  return { complete, pool, summary, AIError, env, providers: PROVIDERS.map((p) => ({ id: p.id, label: p.label, model: p.model })) };\n})();\n// ─── end AI client ──────────────────────────────────────────────────────────\n\n// ─── Groundline Analyst core ────────────────────────────────────────────────\n// Agent 3 from the A2 design (\"Analyst\"), first half: read every record and judge it.\n// Pasted (after ai_client.js) into the \"AI Analyst\" node of the main workflow AND\n// the Analyze API webhook used for scale testing, so both run identical logic.\n//\n// For each record the AI decides:\n//   relevance 0–3      0 = unrelated (an F1 \"podium\"), 3 = directly about Weave or a competitor\n//   entity             which company it is about (or \"Market\")\n//   sentiment −2…+2    tone toward that entity\n//   theme / evidence   what kind of event, and whether it was announced, proven, reported or discussed\n//   risk_to_weave / opportunity_for_weave   none | low | medium | high  → drives alert routing\n//   archetype          which of the 12 brand archetypes the coverage casts the entity as\n//   key_fact           one sentence that is stated in the source (used later for fact-checking)\nconst PROMPT_VERSION = 'analyst-v1';\nconst ENTITIES = ['Weave', 'Podium', 'Birdeye', 'NexHealth', 'Solutionreach', 'RevenueWell', 'Lighthouse 360', 'Market', 'None'];\nconst THEMES = ['product', 'ai_strategy', 'pricing', 'customer_experience', 'partnership', 'm_and_a', 'financials',\n  'legal_regulatory', 'leadership', 'market_trend', 'other'];\nconst EVIDENCE = ['announced', 'proven', 'reported', 'discussed'];\nconst LEVELS = ['none', 'low', 'medium', 'high'];\nconst ARCHETYPES = ['Innocent', 'Everyman', 'Hero', 'Outlaw', 'Explorer', 'Creator', 'Ruler', 'Magician', 'Lover', 'Caregiver', 'Jester', 'Sage'];\n\nconst ANALYST_SYSTEM = `You are the brand-intelligence analyst for Weave Communications (NYSE: WEAV), a customer-communication and payments platform for ~40,000 dental, optometry and veterinary practices. Direct competitors: Podium, Birdeye, NexHealth, Solutionreach, RevenueWell, Lighthouse 360.\n\nYou receive news items, papers and community posts. Judge each one ONLY from its title and summary. Never invent facts.\n\nReturn JSON: {\"items\":[{...one object per input item, same order...}]} with exactly these fields:\n- \"id\": the input id, unchanged\n- \"relevance\": 0 = unrelated to Weave's market (e.g. a sports \"podium\", a fabric \"weave\"), 1 = general AI/tech background, 2 = adjacent market (AI agents for customer service, SMB software, healthcare practices), 3 = directly about Weave or a named competitor\n- \"entity\": one of ${JSON.stringify(ENTITIES)}. \"Market\" for industry items, \"None\" when relevance is 0\n- \"sentiment\": integer -2..2, the tone toward that entity (0 if neutral or relevance 0)\n- \"theme\": one of ${JSON.stringify(THEMES)}\n- \"evidence\": \"announced\" (company says it), \"proven\" (research/data), \"reported\" (journalism), \"discussed\" (opinion/community)\n- \"risk_to_weave\": one of ${JSON.stringify(LEVELS)}. high = could hurt Weave's reputation, revenue or stock soon (lawsuit, outage, downgrade, a competitor winning Weave's customers)\n- \"opportunity_for_weave\": one of ${JSON.stringify(LEVELS)}. high = a competitor stumbling or a market shift Weave can act on now\n- \"archetype\": which of ${JSON.stringify(ARCHETYPES)} this coverage portrays the entity as, or null if it doesn't portray a brand\n- \"key_fact\": ONE sentence stating the main fact, using only information in the title/summary\n- \"why\": at most 20 words explaining the risk/opportunity rating`;\n\nfunction validateAnalysis(ids) {\n  return (data) => {\n    if (!data || !Array.isArray(data.items)) return 'missing \"items\" array';\n    const want = new Set(ids);\n    for (const it of data.items) {\n      if (!it || !want.has(it.id)) continue;            // unknown ids are ignored, missing ones fall back later\n      it.relevance = Math.max(0, Math.min(3, Math.round(+it.relevance)));\n      it.sentiment = Math.max(-2, Math.min(2, Math.round(+it.sentiment)));\n      if (!Number.isFinite(it.relevance) || !Number.isFinite(it.sentiment)) return `item ${it.id}: relevance/sentiment must be numbers`;\n      if (!ENTITIES.includes(it.entity)) return `item ${it.id}: entity must be one of ${ENTITIES.join(', ')}`;\n      if (!THEMES.includes(it.theme)) it.theme = 'other';\n      if (!EVIDENCE.includes(it.evidence)) it.evidence = 'reported';\n      if (!LEVELS.includes(it.risk_to_weave) || !LEVELS.includes(it.opportunity_for_weave)) return `item ${it.id}: risk_to_weave/opportunity_for_weave must be none|low|medium|high`;\n      if (it.archetype && !ARCHETYPES.includes(it.archetype)) it.archetype = null;\n      if (typeof it.key_fact !== 'string' || it.key_fact.length < 8) return `item ${it.id}: key_fact must be a sentence`;\n    }\n    const got = data.items.filter((it) => it && want.has(it.id)).length;\n    if (got < Math.ceil(ids.length / 2)) return `only ${got} of ${ids.length} ids returned`;\n    return null;\n  };\n}\n\n// Rule-based fallback = the A3 behaviour. Used when every AI provider is down,\n// when the AI skipped an item, or when the run's AI budget is used up.\nconst POS = /\\b(launch\\w*|record|growth|grow\\w*|wins?|award\\w*|beat\\w*|surge\\w*|upgrade\\w*|partner\\w*|expand\\w*|profit\\w*|raises?)\\b/i;\nconst NEG = /\\b(lawsuit|investigat\\w*|downgrade\\w*|layoff\\w*|breach\\w*|outage|decline\\w*|miss(?:es|ed)?|loss(?:es)?|fraud|cuts?|drops?|falls?|scrap\\w*|shut\\w*)\\b/i;\nfunction rulesAnalysis(r, reason) {\n  const text = `${r.title} ${r.summary || ''}`;\n  const sentiment = NEG.test(text) ? -1 : POS.test(text) ? 1 : 0;\n  const entity = r.entity || (r.focus === 'AI' ? 'Market' : 'None');\n  const themeBySignal = { legal_notice: 'legal_regulatory', m_and_a: 'm_and_a', analyst_rating: 'financials', insider_trade: 'financials',\n    financials: 'financials', research_paper: 'market_trend', community_discussion: 'market_trend', press_release: 'product' };\n  let risk = 'none';\n  if (entity === 'Weave') risk = r.signal_type === 'legal_notice' || (sentiment < 0) ? 'medium' : 'low';\n  return {\n    relevance: r.entity ? 3 : 1, entity, sentiment,\n    theme: themeBySignal[r.signal_type] || 'other',\n    evidence: { research_paper: 'proven', community_discussion: 'discussed', press_release: 'announced' }[r.signal_type] || 'reported',\n    risk_to_weave: risk, opportunity_for_weave: entity !== 'Weave' && r.entity && sentiment < 0 ? 'low' : 'none',\n    archetype: null, key_fact: r.title, why: `keyword rules (${reason})`,\n  };\n}\n\n// Decision: where does this record go?\nfunction routeFor(a) {\n  if (a.relevance >= 2 && (a.risk_to_weave === 'high' || (a.entity === 'Weave' && a.risk_to_weave === 'medium' && a.sentiment <= -2))) return 'urgent_risk';\n  if (a.relevance >= 2 && a.opportunity_for_weave === 'high') return 'opportunity';\n  if (a.relevance === 0) return 'discard';\n  return 'digest';\n}\n\n// records: A3-shape records. cache: { [record_id]: { v, a, at } }\nasync function analyzeRecords(records, opts = {}) {\n  const cache = opts.cache || {};\n  const BATCH = opts.batchSize || +AI.env('AI_BATCH_SIZE', '10');\n  const CONC = opts.concurrency || +AI.env('AI_CONCURRENCY', '3');\n  const MAX_AI = opts.maxAI ?? +AI.env('AI_MAX_RECORDS', '400');\n  const useCache = opts.useCache !== false;\n  const BREAKER = 3;                                     // consecutive failed batches → stop calling AI this run\n\n  const results = new Map();\n  const stats = { cache_hits: 0, ai_analyzed: 0, fallback: 0, fallback_reasons: {}, batches: 0, batches_failed: 0, circuit_open: false };\n  const fallback = (r, reason) => {\n    results.set(r.record_id, { ...rulesAnalysis(r, reason), analysis_source: 'rules_fallback', analysis_note: reason });\n    stats.fallback++; stats.fallback_reasons[reason] = (stats.fallback_reasons[reason] || 0) + 1;\n  };\n\n  const todo = [];\n  for (const r of records) {\n    const hit = useCache && cache[r.record_id];\n    if (hit && hit.v === PROMPT_VERSION) { results.set(r.record_id, { ...hit.a, analysis_source: 'cache', analysis_note: `cached ${hit.at}` }); stats.cache_hits++; }\n    else todo.push(r);\n  }\n  // Brand records first, then newest — if the budget runs out, background items are the ones skipped.\n  todo.sort((a, b) => (b.entity ? 1 : 0) - (a.entity ? 1 : 0) || String(b.published_date).localeCompare(String(a.published_date)));\n  const forAI = todo.slice(0, MAX_AI);\n  todo.slice(MAX_AI).forEach((r) => fallback(r, 'ai_budget_reached'));\n\n  const batches = [];\n  for (let i = 0; i < forAI.length; i += BATCH) batches.push(forAI.slice(i, i + BATCH));\n  let consecutiveFails = 0;\n\n  await AI.pool(batches.map((batch) => async () => {\n    if (stats.circuit_open) { batch.forEach((r) => fallback(r, 'circuit_open')); return; }\n    stats.batches++;\n    const ids = batch.map((r) => r.record_id);\n    const input = batch.map((r) => ({ id: r.record_id, title: r.title, summary: (r.summary || '').slice(0, 400),\n      source: r.source_name, date: r.published_date, type: r.signal_type, hint_entity: r.entity || undefined }));\n    try {\n      const res = await AI.complete({ name: 'analyze', system: ANALYST_SYSTEM, user: JSON.stringify({ items: input }),\n        validate: validateAnalysis(ids), effort: 'low', maxTokens: 400 + 160 * batch.length, timeoutMs: 90000 });\n      consecutiveFails = 0;\n      const byId = Object.fromEntries(res.data.items.filter((it) => it && ids.includes(it.id)).map((it) => [it.id, it]));\n      for (const r of batch) {\n        const a = byId[r.record_id];\n        if (!a) { fallback(r, 'ai_skipped_item'); continue; }\n        const { id, ...analysis } = a;\n        results.set(r.record_id, { ...analysis, analysis_source: `ai:${res.provider}`, analysis_note: res.model });\n        cache[r.record_id] = { v: PROMPT_VERSION, a: analysis, at: new Date().toISOString().slice(0, 10), by: `${res.provider}:${res.model}` };\n        stats.ai_analyzed++;\n      }\n    } catch (e) {\n      stats.batches_failed++;\n      consecutiveFails++;\n      if (e.kind === 'no_provider' || consecutiveFails >= BREAKER) stats.circuit_open = true;\n      batch.forEach((r) => fallback(r, e.kind === 'no_provider' ? 'no_ai_provider' : `ai_error:${e.kind || 'unknown'}`));\n    }\n  }), CONC);\n\n  const out = records.map((r) => {\n    const a = results.get(r.record_id) || { ...rulesAnalysis(r, 'missing'), analysis_source: 'rules_fallback' };\n    return { ...r, ...a, route: routeFor(a) };\n  });\n  return { records: out, stats, cache };\n}\n// ─── end Analyst core ───────────────────────────────────────────────────────\n\n// AI Analyst — Muse Spark reads every clean record and judges it\n// (relevance, entity, sentiment, theme, risk, opportunity, archetype, key fact).\n// Logic lives in workflow/lib/analyst_core.js (pasted above by the build script).\n//\n// Error handling: cache first; batches of 10; 3 batches in parallel; per-batch retries\n// and provider fallback inside the AI client; a circuit breaker after 3 failed batches;\n// anything the AI could not judge falls back to the A3 keyword rules and is labelled so.\nconst t0 = Date.now();\nconst records = $('Final dataset').all().map((i) => i.json);\nconst loaded = $('Load cache').first().json;\nconst cache = loaded.cache.analysis;\n\nconst { records: out, stats } = await analyzeRecords(records, { cache });\n\nreturn [\n  ...out.map((r) => ({ json: { _type: 'record', ...r } })),\n  { json: { _type: 'ai_run', step: 'analyst', prompt_version: PROMPT_VERSION, cache_status: loaded.cache_status,\n    stats, ai: AI.summary(), providers: AI.providers, duration_ms: Date.now() - t0,\n    cache: { analysis: cache, alerted: loaded.cache.alerted } } },\n];\n"
+      },
+      "name": "AI Analyst",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3000,
+        -180
+      ],
+      "notes": "Muse Spark · relevance, sentiment, risk, archetype",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "af061621-568f-5348-9085-5e397bc48f6c",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "urgent_risk",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Urgent risk"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8bb3824a-051a-5260-a9a5-90794d2c3448",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "opportunity",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Opportunity"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "Weekly brief only"
+        }
+      },
+      "name": "Route by AI decision",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        3280,
+        -200
+      ],
+      "notes": "urgent_risk · opportunity · digest",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// ─── Groundline render kit ──────────────────────────────────────────────────\n// Small HTML helpers shared by the report, alert and email nodes.\n// Emails use inline styles and tables (Gmail strips <style> blocks and SVG);\n// report pages use a stylesheet and print cleanly to PDF.\nconst esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');\nconst C = { ink: '#0f172a', body: '#334155', muted: '#64748b', line: '#e2e8f0', bg: '#f8fafc', card: '#ffffff',\n  accent: '#0f766e', accentSoft: '#ccfbf1', red: '#b91c1c', redSoft: '#fee2e2', amber: '#b45309', amberSoft: '#fef3c7',\n  green: '#15803d', greenSoft: '#dcfce7', blue: '#1d4ed8', blueSoft: '#dbeafe' };\nconst SENT = { '-2': ['Very negative', C.red, C.redSoft], '-1': ['Negative', C.red, C.redSoft], '0': ['Neutral', C.muted, C.bg],\n  '1': ['Positive', C.green, C.greenSoft], '2': ['Very positive', C.green, C.greenSoft] };\nconst LEVEL = { high: [C.red, C.redSoft], medium: [C.amber, C.amberSoft], low: [C.blue, C.blueSoft], none: [C.muted, C.bg] };\nconst sentWord = (s) => (SENT[String(Math.round(s))] || SENT['0'])[0];\nconst fmtSent = (avg) => (avg > 0 ? '+' : '') + (+avg).toFixed(2);\nconst pill = (text, fg, bg) => `<span style=\"display:inline-block;padding:2px 8px;border-radius:999px;background:${bg};color:${fg};font-size:12px;font-weight:600;line-height:18px;white-space:nowrap\">${esc(text)}</span>`;\nconst sentPill = (s) => { const [t, fg, bg] = SENT[String(Math.round(s))] || SENT['0']; return pill(t, fg, bg); };\nconst levelPill = (label, lvl) => { const [fg, bg] = LEVEL[lvl] || LEVEL.none; return pill(`${label}: ${lvl}`, fg, bg); };\nconst fmtUsd = (x) => (x < 0.01 ? '$' + x.toFixed(4) : '$' + x.toFixed(2));\n\n// QuickChart renders Chart.js configs to PNG — free, no key. Used where SVG can't go (email).\nconst quickChartUrl = (config, w = 560, h = 260) =>\n  'https://quickchart.io/chart?bkg=white&w=' + w + '&h=' + h + '&c=' + encodeURIComponent(JSON.stringify(config));\n\nfunction emailShell({ title, preheader, body, footer }) {\n  return `<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>${esc(title)}</title></head>\n<body style=\"margin:0;padding:0;background:${C.bg};font-family:Segoe UI,Helvetica,Arial,sans-serif;color:${C.body}\">\n<span style=\"display:none;max-height:0;overflow:hidden\">${esc(preheader || '')}</span>\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:${C.bg}\"><tr><td align=\"center\" style=\"padding:24px 12px\">\n<table role=\"presentation\" width=\"640\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:640px;width:100%;background:${C.card};border:1px solid ${C.line};border-radius:12px\">\n<tr><td style=\"padding:20px 28px;border-bottom:3px solid ${C.accent}\">\n  <div style=\"font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.accent};font-weight:700\">Groundline · Brand Intelligence</div>\n  <div style=\"font-size:22px;font-weight:700;color:${C.ink};margin-top:4px\">${esc(title)}</div>\n</td></tr>\n<tr><td style=\"padding:20px 28px;font-size:15px;line-height:1.55\">${body}</td></tr>\n<tr><td style=\"padding:16px 28px;border-top:1px solid ${C.line};font-size:12px;color:${C.muted};line-height:1.5\">${footer || ''}</td></tr>\n</table></td></tr></table></body></html>`;\n}\n\nconst PAGE_CSS = `\n:root{--ink:${C.ink};--body:${C.body};--muted:${C.muted};--line:${C.line};--bg:${C.bg};--card:#fff;--accent:${C.accent};--accent-soft:${C.accentSoft}}\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--body);font:15px/1.6 \"Segoe UI\",Inter,Helvetica,Arial,sans-serif}\n.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}\nheader.top{border-bottom:3px solid var(--accent);padding-bottom:16px;margin-bottom:24px}\n.kicker{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}\nh1{font-size:30px;line-height:1.2;color:var(--ink);margin:6px 0 8px}h2{font-size:19px;color:var(--ink);margin:28px 0 10px}\nh3{font-size:15px;color:var(--ink);margin:0 0 6px}\n.meta{color:var(--muted);font-size:13px}.lede{font-size:17px;color:var(--ink)}\n.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}\n.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}\n.tile .v{font-size:26px;font-weight:700;color:var(--ink);line-height:1.1}.tile .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}\n.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:12px 0}\nul.claims{margin:0;padding-left:18px}ul.claims li{margin:6px 0}\n.cite{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:0 5px;margin-left:3px;text-decoration:none;vertical-align:1px}\n.badge{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13px}\n.ok{background:#dcfce7;color:#15803d}.warn{background:#fef3c7;color:#b45309}.bad{background:#fee2e2;color:#b91c1c}\ntable.t{width:100%;border-collapse:collapse;font-size:13px}table.t th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:6px 8px}\ntable.t td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}\n.small{font-size:12px;color:var(--muted)}a{color:var(--accent)}\n.strike{text-decoration:line-through;color:var(--muted)}\nfooter{margin-top:40px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}\n@media print{body{background:#fff}.wrap{padding:0}.card,.tile{break-inside:avoid}a{color:inherit}}\n@media (max-width:600px){h1{font-size:24px}.wrap{padding:20px 16px}}`;\n\nconst pageShell = (title, body) => `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>${esc(title)}</title><style>${PAGE_CSS}</style></head><body><div class=\"wrap\">${body}</div></body></html>`;\n\n// Horizontal bar chart as inline SVG (report pages). rows: [{label, value, color}]\nfunction svgBars(rows, { max, width = 560, unit = '', signed = false } = {}) {\n  const h = 26, pad = 150, w = width - pad - 50;\n  const m = max || Math.max(1, ...rows.map((r) => Math.abs(r.value)));\n  const zero = signed ? pad + w / 2 : pad;\n  const scale = signed ? w / 2 / m : w / m;\n  const bars = rows.map((r, i) => {\n    const len = Math.abs(r.value) * scale, x = r.value < 0 ? zero - len : zero, y = i * h + 4;\n    return `<text x=\"${pad - 8}\" y=\"${y + 13}\" text-anchor=\"end\" font-size=\"12\" fill=\"${C.body}\">${esc(r.label)}</text>\n<rect x=\"${x}\" y=\"${y}\" width=\"${Math.max(len, 1)}\" height=\"16\" rx=\"3\" fill=\"${r.color || C.accent}\"/>\n<text x=\"${r.value < 0 ? x - 4 : x + len + 4}\" y=\"${y + 13}\" text-anchor=\"${r.value < 0 ? 'end' : 'start'}\" font-size=\"12\" fill=\"${C.muted}\">${signed && r.value > 0 ? '+' : ''}${r.value}${unit}</text>`;\n  }).join('');\n  const axis = signed ? `<line x1=\"${zero}\" y1=\"0\" x2=\"${zero}\" y2=\"${rows.length * h}\" stroke=\"${C.line}\"/>` : '';\n  return `<svg viewBox=\"0 0 ${width} ${rows.length * h + 6}\" width=\"100%\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\">${axis}${bars}</svg>`;\n}\n// ─── end render kit ─────────────────────────────────────────────────────────\n\n// Compose urgent_risk alert — turns the Switch decision into an email a person can act on.\n// Only NEW items alert: anything already alerted on a previous run (kept in the cache)\n// is skipped, so a story that stays in the news doesn't page you every week.\nconst KIND = 'urgent_risk';\nconst cfg = $('Run config').first().json;\nconst run = $('AI Analyst').all().map((i) => i.json).find((j) => j._type === 'ai_run');\nconst alerted = (run && run.cache && run.cache.alerted) || {};\nconst items = $input.all().map((i) => i.json).filter((j) => j._type === 'record' && j.route === KIND);\nconst fresh = items.filter((r) => !alerted[r.record_id]);\nif (!fresh.length) return [];\n\nconst isRisk = KIND === 'urgent_risk';\nconst title = isRisk\n  ? `Brand risk: ${fresh.length} new item${fresh.length > 1 ? 's' : ''} need attention`\n  : `Opportunity: ${fresh.length} competitor signal${fresh.length > 1 ? 's' : ''} Weave can act on`;\nconst rule = isRisk\n  ? 'relevance ≥ 2 and risk_to_weave = high (or a very negative Weave item rated medium)'\n  : 'relevance ≥ 2 and opportunity_for_weave = high';\n\nconst cards = fresh.slice(0, 12).map((r) => `\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border:1px solid ${C.line};border-left:4px solid ${isRisk ? C.red : C.green};border-radius:8px;margin:0 0 14px\">\n<tr><td style=\"padding:14px 16px\">\n  <div style=\"font-size:12px;color:${C.muted};margin-bottom:4px\">${esc(r.entity)} · ${esc(r.source_name)} · ${esc(r.published_date)} · ${esc(r.theme.replace(/_/g, ' '))}</div>\n  <div style=\"font-size:16px;font-weight:700;color:${C.ink};margin-bottom:6px\"><a href=\"${esc(r.url)}\" style=\"color:${C.ink};text-decoration:none\">${esc(r.title)}</a></div>\n  <div style=\"margin-bottom:8px\">${levelPill('Risk', r.risk_to_weave)} ${levelPill('Opportunity', r.opportunity_for_weave)} ${sentPill(r.sentiment)} ${pill(r.evidence, C.blue, C.blueSoft)}</div>\n  <div style=\"font-size:14px;color:${C.body}\"><b>What happened:</b> ${esc(r.key_fact)}</div>\n  <div style=\"font-size:14px;color:${C.body};margin-top:4px\"><b>Why it was flagged:</b> ${esc(r.why)}</div>\n  <div style=\"font-size:12px;color:${C.muted};margin-top:6px\">Record ${esc(r.record_id)} · judged by ${esc(r.analysis_source)}</div>\n</td></tr></table>`).join('');\n\nconst body = `<p style=\"margin:0 0 16px\">${isRisk\n  ? 'Groundline flagged these items as a <b>risk to Weave\\'s brand</b>. Each one links to its source so you can verify before acting.'\n  : 'Groundline spotted these <b>competitor moves or stumbles</b> that Weave could respond to.'}</p>${cards}\n${fresh.length > 12 ? `<p style=\"color:${C.muted}\">…and ${fresh.length - 12} more in the attached weekly brief.</p>` : ''}`;\nconst footer = `Decision rule: ${esc(rule)}.<br>Run ${esc(cfg.run_id)} · alerts are sent once per record (repeats are suppressed).`;\nconst html = emailShell({ title, preheader: fresh.map((r) => r.title).slice(0, 2).join(' · '), body, footer });\n\nconst file = `alerts/${cfg.run_date}_${KIND}.html`;\nreturn [{\n  json: { kind: KIND, subject: `[Groundline] ${title}`, html, alert_ids: fresh.map((r) => r.record_id),\n    count: fresh.length, file_path: `${cfg.out_dir}/${file}`, file },\n  binary: { data: await this.helpers.prepareBinaryData(Buffer.from(html, 'utf8'), file.split('/').pop(), 'text/html') },\n}];\n"
+      },
+      "name": "Compose risk alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3540,
+        -260
+      ],
+      "notes": "new items only",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $env.GMAIL_ADDRESS }}",
+        "toEmail": "={{ $env.ALERT_EMAIL_TO || $env.GMAIL_ADDRESS }}",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "html",
+        "html": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "name": "Send risk alert",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        3780,
+        -320
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "GroundlineSmtp01",
+          "name": "Groundline Gmail (SMTP)"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput",
+      "notes": "Gmail · 3 tries",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.file_path }}",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "name": "Save risk alert",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        3780,
+        -190
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ─── Groundline render kit ──────────────────────────────────────────────────\n// Small HTML helpers shared by the report, alert and email nodes.\n// Emails use inline styles and tables (Gmail strips <style> blocks and SVG);\n// report pages use a stylesheet and print cleanly to PDF.\nconst esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');\nconst C = { ink: '#0f172a', body: '#334155', muted: '#64748b', line: '#e2e8f0', bg: '#f8fafc', card: '#ffffff',\n  accent: '#0f766e', accentSoft: '#ccfbf1', red: '#b91c1c', redSoft: '#fee2e2', amber: '#b45309', amberSoft: '#fef3c7',\n  green: '#15803d', greenSoft: '#dcfce7', blue: '#1d4ed8', blueSoft: '#dbeafe' };\nconst SENT = { '-2': ['Very negative', C.red, C.redSoft], '-1': ['Negative', C.red, C.redSoft], '0': ['Neutral', C.muted, C.bg],\n  '1': ['Positive', C.green, C.greenSoft], '2': ['Very positive', C.green, C.greenSoft] };\nconst LEVEL = { high: [C.red, C.redSoft], medium: [C.amber, C.amberSoft], low: [C.blue, C.blueSoft], none: [C.muted, C.bg] };\nconst sentWord = (s) => (SENT[String(Math.round(s))] || SENT['0'])[0];\nconst fmtSent = (avg) => (avg > 0 ? '+' : '') + (+avg).toFixed(2);\nconst pill = (text, fg, bg) => `<span style=\"display:inline-block;padding:2px 8px;border-radius:999px;background:${bg};color:${fg};font-size:12px;font-weight:600;line-height:18px;white-space:nowrap\">${esc(text)}</span>`;\nconst sentPill = (s) => { const [t, fg, bg] = SENT[String(Math.round(s))] || SENT['0']; return pill(t, fg, bg); };\nconst levelPill = (label, lvl) => { const [fg, bg] = LEVEL[lvl] || LEVEL.none; return pill(`${label}: ${lvl}`, fg, bg); };\nconst fmtUsd = (x) => (x < 0.01 ? '$' + x.toFixed(4) : '$' + x.toFixed(2));\n\n// QuickChart renders Chart.js configs to PNG — free, no key. Used where SVG can't go (email).\nconst quickChartUrl = (config, w = 560, h = 260) =>\n  'https://quickchart.io/chart?bkg=white&w=' + w + '&h=' + h + '&c=' + encodeURIComponent(JSON.stringify(config));\n\nfunction emailShell({ title, preheader, body, footer }) {\n  return `<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>${esc(title)}</title></head>\n<body style=\"margin:0;padding:0;background:${C.bg};font-family:Segoe UI,Helvetica,Arial,sans-serif;color:${C.body}\">\n<span style=\"display:none;max-height:0;overflow:hidden\">${esc(preheader || '')}</span>\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:${C.bg}\"><tr><td align=\"center\" style=\"padding:24px 12px\">\n<table role=\"presentation\" width=\"640\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:640px;width:100%;background:${C.card};border:1px solid ${C.line};border-radius:12px\">\n<tr><td style=\"padding:20px 28px;border-bottom:3px solid ${C.accent}\">\n  <div style=\"font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.accent};font-weight:700\">Groundline · Brand Intelligence</div>\n  <div style=\"font-size:22px;font-weight:700;color:${C.ink};margin-top:4px\">${esc(title)}</div>\n</td></tr>\n<tr><td style=\"padding:20px 28px;font-size:15px;line-height:1.55\">${body}</td></tr>\n<tr><td style=\"padding:16px 28px;border-top:1px solid ${C.line};font-size:12px;color:${C.muted};line-height:1.5\">${footer || ''}</td></tr>\n</table></td></tr></table></body></html>`;\n}\n\nconst PAGE_CSS = `\n:root{--ink:${C.ink};--body:${C.body};--muted:${C.muted};--line:${C.line};--bg:${C.bg};--card:#fff;--accent:${C.accent};--accent-soft:${C.accentSoft}}\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--body);font:15px/1.6 \"Segoe UI\",Inter,Helvetica,Arial,sans-serif}\n.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}\nheader.top{border-bottom:3px solid var(--accent);padding-bottom:16px;margin-bottom:24px}\n.kicker{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}\nh1{font-size:30px;line-height:1.2;color:var(--ink);margin:6px 0 8px}h2{font-size:19px;color:var(--ink);margin:28px 0 10px}\nh3{font-size:15px;color:var(--ink);margin:0 0 6px}\n.meta{color:var(--muted);font-size:13px}.lede{font-size:17px;color:var(--ink)}\n.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}\n.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}\n.tile .v{font-size:26px;font-weight:700;color:var(--ink);line-height:1.1}.tile .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}\n.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:12px 0}\nul.claims{margin:0;padding-left:18px}ul.claims li{margin:6px 0}\n.cite{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:0 5px;margin-left:3px;text-decoration:none;vertical-align:1px}\n.badge{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13px}\n.ok{background:#dcfce7;color:#15803d}.warn{background:#fef3c7;color:#b45309}.bad{background:#fee2e2;color:#b91c1c}\ntable.t{width:100%;border-collapse:collapse;font-size:13px}table.t th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:6px 8px}\ntable.t td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}\n.small{font-size:12px;color:var(--muted)}a{color:var(--accent)}\n.strike{text-decoration:line-through;color:var(--muted)}\nfooter{margin-top:40px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}\n@media print{body{background:#fff}.wrap{padding:0}.card,.tile{break-inside:avoid}a{color:inherit}}\n@media (max-width:600px){h1{font-size:24px}.wrap{padding:20px 16px}}`;\n\nconst pageShell = (title, body) => `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>${esc(title)}</title><style>${PAGE_CSS}</style></head><body><div class=\"wrap\">${body}</div></body></html>`;\n\n// Horizontal bar chart as inline SVG (report pages). rows: [{label, value, color}]\nfunction svgBars(rows, { max, width = 560, unit = '', signed = false } = {}) {\n  const h = 26, pad = 150, w = width - pad - 50;\n  const m = max || Math.max(1, ...rows.map((r) => Math.abs(r.value)));\n  const zero = signed ? pad + w / 2 : pad;\n  const scale = signed ? w / 2 / m : w / m;\n  const bars = rows.map((r, i) => {\n    const len = Math.abs(r.value) * scale, x = r.value < 0 ? zero - len : zero, y = i * h + 4;\n    return `<text x=\"${pad - 8}\" y=\"${y + 13}\" text-anchor=\"end\" font-size=\"12\" fill=\"${C.body}\">${esc(r.label)}</text>\n<rect x=\"${x}\" y=\"${y}\" width=\"${Math.max(len, 1)}\" height=\"16\" rx=\"3\" fill=\"${r.color || C.accent}\"/>\n<text x=\"${r.value < 0 ? x - 4 : x + len + 4}\" y=\"${y + 13}\" text-anchor=\"${r.value < 0 ? 'end' : 'start'}\" font-size=\"12\" fill=\"${C.muted}\">${signed && r.value > 0 ? '+' : ''}${r.value}${unit}</text>`;\n  }).join('');\n  const axis = signed ? `<line x1=\"${zero}\" y1=\"0\" x2=\"${zero}\" y2=\"${rows.length * h}\" stroke=\"${C.line}\"/>` : '';\n  return `<svg viewBox=\"0 0 ${width} ${rows.length * h + 6}\" width=\"100%\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\">${axis}${bars}</svg>`;\n}\n// ─── end render kit ─────────────────────────────────────────────────────────\n\n// Compose opportunity alert — turns the Switch decision into an email a person can act on.\n// Only NEW items alert: anything already alerted on a previous run (kept in the cache)\n// is skipped, so a story that stays in the news doesn't page you every week.\nconst KIND = 'opportunity';\nconst cfg = $('Run config').first().json;\nconst run = $('AI Analyst').all().map((i) => i.json).find((j) => j._type === 'ai_run');\nconst alerted = (run && run.cache && run.cache.alerted) || {};\nconst items = $input.all().map((i) => i.json).filter((j) => j._type === 'record' && j.route === KIND);\nconst fresh = items.filter((r) => !alerted[r.record_id]);\nif (!fresh.length) return [];\n\nconst isRisk = KIND === 'urgent_risk';\nconst title = isRisk\n  ? `Brand risk: ${fresh.length} new item${fresh.length > 1 ? 's' : ''} need attention`\n  : `Opportunity: ${fresh.length} competitor signal${fresh.length > 1 ? 's' : ''} Weave can act on`;\nconst rule = isRisk\n  ? 'relevance ≥ 2 and risk_to_weave = high (or a very negative Weave item rated medium)'\n  : 'relevance ≥ 2 and opportunity_for_weave = high';\n\nconst cards = fresh.slice(0, 12).map((r) => `\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border:1px solid ${C.line};border-left:4px solid ${isRisk ? C.red : C.green};border-radius:8px;margin:0 0 14px\">\n<tr><td style=\"padding:14px 16px\">\n  <div style=\"font-size:12px;color:${C.muted};margin-bottom:4px\">${esc(r.entity)} · ${esc(r.source_name)} · ${esc(r.published_date)} · ${esc(r.theme.replace(/_/g, ' '))}</div>\n  <div style=\"font-size:16px;font-weight:700;color:${C.ink};margin-bottom:6px\"><a href=\"${esc(r.url)}\" style=\"color:${C.ink};text-decoration:none\">${esc(r.title)}</a></div>\n  <div style=\"margin-bottom:8px\">${levelPill('Risk', r.risk_to_weave)} ${levelPill('Opportunity', r.opportunity_for_weave)} ${sentPill(r.sentiment)} ${pill(r.evidence, C.blue, C.blueSoft)}</div>\n  <div style=\"font-size:14px;color:${C.body}\"><b>What happened:</b> ${esc(r.key_fact)}</div>\n  <div style=\"font-size:14px;color:${C.body};margin-top:4px\"><b>Why it was flagged:</b> ${esc(r.why)}</div>\n  <div style=\"font-size:12px;color:${C.muted};margin-top:6px\">Record ${esc(r.record_id)} · judged by ${esc(r.analysis_source)}</div>\n</td></tr></table>`).join('');\n\nconst body = `<p style=\"margin:0 0 16px\">${isRisk\n  ? 'Groundline flagged these items as a <b>risk to Weave\\'s brand</b>. Each one links to its source so you can verify before acting.'\n  : 'Groundline spotted these <b>competitor moves or stumbles</b> that Weave could respond to.'}</p>${cards}\n${fresh.length > 12 ? `<p style=\"color:${C.muted}\">…and ${fresh.length - 12} more in the attached weekly brief.</p>` : ''}`;\nconst footer = `Decision rule: ${esc(rule)}.<br>Run ${esc(cfg.run_id)} · alerts are sent once per record (repeats are suppressed).`;\nconst html = emailShell({ title, preheader: fresh.map((r) => r.title).slice(0, 2).join(' · '), body, footer });\n\nconst file = `alerts/${cfg.run_date}_${KIND}.html`;\nreturn [{\n  json: { kind: KIND, subject: `[Groundline] ${title}`, html, alert_ids: fresh.map((r) => r.record_id),\n    count: fresh.length, file_path: `${cfg.out_dir}/${file}`, file },\n  binary: { data: await this.helpers.prepareBinaryData(Buffer.from(html, 'utf8'), file.split('/').pop(), 'text/html') },\n}];\n"
+      },
+      "name": "Compose opportunity alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3540,
+        -60
+      ],
+      "notes": "new items only",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $env.GMAIL_ADDRESS }}",
+        "toEmail": "={{ $env.ALERT_EMAIL_TO || $env.GMAIL_ADDRESS }}",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "html",
+        "html": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "name": "Send opportunity alert",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        3780,
+        -120
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "GroundlineSmtp01",
+          "name": "Groundline Gmail (SMTP)"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput",
+      "notes": "Gmail · 3 tries",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.file_path }}",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "name": "Save opportunity alert",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        3780,
+        10
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ─── Groundline AI client ───────────────────────────────────────────────────\n// Shared by every AI node. scripts/build_workflow.py pastes this file at the top\n// of each AI Code node, so the retry / fallback / cost rules live in one place.\n//\n// Provider chain: Muse Spark (Meta Model API) → Gemini (backup) → caller's rule fallback.\n// Both providers speak the OpenAI Chat Completions format, so one client covers both.\n//\n// What it handles:\n//   429 / 5xx / timeout / network  → retry with exponential backoff + jitter (honours Retry-After)\n//   400 \"unsupported parameter\"    → retry once without the optional params\n//   401 / 403 / 404                → don't retry; move to the next provider\n//   reply is not valid JSON, or fails the caller's schema check → one \"repair\" round-trip\n//   every provider failed          → throws AIError; the caller falls back to rules\n// Every call is metered: tokens, cost, latency, retries, provider used.\nconst __http = this.helpers.httpRequest.bind(this.helpers);\n\nconst AI = (() => {\n  const env = (k, d = '') => { try { const v = $env[k]; return v === undefined || v === null || v === '' ? d : String(v); } catch (e) { return d; } };\n  const real = (k) => k && !/^your_|_here$|^changeme$/i.test(k);\n\n  // USD per 1M tokens. Muse: Meta Model API list price. Gemini: free tier = $0.\n  const PROVIDERS = [\n    { id: 'muse', label: 'Muse Spark', base: env('MUSE_BASE_URL', 'https://api.meta.ai/v1'), key: env('MUSE_API_KEY'),\n      model: env('MUSE_MODEL', 'muse-spark-1.3'), price: { in: +env('MUSE_PRICE_IN', '1.25'), out: +env('MUSE_PRICE_OUT', '4.25') } },\n    { id: 'gemini', label: 'Gemini', base: env('GEMINI_BASE_URL', 'https://generativelanguage.googleapis.com/v1beta/openai'), key: env('GEMINI_API_KEY'),\n      model: env('GEMINI_MODEL', 'gemini-2.5-flash'), price: { in: +env('GEMINI_PRICE_IN', '0'), out: +env('GEMINI_PRICE_OUT', '0') } },\n  ].filter((p) => real(p.key));\n\n  const MAX_TRIES = +env('AI_MAX_TRIES', '4');\n  const BASE_DELAY_MS = +env('AI_BASE_DELAY_MS', '1500');\n  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));\n\n  const metrics = { calls: 0, ok: 0, failed: 0, retries: 0, repairs: 0, provider_fallbacks: 0,\n    tokens_in: 0, tokens_out: 0, cost_usd: 0, latency_ms: [], by_provider: {}, errors: [] };\n\n  class AIError extends Error { constructor(msg, kind) { super(msg); this.kind = kind; } }\n\n  function parseJson(text) {\n    if (typeof text !== 'string') throw new AIError('empty reply', 'malformed');\n    let t = text.trim().replace(/^```(?:json)?\\s*/i, '').replace(/```\\s*$/, '');\n    try { return JSON.parse(t); } catch (e) { /* fall through */ }\n    const a = t.indexOf('{'), b = t.lastIndexOf('}');\n    if (a >= 0 && b > a) { try { return JSON.parse(t.slice(a, b + 1)); } catch (e) { /* fall through */ } }\n    throw new AIError('reply is not valid JSON: ' + t.slice(0, 120), 'malformed');\n  }\n\n  const statusOf = (e) => e.status || e.httpCode || e.statusCode || (e.response && e.response.status) || 0;\n  const retryAfterMs = (e) => {\n    const h = (e.response && e.response.headers) || {};\n    const v = h['retry-after'] || h['Retry-After'];\n    return v && Number.isFinite(+v) ? Math.min(+v * 1000, 30000) : 0;\n  };\n\n  async function post(p, body, timeoutMs) {\n    const t0 = Date.now();\n    const res = await __http({\n      method: 'POST', url: p.base.replace(/\\/$/, '') + '/chat/completions',\n      headers: { Authorization: `Bearer ${p.key}`, 'Content-Type': 'application/json' },\n      body, json: true, timeout: timeoutMs,\n    });\n    return { res, ms: Date.now() - t0 };\n  }\n\n  // One provider, with retries. Returns parsed + validated JSON or throws.\n  async function callProvider(p, task) {\n    const messages = [{ role: 'system', content: task.system }, { role: 'user', content: task.user }];\n    let optional = { response_format: { type: 'json_object' }, reasoning_effort: task.effort || 'low' };\n    let repaired = false;\n    for (let attempt = 1; attempt <= MAX_TRIES; attempt++) {\n      metrics.calls++;\n      try {\n        const body = { model: p.model, messages, max_completion_tokens: task.maxTokens || 4000, temperature: task.temperature ?? 0.2, ...optional };\n        const { res, ms } = await post(p, body, task.timeoutMs || 90000);\n        const u = res.usage || {};\n        const tin = u.prompt_tokens || 0, tout = u.completion_tokens || 0;\n        const cost = (tin * p.price.in + tout * p.price.out) / 1e6;\n        metrics.tokens_in += tin; metrics.tokens_out += tout; metrics.cost_usd += cost; metrics.latency_ms.push(ms);\n        const bp = (metrics.by_provider[p.id] = metrics.by_provider[p.id] || { calls: 0, tokens_in: 0, tokens_out: 0, cost_usd: 0 });\n        bp.calls++; bp.tokens_in += tin; bp.tokens_out += tout; bp.cost_usd += cost;\n\n        const text = res.choices && res.choices[0] && res.choices[0].message && res.choices[0].message.content;\n        let data, problem;\n        try { data = parseJson(text); problem = task.validate ? task.validate(data) : null; }\n        catch (e) { problem = e.message; }\n        if (!problem) { metrics.ok++; return { data, provider: p.id, model: p.model, ms, tokens_in: tin, tokens_out: tout, cost_usd: cost, attempts: attempt }; }\n\n        // Malformed or off-schema reply: show the model its own mistake once.\n        if (repaired) throw new AIError(`invalid reply after repair: ${problem}`, 'malformed');\n        repaired = true; metrics.repairs++;\n        messages.push({ role: 'assistant', content: String(text || '').slice(0, 6000) });\n        messages.push({ role: 'user', content: `Your reply was rejected: ${problem}. Reply again with ONLY the corrected JSON object, nothing else.` });\n        continue;\n      } catch (e) {\n        if (e instanceof AIError) throw e;\n        const st = statusOf(e);\n        const msg = String(e.message || e).slice(0, 200);\n        if (st === 400 && optional.response_format && /response_format|reasoning|unsupported|unknown/i.test(JSON.stringify((e.response && e.response.data) || msg))) {\n          optional = {}; metrics.retries++; continue;          // provider rejects an optional param → drop it\n        }\n        if ([401, 403, 404].includes(st)) throw new AIError(`${p.label} ${st}: ${msg}`, 'auth');\n        const retryable = !st || st === 408 || st === 409 || st === 429 || st >= 500;\n        if (!retryable || attempt === MAX_TRIES) throw new AIError(`${p.label} ${st || 'network'}: ${msg}`, st === 429 ? 'rate_limit' : 'unavailable');\n        metrics.retries++;\n        const backoff = BASE_DELAY_MS * 2 ** (attempt - 1) + Math.floor(Math.random() * 400);\n        await sleep(Math.max(backoff, retryAfterMs(e)));\n      }\n    }\n    throw new AIError(`${p.label}: retries exhausted`, 'unavailable');\n  }\n\n  // Public: try each provider in order. task = { name, system, user, validate, effort, maxTokens, timeoutMs }\n  async function complete(task) {\n    if (!PROVIDERS.length) {\n      metrics.failed++;\n      metrics.errors.push({ task: task.name, error: 'no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)' });\n      throw new AIError('no AI provider configured', 'no_provider');\n    }\n    // task.prefer lets a caller pick a different model first — the fact-checker uses this\n    // so that, when both keys exist, a second model checks the first one's work.\n    const order = task.prefer ? [...PROVIDERS].sort((a, b) => (b.id === task.prefer) - (a.id === task.prefer)) : PROVIDERS;\n    let last;\n    for (let i = 0; i < order.length; i++) {\n      try { return await callProvider(order[i], task); }\n      catch (e) {\n        last = e;\n        metrics.errors.push({ task: task.name, provider: order[i].id, kind: e.kind || 'error', error: String(e.message).slice(0, 240) });\n        if (i < order.length - 1) metrics.provider_fallbacks++;\n      }\n    }\n    metrics.failed++;\n    throw last;\n  }\n\n  // Run async jobs with a concurrency cap (keeps us under provider rate limits).\n  async function pool(jobs, limit) {\n    const out = new Array(jobs.length); let next = 0;\n    const worker = async () => { while (next < jobs.length) { const i = next++; out[i] = await jobs[i](); } };\n    await Promise.all(Array.from({ length: Math.min(limit, jobs.length) }, worker));\n    return out;\n  }\n\n  function summary() {\n    const l = [...metrics.latency_ms].sort((a, b) => a - b);\n    const pct = (q) => (l.length ? l[Math.min(l.length - 1, Math.floor(q * l.length))] : 0);\n    return { ...metrics, latency_ms: undefined, cost_usd: +metrics.cost_usd.toFixed(6),\n      latency_p50_ms: pct(0.5), latency_p95_ms: pct(0.95), latency_max_ms: l[l.length - 1] || 0,\n      providers_configured: PROVIDERS.map((p) => `${p.id}:${p.model}`) };\n  }\n\n  return { complete, pool, summary, AIError, env, providers: PROVIDERS.map((p) => ({ id: p.id, label: p.label, model: p.model })) };\n})();\n// ─── end AI client ──────────────────────────────────────────────────────────\n\n// ─── Groundline render kit ──────────────────────────────────────────────────\n// Small HTML helpers shared by the report, alert and email nodes.\n// Emails use inline styles and tables (Gmail strips <style> blocks and SVG);\n// report pages use a stylesheet and print cleanly to PDF.\nconst esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');\nconst C = { ink: '#0f172a', body: '#334155', muted: '#64748b', line: '#e2e8f0', bg: '#f8fafc', card: '#ffffff',\n  accent: '#0f766e', accentSoft: '#ccfbf1', red: '#b91c1c', redSoft: '#fee2e2', amber: '#b45309', amberSoft: '#fef3c7',\n  green: '#15803d', greenSoft: '#dcfce7', blue: '#1d4ed8', blueSoft: '#dbeafe' };\nconst SENT = { '-2': ['Very negative', C.red, C.redSoft], '-1': ['Negative', C.red, C.redSoft], '0': ['Neutral', C.muted, C.bg],\n  '1': ['Positive', C.green, C.greenSoft], '2': ['Very positive', C.green, C.greenSoft] };\nconst LEVEL = { high: [C.red, C.redSoft], medium: [C.amber, C.amberSoft], low: [C.blue, C.blueSoft], none: [C.muted, C.bg] };\nconst sentWord = (s) => (SENT[String(Math.round(s))] || SENT['0'])[0];\nconst fmtSent = (avg) => (avg > 0 ? '+' : '') + (+avg).toFixed(2);\nconst pill = (text, fg, bg) => `<span style=\"display:inline-block;padding:2px 8px;border-radius:999px;background:${bg};color:${fg};font-size:12px;font-weight:600;line-height:18px;white-space:nowrap\">${esc(text)}</span>`;\nconst sentPill = (s) => { const [t, fg, bg] = SENT[String(Math.round(s))] || SENT['0']; return pill(t, fg, bg); };\nconst levelPill = (label, lvl) => { const [fg, bg] = LEVEL[lvl] || LEVEL.none; return pill(`${label}: ${lvl}`, fg, bg); };\nconst fmtUsd = (x) => (x < 0.01 ? '$' + x.toFixed(4) : '$' + x.toFixed(2));\n\n// QuickChart renders Chart.js configs to PNG — free, no key. Used where SVG can't go (email).\nconst quickChartUrl = (config, w = 560, h = 260) =>\n  'https://quickchart.io/chart?bkg=white&w=' + w + '&h=' + h + '&c=' + encodeURIComponent(JSON.stringify(config));\n\nfunction emailShell({ title, preheader, body, footer }) {\n  return `<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>${esc(title)}</title></head>\n<body style=\"margin:0;padding:0;background:${C.bg};font-family:Segoe UI,Helvetica,Arial,sans-serif;color:${C.body}\">\n<span style=\"display:none;max-height:0;overflow:hidden\">${esc(preheader || '')}</span>\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:${C.bg}\"><tr><td align=\"center\" style=\"padding:24px 12px\">\n<table role=\"presentation\" width=\"640\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:640px;width:100%;background:${C.card};border:1px solid ${C.line};border-radius:12px\">\n<tr><td style=\"padding:20px 28px;border-bottom:3px solid ${C.accent}\">\n  <div style=\"font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.accent};font-weight:700\">Groundline · Brand Intelligence</div>\n  <div style=\"font-size:22px;font-weight:700;color:${C.ink};margin-top:4px\">${esc(title)}</div>\n</td></tr>\n<tr><td style=\"padding:20px 28px;font-size:15px;line-height:1.55\">${body}</td></tr>\n<tr><td style=\"padding:16px 28px;border-top:1px solid ${C.line};font-size:12px;color:${C.muted};line-height:1.5\">${footer || ''}</td></tr>\n</table></td></tr></table></body></html>`;\n}\n\nconst PAGE_CSS = `\n:root{--ink:${C.ink};--body:${C.body};--muted:${C.muted};--line:${C.line};--bg:${C.bg};--card:#fff;--accent:${C.accent};--accent-soft:${C.accentSoft}}\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--body);font:15px/1.6 \"Segoe UI\",Inter,Helvetica,Arial,sans-serif}\n.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}\nheader.top{border-bottom:3px solid var(--accent);padding-bottom:16px;margin-bottom:24px}\n.kicker{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}\nh1{font-size:30px;line-height:1.2;color:var(--ink);margin:6px 0 8px}h2{font-size:19px;color:var(--ink);margin:28px 0 10px}\nh3{font-size:15px;color:var(--ink);margin:0 0 6px}\n.meta{color:var(--muted);font-size:13px}.lede{font-size:17px;color:var(--ink)}\n.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}\n.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}\n.tile .v{font-size:26px;font-weight:700;color:var(--ink);line-height:1.1}.tile .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}\n.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:12px 0}\nul.claims{margin:0;padding-left:18px}ul.claims li{margin:6px 0}\n.cite{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:0 5px;margin-left:3px;text-decoration:none;vertical-align:1px}\n.badge{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13px}\n.ok{background:#dcfce7;color:#15803d}.warn{background:#fef3c7;color:#b45309}.bad{background:#fee2e2;color:#b91c1c}\ntable.t{width:100%;border-collapse:collapse;font-size:13px}table.t th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:6px 8px}\ntable.t td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}\n.small{font-size:12px;color:var(--muted)}a{color:var(--accent)}\n.strike{text-decoration:line-through;color:var(--muted)}\nfooter{margin-top:40px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}\n@media print{body{background:#fff}.wrap{padding:0}.card,.tile{break-inside:avoid}a{color:inherit}}\n@media (max-width:600px){h1{font-size:24px}.wrap{padding:20px 16px}}`;\n\nconst pageShell = (title, body) => `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>${esc(title)}</title><style>${PAGE_CSS}</style></head><body><div class=\"wrap\">${body}</div></body></html>`;\n\n// Horizontal bar chart as inline SVG (report pages). rows: [{label, value, color}]\nfunction svgBars(rows, { max, width = 560, unit = '', signed = false } = {}) {\n  const h = 26, pad = 150, w = width - pad - 50;\n  const m = max || Math.max(1, ...rows.map((r) => Math.abs(r.value)));\n  const zero = signed ? pad + w / 2 : pad;\n  const scale = signed ? w / 2 / m : w / m;\n  const bars = rows.map((r, i) => {\n    const len = Math.abs(r.value) * scale, x = r.value < 0 ? zero - len : zero, y = i * h + 4;\n    return `<text x=\"${pad - 8}\" y=\"${y + 13}\" text-anchor=\"end\" font-size=\"12\" fill=\"${C.body}\">${esc(r.label)}</text>\n<rect x=\"${x}\" y=\"${y}\" width=\"${Math.max(len, 1)}\" height=\"16\" rx=\"3\" fill=\"${r.color || C.accent}\"/>\n<text x=\"${r.value < 0 ? x - 4 : x + len + 4}\" y=\"${y + 13}\" text-anchor=\"${r.value < 0 ? 'end' : 'start'}\" font-size=\"12\" fill=\"${C.muted}\">${signed && r.value > 0 ? '+' : ''}${r.value}${unit}</text>`;\n  }).join('');\n  const axis = signed ? `<line x1=\"${zero}\" y1=\"0\" x2=\"${zero}\" y2=\"${rows.length * h}\" stroke=\"${C.line}\"/>` : '';\n  return `<svg viewBox=\"0 0 ${width} ${rows.length * h + 6}\" width=\"100%\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\">${axis}${bars}</svg>`;\n}\n// ─── end render kit ─────────────────────────────────────────────────────────\n\n// AI Brief Writer — Agent 3 (\"Analyst\"), second half: turn judged records into briefs.\n// One brief for Weave, one per competitor with enough coverage, one for the market.\n//\n// Numbers are never left to the model: every count and average is computed here\n// and handed to the AI as STATS. The AI writes the words, and every claim it makes\n// must cite record ids from the evidence it was given — the Fact-Checker checks that next.\nconst t0 = Date.now();\nconst cfg = $('Run config').first().json;\nconst all = $('AI Analyst').all().map((i) => i.json).filter((j) => j._type === 'record');\nconst relevant = all.filter((r) => r.relevance >= 1 && r.route !== 'discard');\n\nconst COMPETITORS = ['Podium', 'Birdeye', 'NexHealth', 'Solutionreach', 'RevenueWell', 'Lighthouse 360'];\nconst LVL = { none: 0, low: 1, medium: 2, high: 3 };\nconst avg = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);\nconst countBy = (xs, f) => xs.reduce((m, x) => { const k = f(x); if (k) m[k] = (m[k] || 0) + 1; return m; }, {});\nconst top = (obj, n) => Object.entries(obj).sort((a, b) => b[1] - a[1]).slice(0, n);\n\nfunction statsFor(recs) {\n  const dates = recs.map((r) => r.published_date).sort();\n  return {\n    records: recs.length,\n    sources: new Set(recs.map((r) => r.source_name)).size,\n    date_range: dates.length ? `${dates[0]} to ${dates[dates.length - 1]}` : 'n/a',\n    avg_sentiment: +avg(recs.map((r) => r.sentiment)).toFixed(2),\n    positive: recs.filter((r) => r.sentiment > 0).length,\n    neutral: recs.filter((r) => r.sentiment === 0).length,\n    negative: recs.filter((r) => r.sentiment < 0).length,\n    themes: Object.fromEntries(top(countBy(recs, (r) => r.theme), 6)),\n    evidence: countBy(recs, (r) => r.evidence),\n    risks_high_or_medium: recs.filter((r) => LVL[r.risk_to_weave] >= 2).length,\n    opportunities_high_or_medium: recs.filter((r) => LVL[r.opportunity_for_weave] >= 2).length,\n    archetypes: Object.fromEntries(top(countBy(recs, (r) => r.archetype), 3)),\n    ai_judged_share: recs.length ? +(recs.filter((r) => String(r.analysis_source).startsWith('ai:') || r.analysis_source === 'cache').length / recs.length).toFixed(2) : 0,\n  };\n}\n\n// Evidence pack: the records most worth reading, ranked deterministically.\nconst score = (r) => r.relevance * 2 + Math.abs(r.sentiment) + LVL[r.risk_to_weave] * 1.5 + LVL[r.opportunity_for_weave] * 1.2\n  + (Date.parse(r.published_date) > Date.now() - 21 * 864e5 ? 1 : 0) + Math.min(2, (+r.engagement_points || 0) / 200);\nconst pack = (recs, n) => [...recs].sort((a, b) => score(b) - score(a)).slice(0, n).map((r) => ({\n  id: r.record_id, date: r.published_date, source: r.source_name, title: r.title, key_fact: r.key_fact,\n  entity: r.entity, sentiment: r.sentiment, theme: r.theme, evidence: r.evidence, risk: r.risk_to_weave, opportunity: r.opportunity_for_weave,\n  archetype: r.archetype, why: r.why,\n}));\n\nconst subjects = [];\nconst weave = relevant.filter((r) => r.entity === 'Weave');\nsubjects.push({ key: 'weave', entity: 'Weave', title: 'Weave brand brief', recs: weave,\n  focus: \"Weave's reputation, brand perception, risks and what the brand team should do next. Compare with competitors where the evidence allows.\" });\nfor (const c of COMPETITORS) {\n  const recs = relevant.filter((r) => r.entity === c && r.relevance >= 2);\n  if (recs.length >= 3) subjects.push({ key: c.toLowerCase().replace(/\\s+/g, '-'), entity: c, title: `Competitor watch: ${c}`, recs,\n    focus: `What ${c} is doing, how it is perceived, and what it means for Weave (threats and openings).` });\n}\nconst market = relevant.filter((r) => r.entity === 'Market' && r.relevance >= 2);\nif (market.length >= 3) subjects.push({ key: 'market', entity: 'Market', title: 'Market landscape: AI at the front desk', recs: market,\n  focus: 'Trends in AI agents and customer communication that change the market Weave competes in, and what Weave should watch.' });\n// Weave's brief also sees the strongest competitor items so it can compare.\nconst rivalsForWeave = pack(relevant.filter((r) => COMPETITORS.includes(r.entity) && r.relevance >= 2), 8);\n\nconst WRITER_SYSTEM = `You write weekly brand-intelligence briefs for the brand and data team at Weave Communications.\nWrite for a busy marketing lead: plain English, specific, no hype, no filler.\n\nHARD RULES\n1. Use ONLY facts found in EVIDENCE. Never add outside knowledge, names, numbers or dates.\n2. Every claim must cite at least one evidence id in \"cite\" (e.g. [\"GL-1a2b3c4d\"]). Only cite ids that appear in EVIDENCE.\n3. Numbers (counts, averages, shares) may come ONLY from STATS — copy them exactly.\n4. If the evidence is thin, say so plainly instead of stretching it.\n\nReturn JSON:\n{\"headline\": \"<=14 words, the single most important takeaway\",\n \"summary\": \"2-3 sentences for someone who reads nothing else\",\n \"sections\": [{\"title\": \"What happened\", \"claims\": [{\"text\": \"...\", \"cite\": [\"GL-...\"]}]},\n              {\"title\": \"How the brand is perceived\", \"claims\": [...]},\n              {\"title\": \"Risks to watch\", \"claims\": [...]},\n              {\"title\": \"Openings for Weave\", \"claims\": [...]}],\n \"archetype_read\": {\"text\": \"1-2 sentences: which brand archetype the coverage casts this company as, and whether that helps Weave\", \"cite\": [\"GL-...\"]},\n \"actions\": [{\"action\": \"a concrete next step for the Weave team\", \"why\": \"one sentence\", \"cite\": [\"GL-...\"]}]}\nUse 2-4 claims per section (fewer if evidence is thin) and exactly 3 actions.`;\n\nfunction validateBrief(ids) {\n  const known = new Set(ids);\n  return (b) => {\n    if (!b || typeof b.headline !== 'string' || typeof b.summary !== 'string') return 'missing headline or summary';\n    if (!Array.isArray(b.sections) || b.sections.length < 2) return 'need at least 2 sections';\n    const claims = [...b.sections.flatMap((s) => (Array.isArray(s.claims) ? s.claims : [])), ...(Array.isArray(b.actions) ? b.actions : [])];\n    if (claims.length < 4) return 'too few claims';\n    for (const c of claims) {\n      if (!Array.isArray(c.cite) || !c.cite.length) return `every claim needs a \"cite\" array — missing on: \"${String(c.text || c.action).slice(0, 60)}\"`;\n    }\n    const cited = claims.flatMap((c) => c.cite);\n    if (cited.length && cited.filter((id) => known.has(id)).length / cited.length < 0.5) return 'most cited ids are not in EVIDENCE — cite only the given ids';\n    if (!Array.isArray(b.actions) || !b.actions.length) return 'missing actions';\n    return null;\n  };\n}\n\n// Used only when every AI provider is down: a plain brief built from the top records.\nfunction rulesBrief(s, evidence, st) {\n  const neg = evidence.filter((e) => e.sentiment < 0 || e.risk !== 'none').slice(0, 3);\n  const pos = evidence.filter((e) => e.sentiment > 0).slice(0, 3);\n  const claim = (e) => ({ text: `${e.title} (${e.source}, ${e.date}).`, cite: [e.id] });\n  return {\n    headline: `${s.entity}: ${st.records} items tracked, average sentiment ${fmtSent(st.avg_sentiment)}`,\n    summary: `AI writing was unavailable for this run, so this brief lists the highest-priority source items without interpretation. ${st.records} items from ${st.sources} sources were tracked between ${st.date_range}.`,\n    sections: [\n      { title: 'Highest-priority items', claims: evidence.slice(0, 4).map(claim) },\n      { title: 'Negative or risky coverage', claims: neg.map(claim) },\n      { title: 'Positive coverage', claims: pos.map(claim) },\n    ].filter((x) => x.claims.length),\n    archetype_read: null,\n    actions: [{ action: 'Review the items above manually; the AI analysis will resume on the next run.', why: 'AI provider unavailable during this run.', cite: evidence.slice(0, 1).map((e) => e.id) }],\n  };\n}\n\nconst jobs = subjects.map((s) => async () => {\n  const st = statsFor(s.recs);\n  const evidence = pack(s.recs, 25);\n  const extra = s.entity === 'Weave' ? rivalsForWeave : [];\n  const allEvidence = [...evidence, ...extra.filter((e) => !evidence.some((x) => x.id === e.id))];\n  const base = { key: s.key, entity: s.entity, title: s.title, stats: st, evidence: allEvidence, run_id: cfg.run_id, run_date: cfg.run_date };\n  if (!evidence.length) return { ...base, brief: rulesBrief(s, evidence, st), written_by: 'rules_fallback', write_error: 'no evidence' };\n  try {\n    const res = await AI.complete({\n      name: `brief:${s.key}`, system: WRITER_SYSTEM, effort: 'medium', maxTokens: 3500, timeoutMs: 150000, temperature: 0.3,\n      user: `BRIEF: ${s.title}\\nFOCUS: ${s.focus}\\nPERIOD: ${st.date_range}\\n\\nSTATS:\\n${JSON.stringify(st, null, 1)}\\n\\nEVIDENCE:\\n${JSON.stringify(allEvidence)}`,\n      validate: validateBrief(allEvidence.map((e) => e.id)),\n    });\n    return { ...base, brief: res.data, written_by: `${res.provider}:${res.model}`, write_ms: res.ms };\n  } catch (e) {\n    return { ...base, brief: rulesBrief(s, evidence, st), written_by: 'rules_fallback', write_error: `${e.kind || 'error'}: ${String(e.message).slice(0, 160)}` };\n  }\n});\n\nconst briefs = await AI.pool(jobs, 3);\nreturn [\n  ...briefs.map((b) => ({ json: { _type: 'brief', ...b } })),\n  { json: { _type: 'ai_run', step: 'writer', briefs: briefs.length, ai: AI.summary(), duration_ms: Date.now() - t0 } },\n];\n"
+      },
+      "name": "AI Brief Writer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2780,
+        480
+      ],
+      "notes": "Muse Spark · cited briefs",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// ─── Groundline AI client ───────────────────────────────────────────────────\n// Shared by every AI node. scripts/build_workflow.py pastes this file at the top\n// of each AI Code node, so the retry / fallback / cost rules live in one place.\n//\n// Provider chain: Muse Spark (Meta Model API) → Gemini (backup) → caller's rule fallback.\n// Both providers speak the OpenAI Chat Completions format, so one client covers both.\n//\n// What it handles:\n//   429 / 5xx / timeout / network  → retry with exponential backoff + jitter (honours Retry-After)\n//   400 \"unsupported parameter\"    → retry once without the optional params\n//   401 / 403 / 404                → don't retry; move to the next provider\n//   reply is not valid JSON, or fails the caller's schema check → one \"repair\" round-trip\n//   every provider failed          → throws AIError; the caller falls back to rules\n// Every call is metered: tokens, cost, latency, retries, provider used.\nconst __http = this.helpers.httpRequest.bind(this.helpers);\n\nconst AI = (() => {\n  const env = (k, d = '') => { try { const v = $env[k]; return v === undefined || v === null || v === '' ? d : String(v); } catch (e) { return d; } };\n  const real = (k) => k && !/^your_|_here$|^changeme$/i.test(k);\n\n  // USD per 1M tokens. Muse: Meta Model API list price. Gemini: free tier = $0.\n  const PROVIDERS = [\n    { id: 'muse', label: 'Muse Spark', base: env('MUSE_BASE_URL', 'https://api.meta.ai/v1'), key: env('MUSE_API_KEY'),\n      model: env('MUSE_MODEL', 'muse-spark-1.3'), price: { in: +env('MUSE_PRICE_IN', '1.25'), out: +env('MUSE_PRICE_OUT', '4.25') } },\n    { id: 'gemini', label: 'Gemini', base: env('GEMINI_BASE_URL', 'https://generativelanguage.googleapis.com/v1beta/openai'), key: env('GEMINI_API_KEY'),\n      model: env('GEMINI_MODEL', 'gemini-2.5-flash'), price: { in: +env('GEMINI_PRICE_IN', '0'), out: +env('GEMINI_PRICE_OUT', '0') } },\n  ].filter((p) => real(p.key));\n\n  const MAX_TRIES = +env('AI_MAX_TRIES', '4');\n  const BASE_DELAY_MS = +env('AI_BASE_DELAY_MS', '1500');\n  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));\n\n  const metrics = { calls: 0, ok: 0, failed: 0, retries: 0, repairs: 0, provider_fallbacks: 0,\n    tokens_in: 0, tokens_out: 0, cost_usd: 0, latency_ms: [], by_provider: {}, errors: [] };\n\n  class AIError extends Error { constructor(msg, kind) { super(msg); this.kind = kind; } }\n\n  function parseJson(text) {\n    if (typeof text !== 'string') throw new AIError('empty reply', 'malformed');\n    let t = text.trim().replace(/^```(?:json)?\\s*/i, '').replace(/```\\s*$/, '');\n    try { return JSON.parse(t); } catch (e) { /* fall through */ }\n    const a = t.indexOf('{'), b = t.lastIndexOf('}');\n    if (a >= 0 && b > a) { try { return JSON.parse(t.slice(a, b + 1)); } catch (e) { /* fall through */ } }\n    throw new AIError('reply is not valid JSON: ' + t.slice(0, 120), 'malformed');\n  }\n\n  const statusOf = (e) => e.status || e.httpCode || e.statusCode || (e.response && e.response.status) || 0;\n  const retryAfterMs = (e) => {\n    const h = (e.response && e.response.headers) || {};\n    const v = h['retry-after'] || h['Retry-After'];\n    return v && Number.isFinite(+v) ? Math.min(+v * 1000, 30000) : 0;\n  };\n\n  async function post(p, body, timeoutMs) {\n    const t0 = Date.now();\n    const res = await __http({\n      method: 'POST', url: p.base.replace(/\\/$/, '') + '/chat/completions',\n      headers: { Authorization: `Bearer ${p.key}`, 'Content-Type': 'application/json' },\n      body, json: true, timeout: timeoutMs,\n    });\n    return { res, ms: Date.now() - t0 };\n  }\n\n  // One provider, with retries. Returns parsed + validated JSON or throws.\n  async function callProvider(p, task) {\n    const messages = [{ role: 'system', content: task.system }, { role: 'user', content: task.user }];\n    let optional = { response_format: { type: 'json_object' }, reasoning_effort: task.effort || 'low' };\n    let repaired = false;\n    for (let attempt = 1; attempt <= MAX_TRIES; attempt++) {\n      metrics.calls++;\n      try {\n        const body = { model: p.model, messages, max_completion_tokens: task.maxTokens || 4000, temperature: task.temperature ?? 0.2, ...optional };\n        const { res, ms } = await post(p, body, task.timeoutMs || 90000);\n        const u = res.usage || {};\n        const tin = u.prompt_tokens || 0, tout = u.completion_tokens || 0;\n        const cost = (tin * p.price.in + tout * p.price.out) / 1e6;\n        metrics.tokens_in += tin; metrics.tokens_out += tout; metrics.cost_usd += cost; metrics.latency_ms.push(ms);\n        const bp = (metrics.by_provider[p.id] = metrics.by_provider[p.id] || { calls: 0, tokens_in: 0, tokens_out: 0, cost_usd: 0 });\n        bp.calls++; bp.tokens_in += tin; bp.tokens_out += tout; bp.cost_usd += cost;\n\n        const text = res.choices && res.choices[0] && res.choices[0].message && res.choices[0].message.content;\n        let data, problem;\n        try { data = parseJson(text); problem = task.validate ? task.validate(data) : null; }\n        catch (e) { problem = e.message; }\n        if (!problem) { metrics.ok++; return { data, provider: p.id, model: p.model, ms, tokens_in: tin, tokens_out: tout, cost_usd: cost, attempts: attempt }; }\n\n        // Malformed or off-schema reply: show the model its own mistake once.\n        if (repaired) throw new AIError(`invalid reply after repair: ${problem}`, 'malformed');\n        repaired = true; metrics.repairs++;\n        messages.push({ role: 'assistant', content: String(text || '').slice(0, 6000) });\n        messages.push({ role: 'user', content: `Your reply was rejected: ${problem}. Reply again with ONLY the corrected JSON object, nothing else.` });\n        continue;\n      } catch (e) {\n        if (e instanceof AIError) throw e;\n        const st = statusOf(e);\n        const msg = String(e.message || e).slice(0, 200);\n        if (st === 400 && optional.response_format && /response_format|reasoning|unsupported|unknown/i.test(JSON.stringify((e.response && e.response.data) || msg))) {\n          optional = {}; metrics.retries++; continue;          // provider rejects an optional param → drop it\n        }\n        if ([401, 403, 404].includes(st)) throw new AIError(`${p.label} ${st}: ${msg}`, 'auth');\n        const retryable = !st || st === 408 || st === 409 || st === 429 || st >= 500;\n        if (!retryable || attempt === MAX_TRIES) throw new AIError(`${p.label} ${st || 'network'}: ${msg}`, st === 429 ? 'rate_limit' : 'unavailable');\n        metrics.retries++;\n        const backoff = BASE_DELAY_MS * 2 ** (attempt - 1) + Math.floor(Math.random() * 400);\n        await sleep(Math.max(backoff, retryAfterMs(e)));\n      }\n    }\n    throw new AIError(`${p.label}: retries exhausted`, 'unavailable');\n  }\n\n  // Public: try each provider in order. task = { name, system, user, validate, effort, maxTokens, timeoutMs }\n  async function complete(task) {\n    if (!PROVIDERS.length) {\n      metrics.failed++;\n      metrics.errors.push({ task: task.name, error: 'no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)' });\n      throw new AIError('no AI provider configured', 'no_provider');\n    }\n    // task.prefer lets a caller pick a different model first — the fact-checker uses this\n    // so that, when both keys exist, a second model checks the first one's work.\n    const order = task.prefer ? [...PROVIDERS].sort((a, b) => (b.id === task.prefer) - (a.id === task.prefer)) : PROVIDERS;\n    let last;\n    for (let i = 0; i < order.length; i++) {\n      try { return await callProvider(order[i], task); }\n      catch (e) {\n        last = e;\n        metrics.errors.push({ task: task.name, provider: order[i].id, kind: e.kind || 'error', error: String(e.message).slice(0, 240) });\n        if (i < order.length - 1) metrics.provider_fallbacks++;\n      }\n    }\n    metrics.failed++;\n    throw last;\n  }\n\n  // Run async jobs with a concurrency cap (keeps us under provider rate limits).\n  async function pool(jobs, limit) {\n    const out = new Array(jobs.length); let next = 0;\n    const worker = async () => { while (next < jobs.length) { const i = next++; out[i] = await jobs[i](); } };\n    await Promise.all(Array.from({ length: Math.min(limit, jobs.length) }, worker));\n    return out;\n  }\n\n  function summary() {\n    const l = [...metrics.latency_ms].sort((a, b) => a - b);\n    const pct = (q) => (l.length ? l[Math.min(l.length - 1, Math.floor(q * l.length))] : 0);\n    return { ...metrics, latency_ms: undefined, cost_usd: +metrics.cost_usd.toFixed(6),\n      latency_p50_ms: pct(0.5), latency_p95_ms: pct(0.95), latency_max_ms: l[l.length - 1] || 0,\n      providers_configured: PROVIDERS.map((p) => `${p.id}:${p.model}`) };\n  }\n\n  return { complete, pool, summary, AIError, env, providers: PROVIDERS.map((p) => ({ id: p.id, label: p.label, model: p.model })) };\n})();\n// ─── end AI client ──────────────────────────────────────────────────────────\n\n// AI Fact-Checker — Agent 4 from the A2 design (\"Scorekeeper\").\n// A second, independent AI pass reads each claim next to the exact source records it\n// cites and rules: supported / partial / unsupported. When a Gemini key is set, the\n// checker runs on Gemini so a different model checks Muse Spark's writing.\n//\n// Two layers:\n//   1. Deterministic: a claim citing an id that isn't in the evidence is a fabricated\n//      citation → unsupported, no AI needed.\n//   2. AI: does the cited evidence actually say this?\n// Unsupported claims are removed from the published brief and listed in its\n// fact-check log. Groundedness = (supported + ½·partial) / claims checked.\nconst t0 = Date.now();\nconst briefs = $input.all().map((i) => i.json).filter((j) => j._type === 'brief');\nconst VERDICTS = ['supported', 'partial', 'unsupported'];\n\nconst CHECKER_SYSTEM = `You are a strict, independent fact-checker. You did NOT write these claims.\nFor each claim you get the claim text and the source records it cites (title + key fact + source + date).\nRule on what the cited records say — not on what is true in the world:\n- \"supported\": the cited records clearly state or directly imply the claim\n- \"partial\": some of the claim is supported, but part is overstated, generalized, or adds detail not in the records\n- \"unsupported\": the cited records do not back the claim\nRecommendations (\"Weave should...\") are \"supported\" when the situation they respond to is supported.\nReturn JSON: {\"checks\":[{\"n\": <claim number>, \"verdict\": \"supported|partial|unsupported\", \"reason\": \"<=20 words\"}]}`;\n\nfunction claimsOf(b) {\n  const out = [];\n  (b.sections || []).forEach((s, si) => (s.claims || []).forEach((c, ci) => out.push({ where: `s${si}.${ci}`, section: s.title, text: c.text, cite: c.cite || [] })));\n  if (b.archetype_read && b.archetype_read.text) out.push({ where: 'archetype', section: 'Archetype read', text: b.archetype_read.text, cite: b.archetype_read.cite || [] });\n  (b.actions || []).forEach((a, ai) => out.push({ where: `a${ai}`, section: 'Actions', text: `${a.action} — ${a.why || ''}`, cite: a.cite || [] }));\n  return out;\n}\n\nconst jobs = briefs.map((b) => async () => {\n  const ev = Object.fromEntries(b.evidence.map((e) => [e.id, e]));\n  const claims = claimsOf(b.brief);\n  for (const c of claims) {\n    const known = c.cite.filter((id) => ev[id]);\n    c.fabricated_cites = c.cite.filter((id) => !ev[id]);\n    if (!known.length) { c.verdict = 'unsupported'; c.reason = 'cites no record from the evidence (fabricated or missing citation)'; c.checked_by = 'rule'; }\n  }\n  const toCheck = claims.filter((c) => !c.verdict);\n  let checker = 'none', check_error = null;\n  if (toCheck.length && b.written_by !== 'rules_fallback') {\n    const payload = toCheck.map((c, n) => ({ n, claim: c.text,\n      cited: c.cite.filter((id) => ev[id]).map((id) => ({ id, title: ev[id].title, key_fact: ev[id].key_fact, source: ev[id].source, date: ev[id].date })) }));\n    try {\n      const res = await AI.complete({ name: `check:${b.key}`, system: CHECKER_SYSTEM, user: JSON.stringify({ claims: payload }),\n        prefer: 'gemini', effort: 'low', maxTokens: 300 + 60 * toCheck.length, timeoutMs: 120000, temperature: 0,\n        validate: (d) => (!d || !Array.isArray(d.checks) ? 'missing \"checks\" array'\n          : d.checks.filter((x) => x && VERDICTS.includes(x.verdict)).length < Math.ceil(toCheck.length * 0.8) ? 'a verdict is needed for every claim' : null) });\n      checker = `${res.provider}:${res.model}`;\n      for (const x of res.data.checks) {\n        const c = toCheck[x.n];\n        if (c && VERDICTS.includes(x.verdict)) { c.verdict = x.verdict; c.reason = String(x.reason || '').slice(0, 200); c.checked_by = checker; }\n      }\n    } catch (e) { check_error = `${e.kind || 'error'}: ${String(e.message).slice(0, 160)}`; }\n  }\n  // Rules-written briefs quote their sources verbatim, so they are supported by construction.\n  for (const c of claims) if (!c.verdict) {\n    if (b.written_by === 'rules_fallback') { c.verdict = 'supported'; c.reason = 'verbatim source title'; c.checked_by = 'rule'; }\n    else { c.verdict = 'unverified'; c.reason = 'fact-checker unavailable'; c.checked_by = 'none'; }\n  }\n  const checked = claims.filter((c) => c.verdict !== 'unverified');\n  const sup = checked.filter((c) => c.verdict === 'supported').length, part = checked.filter((c) => c.verdict === 'partial').length;\n  const groundedness = b.written_by === 'rules_fallback' ? null : checked.length ? +((sup + 0.5 * part) / checked.length).toFixed(3) : null;\n  // A rules-only brief just lists source titles: nothing to fact-check, and we say so rather than claim 100%.\n  const status = b.written_by === 'rules_fallback' ? 'ai_offline'\n    : groundedness === null ? 'unverified' : groundedness >= 0.85 ? 'verified' : groundedness >= 0.6 ? 'needs_review' : 'failed';\n\n  // Publish only what survived: drop unsupported claims (kept in the log).\n  const keep = new Set(claims.filter((c) => c.verdict !== 'unsupported').map((c) => c.where));\n  const verdictOf = Object.fromEntries(claims.map((c) => [c.where, c.verdict]));\n  const published = { ...b.brief,\n    sections: (b.brief.sections || []).map((s, si) => ({ ...s, claims: (s.claims || []).map((c, ci) => ({ ...c, verdict: verdictOf[`s${si}.${ci}`] }))\n      .filter((c, ci) => keep.has(`s${si}.${ci}`)) })).filter((s) => s.claims.length),\n    archetype_read: b.brief.archetype_read && keep.has('archetype') ? { ...b.brief.archetype_read, verdict: verdictOf.archetype } : null,\n    actions: (b.brief.actions || []).map((a, ai) => ({ ...a, verdict: verdictOf[`a${ai}`] })).filter((a, ai) => keep.has(`a${ai}`)),\n  };\n  return { ...b, published, fact_check: { checker, check_error, status, groundedness, claims_total: claims.length,\n    supported: sup, partial: part, unsupported: claims.filter((c) => c.verdict === 'unsupported').length,\n    unverified: claims.length - checked.length, fabricated_citations: claims.reduce((n, c) => n + c.fabricated_cites.length, 0), log: claims } };\n});\n\nconst out = await AI.pool(jobs, 3);\nreturn [\n  ...out.map((b) => ({ json: { _type: 'brief', ...b } })),\n  { json: { _type: 'ai_run', step: 'fact_checker', ai: AI.summary(), duration_ms: Date.now() - t0 } },\n];\n"
+      },
+      "name": "AI Fact-Checker",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3000,
+        480
+      ],
+      "notes": "independent check of every claim",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// ─── Groundline render kit ──────────────────────────────────────────────────\n// Small HTML helpers shared by the report, alert and email nodes.\n// Emails use inline styles and tables (Gmail strips <style> blocks and SVG);\n// report pages use a stylesheet and print cleanly to PDF.\nconst esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');\nconst C = { ink: '#0f172a', body: '#334155', muted: '#64748b', line: '#e2e8f0', bg: '#f8fafc', card: '#ffffff',\n  accent: '#0f766e', accentSoft: '#ccfbf1', red: '#b91c1c', redSoft: '#fee2e2', amber: '#b45309', amberSoft: '#fef3c7',\n  green: '#15803d', greenSoft: '#dcfce7', blue: '#1d4ed8', blueSoft: '#dbeafe' };\nconst SENT = { '-2': ['Very negative', C.red, C.redSoft], '-1': ['Negative', C.red, C.redSoft], '0': ['Neutral', C.muted, C.bg],\n  '1': ['Positive', C.green, C.greenSoft], '2': ['Very positive', C.green, C.greenSoft] };\nconst LEVEL = { high: [C.red, C.redSoft], medium: [C.amber, C.amberSoft], low: [C.blue, C.blueSoft], none: [C.muted, C.bg] };\nconst sentWord = (s) => (SENT[String(Math.round(s))] || SENT['0'])[0];\nconst fmtSent = (avg) => (avg > 0 ? '+' : '') + (+avg).toFixed(2);\nconst pill = (text, fg, bg) => `<span style=\"display:inline-block;padding:2px 8px;border-radius:999px;background:${bg};color:${fg};font-size:12px;font-weight:600;line-height:18px;white-space:nowrap\">${esc(text)}</span>`;\nconst sentPill = (s) => { const [t, fg, bg] = SENT[String(Math.round(s))] || SENT['0']; return pill(t, fg, bg); };\nconst levelPill = (label, lvl) => { const [fg, bg] = LEVEL[lvl] || LEVEL.none; return pill(`${label}: ${lvl}`, fg, bg); };\nconst fmtUsd = (x) => (x < 0.01 ? '$' + x.toFixed(4) : '$' + x.toFixed(2));\n\n// QuickChart renders Chart.js configs to PNG — free, no key. Used where SVG can't go (email).\nconst quickChartUrl = (config, w = 560, h = 260) =>\n  'https://quickchart.io/chart?bkg=white&w=' + w + '&h=' + h + '&c=' + encodeURIComponent(JSON.stringify(config));\n\nfunction emailShell({ title, preheader, body, footer }) {\n  return `<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>${esc(title)}</title></head>\n<body style=\"margin:0;padding:0;background:${C.bg};font-family:Segoe UI,Helvetica,Arial,sans-serif;color:${C.body}\">\n<span style=\"display:none;max-height:0;overflow:hidden\">${esc(preheader || '')}</span>\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:${C.bg}\"><tr><td align=\"center\" style=\"padding:24px 12px\">\n<table role=\"presentation\" width=\"640\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:640px;width:100%;background:${C.card};border:1px solid ${C.line};border-radius:12px\">\n<tr><td style=\"padding:20px 28px;border-bottom:3px solid ${C.accent}\">\n  <div style=\"font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.accent};font-weight:700\">Groundline · Brand Intelligence</div>\n  <div style=\"font-size:22px;font-weight:700;color:${C.ink};margin-top:4px\">${esc(title)}</div>\n</td></tr>\n<tr><td style=\"padding:20px 28px;font-size:15px;line-height:1.55\">${body}</td></tr>\n<tr><td style=\"padding:16px 28px;border-top:1px solid ${C.line};font-size:12px;color:${C.muted};line-height:1.5\">${footer || ''}</td></tr>\n</table></td></tr></table></body></html>`;\n}\n\nconst PAGE_CSS = `\n:root{--ink:${C.ink};--body:${C.body};--muted:${C.muted};--line:${C.line};--bg:${C.bg};--card:#fff;--accent:${C.accent};--accent-soft:${C.accentSoft}}\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--body);font:15px/1.6 \"Segoe UI\",Inter,Helvetica,Arial,sans-serif}\n.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}\nheader.top{border-bottom:3px solid var(--accent);padding-bottom:16px;margin-bottom:24px}\n.kicker{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}\nh1{font-size:30px;line-height:1.2;color:var(--ink);margin:6px 0 8px}h2{font-size:19px;color:var(--ink);margin:28px 0 10px}\nh3{font-size:15px;color:var(--ink);margin:0 0 6px}\n.meta{color:var(--muted);font-size:13px}.lede{font-size:17px;color:var(--ink)}\n.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}\n.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}\n.tile .v{font-size:26px;font-weight:700;color:var(--ink);line-height:1.1}.tile .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}\n.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:12px 0}\nul.claims{margin:0;padding-left:18px}ul.claims li{margin:6px 0}\n.cite{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:0 5px;margin-left:3px;text-decoration:none;vertical-align:1px}\n.badge{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13px}\n.ok{background:#dcfce7;color:#15803d}.warn{background:#fef3c7;color:#b45309}.bad{background:#fee2e2;color:#b91c1c}\ntable.t{width:100%;border-collapse:collapse;font-size:13px}table.t th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:6px 8px}\ntable.t td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}\n.small{font-size:12px;color:var(--muted)}a{color:var(--accent)}\n.strike{text-decoration:line-through;color:var(--muted)}\nfooter{margin-top:40px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}\n@media print{body{background:#fff}.wrap{padding:0}.card,.tile{break-inside:avoid}a{color:inherit}}\n@media (max-width:600px){h1{font-size:24px}.wrap{padding:20px 16px}}`;\n\nconst pageShell = (title, body) => `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>${esc(title)}</title><style>${PAGE_CSS}</style></head><body><div class=\"wrap\">${body}</div></body></html>`;\n\n// Horizontal bar chart as inline SVG (report pages). rows: [{label, value, color}]\nfunction svgBars(rows, { max, width = 560, unit = '', signed = false } = {}) {\n  const h = 26, pad = 150, w = width - pad - 50;\n  const m = max || Math.max(1, ...rows.map((r) => Math.abs(r.value)));\n  const zero = signed ? pad + w / 2 : pad;\n  const scale = signed ? w / 2 / m : w / m;\n  const bars = rows.map((r, i) => {\n    const len = Math.abs(r.value) * scale, x = r.value < 0 ? zero - len : zero, y = i * h + 4;\n    return `<text x=\"${pad - 8}\" y=\"${y + 13}\" text-anchor=\"end\" font-size=\"12\" fill=\"${C.body}\">${esc(r.label)}</text>\n<rect x=\"${x}\" y=\"${y}\" width=\"${Math.max(len, 1)}\" height=\"16\" rx=\"3\" fill=\"${r.color || C.accent}\"/>\n<text x=\"${r.value < 0 ? x - 4 : x + len + 4}\" y=\"${y + 13}\" text-anchor=\"${r.value < 0 ? 'end' : 'start'}\" font-size=\"12\" fill=\"${C.muted}\">${signed && r.value > 0 ? '+' : ''}${r.value}${unit}</text>`;\n  }).join('');\n  const axis = signed ? `<line x1=\"${zero}\" y1=\"0\" x2=\"${zero}\" y2=\"${rows.length * h}\" stroke=\"${C.line}\"/>` : '';\n  return `<svg viewBox=\"0 0 ${width} ${rows.length * h + 6}\" width=\"100%\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\">${axis}${bars}</svg>`;\n}\n// ─── end render kit ─────────────────────────────────────────────────────────\n\n// Render reports — the human-readable output. One item per file; \"Write report files\" saves them.\n//   outputs/briefs/<date>_<entity>.html     one verified brief per company (+ market)\n//   outputs/<date>_dashboard.html           Weave vs competitors at a glance\n//   outputs/data/<date>_scored_records.csv  every record with the AI's judgement (opens in Excel)\n//   outputs/<date>_fact_check.md            every claim, its verdict and the reason\n//   outputs/charts/<date>_sentiment.png     chart image (also used in the email)\nconst cfg = $('Run config').first().json;\nconst briefs = $input.all().map((i) => i.json).filter((j) => j._type === 'brief');\nconst records = $('AI Analyst').all().map((i) => i.json).filter((j) => j._type === 'record');\nconst runs = ['AI Analyst', 'AI Brief Writer', 'AI Fact-Checker'].map((n) => $(n).all().map((i) => i.json).find((j) => j._type === 'ai_run'));\nconst analyst = runs[0];\nconst aiCost = runs.reduce((s, r) => s + ((r && r.ai && r.ai.cost_usd) || 0), 0);\nconst models = [...new Set(runs.flatMap((r) => (r && r.ai ? Object.keys(r.ai.by_provider) : [])))];\nconst recById = Object.fromEntries(records.map((r) => [r.record_id, r]));\nconst out = [];\nconst file = async (rel, content, mime) => out.push({ json: { file: rel, file_path: `${cfg.out_dir}/${rel}`, bytes: Buffer.byteLength(content) },\n  binary: { data: await this.helpers.prepareBinaryData(Buffer.isBuffer(content) ? content : Buffer.from(content, 'utf8'), rel.split('/').pop(), mime) } });\n\nconst badge = (fc) => {\n  const pct = fc.groundedness === null ? '—' : Math.round(fc.groundedness * 100) + '%';\n  const cls = fc.status === 'verified' ? 'ok' : fc.status === 'needs_review' ? 'warn' : 'bad';\n  if (fc.status === 'ai_offline') return '<span class=\"badge warn\">AI offline · source list only</span>';\n  const word = { verified: 'Fact-checked', needs_review: 'Needs review', failed: 'Failed fact-check', unverified: 'Not fact-checked' }[fc.status];\n  return `<span class=\"badge ${cls}\">${word} · ${pct} grounded</span>`;\n};\nconst cites = (ids) => (ids || []).map((id) => recById[id]\n  ? `<a class=\"cite\" href=\"${esc(recById[id].url)}\" title=\"${esc(recById[id].title)} — ${esc(recById[id].source_name)}, ${esc(recById[id].published_date)}\">${esc(id.replace('GL-', ''))}</a>`\n  : `<span class=\"cite\" style=\"background:#fee2e2;color:#b91c1c\">${esc(id)}?</span>`).join('');\nconst verdictMark = (v) => (v === 'partial' ? ' <span class=\"small\" title=\"Partly supported by its sources\">◐ partial</span>' : '');\nconst sourceLabel = (s) => (s === 'cache' ? 'AI (cached)' : s.startsWith('ai:') ? 'AI · ' + s.slice(3) : 'keyword rules');\n\n// ---------------------------------------------------------------- briefs\nfor (const b of briefs) {\n  const p = b.published, st = b.stats, fc = b.fact_check;\n  const sections = p.sections.map((s) => `<div class=\"card\"><h3>${esc(s.title)}</h3><ul class=\"claims\">${s.claims\n    .map((c) => `<li>${esc(c.text)}${cites(c.cite)}${verdictMark(c.verdict)}</li>`).join('')}</ul></div>`).join('');\n  const actions = p.actions.map((a, i) => `<tr><td><b>${i + 1}.</b></td><td><b>${esc(a.action)}</b><br><span class=\"small\">${esc(a.why || '')}</span> ${cites(a.cite)}</td></tr>`).join('');\n  const themes = Object.entries(st.themes).map(([k, v]) => ({ label: k.replace(/_/g, ' '), value: v }));\n  const removed = fc.log.filter((c) => c.verdict === 'unsupported');\n  const evidenceRows = b.evidence.map((e) => { const r = recById[e.id] || {}; return `<tr><td>${esc(e.id.replace('GL-', ''))}</td><td><a href=\"${esc(r.url)}\">${esc(e.title)}</a><br><span class=\"small\">${esc(e.key_fact)}</span></td><td>${esc(e.source)}</td><td>${esc(e.date)}</td><td>${sentPill(e.sentiment)}</td></tr>`; }).join('');\n  const html = pageShell(`${b.title} — ${cfg.run_date}`, `\n<header class=\"top\"><div class=\"kicker\">Groundline brand intelligence · week of ${esc(cfg.run_date)}</div>\n<h1>${esc(p.headline)}</h1><div class=\"meta\">${esc(b.title)} · ${st.records} items from ${st.sources} sources · ${esc(st.date_range)}</div>\n<p style=\"margin:12px 0 0\">${badge(fc)}</p></header>\n<p class=\"lede\">${esc(p.summary)}</p>\n<div class=\"grid\">\n <div class=\"tile\"><div class=\"l\">Items tracked</div><div class=\"v\">${st.records}</div></div>\n <div class=\"tile\"><div class=\"l\">Avg. sentiment (−2…+2)</div><div class=\"v\">${fmtSent(st.avg_sentiment)}</div></div>\n <div class=\"tile\"><div class=\"l\">Positive / neutral / negative</div><div class=\"v\">${st.positive} / ${st.neutral} / ${st.negative}</div></div>\n <div class=\"tile\"><div class=\"l\">Risks · openings flagged</div><div class=\"v\">${st.risks_high_or_medium} · ${st.opportunities_high_or_medium}</div></div>\n</div>\n${sections}\n${p.archetype_read ? `<div class=\"card\"><h3>Brand archetype read</h3><p style=\"margin:0\">${esc(p.archetype_read.text)}${cites(p.archetype_read.cite)}</p>\n<p class=\"small\" style=\"margin:6px 0 0\">Archetype votes across items: ${Object.entries(st.archetypes).map(([k, v]) => `${esc(k)} ${v}`).join(' · ') || 'none'}</p></div>` : ''}\n<h2>Recommended actions</h2><div class=\"card\"><table class=\"t\">${actions}</table></div>\n<h2>What the coverage is about</h2><div class=\"card\">${themes.length ? svgBars(themes, { unit: '' }) : '<p class=\"small\">No themes.</p>'}</div>\n<h2>Fact-check</h2><div class=\"card\"><p style=\"margin:0 0 8px\">${fc.claims_total} claims checked by <b>${esc(fc.checker === 'none' ? 'rules only' : fc.checker)}</b>:\n${fc.supported} supported, ${fc.partial} partial, ${fc.unsupported} unsupported${fc.unverified ? `, ${fc.unverified} unverified` : ''}.\n${fc.fabricated_citations ? `${fc.fabricated_citations} fabricated citation(s) caught.` : 'No fabricated citations.'}</p>\n${removed.length ? `<p class=\"small\" style=\"margin:0 0 4px\">Removed before publishing:</p><ul class=\"claims\">${removed.map((c) => `<li class=\"strike\">${esc(c.text)}</li><li style=\"list-style:none\" class=\"small\">↳ ${esc(c.reason)}</li>`).join('')}</ul>` : '<p class=\"small\" style=\"margin:0\">Nothing had to be removed.</p>'}\n${fc.check_error ? `<p class=\"small\">Checker error: ${esc(fc.check_error)}</p>` : ''}</div>\n<h2>Evidence used</h2><div class=\"card\" style=\"overflow-x:auto\"><table class=\"t\"><tr><th>ID</th><th>Item</th><th>Source</th><th>Date</th><th>Tone</th></tr>${evidenceRows}</table></div>\n<footer>Written by ${esc(b.written_by)} · fact-checked by ${esc(fc.checker)} · run ${esc(cfg.run_id)} · every number on this page is computed from the records, not generated.<br>\nBuilt with n8n + Muse Spark · Groundline v2 · INFO 7375 Branding &amp; AI · Agnel Salve</footer>`);\n  await file(`briefs/${cfg.run_date}_${b.key}.html`, html, 'text/html');\n}\n\n// ---------------------------------------------------------------- dashboard\nconst ENT = ['Weave', 'Podium', 'Birdeye', 'NexHealth', 'Solutionreach', 'RevenueWell', 'Lighthouse 360'];\nconst brandRecs = records.filter((r) => r.relevance >= 2 && ENT.includes(r.entity));\nconst rows = ENT.map((e) => { const rs = brandRecs.filter((r) => r.entity === e);\n  if (!rs.length) return null;\n  const arch = Object.entries(rs.reduce((m, r) => (r.archetype ? ((m[r.archetype] = (m[r.archetype] || 0) + 1), m) : m), {})).sort((a, b) => b[1] - a[1])[0];\n  return { e, n: rs.length, s: +(rs.reduce((a, r) => a + r.sentiment, 0) / rs.length).toFixed(2), neg: rs.filter((r) => r.sentiment < 0).length,\n    risk: rs.filter((r) => ['medium', 'high'].includes(r.risk_to_weave)).length, opp: rs.filter((r) => ['medium', 'high'].includes(r.opportunity_for_weave)).length, arch: arch ? arch[0] : '—' };\n}).filter(Boolean);\nconst totalBrand = rows.reduce((a, r) => a + r.n, 0) || 1;\nconst alertRows = records.filter((r) => r.route === 'urgent_risk' || r.route === 'opportunity');\nconst discarded = records.filter((r) => r.route === 'discard');\nconst src = analyst.stats;\nconst dash = pageShell(`Groundline dashboard — ${cfg.run_date}`, `\n<header class=\"top\"><div class=\"kicker\">Groundline brand intelligence · ${esc(cfg.run_date)}</div><h1>Weave vs. the market, this week</h1>\n<div class=\"meta\">${records.length} records judged · ${brandRecs.length} about Weave or a competitor · run ${esc(cfg.run_id)}</div></header>\n<div class=\"grid\">\n <div class=\"tile\"><div class=\"l\">Records judged</div><div class=\"v\">${records.length}</div></div>\n <div class=\"tile\"><div class=\"l\">Judged by AI</div><div class=\"v\">${src.ai_analyzed + src.cache_hits}</div></div>\n <div class=\"tile\"><div class=\"l\">Filtered as irrelevant</div><div class=\"v\">${discarded.length}</div></div>\n <div class=\"tile\"><div class=\"l\">Alerts raised</div><div class=\"v\">${alertRows.length}</div></div>\n <div class=\"tile\"><div class=\"l\">AI cost this run</div><div class=\"v\">${fmtUsd(aiCost)}</div></div>\n</div>\n<h2>Share of voice (brand items)</h2><div class=\"card\">${svgBars(rows.map((r) => ({ label: r.e, value: Math.round((r.n / totalBrand) * 100), color: r.e === 'Weave' ? C.accent : '#94a3b8' })), { unit: '%' })}</div>\n<h2>Average sentiment (−2 … +2)</h2><div class=\"card\">${svgBars(rows.map((r) => ({ label: r.e, value: r.s, color: r.s < 0 ? C.red : C.green })), { signed: true, max: 2 })}</div>\n<h2>Side by side</h2><div class=\"card\" style=\"overflow-x:auto\"><table class=\"t\"><tr><th>Company</th><th>Items</th><th>Avg. sentiment</th><th>Negative</th><th>Risks to Weave</th><th>Openings for Weave</th><th>Cast as</th></tr>\n${rows.map((r) => `<tr><td><b>${esc(r.e)}</b></td><td>${r.n}</td><td>${fmtSent(r.s)}</td><td>${r.neg}</td><td>${r.risk}</td><td>${r.opp}</td><td>${esc(r.arch)}</td></tr>`).join('')}</table></div>\n<h2>Briefs</h2>${briefs.map((b) => `<div class=\"card\"><h3><a href=\"briefs/${cfg.run_date}_${b.key}.html\">${esc(b.title)}</a></h3><p style=\"margin:0 0 6px\">${esc(b.published.headline)}</p>${badge(b.fact_check)} <span class=\"small\">· written by ${esc(b.written_by)}</span></div>`).join('')}\n<h2>Alerts raised</h2><div class=\"card\">${alertRows.length ? `<table class=\"t\"><tr><th>Type</th><th>Item</th><th>Why</th></tr>${alertRows.map((r) => `<tr><td>${r.route === 'urgent_risk' ? levelPill('Risk', r.risk_to_weave) : levelPill('Opening', r.opportunity_for_weave)}</td><td><a href=\"${esc(r.url)}\">${esc(r.title)}</a><br><span class=\"small\">${esc(r.entity)} · ${esc(r.source_name)} · ${esc(r.published_date)}</span></td><td class=\"small\">${esc(r.why)}</td></tr>`).join('')}</table>` : '<p class=\"small\" style=\"margin:0\">No item crossed the alert threshold this run.</p>'}</div>\n<h2>Noise the AI filtered out</h2><div class=\"card\"><p class=\"small\" style=\"margin:0 0 6px\">Items the keyword rules kept but the AI judged unrelated (relevance 0) — e.g. a sports \"podium\":</p>\n<ul class=\"claims\">${discarded.slice(0, 8).map((r) => `<li>${esc(r.title)} <span class=\"small\">— ${esc(r.why)}</span></li>`).join('') || '<li class=\"small\">none</li>'}</ul></div>\n<h2>How each record was judged</h2><div class=\"card\"><p style=\"margin:0\">AI: ${src.ai_analyzed} · from cache: ${src.cache_hits} · keyword fallback: ${src.fallback}${Object.keys(src.fallback_reasons).length ? ` (${Object.entries(src.fallback_reasons).map(([k, v]) => `${esc(k)} ${v}`).join(', ')})` : ''}${src.circuit_open ? ' · <b>circuit breaker opened</b>' : ''}</p></div>\n<footer>Models used: ${esc(models.join(', ') || 'none (rules only)')} · Built with n8n + Muse Spark · Groundline v2 · INFO 7375 · Agnel Salve</footer>`);\nawait file(`${cfg.run_date}_dashboard.html`, dash, 'text/html');\n\n// ---------------------------------------------------------------- scored CSV\nconst COLS = ['record_id', 'published_date', 'entity', 'relevance', 'sentiment', 'theme', 'evidence', 'risk_to_weave', 'opportunity_for_weave',\n  'archetype', 'route', 'key_fact', 'why', 'analysis_source', 'title', 'source_name', 'url'];\nconst cell = (v) => { const s = v === null || v === undefined ? '' : String(v); return /[\",\\n]/.test(s) ? `\"${s.replace(/\"/g, '\"\"')}\"` : s; };\nconst csv = '﻿' + [COLS.join(','), ...[...records].sort((a, b) => b.relevance - a.relevance || b.published_date.localeCompare(a.published_date))\n  .map((r) => COLS.map((c) => cell(r[c])).join(','))].join('\\r\\n');\nawait file(`data/${cfg.run_date}_scored_records.csv`, csv, 'text/csv');\n\n// ---------------------------------------------------------------- fact-check log\nconst md = [`# Fact-check log — run ${cfg.run_id}`, '',\n  '| Brief | Checker | Claims | Supported | Partial | Unsupported | Groundedness | Status |', '|---|---|---|---|---|---|---|---|',\n  ...briefs.map((b) => { const f = b.fact_check; return `| ${b.title} | ${f.checker} | ${f.claims_total} | ${f.supported} | ${f.partial} | ${f.unsupported} | ${f.groundedness === null ? '—' : Math.round(f.groundedness * 100) + '%'} | ${f.status} |`; }), '',\n  ...briefs.flatMap((b) => [`## ${b.title}`, '', ...b.fact_check.log.map((c) => `- **${c.verdict}** — ${c.text.replace(/\\|/g, '/')}  \\n  _cites ${c.cite.join(', ') || 'nothing'} · ${c.reason || ''}_`), ''])].join('\\n');\nawait file(`${cfg.run_date}_fact_check.md`, md, 'text/markdown');\n\n// ---------------------------------------------------------------- chart PNG (optional: QuickChart may be unreachable)\nconst chartCfg = { type: 'bar', data: { labels: rows.map((r) => r.e), datasets: [\n  { label: 'Avg. sentiment (−2…+2)', data: rows.map((r) => r.s), backgroundColor: rows.map((r) => (r.e === 'Weave' ? '#0f766e' : '#94a3b8')) }] },\n  options: { plugins: { legend: { display: false }, title: { display: true, text: `Brand sentiment, week of ${cfg.run_date}` } }, scales: { y: { min: -2, max: 2 } } } };\nconst chartUrl = quickChartUrl(chartCfg);\nlet chartOk = false;\ntry {\n  const png = await this.helpers.httpRequest({ method: 'GET', url: chartUrl, encoding: 'arraybuffer', timeout: 20000 });\n  await file(`charts/${cfg.run_date}_sentiment.png`, Buffer.from(png), 'image/png'); chartOk = true;\n} catch (e) { /* the email falls back to the table; noted in metrics */ }\n\nout.forEach((o) => { o.json.chart_url = chartUrl; o.json.chart_ok = chartOk; });\nreturn out;\n"
+      },
+      "name": "Render reports",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3220,
+        480
+      ],
+      "notes": "HTML · dashboard · CSV · chart",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.file_path }}",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "name": "Write report files",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        3440,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ─── Groundline render kit ──────────────────────────────────────────────────\n// Small HTML helpers shared by the report, alert and email nodes.\n// Emails use inline styles and tables (Gmail strips <style> blocks and SVG);\n// report pages use a stylesheet and print cleanly to PDF.\nconst esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');\nconst C = { ink: '#0f172a', body: '#334155', muted: '#64748b', line: '#e2e8f0', bg: '#f8fafc', card: '#ffffff',\n  accent: '#0f766e', accentSoft: '#ccfbf1', red: '#b91c1c', redSoft: '#fee2e2', amber: '#b45309', amberSoft: '#fef3c7',\n  green: '#15803d', greenSoft: '#dcfce7', blue: '#1d4ed8', blueSoft: '#dbeafe' };\nconst SENT = { '-2': ['Very negative', C.red, C.redSoft], '-1': ['Negative', C.red, C.redSoft], '0': ['Neutral', C.muted, C.bg],\n  '1': ['Positive', C.green, C.greenSoft], '2': ['Very positive', C.green, C.greenSoft] };\nconst LEVEL = { high: [C.red, C.redSoft], medium: [C.amber, C.amberSoft], low: [C.blue, C.blueSoft], none: [C.muted, C.bg] };\nconst sentWord = (s) => (SENT[String(Math.round(s))] || SENT['0'])[0];\nconst fmtSent = (avg) => (avg > 0 ? '+' : '') + (+avg).toFixed(2);\nconst pill = (text, fg, bg) => `<span style=\"display:inline-block;padding:2px 8px;border-radius:999px;background:${bg};color:${fg};font-size:12px;font-weight:600;line-height:18px;white-space:nowrap\">${esc(text)}</span>`;\nconst sentPill = (s) => { const [t, fg, bg] = SENT[String(Math.round(s))] || SENT['0']; return pill(t, fg, bg); };\nconst levelPill = (label, lvl) => { const [fg, bg] = LEVEL[lvl] || LEVEL.none; return pill(`${label}: ${lvl}`, fg, bg); };\nconst fmtUsd = (x) => (x < 0.01 ? '$' + x.toFixed(4) : '$' + x.toFixed(2));\n\n// QuickChart renders Chart.js configs to PNG — free, no key. Used where SVG can't go (email).\nconst quickChartUrl = (config, w = 560, h = 260) =>\n  'https://quickchart.io/chart?bkg=white&w=' + w + '&h=' + h + '&c=' + encodeURIComponent(JSON.stringify(config));\n\nfunction emailShell({ title, preheader, body, footer }) {\n  return `<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>${esc(title)}</title></head>\n<body style=\"margin:0;padding:0;background:${C.bg};font-family:Segoe UI,Helvetica,Arial,sans-serif;color:${C.body}\">\n<span style=\"display:none;max-height:0;overflow:hidden\">${esc(preheader || '')}</span>\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:${C.bg}\"><tr><td align=\"center\" style=\"padding:24px 12px\">\n<table role=\"presentation\" width=\"640\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:640px;width:100%;background:${C.card};border:1px solid ${C.line};border-radius:12px\">\n<tr><td style=\"padding:20px 28px;border-bottom:3px solid ${C.accent}\">\n  <div style=\"font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${C.accent};font-weight:700\">Groundline · Brand Intelligence</div>\n  <div style=\"font-size:22px;font-weight:700;color:${C.ink};margin-top:4px\">${esc(title)}</div>\n</td></tr>\n<tr><td style=\"padding:20px 28px;font-size:15px;line-height:1.55\">${body}</td></tr>\n<tr><td style=\"padding:16px 28px;border-top:1px solid ${C.line};font-size:12px;color:${C.muted};line-height:1.5\">${footer || ''}</td></tr>\n</table></td></tr></table></body></html>`;\n}\n\nconst PAGE_CSS = `\n:root{--ink:${C.ink};--body:${C.body};--muted:${C.muted};--line:${C.line};--bg:${C.bg};--card:#fff;--accent:${C.accent};--accent-soft:${C.accentSoft}}\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--body);font:15px/1.6 \"Segoe UI\",Inter,Helvetica,Arial,sans-serif}\n.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}\nheader.top{border-bottom:3px solid var(--accent);padding-bottom:16px;margin-bottom:24px}\n.kicker{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}\nh1{font-size:30px;line-height:1.2;color:var(--ink);margin:6px 0 8px}h2{font-size:19px;color:var(--ink);margin:28px 0 10px}\nh3{font-size:15px;color:var(--ink);margin:0 0 6px}\n.meta{color:var(--muted);font-size:13px}.lede{font-size:17px;color:var(--ink)}\n.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}\n.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}\n.tile .v{font-size:26px;font-weight:700;color:var(--ink);line-height:1.1}.tile .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}\n.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:12px 0}\nul.claims{margin:0;padding-left:18px}ul.claims li{margin:6px 0}\n.cite{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:0 5px;margin-left:3px;text-decoration:none;vertical-align:1px}\n.badge{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13px}\n.ok{background:#dcfce7;color:#15803d}.warn{background:#fef3c7;color:#b45309}.bad{background:#fee2e2;color:#b91c1c}\ntable.t{width:100%;border-collapse:collapse;font-size:13px}table.t th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:6px 8px}\ntable.t td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}\n.small{font-size:12px;color:var(--muted)}a{color:var(--accent)}\n.strike{text-decoration:line-through;color:var(--muted)}\nfooter{margin-top:40px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}\n@media print{body{background:#fff}.wrap{padding:0}.card,.tile{break-inside:avoid}a{color:inherit}}\n@media (max-width:600px){h1{font-size:24px}.wrap{padding:20px 16px}}`;\n\nconst pageShell = (title, body) => `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>${esc(title)}</title><style>${PAGE_CSS}</style></head><body><div class=\"wrap\">${body}</div></body></html>`;\n\n// Horizontal bar chart as inline SVG (report pages). rows: [{label, value, color}]\nfunction svgBars(rows, { max, width = 560, unit = '', signed = false } = {}) {\n  const h = 26, pad = 150, w = width - pad - 50;\n  const m = max || Math.max(1, ...rows.map((r) => Math.abs(r.value)));\n  const zero = signed ? pad + w / 2 : pad;\n  const scale = signed ? w / 2 / m : w / m;\n  const bars = rows.map((r, i) => {\n    const len = Math.abs(r.value) * scale, x = r.value < 0 ? zero - len : zero, y = i * h + 4;\n    return `<text x=\"${pad - 8}\" y=\"${y + 13}\" text-anchor=\"end\" font-size=\"12\" fill=\"${C.body}\">${esc(r.label)}</text>\n<rect x=\"${x}\" y=\"${y}\" width=\"${Math.max(len, 1)}\" height=\"16\" rx=\"3\" fill=\"${r.color || C.accent}\"/>\n<text x=\"${r.value < 0 ? x - 4 : x + len + 4}\" y=\"${y + 13}\" text-anchor=\"${r.value < 0 ? 'end' : 'start'}\" font-size=\"12\" fill=\"${C.muted}\">${signed && r.value > 0 ? '+' : ''}${r.value}${unit}</text>`;\n  }).join('');\n  const axis = signed ? `<line x1=\"${zero}\" y1=\"0\" x2=\"${zero}\" y2=\"${rows.length * h}\" stroke=\"${C.line}\"/>` : '';\n  return `<svg viewBox=\"0 0 ${width} ${rows.length * h + 6}\" width=\"100%\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\">${axis}${bars}</svg>`;\n}\n// ─── end render kit ─────────────────────────────────────────────────────────\n\n// Compose the weekly digest email — the Weave brief in the inbox, with the full\n// HTML briefs, dashboard and scored spreadsheet attached. Also saved as a file, so\n// the output exists even if email delivery fails.\nconst cfg = $('Run config').first().json;\nconst briefs = $('AI Fact-Checker').all().map((i) => i.json).filter((j) => j._type === 'brief');\nconst files = $('Render reports').all();\nconst records = $('AI Analyst').all().map((i) => i.json).filter((j) => j._type === 'record');\nconst weave = briefs.find((b) => b.key === 'weave') || briefs[0];\nif (!weave) throw new Error('No brief was produced — nothing to email.');\nconst p = weave.published, fc = weave.fact_check, st = weave.stats;\nconst chartOk = files.length && files[0].json.chart_ok;\nconst chartUrl = files.length && files[0].json.chart_url;\nconst alerts = records.filter((r) => r.route === 'urgent_risk' || r.route === 'opportunity').length;\n\nconst statusColor = fc.status === 'verified' ? C.green : fc.status === 'needs_review' ? C.amber : C.red;\nconst statusBg = fc.status === 'verified' ? C.greenSoft : fc.status === 'needs_review' ? C.amberSoft : C.redSoft;\nconst gpct = fc.status === 'ai_offline' ? 'AI offline: source list only' : fc.groundedness === null ? 'not checked' : Math.round(fc.groundedness * 100) + '% grounded';\nconst keyPoints = p.sections.map((s) => s.claims[0] && `<li style=\"margin:0 0 6px\"><b>${esc(s.title)}:</b> ${esc(s.claims[0].text)}</li>`).filter(Boolean).join('');\nconst actions = p.actions.map((a) => `<li style=\"margin:0 0 6px\"><b>${esc(a.action)}</b><br><span style=\"color:${C.muted};font-size:13px\">${esc(a.why || '')}</span></li>`).join('');\nconst others = briefs.filter((b) => b !== weave).map((b) => `<tr><td style=\"padding:6px 0;border-bottom:1px solid ${C.line}\"><b>${esc(b.entity)}</b> — ${esc(b.published.headline)}\n  <span style=\"color:${C.muted};font-size:12px\">(${b.fact_check.groundedness === null ? 'unchecked' : Math.round(b.fact_check.groundedness * 100) + '% grounded'})</span></td></tr>`).join('');\n\nconst body = `\n<div style=\"margin:0 0 12px\">${pill(`${fc.status.replace('_', ' ')} · ${gpct}`, statusColor, statusBg)} ${pill(`${st.records} items · avg sentiment ${fmtSent(st.avg_sentiment)}`, C.accent, C.accentSoft)}${alerts ? ' ' + pill(`${alerts} alert${alerts > 1 ? 's' : ''} raised`, C.red, C.redSoft) : ''}</div>\n<div style=\"font-size:19px;font-weight:700;color:${C.ink};margin:0 0 8px\">${esc(p.headline)}</div>\n<p style=\"margin:0 0 16px\">${esc(p.summary)}</p>\n<div style=\"font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:${C.accent};margin:18px 0 8px\">Key points</div>\n<ul style=\"padding-left:18px;margin:0\">${keyPoints}</ul>\n<div style=\"font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:${C.accent};margin:18px 0 8px\">Recommended actions</div>\n<ol style=\"padding-left:18px;margin:0\">${actions}</ol>\n${chartOk ? `<div style=\"margin:20px 0 4px\"><img src=\"${esc(chartUrl)}\" width=\"560\" alt=\"Average sentiment by company\" style=\"max-width:100%;border:1px solid ${C.line};border-radius:8px\"></div>` : ''}\n${others ? `<div style=\"font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:${C.accent};margin:18px 0 8px\">Competitors &amp; market</div><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">${others}</table>` : ''}\n<p style=\"margin:18px 0 0;font-size:13px;color:${C.muted}\">Attached: the full Weave brief with every source linked, the competitor dashboard, and a spreadsheet of all ${records.length} judged records.</p>`;\nconst footer = `Every claim was checked against its cited sources by ${esc(fc.checker)} before sending; unsupported claims were removed.<br>\nRun ${esc(cfg.run_id)} · written by ${esc(weave.written_by)} · Built with n8n + Muse Spark · Groundline v2`;\nconst html = emailShell({ title: `Weave brand brief · ${cfg.run_date}`, preheader: p.headline, body, footer });\n\nconst pick = (name) => { const f = files.find((x) => x.json.file.endsWith(name)); return f && f.binary && f.binary.data; };\nconst binary = {};\nconst att = [];\nfor (const [key, name] of [['brief', `${cfg.run_date}_weave.html`], ['dashboard', `${cfg.run_date}_dashboard.html`], ['csv', `${cfg.run_date}_scored_records.csv`]]) {\n  const b = pick(name); if (b) { binary[key] = b; att.push(key); }\n}\nconst preview = `emails/${cfg.run_date}_weekly_digest.html`;\nbinary.preview = await this.helpers.prepareBinaryData(Buffer.from(html, 'utf8'), preview.split('/').pop(), 'text/html');\nreturn [{ json: { subject: `[Groundline] Weave brand brief — ${p.headline}`, html, attachments: att.join(','), file: preview,\n  file_path: `${cfg.out_dir}/${preview}`, groundedness: fc.groundedness, status: fc.status }, binary }];\n"
+      },
+      "name": "Compose digest email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3660,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.file_path }}",
+        "dataPropertyName": "preview",
+        "options": {}
+      },
+      "name": "Save email copy",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        3880,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $env.GMAIL_ADDRESS }}",
+        "toEmail": "={{ $env.ALERT_EMAIL_TO || $env.GMAIL_ADDRESS }}",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "html",
+        "html": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false,
+          "attachments": "={{ $json.attachments }}"
+        }
+      },
+      "name": "Send weekly digest",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        3880,
+        560
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "GroundlineSmtp01",
+          "name": "Groundline Gmail (SMTP)"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput",
+      "notes": "Gmail · brief + attachments",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Run metrics + cache save — the monitoring record for this run.\n//   data/cache/analysis_cache.json   AI judgements reused next run + ids already alerted\n//   data/runs/run_<id>.json          timings, tokens, cost, fallbacks, delivery status\n//   outputs/run_summary.md           the same, readable (latest run)\nconst cfg = $('Run config').first().json;\nconst safe = (name) => { try { return $(name).all().map((i) => i.json); } catch (e) { return null; } }; // node may not have run\nconst aiRun = (name) => (safe(name) || []).find((j) => j._type === 'ai_run') || null;\nconst analyst = aiRun('AI Analyst'), writer = aiRun('AI Brief Writer'), checker = aiRun('AI Fact-Checker');\nconst briefs = (safe('AI Fact-Checker') || []).filter((j) => j._type === 'brief');\nconst records = (safe('AI Analyst') || []).filter((j) => j._type === 'record');\n\nconst delivery = (send, compose) => {\n  const c = safe(compose); const s = safe(send);\n  if (!c || !c.length) return { status: 'nothing_to_send' };\n  if (!s || !s.length) return { status: 'not_attempted', count: c[0].count };\n  // Only an SMTP acceptance counts as sent; anything else (error item, empty item) is a failure.\n  const ok = s[0].messageId || (Array.isArray(s[0].accepted) && s[0].accepted.length);\n  if (!ok) {\n    const err = s[0].error;\n    const why = err ? String(err.message || err) : 'Gmail did not accept the message (credential missing or rejected; run scripts/setup-credentials.ps1)';\n    return { status: 'failed', error: why.slice(0, 200), saved_to: c[0].file };\n  }\n  return { status: 'sent', message_id: s[0].messageId || '', accepted: s[0].accepted || [], count: c[0].count, saved_to: c[0].file };\n};\nconst email = {\n  weekly_digest: delivery('Send weekly digest', 'Compose digest email'),\n  risk_alert: delivery('Send risk alert', 'Compose risk alert'),\n  opportunity_alert: delivery('Send opportunity alert', 'Compose opportunity alert'),\n};\n\n// Remember alerted ids so the same story never alerts twice.\nconst cache = (analyst && analyst.cache) || { analysis: {}, alerted: {} };\nfor (const n of ['Compose risk alert', 'Compose opportunity alert']) {\n  for (const a of safe(n) || []) for (const id of a.alert_ids || []) cache.alerted[id] = cfg.run_date;\n}\n\nconst steps = { analyst, writer, checker };\nconst sum = (f) => Object.values(steps).reduce((s, x) => s + ((x && x.ai && f(x.ai)) || 0), 0);\nconst metrics = {\n  run_id: cfg.run_id, started_at: cfg.collected_at, finished_at: new Date().toISOString(),\n  duration_s: +((Date.now() - Date.parse(cfg.collected_at)) / 1000).toFixed(1),\n  records_judged: records.length,\n  routes: records.reduce((m, r) => ((m[r.route] = (m[r.route] || 0) + 1), m), {}),\n  analysis: analyst ? analyst.stats : null, cache_status: analyst ? analyst.cache_status : null,\n  ai: { calls: sum((a) => a.calls), retries: sum((a) => a.retries), repairs: sum((a) => a.repairs), provider_fallbacks: sum((a) => a.provider_fallbacks),\n    failed_tasks: sum((a) => a.failed), tokens_in: sum((a) => a.tokens_in), tokens_out: sum((a) => a.tokens_out), cost_usd: +sum((a) => a.cost_usd).toFixed(5),\n    providers: analyst ? analyst.ai.providers_configured : [],\n    step_seconds: Object.fromEntries(Object.entries(steps).map(([k, v]) => [k, v ? +(v.duration_ms / 1000).toFixed(1) : null])),\n    latency_p50_ms: analyst ? analyst.ai.latency_p50_ms : null, latency_p95_ms: analyst ? analyst.ai.latency_p95_ms : null,\n    errors: Object.values(steps).flatMap((x) => (x && x.ai ? x.ai.errors : [])).slice(0, 25) },\n  briefs: briefs.map((b) => ({ key: b.key, written_by: b.written_by, write_error: b.write_error || null, ...b.fact_check, log: undefined })),\n  email,\n};\n\nconst md = `# Groundline run summary\n\n**Run** \\`${cfg.run_id}\\` · ${metrics.duration_s}s · ${metrics.records_judged} records judged · AI cost **$${metrics.ai.cost_usd.toFixed(4)}**\n\n| Step | Seconds |\n|---|---|\n${Object.entries(metrics.ai.step_seconds).map(([k, v]) => `| ${k} | ${v ?? '—'} |`).join('\\n')}\n\n| AI usage | Value |\n|---|---|\n| Calls | ${metrics.ai.calls} |\n| Retries / JSON repairs / provider fallbacks | ${metrics.ai.retries} / ${metrics.ai.repairs} / ${metrics.ai.provider_fallbacks} |\n| Tokens in / out | ${metrics.ai.tokens_in} / ${metrics.ai.tokens_out} |\n| Records from cache | ${metrics.analysis ? metrics.analysis.cache_hits : 0} |\n| Records judged by AI / by keyword fallback | ${metrics.analysis ? metrics.analysis.ai_analyzed : 0} / ${metrics.analysis ? metrics.analysis.fallback : 0} |\n| Circuit breaker opened | ${metrics.analysis && metrics.analysis.circuit_open ? 'yes' : 'no'} |\n\n| Brief | Written by | Groundedness | Status |\n|---|---|---|---|\n${metrics.briefs.map((b) => `| ${b.key} | ${b.written_by} | ${b.groundedness === null ? '—' : Math.round(b.groundedness * 100) + '%'} | ${b.status} |`).join('\\n')}\n\n| Email | Status |\n|---|---|\n${Object.entries(email).map(([k, v]) => `| ${k} | ${v.status}${v.error ? ' — ' + v.error : ''} |`).join('\\n')}\n\nRoutes: ${Object.entries(metrics.routes).map(([k, v]) => `${k} ${v}`).join(' · ')}\n${metrics.ai.errors.length ? '\\n## Errors handled\\n\\n' + metrics.ai.errors.map((e) => `- \\`${e.task}\\` ${e.provider || ''} ${e.kind || ''}: ${e.error}`).join('\\n') : ''}\n`;\n\nconst bin = async (s, name, mime) => this.helpers.prepareBinaryData(Buffer.from(s, 'utf8'), name, mime);\nreturn [\n  { json: { file_path: `${cfg.data_dir}/cache/analysis_cache.json` }, binary: { data: await bin(JSON.stringify(cache), 'analysis_cache.json', 'application/json') } },\n  { json: { file_path: `${cfg.data_dir}/runs/run_${cfg.run_id}.json`, metrics }, binary: { data: await bin(JSON.stringify(metrics, null, 2), `run_${cfg.run_id}.json`, 'application/json') } },\n  { json: { file_path: `${cfg.out_dir}/run_summary.md` }, binary: { data: await bin(md, 'run_summary.md', 'text/markdown') } },\n];\n"
+      },
+      "name": "Run metrics",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4100,
+        560
+      ],
+      "notes": "cost · tokens · delivery · cache",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.file_path }}",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "name": "Write run files",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        4320,
+        560
+      ]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Run config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every Monday 07:00": {
+      "main": [
+        [
+          {
+            "node": "Run config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS feed list": {
+      "main": [
+        [
+          {
+            "node": "Loop RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop RSS": {
+      "main": [
+        [
+          {
+            "node": "Normalize RSS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fetch RSS feed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch RSS feed": {
+      "main": [
+        [
+          {
+            "node": "Tag RSS source",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag RSS source": {
+      "main": [
+        [
+          {
+            "node": "Loop RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run config": {
+      "main": [
+        [
+          {
+            "node": "RSS feed list",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch arXiv papers",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HN query list",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "NewsAPI query list",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch arXiv papers": {
+      "main": [
+        [
+          {
+            "node": "Normalize arXiv",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HN query list": {
+      "main": [
+        [
+          {
+            "node": "Loop HN",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop HN": {
+      "main": [
+        [
+          {
+            "node": "Normalize HN",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fetch Hacker News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Hacker News": {
+      "main": [
+        [
+          {
+            "node": "Tag HN source",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag HN source": {
+      "main": [
+        [
+          {
+            "node": "Loop HN",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NewsAPI query list": {
+      "main": [
+        [
+          {
+            "node": "Loop NewsAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop NewsAPI": {
+      "main": [
+        [
+          {
+            "node": "Normalize NewsAPI",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fetch NewsAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch NewsAPI": {
+      "main": [
+        [
+          {
+            "node": "Tag NewsAPI source",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag NewsAPI source": {
+      "main": [
+        [
+          {
+            "node": "Loop NewsAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize RSS": {
+      "main": [
+        [
+          {
+            "node": "Merge sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize arXiv": {
+      "main": [
+        [
+          {
+            "node": "Merge sources",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Normalize HN": {
+      "main": [
+        [
+          {
+            "node": "Merge sources",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Normalize NewsAPI": {
+      "main": [
+        [
+          {
+            "node": "Merge sources",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge sources": {
+      "main": [
+        [
+          {
+            "node": "Validate & clean",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Raw snapshot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate & clean": {
+      "main": [
+        [
+          {
+            "node": "Final dataset",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Quality report",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Rejects log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final dataset": {
+      "main": [
+        [
+          {
+            "node": "Dataset CSV → file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Dataset JSON → file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Read cache file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dataset CSV → file": {
+      "main": [
+        [
+          {
+            "node": "Write Dataset CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dataset JSON → file": {
+      "main": [
+        [
+          {
+            "node": "Write Dataset JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quality report": {
+      "main": [
+        [
+          {
+            "node": "Report MD → file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Report JSON → file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Report MD → file": {
+      "main": [
+        [
+          {
+            "node": "Write Report MD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Report JSON → file": {
+      "main": [
+        [
+          {
+            "node": "Write Report JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rejects log": {
+      "main": [
+        [
+          {
+            "node": "Rejects CSV → file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rejects CSV → file": {
+      "main": [
+        [
+          {
+            "node": "Write Rejects CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Raw snapshot": {
+      "main": [
+        [
+          {
+            "node": "Raw JSON → file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Raw JSON → file": {
+      "main": [
+        [
+          {
+            "node": "Write Raw JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read cache file": {
+      "main": [
+        [
+          {
+            "node": "Load cache",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load cache": {
+      "main": [
+        [
+          {
+            "node": "AI Analyst",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Analyst": {
+      "main": [
+        [
+          {
+            "node": "Route by AI decision",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Brief Writer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by AI decision": {
+      "main": [
+        [
+          {
+            "node": "Compose risk alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Compose opportunity alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compose risk alert": {
+      "main": [
+        [
+          {
+            "node": "Send risk alert",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save risk alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compose opportunity alert": {
+      "main": [
+        [
+          {
+            "node": "Send opportunity alert",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save opportunity alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Render reports": {
+      "main": [
+        [
+          {
+            "node": "Write report files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compose digest email": {
+      "main": [
+        [
+          {
+            "node": "Save email copy",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send weekly digest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run metrics": {
+      "main": [
+        [
+          {
+            "node": "Write run files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Brief Writer": {
+      "main": [
+        [
+          {
+            "node": "AI Fact-Checker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Fact-Checker": {
+      "main": [
+        [
+          {
+            "node": "Render reports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write report files": {
+      "main": [
+        [
+          {
+            "node": "Compose digest email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send weekly digest": {
+      "main": [
+        [
+          {
+            "node": "Run metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "errorWorkflow": "GroundlineErrHnd"
+  },
+  "pinData": {},
+  "active": false,
+  "tags": []
+}

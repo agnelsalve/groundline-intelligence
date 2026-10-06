@@ -1,0 +1,124 @@
+{
+  "id": "GroundlineErrHnd",
+  "name": "Groundline — Error handler",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Groundline — error handler\nSet as the *Error workflow* of the main pipeline and the API. Any execution that fails outright sends an email and writes `data/runs/errors/error_<time>.json`.",
+        "width": 520,
+        "height": 180,
+        "color": 3
+      },
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        -220
+      ]
+    },
+    {
+      "parameters": {},
+      "name": "When a Groundline run fails",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Error handler — runs when any Groundline workflow fails outright.\n// (Expected failures — an AI timeout, a dead feed — are handled inside the main\n// workflow and never reach this point. This catches the unexpected ones.)\n// Sends a readable email and writes an error log, so a failure is never silent.\nconst e = $input.first().json;\nconst ex = e.execution || {}, wf = e.workflow || {}, err = ex.error || e.trigger?.error || {};\nconst at = new Date().toISOString();\nconst id = at.replace(/[-:]/g, '').slice(0, 15) + 'Z';\nlet dataDir = ''; try { dataDir = ($env.GROUNDLINE_DATA_DIR || '').split('\\\\').join('/').replace(/\\/$/, ''); } catch (x) { /* env blocked */ }\n\nconst hint = /GROUNDLINE_|environment/i.test(err.message || '') ? 'Start n8n with scripts/start-n8n.ps1 so the environment variables are set.'\n  : /credential|auth|535|EAUTH/i.test(err.message || '') ? 'Check the Gmail app password in .env and re-run scripts/setup-credentials.ps1.'\n  : /No brief/i.test(err.message || '') ? 'Every source and AI provider failed — check the run summary and the quality report.'\n  : 'Open the execution in n8n to see the failing node’s input.';\nconst rows = [['Workflow', wf.name || wf.id || 'unknown'], ['Failed node', ex.lastNodeExecuted || 'unknown'], ['Error', err.message || 'no message'],\n  ['Execution', ex.id ? `#${ex.id} (${ex.mode || ''})` : 'n/a'], ['When', at], ['Suggested fix', hint]];\nconst html = `<div style=\"font-family:Segoe UI,Arial,sans-serif;max-width:620px;border:1px solid #fecaca;border-top:4px solid #b91c1c;border-radius:8px;padding:18px 22px\">\n<div style=\"font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#b91c1c;font-weight:700\">Groundline · workflow failure</div>\n<h2 style=\"margin:6px 0 12px;color:#0f172a\">${String(wf.name || 'A Groundline workflow').replace(/</g, '&lt;')} stopped</h2>\n<table style=\"border-collapse:collapse;font-size:14px;width:100%\">${rows.map(([k, v]) => `<tr><td style=\"padding:5px 10px 5px 0;color:#64748b;vertical-align:top;white-space:nowrap\">${k}</td><td style=\"padding:5px 0;color:#0f172a\">${String(v).replace(/</g, '&lt;')}</td></tr>`).join('')}</table>\n${ex.url ? `<p style=\"margin:14px 0 0\"><a href=\"${ex.url}\">Open the execution in n8n</a></p>` : ''}</div>`;\nconst log = { id, at, workflow: wf, node: ex.lastNodeExecuted, error: { message: err.message, description: err.description, stack: String(err.stack || '').slice(0, 1500) }, execution_id: ex.id, hint };\nreturn [{ json: { subject: `[Groundline] FAILED: ${wf.name || 'workflow'} at \"${ex.lastNodeExecuted || '?'}\"`, html, file_path: `${dataDir}/runs/errors/error_${id}.json` },\n  binary: { data: await this.helpers.prepareBinaryData(Buffer.from(JSON.stringify(log, null, 2)), `error_${id}.json`, 'application/json') } }];\n"
+      },
+      "name": "Format error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $env.GMAIL_ADDRESS }}",
+        "toEmail": "={{ $env.ALERT_EMAIL_TO || $env.GMAIL_ADDRESS }}",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "html",
+        "html": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "name": "Email the failure",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        -40
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "GroundlineSmtp01",
+          "name": "Groundline Gmail (SMTP)"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput",
+      "notes": "Gmail",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.file_path }}",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "name": "Write error log",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        480,
+        140
+      ]
+    }
+  ],
+  "connections": {
+    "Format error": {
+      "main": [
+        [
+          {
+            "node": "Email the failure",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Write error log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When a Groundline run fails": {
+      "main": [
+        [
+          {
+            "node": "Format error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "active": false,
+  "tags": []
+}

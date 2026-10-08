@@ -1,52 +1,50 @@
 {
-  "run_id": "20261006T223810Z",
-  "collected_at": "2026-10-06T22:38:10.067Z",
+  "run_id": "20261008T190648Z",
+  "collected_at": "2026-10-08T19:06:48.534Z",
   "window": {
     "lookback_days": 45,
-    "since": "2026-07-08",
-    "until": "2026-10-06"
+    "since": "2026-07-10",
+    "until": "2026-10-08"
   },
   "totals": {
-    "collected": 497,
-    "duplicates_removed": 7,
-    "failed_quality_checks": 94,
-    "unique_records": 490,
-    "trimmed_for_balance": 107,
-    "kept": 289,
-    "quality_pass_rate_pct": 80.8,
-    "fully_complete_records": 70,
-    "fully_complete_pct": 24.2
+    "collected": 496,
+    "duplicates_removed": 11,
+    "failed_quality_checks": 91,
+    "unique_records": 485,
+    "trimmed_for_balance": 101,
+    "kept": 293,
+    "quality_pass_rate_pct": 81.2,
+    "fully_complete_records": 74,
+    "fully_complete_pct": 25.3
   },
   "kept_by": {
     "source_type": {
-      "news_rss": 195,
-      "research_api": 33,
-      "community_api": 61
+      "news_rss": 199,
+      "research_api": 34,
+      "community_api": 60
     },
     "focus": {
-      "AI": 233,
+      "AI": 236,
       "Competitor": 23,
-      "Weave": 33
+      "Weave": 34
     },
     "topic": {
-      "ai_industry": 67,
-      "ai_agents": 100,
-      "ai_trust_safety": 13,
-      "ai_data_analytics": 1,
+      "ai_industry": 69,
+      "ai_agents": 105,
       "rag_grounding": 46,
-      "ai_evaluation": 6,
+      "ai_trust_safety": 11,
+      "ai_evaluation": 5,
       "competitor_brand": 23,
-      "weave_brand": 33
+      "weave_brand": 34
     },
     "signal_type": {
-      "news": 168,
-      "research_paper": 33,
-      "community_discussion": 64,
+      "news": 170,
+      "research_paper": 34,
+      "community_discussion": 63,
       "legal_notice": 3,
-      "insider_trade": 1,
+      "financials": 6,
       "analyst_rating": 7,
-      "m_and_a": 9,
-      "financials": 4
+      "m_and_a": 10
     }
   },
   "field_completeness_pct": {
@@ -56,28 +54,28 @@
     "published_date": 100,
     "source_name": 100,
     "topic": 100,
-    "summary": 24.2,
-    "author": 45.3
+    "summary": 25.3,
+    "author": 45.7
   },
   "date_range": {
     "earliest": "2025-12-02",
-    "latest": "2026-10-06"
+    "latest": "2026-10-08"
   },
   "rejects_by_reason": {
-    "off_topic": 94,
-    "duplicate_title": 6,
+    "off_topic": 91,
+    "duplicate_title": 10,
     "duplicate_url": 1
   },
   "trimmed_by_reason": {
-    "feed_cap": 107
+    "feed_cap": 101
   },
   "sources": {
     "techcrunch_ai": {
       "source_type": "news_rss",
       "status": "ok",
       "message": "",
-      "fetched": 18,
-      "kept": 16,
+      "fetched": 20,
+      "kept": 18,
       "rejected": 2,
       "trimmed": 0
     },
@@ -86,8 +84,8 @@
       "status": "ok",
       "message": "",
       "fetched": 10,
-      "kept": 9,
-      "rejected": 1,
+      "kept": 10,
+      "rejected": 0,
       "trimmed": 0
     },
     "the_verge_ai": {
@@ -105,43 +103,43 @@
       "message": "",
       "fetched": 100,
       "kept": 35,
-      "rejected": 3,
-      "trimmed": 62
+      "rejected": 4,
+      "trimmed": 61
     },
     "gnews_ai_grounding": {
       "source_type": "news_rss",
       "status": "ok",
       "message": "",
-      "fetched": 67,
+      "fetched": 64,
       "kept": 35,
-      "rejected": 6,
-      "trimmed": 26
+      "rejected": 7,
+      "trimmed": 22
     },
     "gnews_ai_customer_comms": {
       "source_type": "news_rss",
       "status": "ok",
       "message": "",
-      "fetched": 54,
+      "fetched": 53,
       "kept": 35,
       "rejected": 0,
-      "trimmed": 19
+      "trimmed": 18
     },
     "gnews_weave": {
       "source_type": "news_rss",
       "status": "ok",
       "message": "",
-      "fetched": 34,
-      "kept": 32,
-      "rejected": 2,
+      "fetched": 36,
+      "kept": 33,
+      "rejected": 3,
       "trimmed": 0
     },
     "gnews_podium": {
       "source_type": "news_rss",
       "status": "ok",
       "message": "",
-      "fetched": 66,
+      "fetched": 64,
       "kept": 17,
-      "rejected": 49,
+      "rejected": 47,
       "trimmed": 0
     },
     "gnews_birdeye": {
@@ -149,16 +147,16 @@
       "status": "ok",
       "message": "",
       "fetched": 10,
-      "kept": 3,
-      "rejected": 7,
+      "kept": 2,
+      "rejected": 8,
       "trimmed": 0
     },
     "gnews_nexhealth": {
       "source_type": "news_rss",
       "status": "ok",
       "message": "",
-      "fetched": 1,
-      "kept": 1,
+      "fetched": 2,
+      "kept": 2,
       "rejected": 0,
       "trimmed": 0
     },
@@ -176,8 +174,8 @@
       "status": "ok",
       "message": "",
       "fetched": 35,
-      "kept": 33,
-      "rejected": 2,
+      "kept": 34,
+      "rejected": 1,
       "trimmed": 0
     },
     "hn_ai_agents": {
@@ -194,8 +192,8 @@
       "status": "ok",
       "message": "",
       "fetched": 20,
-      "kept": 17,
-      "rejected": 3,
+      "kept": 16,
+      "rejected": 4,
       "trimmed": 0
     },
     "hn_evals": {

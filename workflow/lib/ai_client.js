@@ -27,6 +27,10 @@ const AI = (() => {
   ].filter((p) => real(p.key));
 
   const MAX_TRIES = +env('AI_MAX_TRIES', '4');
+  // Hard spending cap for one pipeline run (all AI steps together). Once reached, no more
+  // paid calls are made: remaining work falls back to keyword rules and the run says so.
+  const BUDGET_USD = +env('AI_BUDGET_USD', '1.00');
+  let priorSpend = 0;
   const BASE_DELAY_MS = +env('AI_BASE_DELAY_MS', '1500');
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -110,6 +114,11 @@ const AI = (() => {
 
   // Public: try each provider in order. task = { name, system, user, validate, effort, maxTokens, timeoutMs }
   async function complete(task) {
+    if (priorSpend + metrics.cost_usd >= BUDGET_USD) {
+      metrics.failed++;
+      metrics.errors.push({ task: task.name, kind: 'budget', error: `AI budget of $${BUDGET_USD.toFixed(2)} reached for this run` });
+      throw new AIError('AI budget reached', 'budget');
+    }
     if (!PROVIDERS.length) {
       metrics.failed++;
       metrics.errors.push({ task: task.name, error: 'no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)' });
@@ -147,6 +156,8 @@ const AI = (() => {
       providers_configured: PROVIDERS.map((p) => `${p.id}:${p.model}`) };
   }
 
-  return { complete, pool, summary, AIError, env, providers: PROVIDERS.map((p) => ({ id: p.id, label: p.label, model: p.model })) };
+  // Steps after the first tell the client what earlier steps already spent this run.
+  const setPriorSpend = (usd) => { priorSpend = +usd || 0; };
+  return { complete, pool, summary, AIError, env, setPriorSpend, budget: BUDGET_USD, providers: PROVIDERS.map((p) => ({ id: p.id, label: p.label, model: p.model })) };
 })();
 // ─── end AI client ──────────────────────────────────────────────────────────

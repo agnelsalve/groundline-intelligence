@@ -1,6 +1,6 @@
 # Groundline run summary
 
-**Run** `20261006T223810Z` · 28.9s · 289 records judged · AI cost **$0.0000**
+**Run** `20261008T190648Z` · 34.4s · 293 records judged · AI cost **$0.0000**
 
 | Step | Seconds |
 |---|---|
@@ -14,22 +14,21 @@
 | Retries / JSON repairs / provider fallbacks | 0 / 0 / 0 |
 | Tokens in / out | 0 / 0 |
 | Records from cache | 0 |
-| Records judged by AI / by keyword fallback | 0 / 289 |
+| Records judged by AI / by keyword fallback | 0 / 293 |
 | Circuit breaker opened | yes |
 
 | Brief | Written by | Groundedness | Status |
 |---|---|---|---|
-| weave | rules_fallback | 100% | verified |
-| podium | rules_fallback | 100% | verified |
-| birdeye | rules_fallback | 100% | verified |
+| weave | rules_fallback | — | ai_offline |
+| podium | rules_fallback | — | ai_offline |
 
 | Email | Status |
 |---|---|
-| weekly_digest | sent |
+| weekly_digest | failed — Gmail did not accept the message (credential missing or rejected; run scripts/setup-credentials.ps1) |
 | risk_alert | nothing_to_send |
 | opportunity_alert | nothing_to_send |
 
-Routes: digest 289
+Routes: digest 293
 
 ## Errors handled
 
@@ -38,4 +37,3 @@ Routes: digest 289
 - `analyze`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
 - `brief:weave`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
 - `brief:podium`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
-- `brief:birdeye`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)

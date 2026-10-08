@@ -5,6 +5,9 @@
 // and handed to the AI as STATS. The AI writes the words, and every claim it makes
 // must cite record ids from the evidence it was given — the Fact-Checker checks that next.
 const t0 = Date.now();
+// Count what earlier AI steps spent, so the per-run budget covers the whole run.
+const __prior = ['AI Analyst'].reduce((s, n) => { try { const r = $(n).all().map((i) => i.json).find((j) => j._type === 'ai_run'); return s + ((r && r.ai && r.ai.cost_usd) || 0); } catch (e) { return s; } }, 0);
+AI.setPriorSpend(__prior);
 const cfg = $('Run config').first().json;
 const all = $('AI Analyst').all().map((i) => i.json).filter((j) => j._type === 'record');
 const relevant = all.filter((r) => r.relevance >= 1 && r.route !== 'discard');

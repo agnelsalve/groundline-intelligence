@@ -1,0 +1,108 @@
+{
+  "run_id": "20261008T190648Z",
+  "started_at": "2026-10-08T19:06:48.534Z",
+  "finished_at": "2026-10-08T19:07:22.943Z",
+  "duration_s": 34.4,
+  "records_judged": 293,
+  "routes": {
+    "digest": 293
+  },
+  "analysis": {
+    "cache_hits": 0,
+    "ai_analyzed": 0,
+    "fallback": 293,
+    "fallback_reasons": {
+      "no_ai_provider": 30,
+      "circuit_open": 263
+    },
+    "batches": 3,
+    "batches_failed": 3,
+    "circuit_open": true
+  },
+  "cache_status": "loaded: 0 analyses, 0 alerted records",
+  "ai": {
+    "calls": 0,
+    "retries": 0,
+    "repairs": 0,
+    "provider_fallbacks": 0,
+    "failed_tasks": 5,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "cost_usd": 0,
+    "providers": [],
+    "step_seconds": {
+      "analyst": 0,
+      "writer": 0,
+      "checker": 0
+    },
+    "latency_p50_ms": 0,
+    "latency_p95_ms": 0,
+    "errors": [
+      {
+        "task": "analyze",
+        "error": "no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)"
+      },
+      {
+        "task": "analyze",
+        "error": "no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)"
+      },
+      {
+        "task": "analyze",
+        "error": "no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)"
+      },
+      {
+        "task": "brief:weave",
+        "error": "no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)"
+      },
+      {
+        "task": "brief:podium",
+        "error": "no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)"
+      }
+    ]
+  },
+  "briefs": [
+    {
+      "key": "weave",
+      "written_by": "rules_fallback",
+      "write_error": "no_provider: no AI provider configured",
+      "checker": "none",
+      "check_error": null,
+      "status": "ai_offline",
+      "groundedness": null,
+      "claims_total": 11,
+      "supported": 11,
+      "partial": 0,
+      "unsupported": 0,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "podium",
+      "written_by": "rules_fallback",
+      "write_error": "no_provider: no AI provider configured",
+      "checker": "none",
+      "check_error": null,
+      "status": "ai_offline",
+      "groundedness": null,
+      "claims_total": 9,
+      "supported": 9,
+      "partial": 0,
+      "unsupported": 0,
+      "unverified": 0,
+      "fabricated_citations": 0
+    }
+  ],
+  "email": {
+    "weekly_digest": {
+      "status": "failed",
+      "error": "Gmail did not accept the message (credential missing or rejected; run scripts/setup-credentials.ps1)",
+      "saved_to": "emails/2026-10-08_weekly_digest.html"
+    },
+    "risk_alert": {
+      "status": "nothing_to_send"
+    },
+    "opportunity_alert": {
+      "status": "nothing_to_send"
+    }
+  }
+}

@@ -140,8 +140,8 @@ async function analyzeRecords(records, opts = {}) {
     } catch (e) {
       stats.batches_failed++;
       consecutiveFails++;
-      if (e.kind === 'no_provider' || consecutiveFails >= BREAKER) stats.circuit_open = true;
-      batch.forEach((r) => fallback(r, e.kind === 'no_provider' ? 'no_ai_provider' : `ai_error:${e.kind || 'unknown'}`));
+      if (e.kind === 'no_provider' || e.kind === 'budget' || consecutiveFails >= BREAKER) stats.circuit_open = true;
+      batch.forEach((r) => fallback(r, e.kind === 'no_provider' ? 'no_ai_provider' : e.kind === 'budget' ? 'ai_budget_reached' : `ai_error:${e.kind || 'unknown'}`));
     }
   }), CONC);
 

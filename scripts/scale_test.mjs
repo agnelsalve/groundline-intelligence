@@ -22,6 +22,7 @@ const PER_REQ = +arg('per-request', '1');
 const TIMEOUT_MS = +arg('timeout', '180000');
 const PID = arg('pid', '');
 const LABEL = arg('label', '');
+const BUDGET = +arg('budget', '5');               // stop the test once this many dollars have been spent
 
 const dataset = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/clean/groundline_dataset.json'), 'utf8'));
 const records = Array.isArray(dataset) ? dataset : dataset.data || Object.values(dataset);
@@ -83,6 +84,8 @@ for (const n of LEVELS) {
   process.stdout.write(`  ${String(n).padStart(4)} requests … `);
   const r = await level(n); results.push(r);
   console.log(`${r.wall_s}s · ${r.success_pct}% ok · p95 ${r.p95_ms}ms · $${r.cost_usd} · errors ${JSON.stringify(r.http_errors)} ${JSON.stringify(r.ai_error_kinds)}`);
+  const spent = results.reduce((t, x) => t + x.cost_usd, 0);
+  if (spent >= BUDGET) { console.log(`  stopping: $${spent.toFixed(2)} spent, budget is $${BUDGET}`); break; }
   await new Promise((s) => setTimeout(s, 3000));        // let rate-limit windows reset between levels
 }
 

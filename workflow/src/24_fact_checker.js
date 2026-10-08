@@ -10,6 +10,9 @@
 // Unsupported claims are removed from the published brief and listed in its
 // fact-check log. Groundedness = (supported + ½·partial) / claims checked.
 const t0 = Date.now();
+// Count what earlier AI steps spent, so the per-run budget covers the whole run.
+const __prior = ['AI Analyst', 'AI Brief Writer'].reduce((s, n) => { try { const r = $(n).all().map((i) => i.json).find((j) => j._type === 'ai_run'); return s + ((r && r.ai && r.ai.cost_usd) || 0); } catch (e) { return s; } }, 0);
+AI.setPriorSpend(__prior);
 const briefs = $input.all().map((i) => i.json).filter((j) => j._type === 'brief');
 const VERDICTS = ['supported', 'partial', 'unsupported'];
 

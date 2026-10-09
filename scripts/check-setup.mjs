@@ -29,8 +29,9 @@ async function ping(label, base, key, model) {
 }
 
 const G = env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com/v1beta/openai';
-await ping('Gemini (writer)', G, env.GEMINI_API_KEY, env.GEMINI_MODEL || 'gemini-2.5-flash');
-await ping('Gemini (fact-checker)', G, env.GEMINI_API_KEY, env.GEMINI_CHECK_MODEL || 'gemini-2.5-pro');
+await ping('Gemini analyst', G, env.GEMINI_API_KEY, env.GEMINI_ANALYST_MODEL || 'gemini-3.5-flash-lite');
+await ping('Gemini writer', G, env.GEMINI_API_KEY, env.GEMINI_MODEL || 'gemini-3.8-flash');
+await ping('Gemini fact-checker', G, env.GEMINI_API_KEY, env.GEMINI_CHECK_MODEL || 'gemini-3.5-flash');
 await ping('Muse Spark (optional)', env.MUSE_BASE_URL || 'https://api.meta.ai/v1', env.MUSE_API_KEY, env.MUSE_MODEL || 'muse-spark-1.3');
 const gm = env.GMAIL_ADDRESS, gp = (env.GMAIL_APP_PASSWORD || '').replace(/\s/g, '');
 console.log(real(gm) && /@gmail\.com$/i.test(gm) ? `✓ Gmail address set: ${gm}` : '✗ GMAIL_ADDRESS not set (must end in @gmail.com)');

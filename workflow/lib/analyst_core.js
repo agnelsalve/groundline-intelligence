@@ -125,7 +125,7 @@ async function analyzeRecords(records, opts = {}) {
     const input = batch.map((r) => ({ id: r.record_id, title: r.title, summary: (r.summary || '').slice(0, 400),
       source: r.source_name, date: r.published_date, type: r.signal_type, hint_entity: r.entity || undefined }));
     try {
-      const res = await AI.complete({ name: 'analyze', system: ANALYST_SYSTEM, user: JSON.stringify({ items: input }),
+      const res = await AI.complete({ name: 'analyze', role: 'analyst', system: ANALYST_SYSTEM, user: JSON.stringify({ items: input }),
         validate: validateAnalysis(ids), effort: 'low', maxTokens: 400 + 160 * batch.length, timeoutMs: 90000 });
       consecutiveFails = 0;
       const byId = Object.fromEntries(res.data.items.filter((it) => it && ids.includes(it.id)).map((it) => [it.id, it]));
@@ -140,8 +140,8 @@ async function analyzeRecords(records, opts = {}) {
     } catch (e) {
       stats.batches_failed++;
       consecutiveFails++;
-      if (e.kind === 'no_provider' || e.kind === 'budget' || consecutiveFails >= BREAKER) stats.circuit_open = true;
-      batch.forEach((r) => fallback(r, e.kind === 'no_provider' ? 'no_ai_provider' : e.kind === 'budget' ? 'ai_budget_reached' : `ai_error:${e.kind || 'unknown'}`));
+      if (['no_provider', 'budget', 'quota'].includes(e.kind) || consecutiveFails >= BREAKER) stats.circuit_open = true;
+      batch.forEach((r) => fallback(r, e.kind === 'no_provider' ? 'no_ai_provider' : e.kind === 'budget' ? 'ai_budget_reached' : e.kind === 'quota' ? 'ai_quota_exhausted' : `ai_error:${e.kind || 'unknown'}`));
     }
   }), CONC);
 

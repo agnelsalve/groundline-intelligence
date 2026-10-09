@@ -16,9 +16,12 @@ $cred = @(@{
     data = @{ user = $env:GMAIL_ADDRESS; password = ($env:GMAIL_APP_PASSWORD -replace '\s', ''); host = "smtp.gmail.com"; port = 465; secure = $true }
 })
 try {
-    ConvertTo-Json $cred -Depth 5 | Out-File -Encoding utf8 $tmp
+    # UTF-8 without BOM (n8n rejects the BOM that PowerShell 5.1 adds), and keep it a JSON array
+    [IO.File]::WriteAllText($tmp, (ConvertTo-Json -InputObject $cred -Depth 5), (New-Object Text.UTF8Encoding $false))
     n8n import:credentials --input="$tmp"
+    $code = $LASTEXITCODE
 } finally {
     Remove-Item $tmp -Force -ErrorAction SilentlyContinue
 }
+if ($code -ne 0) { Write-Error "Import failed - see the message above."; exit 1 }
 Write-Host "Credential 'Groundline Gmail (SMTP)' ready for $($env:GMAIL_ADDRESS)."

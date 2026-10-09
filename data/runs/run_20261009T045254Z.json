@@ -1,0 +1,155 @@
+{
+  "run_id": "20261009T045254Z",
+  "started_at": "2026-10-09T04:52:54.228Z",
+  "finished_at": "2026-10-09T04:54:53.115Z",
+  "duration_s": 118.9,
+  "records_judged": 294,
+  "routes": {
+    "digest": 267,
+    "discard": 14,
+    "opportunity": 12,
+    "urgent_risk": 1
+  },
+  "analysis": {
+    "cache_hits": 289,
+    "ai_analyzed": 5,
+    "fallback": 0,
+    "fallback_reasons": {},
+    "batches": 1,
+    "batches_failed": 0,
+    "circuit_open": false
+  },
+  "cache_status": "loaded: 294 analyses, 11 alerted records",
+  "ai": {
+    "calls": 16,
+    "retries": 2,
+    "repairs": 2,
+    "provider_fallbacks": 3,
+    "failed_tasks": 0,
+    "tokens_in": 27331,
+    "tokens_out": 9552,
+    "cost_usd": 0.08888,
+    "providers": [
+      "analyst:gemini-3.5-flash-lite",
+      "writer:gemini-3.8-flash",
+      "checker:gemini-3.5-flash"
+    ],
+    "step_seconds": {
+      "analyst": 3.9,
+      "writer": 34,
+      "checker": 57.8
+    },
+    "latency_p50_ms": 2105,
+    "latency_p95_ms": 2105,
+    "errors": [
+      {
+        "task": "brief:weave",
+        "provider": "gemini-3.8-flash",
+        "kind": "quota",
+        "error": "Gemini 3.8-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "brief:birdeye",
+        "provider": "gemini-3.8-flash",
+        "kind": "quota",
+        "error": "Gemini 3.8-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "check:market",
+        "provider": "gemini-3.5-flash",
+        "kind": "quota",
+        "error": "Gemini 3.5-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      }
+    ]
+  },
+  "briefs": [
+    {
+      "key": "weave",
+      "written_by": "gemini:gemini-3.5-flash",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "verified",
+      "groundedness": 0.867,
+      "claims_total": 15,
+      "supported": 12,
+      "partial": 2,
+      "unsupported": 1,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "podium",
+      "written_by": "gemini:gemini-3.8-flash",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "verified",
+      "groundedness": 0.967,
+      "claims_total": 15,
+      "supported": 14,
+      "partial": 1,
+      "unsupported": 0,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "birdeye",
+      "written_by": "gemini:gemini-3.5-flash",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "failed",
+      "groundedness": 0.538,
+      "claims_total": 13,
+      "supported": 6,
+      "partial": 2,
+      "unsupported": 5,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "market",
+      "written_by": "gemini:gemini-3.5-flash",
+      "write_error": null,
+      "checker": "gemini:gemini-3.1-flash-lite",
+      "check_error": null,
+      "status": "verified",
+      "groundedness": 0.941,
+      "claims_total": 17,
+      "supported": 16,
+      "partial": 0,
+      "unsupported": 1,
+      "unverified": 0,
+      "fabricated_citations": 0
+    }
+  ],
+  "email": {
+    "weekly_digest": {
+      "status": "sent",
+      "message_id": "<8e393618-f245-d07b-0559-1015396443fe@gmail.com>",
+      "accepted": [
+        "branding.and.ai@gmail.com"
+      ],
+      "saved_to": "emails/2026-10-09_weekly_digest.html"
+    },
+    "risk_alert": {
+      "status": "sent",
+      "message_id": "<3e903295-478d-bf13-e6ed-3f7bc3864c02@gmail.com>",
+      "accepted": [
+        "branding.and.ai@gmail.com"
+      ],
+      "count": 1,
+      "saved_to": "alerts/2026-10-09_urgent_risk.html"
+    },
+    "opportunity_alert": {
+      "status": "sent",
+      "message_id": "<3ac65b5e-c68b-dadd-b974-442e4c85460b@gmail.com>",
+      "accepted": [
+        "branding.and.ai@gmail.com"
+      ],
+      "count": 1,
+      "saved_to": "alerts/2026-10-09_opportunity.html"
+    }
+  }
+}

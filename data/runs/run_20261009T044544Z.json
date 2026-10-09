@@ -1,0 +1,172 @@
+{
+  "run_id": "20261009T044544Z",
+  "started_at": "2026-10-09T04:45:44.680Z",
+  "finished_at": "2026-10-09T04:50:45.678Z",
+  "duration_s": 301,
+  "records_judged": 294,
+  "routes": {
+    "digest": 269,
+    "discard": 14,
+    "opportunity": 11
+  },
+  "analysis": {
+    "cache_hits": 0,
+    "ai_analyzed": 294,
+    "fallback": 0,
+    "fallback_reasons": {},
+    "batches": 12,
+    "batches_failed": 0,
+    "circuit_open": false
+  },
+  "cache_status": "loaded: 0 analyses, 0 alerted records",
+  "ai": {
+    "calls": 42,
+    "retries": 12,
+    "repairs": 3,
+    "provider_fallbacks": 7,
+    "failed_tasks": 0,
+    "tokens_in": 66743,
+    "tokens_out": 47822,
+    "cost_usd": 0.16286,
+    "providers": [
+      "analyst:gemini-3.5-flash-lite",
+      "writer:gemini-3.8-flash",
+      "checker:gemini-3.5-flash"
+    ],
+    "step_seconds": {
+      "analyst": 41.4,
+      "writer": 173.5,
+      "checker": 5
+    },
+    "latency_p50_ms": 7079,
+    "latency_p95_ms": 7304,
+    "errors": [
+      {
+        "task": "brief:weave",
+        "provider": "gemini-3.8-flash",
+        "kind": "unavailable",
+        "error": "Gemini 3.8-flash 503: {\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}"
+      },
+      {
+        "task": "brief:birdeye",
+        "provider": "gemini-3.8-flash",
+        "kind": "unavailable",
+        "error": "Gemini 3.8-flash 503: {\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}"
+      },
+      {
+        "task": "brief:weave",
+        "provider": "gemini-3.5-flash",
+        "kind": "malformed",
+        "error": "invalid reply after repair: reply is not valid JSON: {\n  \"headline\": \"Weave to go private in $650M acquisition amid shareholder investigations and competitor shifts\",\n  \"sum"
+      },
+      {
+        "task": "brief:market",
+        "provider": "gemini-3.8-flash",
+        "kind": "unavailable",
+        "error": "Gemini 3.8-flash 503: {\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}"
+      },
+      {
+        "task": "brief:podium",
+        "provider": "gemini-3.8-flash",
+        "kind": "unavailable",
+        "error": "Gemini 3.8-flash 503: {\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}"
+      },
+      {
+        "task": "brief:market",
+        "provider": "gemini-3.5-flash",
+        "kind": "malformed",
+        "error": "invalid reply after repair: reply is not valid JSON: {\n  \"headline\": \"AI receptionists face severe patient backlash while competitors launch new front-desk tools\",\n  \"summar"
+      },
+      {
+        "task": "brief:podium",
+        "provider": "gemini-3.5-flash",
+        "kind": "malformed",
+        "error": "invalid reply after repair: reply is not valid JSON: {\n  \"headline\": \"ServiceTitan cuts Podium integration for 1,000 shared customers over AI competition\",\n  \"summary\": \"Pod"
+      }
+    ]
+  },
+  "briefs": [
+    {
+      "key": "weave",
+      "written_by": "gemini:gemini-3.1-flash-lite",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "verified",
+      "groundedness": 0.964,
+      "claims_total": 14,
+      "supported": 13,
+      "partial": 1,
+      "unsupported": 0,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "podium",
+      "written_by": "gemini:gemini-3.1-flash-lite",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "needs_review",
+      "groundedness": 0.727,
+      "claims_total": 11,
+      "supported": 7,
+      "partial": 2,
+      "unsupported": 2,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "birdeye",
+      "written_by": "gemini:gemini-3.5-flash",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "verified",
+      "groundedness": 0.875,
+      "claims_total": 12,
+      "supported": 9,
+      "partial": 3,
+      "unsupported": 0,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "market",
+      "written_by": "gemini:gemini-3.1-flash-lite",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "needs_review",
+      "groundedness": 0.708,
+      "claims_total": 12,
+      "supported": 7,
+      "partial": 3,
+      "unsupported": 2,
+      "unverified": 0,
+      "fabricated_citations": 0
+    }
+  ],
+  "email": {
+    "weekly_digest": {
+      "status": "sent",
+      "message_id": "<b94da349-5104-5e15-19bf-290c2911aeb3@gmail.com>",
+      "accepted": [
+        "branding.and.ai@gmail.com"
+      ],
+      "saved_to": "emails/2026-10-09_weekly_digest.html"
+    },
+    "risk_alert": {
+      "status": "nothing_to_send"
+    },
+    "opportunity_alert": {
+      "status": "sent",
+      "message_id": "<f3e97db7-7485-d9b7-960a-9f3a0bb04c8f@gmail.com>",
+      "accepted": [
+        "branding.and.ai@gmail.com"
+      ],
+      "count": 11,
+      "saved_to": "alerts/2026-10-09_opportunity.html"
+    }
+  }
+}

@@ -1,8 +1,8 @@
-// AI Analyst — the AI (Gemini 2.5 Flash; Muse Spark optional) reads every clean record and judges it
+// AI Analyst — Gemini 3.5 Flash-Lite (Muse Spark optional) reads every clean record and judges it
 // (relevance, entity, sentiment, theme, risk, opportunity, archetype, key fact).
 // Logic lives in workflow/lib/analyst_core.js (pasted above by the build script).
 //
-// Error handling: cache first; batches of 10; 3 batches in parallel; per-batch retries
+// Error handling: cache first; batches (AI_BATCH_SIZE) run in parallel (AI_CONCURRENCY); per-batch retries
 // and provider fallback inside the AI client; a circuit breaker after 3 failed batches;
 // anything the AI could not judge falls back to the A3 keyword rules and is labelled so.
 const t0 = Date.now();

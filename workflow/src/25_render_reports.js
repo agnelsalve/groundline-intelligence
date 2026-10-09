@@ -10,9 +10,9 @@ const records = $('AI Analyst').all().map((i) => i.json).filter((j) => j._type =
 const runs = ['AI Analyst', 'AI Brief Writer', 'AI Fact-Checker'].map((n) => $(n).all().map((i) => i.json).find((j) => j._type === 'ai_run'));
 const analyst = runs[0];
 const aiCost = runs.reduce((s, r) => s + ((r && r.ai && r.ai.cost_usd) || 0), 0);
-const models = [...new Set(runs.flatMap((r) => (r && r.ai ? Object.keys(r.ai.by_provider) : [])))];
-const PRETTY = { gemini: 'Gemini', 'gemini-check': 'Gemini', muse: 'Muse Spark' };
-const builtWith = 'n8n + ' + ([...new Set(models.map((m) => PRETTY[m] || m))].join(' + ') || 'keyword rules');
+const models = [...new Set(runs.flatMap((r) => (r && r.ai ? Object.keys(r.ai.by_model || {}) : [])))];
+const pretty = (m) => m.replace(/^gemini-/, 'Gemini ').replace(/^gemma-/, 'Gemma ').replace(/^muse-spark-/, 'Muse Spark ').replace(/-/g, ' ').replace(/\b(flash|lite|preview|pro|it)\b/g, (w) => w[0].toUpperCase() + w.slice(1));
+const builtWith = 'n8n + ' + ([...new Set(models.map(pretty))].join(', ') || 'keyword rules');
 const recById = Object.fromEntries(records.map((r) => [r.record_id, r]));
 const out = [];
 const file = async (rel, content, mime) => out.push({ json: { file: rel, file_path: `${cfg.out_dir}/${rel}`, bytes: Buffer.byteLength(content) },

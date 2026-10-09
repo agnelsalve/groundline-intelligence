@@ -1,5 +1,221 @@
 [
   {
+    "record_id": "GL-b30b5b7b",
+    "published_date": "2026-10-09",
+    "title": "Form 4 Weave Communications Inc For: 8 October By Investing.com",
+    "summary": "",
+    "topic": "weave_brand",
+    "focus": "Weave",
+    "entity": "Weave",
+    "signal_type": "insider_trade",
+    "source_name": "Investing.com India",
+    "source_type": "news_rss",
+    "collected_via": "gnews_weave",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPWGFwQl9VY3hzNm9ZOHk2OWpMYlhCMTV4YWU4Ri01WkJIWk4wb0pqNXU0dU5OVTdiSDRlV1U3OGMzQ0gyNWFrUW94Z3FId3B3Q0ZiUlpSQWd5Q2ZZRDR3NFE5amQ4bVVHMFFSamRVRTBnZ2JkUDFxVmhVV2drQTNyLUhDVE5SR0JKc1ByQmJKUUJYd0FsdmNyOVdyanN4OFNhaHFYSzk3STd0UQ?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "Weave Communications",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-09T02:19:33.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-1b9a542e",
+    "published_date": "2026-10-09",
+    "title": "A holdings correction at Weave Communications (WEAV) follows Tyler Newton's 32,502-unit stock grant.",
+    "summary": "",
+    "topic": "weave_brand",
+    "focus": "Weave",
+    "entity": "Weave",
+    "signal_type": "news",
+    "source_name": "Stock Titan",
+    "source_type": "news_rss",
+    "collected_via": "gnews_weave",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOZzQ5dFZHemVFaklCaXlEMGVSaTRPUWprSE9xVExSNkxXNEZmREFjTW1icU1xYmRiOVE3V19USjZvQUFCTFJkblFSMXJYVTEyR0djNXZZdHRUTl85YlRKTWllZWttamo2cVVFOFBKWE42SWVKS2ROWXpRZUZEWk5EVTB3ZWZfQjRrZy1lWTZvSXJLZUtTdUhxZnZuWHZJY29OSlZKNmdGSjNGMkdzbDdLSmhrdlpVY1VXeEpmUzA5TE1JMEN5aFZv?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "Weave Communications; WEAV",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-09T02:03:13.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-c5a65be5",
+    "published_date": "2026-10-09",
+    "title": "Google wants to be the gatekeeper for enterprise AI agents",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Computerworld",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOelBHdTVzbmNXc2g5TUNpbWdTRmY1VjF0YXdPX1VHWFpZNzhvSGIzbUtmV3ZNS1A4Vml0R0luS29sZ0NiSVhnN3dyamU5WVRuU1Nnb1pBZUJoaGFIelhfSWVkdGJsVzd2WE5BQkgteVZZYzdUSjdMZVhveFN3NzFPNnhSWEZMRnJFMlVTdHloU25uU3NLUm5fUS0tYnFRRGFkSHJQYXhJX3lvMWowS1E?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-09T00:57:23.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-22841f4e",
+    "published_date": "2026-10-09",
+    "title": "Roundtables: A Conversation With the Creator of AI-Designed Viruses",
+    "summary": "Friday, October 16, 2026 Can AI design new life forms? In 2025, Stanford University PhD student Samuel King came up with a preliminary answer when he used a generative AI model to propose genetic blueprints for microscopic viruses. It isn’t yet an example of AI-generated life, but that could be next. Join senior AI reporter…",
+    "topic": "ai_industry",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "MIT Technology Review",
+    "source_type": "news_rss",
+    "collected_via": "mit_tech_review_ai",
+    "aggregator": "",
+    "author": "MIT Technology Review",
+    "url": "https://www.technologyreview.com/2026/10/08/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "ai",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-09T00:08:24.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-1e6750fd",
+    "published_date": "2026-10-08",
+    "title": "Personal AI Agents Are Great—Until They Share Your Bank Statement in the Work Chat",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "WSJ",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOa19qU3JmcFUtZ2dfVlowT1NHZkNzQlE4LW8zZUxFc2hoMzF5RWhpWEFpQ2pFaHVCZDZ0b2NwTFVLalFyNU5IRHR2cHhBblZtTGk2UE9sNHRCRWFHMWFaTHg3dXA3a2JFc2pIU3NtNVJyOUN0Vk82VzRBSTNReUNjTlE0bmc?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-08T23:00:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-4d8d837f",
+    "published_date": "2026-10-08",
+    "title": "Anthropic launches free AI security scans for open-source projects",
+    "summary": "Anthropic's offering to help open-source projects track down security vulnerabilities with a new service called OSS Scanner. It says open-source projects that opt-in will get \"thorough, periodic security scans by our strongest models at no cost.\" That could mean open-source projects get alerted about possible security issues sooner, but the trade-off is that OSS Scanner's reports don't come with…",
+    "topic": "ai_trust_safety",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "The Verge",
+    "source_type": "news_rss",
+    "collected_via": "the_verge_ai",
+    "aggregator": "",
+    "author": "Stevie Bonifield",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "security; anthropic; ai",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T21:53:51.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-52f2becf",
+    "published_date": "2026-10-08",
+    "title": "Fired OpenAI safety researchers dispute misconduct claims, warn of chilling effect",
+    "summary": "Three fired OpenAI safety researchers dispute allegations of mishandling sensitive information, warning in an open letter that their dismissals are creating a chilling effect on the company’s AI safety culture.",
+    "topic": "ai_trust_safety",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "TechCrunch",
+    "source_type": "news_rss",
+    "collected_via": "techcrunch_ai",
+    "aggregator": "",
+    "author": "Rebecca Bellan",
+    "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "safety; openai; ai",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T20:04:26.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-0431c116",
+    "published_date": "2026-10-08",
+    "title": "Making Tough Choices: Watermarking Of AI Text Might Increase The Chances Of Getting AI Hallucinations",
+    "summary": "",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Forbes",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_grounding",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPbThLdlE0SXBSdXpFZEJKbkw4eTlPeU04Xy1QeGl4M0lZVEo0aDdlSmZUYnZjZXJ5aENFaHYxeXNCWmNLRkh1aHRKdVRELW53RTJYOHdURVdCb1hOZWxjTXJ4Vk9uVEplNi1tdndrMjlQZGlCSDBHUFdHZTVhMklObHNJVFh3Ml9YZnd4UE9nWFYzV2VENWVTRUVwWmd3NUxwVDh2WW11dm4wU01oRUJacnAzQzBXN3JmWGEtVTRIODQyTjhGRU11b0h1UnExbmszeUNxeGRpTmZFRkh2TnNaRklQaHNMelk?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "hallucinations; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-08T19:41:26.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-4331268d",
+    "published_date": "2026-10-08",
+    "title": "Shadow AI agents are a bigger threat than shadow IT—and they’re already in your workflows",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Spiceworks",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZm1WMXJMcEh0YzY4eVFaLUdsdGs5Zkl6Ykdwcmhzd0k5OUhBUnNqaE05QmVYUkVLUG9EY29lZUtHSXZKY3IyMndCS0FJWk5FQWpXUWxoY1lTX1lPclFUN0NfbFVOZGduNjVOSGRzYzVpOHF3bkhqaklFZ0VTN3pGSWVvN0M3RmNQSnByRmgzUk93TjViV21WSTkwODJzejdBWmFvcDdHVm5uUmJIX1pvN2oyalJjMDhGMFd5c0dka1RDeG8?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-08T19:00:24.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
     "record_id": "GL-7a91cc66",
     "published_date": "2026-10-08",
     "title": "Ben Affleck is an AI nerd, and the internet is impressed",
@@ -20,8 +236,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:20:32.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e99e7f89",
@@ -44,8 +260,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:19:45.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-78876035",
@@ -68,8 +284,8 @@
     "matched_keywords": "openai; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:19:42.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e05c699d",
@@ -92,8 +308,8 @@
     "matched_keywords": "agentic; agent; ai; gemini",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:18:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-dec4dfb3",
@@ -116,8 +332,8 @@
     "matched_keywords": "anthropic; claude",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:16:24.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-3e228a1c",
@@ -140,8 +356,8 @@
     "matched_keywords": "openai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:10:55.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1aceef8b",
@@ -164,8 +380,32 @@
     "matched_keywords": "openai; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:58:33.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-79274232",
+    "published_date": "2026-10-08",
+    "title": "Caught in the Act: Probes Effectively Detect Sabotage and Catch Unverbalized Deception",
+    "summary": "Recent incidents have highlighted the challenge of monitoring LLM agents and the danger of models deceiving people. We show that white-box deception detection via probes can be scaled up to frontier monitoring settings by collecting the largest deception dataset to date for training probes and introducing a novel probe architecture which can aggregate information across many layers and tokens…",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Oskar J. Hollinsworth, Alex F. Spies, Tigist Diriba et al.",
+    "url": "https://arxiv.org/abs/2610.12445v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; llm",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T17:58:13.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-2ab15163",
@@ -188,8 +428,32 @@
     "matched_keywords": "grok",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:57:01.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-052eda5b",
+    "published_date": "2026-10-08",
+    "title": "ORCAGen: Orchestrating Context-Aware Malware Deception with RAG-Guided Generative AI",
+    "summary": "Malware defenses often remove or isolate suspicious programs as quickly as possible. While effective for containment, this approach can also waste an opportunity to observe attacker behavior and deploy targeted countermeasures. ORCAGen takes a different approach: it uses GenAI to build malware-specific deception playbooks offline, validates them before deployment, and enforces only the verified…",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Shihab Ahmed, Md Sajidul Islam Sajid, Teryl Taylor et al.",
+    "url": "https://arxiv.org/abs/2610.12415v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "rag; ai",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T17:51:11.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a62f670b",
@@ -212,8 +476,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T17:02:44.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-998ee85e",
@@ -236,8 +500,8 @@
     "matched_keywords": "anthropic; claude",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-173e24a6",
@@ -260,8 +524,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T16:32:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-97b4a004",
@@ -284,8 +548,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T16:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-532b5e7a",
@@ -308,8 +572,8 @@
     "matched_keywords": "agents; agent; rogue; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T16:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-76762efe",
@@ -332,8 +596,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T15:27:30.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bdf820e2",
@@ -356,8 +620,32 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T15:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-ca7343ae",
+    "published_date": "2026-10-08",
+    "title": "ICO secures data protection changes from 10 AI developers, turns to agents",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "The Next Web",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQa1Bid054Nk1UWnB0WHlzbXBrYTBydFRXR3ZhQmVzdm9xWmxSVVpEaFZMTENLZ093bE10UTdiQ3d1SGUyaElyLXQ0ZERUVUtfOG9vZy1uWFVyb3B0bm9IUUMwVldTcDBpY2VQMm02c0RqVVJLdjJSekVfOGZVRURZeGttUE05QQ?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-08T14:55:43.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bd9808ae",
@@ -380,8 +668,8 @@
     "matched_keywords": "agent; gemini; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T14:28:03.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-54d0a615",
@@ -404,8 +692,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T14:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1ea8cf34",
@@ -428,8 +716,8 @@
     "matched_keywords": "agents; trust; openai; ai; grok",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T14:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-87221a43",
@@ -452,8 +740,32 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T13:51:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-be5de54b",
+    "published_date": "2026-10-08",
+    "title": "\"Hot-Blooded\" vs \"Cold-Blooded\": Simulating the Behavioral Phenotypes of Childhood Aggression via Generative Agents",
+    "summary": "This study examines the construct validity of LLM-based generative agents in simulating reactive, proactive, and co-occurring aggression in children. Four distinct agents were instantiated using a theory-driven parameterization grounded in the social information processing model. A total of 1,920 simulation runs were conducted across eight social scenarios, employing a hybrid blind-coding…",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Liping Fu",
+    "url": "https://arxiv.org/abs/2610.11951v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "grounded; agents; llm",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T13:38:12.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-8858153a",
@@ -476,8 +788,104 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T13:28:39.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-c9c14830",
+    "published_date": "2026-10-08",
+    "title": "Forms of LLM-Integrated Applications from LLM-Chats to Autonomous AI Agent System",
+    "summary": "Large language models (LLMs) are increasingly embedded as components in software systems, marketed under labels such as chatbot, copilot, retrieval-augmented generation, workflow, coding agent and AI agent. Whether these labels denote genuine architectural forms or serve as branding has not been assessed systematically. In the sources surveyed, labels do carry architectural content, most clearly…",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Irene Weber",
+    "url": "https://arxiv.org/abs/2610.11899v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "retrieval-augmented; autonomous; agent; copilot; llm; ai",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T13:05:33.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-d3c157ee",
+    "published_date": "2026-10-08",
+    "title": "A Security Meta-Model for Retrieval-Augmented Generation Systems",
+    "summary": "Retrieval-Augmented Generation (RAG) systems extend large language models (LLMs) with external knowledge through a multi-stage pipeline. While this architecture can improve the factual grounding of generated answers, it introduces structural attack surfaces that extend beyond those of standalone LLMs. In this paper, we introduce a security meta-model that captures explicit causal relationships…",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Steve Nouyep, Sébastien Salva, Maxime Puys",
+    "url": "https://arxiv.org/abs/2610.11893v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "retrieval-augmented; rag; grounding; security; language models; llms",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T13:03:42.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-d0dd677e",
+    "published_date": "2026-10-08",
+    "title": "Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks",
+    "summary": "Learning to act in unfamiliar environments requires agents to infer how the world works and revise that understanding as new evidence arrives. Yet limited observations can support multiple world models that explain past interactions but predict different outcomes in unseen states. We introduce Memento 3, building on the Memento series to enable frozen LLM agents to continually learn explicit…",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Haoyu Zhao, Zhengxu Yu, Zhiyuan He et al.",
+    "url": "https://arxiv.org/abs/2610.11794v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; llm",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T12:06:54.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-b9ae53aa",
+    "published_date": "2026-10-08",
+    "title": "Your employees are building AI agents. Do you know what they’re doing?",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "CIO",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQUVxWDZaT3hSeVk5bzlBejZ0QU8xNG5JX1RxZTNId3RLR2FlTl9nXzZUenVzdGJ2RnJJeC1DQnYza2ZKUGlLUDhzSkRMUHJsS1hkNjczQnJXenZCaVZBNkZUMWpRSy1fdlUtUVZOQTI4am04RDd3azYtMWJuQW5hekVPa3ROOU5TWXMtY0JDY3lXaHJxQmcwRm5oRXpaSzlBank1dVZhbll3TklS?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-08T10:08:52.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-546a78ad",
@@ -500,8 +908,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T09:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f1481c00",
@@ -524,8 +932,104 @@
     "matched_keywords": "autonomous; agentic; analytics; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T08:17:32.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-fd55ef8b",
+    "published_date": "2026-10-08",
+    "title": "SignRAG: Unified Retrieval-Augmented Gloss-Free Sign Language Translation",
+    "summary": "Contemporary decoder-only large language models (LLMs) have demonstrated strong capabilities across a wide range of domains. However, existing pretraining paradigms for gloss-free sign language translation (SLT) are largely designed around conventional encoder-decoder pretrained language models, which limits their direct applicability to decoder-only LLMs. To address this limitation, we propose…",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Zhi Rao, Yucheng Zhou, Qianran Sun et al.",
+    "url": "https://arxiv.org/abs/2610.11371v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "retrieval-augmented; language models; llms",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T07:03:24.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-fc55edf8",
+    "published_date": "2026-10-08",
+    "title": "RIT-RAG: Navigating Document Corpora with Retrieval-Induced Trees",
+    "summary": "Retrieval-augmented generation (RAG) grounds language models in external corpora. Agentic RAG enables iterative search, yet exposes the model to isolated chunks without document structure, making it difficult to distinguish relevant evidence from chunks that merely resemble the query. Structure-aware methods such as PageIndex navigate document structure but cannot scale to the structures of large…",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Meghanadh Pulivarthi, Swaraj Kumar Biswal, Kushagra Bhushan et al.",
+    "url": "https://arxiv.org/abs/2610.11370v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "rag; retrieval-augmented; agentic; language models",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T07:03:17.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-715d61ec",
+    "published_date": "2026-10-08",
+    "title": "SynCo: Data Synthesis Co-Training for Self-Evolving LLMs via Multi-Agent Reinforcement Learning",
+    "summary": "Self-evolving LLM agents promise to improve autonomously through continual interaction and learning, reducing their dependence on manually curated supervision. Realizing this promise requires not only updating the agent, but also evolving its training experience as its capabilities change. However, most existing pipelines rely on static datasets or separately updated synthesis models, causing…",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Wei Yang, Shawn Li, Yuehan Qin et al.",
+    "url": "https://arxiv.org/abs/2610.11345v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "multi-agent; agents; autonomous; agent; llms; llm",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T06:40:18.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-0465051a",
+    "published_date": "2026-10-08",
+    "title": "From Retrieval to Reconstruction: Constructing Evolvable Cognitive Memory for Long-Term Dialogue",
+    "summary": "Large Language Models (LLMs) serving as long-term dialogue agents require memory systems that support reliable reasoning over extended interactions. However, existing Retrieval-Augmented Generation (RAG) frameworks typically treat memory as passive storage, making it difficult to distinguish source-attributed beliefs from unattributed event/fact records and to connect evidence dispersed across…",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Zirui Liao, Zhengxian Wu, Zhuohong Chen et al.",
+    "url": "https://arxiv.org/abs/2610.11314v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "retrieval-augmented; rag; agents; reliable; language models; llms",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-08T06:21:45.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-61b3f4e4",
@@ -548,8 +1052,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T21:42:08.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c0c89846",
@@ -572,8 +1076,8 @@
     "matched_keywords": "agents; agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T20:48:45.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-9cb56e2d",
@@ -596,32 +1100,8 @@
     "matched_keywords": "agents; nvidia; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T20:22:37.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-1cf0e24d",
-    "published_date": "2026-10-07",
-    "title": "Are we creating a ticking AI time bomb?",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Federal News Network",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQUzlQMUxCa3FRZFRGZW95aHBEdWN6Sm1Ja0VSNzFkSWZmMWpRUFdyd2F3M0d3Z1c2ZW84cnlDdkpRVGpXYjN4WW5qV2ZkQkotRTlDU1pmdFk1NmxMR3UtajgzM1c3a1JXVzRVOWRROXFobm5fdGhuSkY3UVM0NmY1WXRzRlE2RUJtVjBMSWljdV93LUE?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-07T20:12:53.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-aa999392",
@@ -644,8 +1124,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T20:09:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-4eb5086c",
@@ -668,8 +1148,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T19:46:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-75bc8cc1",
@@ -692,11 +1172,11 @@
     "matched_keywords": "chatgpt; openai; chatbot; gpt",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T19:10:42.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
-    "record_id": "GL-a4f45f21",
+    "record_id": "GL-a2347515",
     "published_date": "2026-10-07",
     "title": "'Outlandish' Errors Not AI Hallucinations, Attys Tell CIT",
     "summary": "",
@@ -709,63 +1189,15 @@
     "collected_via": "gnews_ai_grounding",
     "aggregator": "Google News",
     "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQY1NtQ3FuYlZiVERCaXFxYk5xSmk2ZmZTdUpVOVY4c3lxYnFGbjVFVWIyUVUwLVJEMklDNW0yUlE0U04xanJBaDlCV0dWVUlTUzlEcHJlb0ZKT0pIbHp5cjF6enlDbGlDQ1hhS3c5a01fWkluZllzR3V0bkdfX19HTHJGZzR0V1VXc2lDeHctQmd3eFljamlxa1o3cjZKWG4tUEl5S3dXNTM3TGFsTHhlYkpFZ2FEcXlfZEHSAV5BVV95cUxOb0pqMUZjeVpGbVo2ckk1X2pTanhPVzhCVGFQMFNFRVA2RmlVRFhpaVN3ZzhrVzBlcm9lQjBwSTZGcUM0VTlocUpSSXBRYkNDTEhmOFlIemQ1Rk1kVXRB?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPWWFxWUlqVkNfd0I0Nmd6d2NuZVM5UktrX0VzQU9Jd3lQMGFHUG14VkZpZXd4OGFNOVZ0RVZHX2ZaTlJPdzBHVHEzZkpsc3JKUnRBS3JwVWk2US04SGNYcG1MRTM4N1Q5UkhGYmlvUDV3bEpJcFNOYjR6VWJTUmJUdFNGUHE2Slh4aHBORGtMV1k0c3JwQjZPVEc2Uks4dXJRWkHSAV5BVV95cUxOb0pqMUZjeVpGbVo2ckk1X2pTanhPVzhCVGFQMFNFRVA2RmlVRFhpaVN3ZzhrVzBlcm9lQjBwSTZGcUM0VTlocUpSSXBRYkNDTEhmOFlIemQ1Rk1kVXRB?oc=5",
     "discussion_url": "",
     "engagement_points": "",
     "engagement_comments": "",
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T19:00:38.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-7e504fce",
-    "published_date": "2026-10-07",
-    "title": "It appears .agent and .agi are about to be the hot new domains",
-    "summary": "What’s in a URL anymore, really. For the first time in years, the Internet Corporation for Assigned Names and Numbers - better known as ICANN - is accepting applications for new top-level domains. These are the suffixes at the end of all URLs, and you may know them as things like .com, .org, and .pizza. ICANN just announced the 1,615 applications that have been submitted so far, from 481…",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "The Verge",
-    "source_type": "news_rss",
-    "collected_via": "the_verge_ai",
-    "aggregator": "",
-    "author": "David Pierce",
-    "url": "https://www.theverge.com/tech/1007132/icann-domains-2026-ai-agi",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agent",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-07T18:46:16.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-a78dbbaa",
-    "published_date": "2026-10-07",
-    "title": "Everything announced at Microsoft’s Surface Laptop Ultra event",
-    "summary": "Microsoft just wrapped up a big Windows and Surface-focused keynote in San Francisco. The biggest announcement was arguably the release details about the Surface Laptop Ultra, its new laptop that’s powered by Nvidia’s RTX Spark Arm-based chip. The machine will start at $2,599 for a configuration with an 8-core CPU, 24GB of RAM, and 512GB of storage, and it will be released on October 16th. The…",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "The Verge",
-    "source_type": "news_rss",
-    "collected_via": "the_verge_ai",
-    "aggregator": "",
-    "author": "Verge Staff",
-    "url": "https://www.theverge.com/tech/1007147/microsoft-surface-laptop-ultra-windows-event-everything-announced",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "nvidia",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-07T18:42:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-fb38ce83",
@@ -788,8 +1220,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T18:30:57.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f0fa3aaa",
@@ -812,8 +1244,8 @@
     "matched_keywords": "chatgpt; chatbot; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T18:15:28.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a4f1268b",
@@ -836,8 +1268,8 @@
     "matched_keywords": "chatgpt; openai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T18:00:19.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d4f65001",
@@ -860,8 +1292,8 @@
     "matched_keywords": "grounded; retrieval-augmented; rag; agentic; language models",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T17:51:08.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-19f861dd",
@@ -879,85 +1311,13 @@
     "author": "screm",
     "url": "https://agent.reviews/",
     "discussion_url": "https://news.ycombinator.com/item?id=49995539",
-    "engagement_points": 66,
+    "engagement_points": 67,
     "engagement_comments": 47,
     "matched_keywords": "agent; agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-07T16:59:11.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-e1d8f431",
-    "published_date": "2026-10-07",
-    "title": "Meta rolls out new AI tools to detect ads that secretly lead to child sexual abuse material",
-    "summary": "Meta launches new AI tools after discovering ads on its platforms that may look normal but direct users to harmful content elsewhere online.",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "TechCrunch",
-    "source_type": "news_rss",
-    "collected_via": "techcrunch_ai",
-    "aggregator": "",
-    "author": "Lauren Forristal",
-    "url": "https://techcrunch.com/2026/10/07/meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead-to-child-sexual-abuse-material/",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-07T16:53:46.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-7c83aead",
-    "published_date": "2026-10-07",
-    "title": "Healthleap raises $38M for its AI that flags hospital patients who may need a closer look",
-    "summary": "The financing includes an $8M seed round co-led by Sequoia Capital and First Round Capital, and a $30 million Series A led by Hummingbird Ventures.",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "TechCrunch",
-    "source_type": "news_rss",
-    "collected_via": "techcrunch_ai",
-    "aggregator": "",
-    "author": "Ram Iyer",
-    "url": "https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-07T15:07:08.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-04215288",
-    "published_date": "2026-10-07",
-    "title": "Dell Gives AI Agents a Map of Enterprise Data",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "HPCwire",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNS01DbTlRQlhCZDlQNU90bVJtZzFzZHBERTdYUEFHdEF0NzJFVFkwMEpGcUFDa0JKOHpyWWhkaUI4ekJyR2hXLVBsSG5PWUdrVkhoM0VXNHVELXZVcjBWbkZ1RVpkR0k0NEkzNExyUUFKWjAwTFl0RURuQTNaNE5GUy1YaURDeUpOS1JSMzR3MW94dw?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-07T14:42:14.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f1f9d524",
@@ -980,8 +1340,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T14:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-042c5055",
@@ -1004,8 +1364,8 @@
     "matched_keywords": "grounded; agents; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T13:50:33.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d1a0fa56",
@@ -1028,8 +1388,32 @@
     "matched_keywords": "ai; language models; llms",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T09:49:31.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-15f719f7",
+    "published_date": "2026-10-07",
+    "title": "TestJack: Should you trust the results in coding benchmarks? Agentic Coding Benchmarks Auditing via Evaluator Evolution",
+    "summary": "Large language model (LLM) agents are rapidly reshaping software engineering, accompanied by an explosion of new code benchmarks. Yet nearly all existing benchmarks still rely on the same decades-old criterion: a solution is correct if it passes a fixed set of unit tests. Such tests are often insufficient: they check only part of what the task requires, so agents can reward hack them or silently…",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "research_paper",
+    "source_name": "arXiv",
+    "source_type": "research_api",
+    "collected_via": "arxiv_grounding_agents",
+    "aggregator": "",
+    "author": "Shuangjie Yao, Hao Wang, Koushik Sen et al.",
+    "url": "https://arxiv.org/abs/2610.10619v1",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agentic; agents; benchmarks; trust; language model; llm",
+    "completeness_pct": 100,
+    "published_at_utc": "2026-10-07T07:58:04.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-30fe8955",
@@ -1052,8 +1436,8 @@
     "matched_keywords": "citation; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T07:26:33.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b61e1b5f",
@@ -1076,8 +1460,8 @@
     "matched_keywords": "agents; benchmarking; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T06:59:54.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-921723d9",
@@ -1100,8 +1484,32 @@
     "matched_keywords": "agents; security; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T04:06:53.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-7546f6f6",
+    "published_date": "2026-10-07",
+    "title": "Show HN: NanoMuse – An open-source AI agent for your phone and computer",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "community_discussion",
+    "source_name": "Hacker News",
+    "source_type": "community_api",
+    "collected_via": "hn_ai_agents",
+    "aggregator": "",
+    "author": "ilreb",
+    "url": "https://github.com/nano-muse/nanoMuse",
+    "discussion_url": "https://news.ycombinator.com/item?id=49987765",
+    "engagement_points": 62,
+    "engagement_comments": 22,
+    "matched_keywords": "agent; ai",
+    "completeness_pct": 86,
+    "published_at_utc": "2026-10-07T03:30:44.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-ab692311",
@@ -1124,8 +1532,8 @@
     "matched_keywords": "retrieval-augmented; rag",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T03:16:06.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1adddf5d",
@@ -1148,8 +1556,8 @@
     "matched_keywords": "agents; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T01:42:39.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-666b023d",
@@ -1172,8 +1580,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-06T23:50:33.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f7ed9c4b",
@@ -1196,8 +1604,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T22:38:53.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-95a62d85",
@@ -1220,8 +1628,8 @@
     "matched_keywords": "autonomous; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T19:32:12.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f5138d8d",
@@ -1244,8 +1652,8 @@
     "matched_keywords": "grounded; retrieval-augmented",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T19:23:51.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-61020ab7",
@@ -1268,8 +1676,8 @@
     "matched_keywords": "agents; llm; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T17:26:26.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f4694331",
@@ -1292,8 +1700,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T16:52:56.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-7fde359d",
@@ -1316,8 +1724,8 @@
     "matched_keywords": "trustworthy; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T16:35:41.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e0d7fa4a",
@@ -1340,8 +1748,8 @@
     "matched_keywords": "agents; trusted; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T16:07:06.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-3347bdcf",
@@ -1364,8 +1772,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T15:38:55.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-0289fc75",
@@ -1388,8 +1796,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T15:17:56.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-7d0d8dcb",
@@ -1412,8 +1820,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T15:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-83f2d3a3",
@@ -1436,8 +1844,8 @@
     "matched_keywords": "rag; retrieval-augmented; grounding; agentic; agents; language models",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T14:38:15.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-6848c17a",
@@ -1460,8 +1868,8 @@
     "matched_keywords": "agents; trusted; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T13:25:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-9325d708",
@@ -1484,8 +1892,32 @@
     "matched_keywords": "agents; trusted; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T13:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-6c15304e",
+    "published_date": "2026-10-06",
+    "title": "Cognitum One Announces ruOS, the Enterprise Computer Platform for AI Agents",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Business Wire",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNVGNOc212a3c2WDNhU0RnaWpiS0RxQ3dCSzRQR3RtYlJjaEVpdTU5dkxPQ200MHVrTWJYOXhDNVNDZzd1Nk5jQzhyWmJDenBkc3NQNmRORG16U0pQUDQ3RFp0ZVlCeVB5TzV4aWZpRXJESFkzYy1xWnpkUVBhTnZZaXRnR3hoZ2RrQ1dRa0NYZHZZSnhHMnpWMUxMMjZKSTByLUFOa0NqY2d5MG84dHlGM3dwa3BsN0NKTlFucExmV1N1UmU5SFJfSjc1NA?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-06T13:00:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-4e8eaf6f",
@@ -1508,8 +1940,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T12:15:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bedd9a2d",
@@ -1532,8 +1964,8 @@
     "matched_keywords": "rag; grounded; retrieval-augmented; accuracy; benchmark",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T11:58:55.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b6cbd5c1",
@@ -1556,8 +1988,8 @@
     "matched_keywords": "rag; agentic",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T10:19:02.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-15094c19",
@@ -1580,8 +2012,8 @@
     "matched_keywords": "agents; security; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:45:46.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-2928fda5",
@@ -1604,8 +2036,8 @@
     "matched_keywords": "agents; privacy; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:33:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a454a25d",
@@ -1628,8 +2060,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:30:07.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d4b5a785",
@@ -1652,8 +2084,32 @@
     "matched_keywords": "agents; agent; evaluation; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T09:29:25.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-1f2f6b90",
+    "published_date": "2026-10-06",
+    "title": "Tinuiti opens its media data to brands’ AI agents—signaling a potential new role for agencies",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Ad Age",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBZbkdPMGtsSGVnbDdqaEVLYktocWNaYTZvSGY5c2hiaVkyakxhbGttYkVZckdLR2N6N3FmVjhrcjJhODdBR19fZXBQclJ5b0RfZEw5alBwTkpNY0hNQ1A4dmwxQ3Q3WmNBZHlQN2FDdWg?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-06T09:02:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c7562630",
@@ -1676,8 +2132,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-487c494f",
@@ -1700,8 +2156,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-319d9588",
@@ -1724,8 +2180,8 @@
     "matched_keywords": "agents; agent; agentic; trust; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T08:22:14.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-9a9b6e4d",
@@ -1748,8 +2204,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T08:14:57.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-17224275",
@@ -1772,8 +2228,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T04:01:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-35a91253",
@@ -1796,8 +2252,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T02:50:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e8a2be40",
@@ -1820,8 +2276,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T23:31:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-cc1ecd0d",
@@ -1844,8 +2300,8 @@
     "matched_keywords": "agentic; privacy; security",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T21:10:13.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d489e2b3",
@@ -1868,8 +2324,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T20:56:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-33f7bc3b",
@@ -1892,32 +2348,8 @@
     "matched_keywords": "agents; llm; language model",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T20:46:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-a34379dd",
-    "published_date": "2026-10-05",
-    "title": "Thought for the week: AI agents raise new cybersecurity and liability questions",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "IAPP",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQUEVpVHV4VFBtNlV3Y3ZZdUpkSnN1U0tzSmVVQUZUay1zTU9CbDBBTE83eV9yZGozVldidExLNklDT0U2X2ZBTHBwNVB6dTl3cGNLWEJJN1cyMVkxRnh3MXFDRzJObmJWUmdtQVJqcnlSN00xcUJSYVB1MGF6TzY4T18tUEQ2eUJjZnNtNWJ5Ui1UVjJzeHBOUjlsNDlBbDhmMUlzbQ?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; security; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-05T20:18:05.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-706866dc",
@@ -1940,8 +2372,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T19:33:46.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-04d431fb",
@@ -1964,32 +2396,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T17:24:25.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-50dcf6e9",
-    "published_date": "2026-10-05",
-    "title": "Health care's emerging risk: unauthorized AI agents",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Axios",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBVdmpaeDZJWEktRGpmanVLOVRqdEs0OEhuYnBXUTFhaHhfcURVNGlEQ3l0X3RsTzV2RjlKWkh4bnNPVk5fd04zenhvbjVaejlGcVlfSnNTTXJDRkhkc0NPdG5OREZtQld3?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-05T16:40:47.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-8d4ac500",
@@ -2012,8 +2420,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T15:47:52.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-9465a3a8",
@@ -2036,8 +2444,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T15:38:33.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a3d5be85",
@@ -2060,8 +2468,8 @@
     "matched_keywords": "agentic; autonomous; analytics; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T13:29:32.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-31780fb5",
@@ -2084,8 +2492,8 @@
     "matched_keywords": "agents; gemini; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T13:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-14e9cde1",
@@ -2108,32 +2516,32 @@
     "matched_keywords": "faithful; agentic; agents; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T10:32:28.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
-    "record_id": "GL-a146faf2",
+    "record_id": "GL-50dcf6e9",
     "published_date": "2026-10-05",
-    "title": "Why a 90% Faithfulness Score Isn’t Enough: A Self-Auditing Architecture for Enterprise Retrieval-Augmented Generation",
+    "title": "Health care's emerging risk: unauthorized AI agents",
     "summary": "",
-    "topic": "rag_grounding",
+    "topic": "ai_agents",
     "focus": "AI",
     "entity": "",
     "signal_type": "news",
-    "source_name": "Nasscom",
+    "source_name": "Axios",
     "source_type": "news_rss",
-    "collected_via": "gnews_ai_grounding",
+    "collected_via": "gnews_ai_agents",
     "aggregator": "Google News",
     "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQQjJ6dDVBZ3lkZ2k3TjVPTm1hYkpZdmozZXNYcE9KVTl5WXdYLWRmamNUbVNZZ1QxRVN1ZlJvUkhGRmVHVHVLdzZ6WUpaVjFpTHg3WXdCY0RHVFhUemlZamdWNEZMQVNiZkFoZzRwMXFDTHVUYlJTTjhQRVVhWlVHS0dXS0VnUlpRNmpWMU01Q1FvVExYMnk3RjlZd1lfUGgwOWVvMkJCWUc4RVJPdkZJV25kQ0dSMmhJbVFN?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBVdmpaeDZJWEktRGpmanVLOVRqdEs0OEhuYnBXUTFhaHhfcURVNGlEQ3l0X3RsTzV2RjlKWkh4bnNPVk5fd04zenhvbjVaejlGcVlfSnNTTXJDRkhkc0NPdG5OREZtQld3?oc=5",
     "discussion_url": "",
     "engagement_points": "",
     "engagement_comments": "",
-    "matched_keywords": "faithfulness; retrieval-augmented",
+    "matched_keywords": "agents; ai",
     "completeness_pct": 71,
-    "published_at_utc": "2026-10-05T09:29:21.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "published_at_utc": "2026-10-05T09:31:08.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-274d3bcb",
@@ -2156,8 +2564,8 @@
     "matched_keywords": "grounded; agents; multi-agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T09:23:11.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e6825e9d",
@@ -2180,8 +2588,8 @@
     "matched_keywords": "agent; governance; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T08:34:18.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b7941174",
@@ -2204,8 +2612,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T08:12:55.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-11b4bf8f",
@@ -2228,32 +2636,32 @@
     "matched_keywords": "ai; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T08:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
-    "record_id": "GL-06812a22",
+    "record_id": "GL-1647f515",
     "published_date": "2026-10-05",
-    "title": "Three Warning Signals Could Help VR Users Spot AI Hallucinations",
+    "title": "NexHealth Revenue 2023: $47.1M Est., $1B Valuation (2022)",
     "summary": "",
-    "topic": "rag_grounding",
-    "focus": "AI",
-    "entity": "",
+    "topic": "competitor_brand",
+    "focus": "Competitor",
+    "entity": "NexHealth",
     "signal_type": "news",
-    "source_name": "Bioengineer.org",
+    "source_name": "GetLatka",
     "source_type": "news_rss",
-    "collected_via": "gnews_ai_grounding",
+    "collected_via": "gnews_nexhealth",
     "aggregator": "Google News",
     "author": "",
-    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOcjltYUNqeWpUZUI4dHlYaFNLTmRhNWpGMlMwdS1mQ0JlWmI4U3owcXdMSTJOSVRZNFJRaXFIVk02cXJwYTA4LXJuUkVWTndrYWdManRDM1ZDVWpKOVB3OUF1Wm43dFdlQ005cXRhTDJEZGs0bDdIUDhZUXJjajdvMDZXaWxBcmhMY2RJN0RWQ21qSkk?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1EYl9EWnhTQVJ3dWw1aGpuWEk2WHctaWcwajVYaW9GREZFaDYteEVKRUlGSzhVbE1HUnd6NWlaRVpFY1QweFplOEE5emE3c2lZZ2YtcG9Jbw?oc=5",
     "discussion_url": "",
     "engagement_points": "",
     "engagement_comments": "",
-    "matched_keywords": "hallucinations; ai",
+    "matched_keywords": "NexHealth",
     "completeness_pct": 71,
-    "published_at_utc": "2026-10-05T07:16:57.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "published_at_utc": "2026-10-05T07:00:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-51b4c856",
@@ -2276,8 +2684,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T04:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-18ff6d4a",
@@ -2300,8 +2708,8 @@
     "matched_keywords": "multi-agent; benchmarks; evaluation",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T21:12:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-6d3c974d",
@@ -2324,8 +2732,8 @@
     "matched_keywords": "autonomous; agents; benchmarking; benchmark; llm; machine learning",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T17:32:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-5e93ec95",
@@ -2348,32 +2756,8 @@
     "matched_keywords": "safety; governance; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-04T17:21:26.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-4678ae14",
-    "published_date": "2026-10-04",
-    "title": "AI agents reshape identity security",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "SiliconANGLE",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWVB3N0plemVMbjgzM2ZIT3otdGNhckF5Ukt4Y0o0cE8wa28xZ1hNYm9oWnozTFBhR3V4dENUUS00c3ltdlNyM1I3SHZ6aVBVZHR4SU1ZZVllWndiWUVXdkxGN3ljMXh2WlNKNjE2Y1VaX3U3RVNIQVhDM0NWd0xhSW5QTHhBZHVRMUE?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; security; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-04T16:27:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d4b38598",
@@ -2396,8 +2780,8 @@
     "matched_keywords": "agent; agents; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T14:12:18.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-7d8cc076",
@@ -2420,8 +2804,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-04T10:50:27.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d6d9c3bd",
@@ -2444,8 +2828,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-04T09:30:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-352020b4",
@@ -2468,8 +2852,8 @@
     "matched_keywords": "grounded; agent; evaluation; language models; llms; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T08:30:26.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-19c2e041",
@@ -2492,8 +2876,8 @@
     "matched_keywords": "agentic; agents; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T05:42:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1fd1f43d",
@@ -2516,32 +2900,8 @@
     "matched_keywords": "grounding; agents; agent; evaluation; benchmarks; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T03:50:36.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-34fa728a",
-    "published_date": "2026-10-04",
-    "title": "Invisible Ink, Visible Lies: How Production Watermarking Causes LLMs to Hallucinate",
-    "summary": "Text watermarking helps identify AI-generated content, but its effect on factual reliability remains underexplored. In this paper, we study watermarking hallucination: factual errors induced or amplified by watermarking even when the required evidence is present in the context and the unwatermarked model can answer correctly. Using a controlled retrieval-augmented generation setting, we compare…",
-    "topic": "rag_grounding",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Haocheng Ye, Aoting Hu, Xinwei Zhang et al.",
-    "url": "https://arxiv.org/abs/2610.04860v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "hallucinate; hallucination; retrieval-augmented; reliability; llms; ai",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-04T02:02:08.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-987edd91",
@@ -2564,128 +2924,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-03T22:18:13.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-2e464b81",
-    "published_date": "2026-10-03",
-    "title": "Lie Rarely, Lie Big: Stealthy Insider Attacks on LLM Robot Teams",
-    "summary": "When a team of robots delegates planning and mutual trust to LLM agents, a single compromised robot can corrupt the shared outcome. We study this threat in a grounded task: a multi-robot survey in which measurements can be verified against the physical world, but every verification costs budget that would otherwise advance the mission. We treat the compromised robot as a stealthy adversary in the…",
-    "topic": "rag_grounding",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Sribalaji C. Anand, George J. Pappas",
-    "url": "https://arxiv.org/abs/2610.04744v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "grounded; agents; trust; llm",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-03T20:20:57.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-6b8fa623",
-    "published_date": "2026-10-03",
-    "title": "Principles that Guide, Actions that Inform: Agent Evolution via Knowledge Abstraction",
-    "summary": "Large language model (LLM) agents have demonstrated strong capabilities in interactive environments, yet their ability to continually evolve from experience remains limited. Although fine-tuning enables adaptation, its dependence on parameter access and high computational costs restrict its flexibility, especially for large-scale and closed-source LLMs. External memory offers an alternative by…",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Bowen Ye, Yongchao Xu, Junkai Ma et al.",
-    "url": "https://arxiv.org/abs/2610.06964v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agent; agents; language model; llm; llms",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-03T17:29:38.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-40ad2dd4",
-    "published_date": "2026-10-03",
-    "title": "Grounding Probes: Generator-Independent Hallucination Detection from Observer Model Hidden States",
-    "summary": "Detecting responses that retrieval-augmented generation does not ground in its context trades speed against accuracy: surface checks miss paraphrased fabrication, sampling-based methods cost extra generations. Hidden-state probes sit between the two, but every existing one reads the generating model's own activations, so a change of generator invalidates the detector and a closed-weight generator…",
-    "topic": "rag_grounding",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Michael Rathmayr, Ádám Kovács, Gábor Recski",
-    "url": "https://arxiv.org/abs/2610.04642v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "grounding; hallucination; retrieval-augmented; accuracy",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-03T16:33:07.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-511d648b",
-    "published_date": "2026-10-03",
-    "title": "EvoCast: Reliable Autonomous Research Agents for Iterative Forecasting Architecture Evolution",
-    "summary": "Deep time-series forecasting models have rapidly diversified, yet adapting them to a specific task still requires extensive expert effort in model selection, mechanism diagnosis, architecture design, implementation, and evaluation. Existing AutoML methods are constrained by predefined search spaces, while general-purpose LLM research agents lack reliable control over experimental protocols and…",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Kaipeng Xu, Xianli Yan, Yan Wang et al.",
-    "url": "https://arxiv.org/abs/2610.04517v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "autonomous; agents; reliable; evaluation; llm",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-03T13:30:53.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-401f885f",
-    "published_date": "2026-10-03",
-    "title": "The Same Zero: Why Identical ASR Can Imply Different Guarantees in LLM-Agent Security",
-    "summary": "LLM-agent security has produced a dense landscape of defenses - prompt hardening, content filters, permission gates, sandboxes - yet no framework tells a deployer what a defense actually guarantees, or where that guarantee comes from. We apply Verification Autonomy Levels (VAL) - L0: LLM self-declaration; L1: deterministic rules; L2: objective ground truth; L3/L4: decidable completeness; L5…",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "YaJie Yin",
-    "url": "https://arxiv.org/abs/2610.04504v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agent; security; llm",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-03T13:09:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b3073f9e",
@@ -2708,32 +2948,8 @@
     "matched_keywords": "agents; a.i",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-03T12:00:06.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-d6884343",
-    "published_date": "2026-10-03",
-    "title": "Understanding and Mitigating Hallucination Escape in Tool-Using LLM Agents",
-    "summary": "Large language models (LLMs) increasingly serve as autonomous agents that invoke external tools. However, this capability introduces tool hallucination, selecting incorrect tools or generating invalid calls. Existing mitigation methods report substantial improvements, yet we identify a previously overlooked failure mode that we term Hallucination Escape. These methods reduce hallucination on the…",
-    "topic": "rag_grounding",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Peigui Qi, Kunsheng Tang, Yide Song et al.",
-    "url": "https://arxiv.org/abs/2610.04409v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "hallucination; agents; autonomous; llm; language models; llms",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-03T09:57:35.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-50bc20dd",
@@ -2756,104 +2972,8 @@
     "matched_keywords": "Birdeye",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-03T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-867c62dd",
-    "published_date": "2026-10-03",
-    "title": "MemLeak: Cross-User Semantic Leakage in Multi-Tenant AI Agent Memory",
-    "summary": "Personal AI agents in enterprise multi-tenant deployments share a common vector store for long-term memory. Shared embedding spaces create a surface for cross-user memory leakage: a user's query can retrieve semantically adjacent memories belonging to another user through ordinary cosine-similarity retrieval, without any exploit. We formalize this as cross-user admissibility failure and evaluate…",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Priyanka Mudgal, Kai Zhao, Guilin Zhang et al.",
-    "url": "https://arxiv.org/abs/2610.04195v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agent; agents; ai",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-03T01:16:05.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-3657f374",
-    "published_date": "2026-10-03",
-    "title": "Your AI Agents Can Write Code. Can They Understand Your Business?",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Forbes",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQd2lVLXJUSzc5NVJ4c09UdmpPcDVGb1cyeEM5cjRkdXA1UTlmQWZEd1h0N0tlcUw5VVBxVlI4VHhfSVF3SnVfNzJzUDE1cEZPOEUyRXRubEw5MUFkY0pVUjN4dlgxbVBsS3RIcXQtbmVPSTBMOFpWVzZ1UnhYOTI3bklVVC1lbEI3R20wa0xLQUNLZWgzd0RuMTQ2ejlnZVdjczdTcWp4V3Y2VUFkdmlHbDVGTkF4UXp2Wmt0ZzhCZnM?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-03T00:56:34.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-1f9f98c2",
-    "published_date": "2026-10-02",
-    "title": "Apple says it will flag AI requests for Mac data after Meta's Muse draws complaints",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Reuters",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQVjBOX2tiblNKM3pNUVJ2VzViQzZobDRCQk5pbk1Nai1vUlNDTG94a2JIRDNYSU96Mm1DTnZjWE5LbW9MbXh1RGtXUnEzRXJHOGx2Y1JmdlVBMGpuRGZkMUlZc0hGSUoxVTAyMWdpQmNPSndSTXFHVHhzMnRYaUdqdVY2NW5kY2l4V2IyN0pmNlgxR0JuUjdCRW5ZejBtU3NpdXhtdkJQNDE0c3k5b25wWXBHZE5tMjRnNU1leTJZZUJPWk0zOHZLdHhmNUl5OXBKLXlkNktR?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-02T22:43:45.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-7e261aeb",
-    "published_date": "2026-10-02",
-    "title": "Apple to Tighten Mac Data Controls in Guard Against AI Agents",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Bloomberg.com",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcURqM3dBMUhJQjBZX25xaGtXTE5uUXd5cHo3MVNoM09xb2lPcnZlcTFJOFoyR2VLTmdpb1RkZ3otTUlaMzdjQVJITkstV0p4ZU10WXBOLUV4SHBoblRGM0xyWmRRMXBuaE9kM3B0WGpzVHVKZVBCZXJhWGNXcDA4aGhieFdHXzNDSmRKZ0Q2c3pobWhFV1ljSU9mNEwzRGkxdFZiVEpaYmtUSFByWU1QQWp3?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-02T20:50:08.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-2bea0b40",
@@ -2876,32 +2996,8 @@
     "matched_keywords": "agent",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-02T19:10:38.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-b27c3226",
-    "published_date": "2026-10-02",
-    "title": "Knowledge or Calculator? Decomposing the Skill Premium in Verifiable Financial Agent Workflows",
-    "summary": "Financial AI agents must do more than retrieve facts: investment workflows require correct quantitative execution, reliable use of procedural resources, and auditable structured outputs. We introduce FinSkillBench, an evaluation suite of 2,603 point in time episodes across 12 subtasks in portfolio construction, risk management, and fundamental analysis, with hidden regenerable ground truth and…",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Jermyn Zhen Yong Bek, Zhuang Qiang Bok, Zhongtian Sun",
-    "url": "https://arxiv.org/abs/2610.03564v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agent; agents; reliable; evaluation; ai",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-02T16:44:04.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1fd99273",
@@ -2924,32 +3020,8 @@
     "matched_keywords": "autonomous; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-02T15:49:04.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-210f01f3",
-    "published_date": "2026-10-02",
-    "title": "Passing the Test You Trained On: Re-evaluating Prompt-Injection Detectors for LLM Agents",
-    "summary": "LLM agents increasingly screen tool outputs with small prompt-injection detectors, and teams choose among detectors by their scores on public benchmarks. We ask whether those scores predict how a detector behaves inside an agent. We replay the ground-truth tool calls of two agent benchmarks, AgentDojo and tau-bench, without an LLM to obtain tool outputs that are benign by construction, label…",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "research_paper",
-    "source_name": "arXiv",
-    "source_type": "research_api",
-    "collected_via": "arxiv_grounding_agents",
-    "aggregator": "",
-    "author": "Zhuowen Liu",
-    "url": "https://arxiv.org/abs/2610.03448v1",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; agent; benchmarks; llm",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-10-02T15:30:11.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-4e916a24",
@@ -2972,8 +3044,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-02T15:19:56.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-23a1a6f2",
@@ -2996,8 +3068,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-02T14:25:38.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-0df0c5f5",
@@ -3020,8 +3092,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-02T12:04:09.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-96d3e5ea",
@@ -3044,8 +3116,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-02T12:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bb164034",
@@ -3068,8 +3140,8 @@
     "matched_keywords": "llms",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-02T08:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c068c920",
@@ -3092,8 +3164,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T17:41:38.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a2b250f2",
@@ -3116,8 +3188,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-01T15:11:10.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-36ad4893",
@@ -3140,32 +3212,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T11:18:18.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-fa717033",
-    "published_date": "2026-10-01",
-    "title": "Fancy an AI receptionist? BT Business will sell your company one",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "ISPreview UK",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_customer_comms",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOaldicm1ObnhfbkFUTE9la0pyNG9KY014UExXajZNQ1lhY3o5Mi04d2NPN3hQU1RjRTREU2Q3MFJSS3pMNl84X3V3RmVTaDdKdkFJQ2stWHBjVzBoQ3hmc1lnSEpURFpVYjNtV1h1SGxkaTZuY050b3p5MUhfQnZVejlLcXZjU1d5dHB5M19oUHROVy1pSi16QkJVNkFZWW9TY1Q3U0JnZnI2Tko3Vlo2LVJSdGo?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-01T10:06:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-607017c8",
@@ -3188,8 +3236,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T09:43:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d1656b25",
@@ -3212,8 +3260,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T08:58:03.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c45e1463",
@@ -3236,8 +3284,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-dcc481b2",
@@ -3260,8 +3308,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T00:30:27.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b11d05b0",
@@ -3284,8 +3332,8 @@
     "matched_keywords": "hallucinations; agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-30T17:40:21.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f6b6850c",
@@ -3303,13 +3351,13 @@
     "author": "adchurch",
     "url": "https://news.ycombinator.com/item?id=49911500",
     "discussion_url": "https://news.ycombinator.com/item?id=49911500",
-    "engagement_points": 122,
+    "engagement_points": 123,
     "engagement_comments": 42,
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-30T16:58:24.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-af251868",
@@ -3332,8 +3380,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-30T14:38:57.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-77b61e86",
@@ -3356,8 +3404,8 @@
     "matched_keywords": "agents; openai; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-09-30T10:40:30.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-dd8e8b2a",
@@ -3380,8 +3428,8 @@
     "matched_keywords": "retrieval-augmented",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-30T07:24:02.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-5a85c3a8",
@@ -3404,8 +3452,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-30T03:16:52.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-51ced28f",
@@ -3428,8 +3476,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-29T23:50:11.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-09354289",
@@ -3452,8 +3500,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T14:15:24.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-20e83c33",
@@ -3476,32 +3524,8 @@
     "matched_keywords": "safety; mistral; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T12:01:07.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-6dd07917",
-    "published_date": "2026-09-29",
-    "title": "Making AI an asset, not an expense",
-    "summary": "When customers talk about AI costs, the conversation usually starts with token prices and ends with access to the latest, most capable model in the cloud. Do they always need that level of capability? Not necessarily. But that is often where the conversation goes. As AI moves from experimentation to production, model choice is only…",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "MIT Technology Review",
-    "source_type": "news_rss",
-    "collected_via": "mit_tech_review_ai",
-    "aggregator": "",
-    "author": "Cheri Williams",
-    "url": "https://www.technologyreview.com/2026/09/29/1145186/making-ai-an-asset-not-an-expense/",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 100,
-    "published_at_utc": "2026-09-29T10:43:45.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-efce631b",
@@ -3524,8 +3548,8 @@
     "matched_keywords": "agents; privacy; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T09:03:41.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-949488fa",
@@ -3548,8 +3572,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T08:06:40.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f7ca5509",
@@ -3572,8 +3596,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-28T22:07:59.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-21dc53b8",
@@ -3596,8 +3620,8 @@
     "matched_keywords": "agent; nvidia; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-28T15:46:36.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-4590936a",
@@ -3620,8 +3644,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-28T15:28:13.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f62ba0f7",
@@ -3644,8 +3668,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-28T10:27:23.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e7c2ee34",
@@ -3668,8 +3692,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-28T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-0a98a379",
@@ -3692,8 +3716,8 @@
     "matched_keywords": "retrieval augmented",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-28T06:30:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b40a4e06",
@@ -3716,8 +3740,8 @@
     "matched_keywords": "agents; rogue; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-27T16:19:46.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-5f37ad7b",
@@ -3740,8 +3764,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-27T15:51:28.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e48be396",
@@ -3764,8 +3788,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-25T10:32:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a619753a",
@@ -3788,8 +3812,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-25T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-15f7621e",
@@ -3812,8 +3836,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-24T22:24:06.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-34dfa74f",
@@ -3836,8 +3860,8 @@
     "matched_keywords": "safety; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-24T14:38:31.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-cf6ab56f",
@@ -3860,8 +3884,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-24T14:16:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-736540f6",
@@ -3884,32 +3908,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-24T14:16:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-f1d34e3d",
-    "published_date": "2026-09-24",
-    "title": "The Front Desk That Never Sleeps: Vosita Introduces AI Receptionist for Medical Practices",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "EIN News",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_customer_comms",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTXhnemg5a2RTMkpheFZMQmZxS2FON1FvcS1BQVFjSUdfSFpXU2JYOEVhdXZXN0tEX0xVc2xwbUxoY0Ewc2lSNk1yLUcxVjZVQXVSLWl1SDA2X3NRVEhoaFM5dDJxaWxMSGdUYXBicE5GSkEyUkdoa0ozd1ZQVHpETzFvMndWSVd5LUFHWWJPNXd6a1pOZ0xyZktoT2FxX21sam1OLWpxZVljdEhITklsNkZRNkdHV3ZockFWejBTb0NWVFdVamtfa2pR?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-24T12:15:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-697cf096",
@@ -3932,8 +3932,8 @@
     "matched_keywords": "agent; rogue; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-24T05:21:10.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b4733385",
@@ -3956,8 +3956,8 @@
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-23T19:42:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-772e97f6",
@@ -3980,8 +3980,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-23T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-aa6977d7",
@@ -4004,8 +4004,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-23T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-0c0e8c63",
@@ -4028,8 +4028,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-23T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a283ea20",
@@ -4052,8 +4052,8 @@
     "matched_keywords": "rag; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-22T16:15:06.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1662bd60",
@@ -4076,8 +4076,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-22T14:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-907cbe07",
@@ -4100,8 +4100,8 @@
     "matched_keywords": "benchmark",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-22T13:01:03.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-ed21d5b6",
@@ -4124,8 +4124,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-22T11:00:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-cc5675d5",
@@ -4148,8 +4148,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-22T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-25a5658b",
@@ -4172,8 +4172,8 @@
     "matched_keywords": "retrieval augmented",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-21T18:30:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d147a552",
@@ -4196,8 +4196,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-21T17:00:23.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-89cebbb2",
@@ -4220,8 +4220,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-21T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f7efc753",
@@ -4244,8 +4244,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-20T22:32:43.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f4057075",
@@ -4268,8 +4268,8 @@
     "matched_keywords": "copilot",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-20T09:08:52.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a28960a4",
@@ -4292,8 +4292,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-20T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d0ce8796",
@@ -4316,8 +4316,8 @@
     "matched_keywords": "safety; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-19T14:36:28.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-6e17f34a",
@@ -4340,8 +4340,8 @@
     "matched_keywords": "WEAV; Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-19T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bac849d3",
@@ -4364,8 +4364,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-18T21:07:45.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-7251c415",
@@ -4388,8 +4388,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-18T15:04:54.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-65ec9cd0",
@@ -4412,8 +4412,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-18T13:10:17.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1dec1773",
@@ -4436,8 +4436,8 @@
     "matched_keywords": "chatgpt",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e68f075b",
@@ -4460,13 +4460,13 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-17T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f9b40999",
     "published_date": "2026-09-17",
-    "title": "Weave Communications Q2 2026 Earnings: Modest EPS Beat Fails to Spark Meaningful Stock Reaction - Estimate Uncertainty",
+    "title": "Weave Communications Q2 2026 Earnings: Modest EPS Beat Fails to Spark Meaningful Stock Reaction - Earnings Weakness Phase",
     "summary": "",
     "topic": "weave_brand",
     "focus": "Weave",
@@ -4484,8 +4484,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-17T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c4a64182",
@@ -4508,8 +4508,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-17T00:33:03.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a91ea3f1",
@@ -4532,32 +4532,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-16T21:05:19.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-4ce500bd",
-    "published_date": "2026-09-16",
-    "title": "Medow Health raises $2.5M seed to build AI front desk for specialist clinics",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Dealroom",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_customer_comms",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQm9Ncy1UQUFFUTlGUElnZVF2eW9zLUNOLVlENXBaQlNHMTl1OEx3aEZxU1dkd0tleDhPS3NnMXhyM1BXOXhyM1ZGOGhGbTRPbXlQVF9CMjFfaVpuWGVvekF2Tm9vQUNqUVRwajdEZC1YeXZ2cl9CaXZ5YWJNUkVpblkwYm1TLWJabFhjbGdtaUFramJEc09vbkpnRXBSQXNreHlfbmJCNXFpX2wxMUE?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-16T18:11:10.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-764680ab",
@@ -4580,8 +4556,32 @@
     "matched_keywords": "accuracy",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-16T14:24:05.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-4ce500bd",
+    "published_date": "2026-09-16",
+    "title": "Medow Health raises $2.5M seed to build AI front desk for specialist clinics",
+    "summary": "",
+    "topic": "ai_industry",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Dealroom",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_customer_comms",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQm9Ncy1UQUFFUTlGUElnZVF2eW9zLUNOLVlENXBaQlNHMTl1OEx3aEZxU1dkd0tleDhPS3NnMXhyM1BXOXhyM1ZGOGhGbTRPbXlQVF9CMjFfaVpuWGVvekF2Tm9vQUNqUVRwajdEZC1YeXZ2cl9CaXZ5YWJNUkVpblkwYm1TLWJabFhjbGdtaUFramJEc09vbkpnRXBSQXNreHlfbmJCNXFpX2wxMUE?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-16T13:01:02.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-6bc2b557",
@@ -4604,8 +4604,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-16T08:50:56.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-98e70ed8",
@@ -4628,8 +4628,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-16T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e5fbffcb",
@@ -4652,8 +4652,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-15T16:38:45.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-fae606fb",
@@ -4676,8 +4676,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-15T15:20:26.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-72d72db1",
@@ -4700,8 +4700,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-15T14:16:44.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-79ef8f66",
@@ -4724,8 +4724,8 @@
     "matched_keywords": "hallucinations; regulators; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-15T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-5a1d4dfa",
@@ -4748,8 +4748,8 @@
     "matched_keywords": "safety; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-14T16:18:17.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a80ae256",
@@ -4772,8 +4772,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-14T16:15:05.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-46f748e4",
@@ -4796,8 +4796,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-14T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-fb691274",
@@ -4820,8 +4820,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-14T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-08005044",
@@ -4844,8 +4844,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-14T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b9ba64bd",
@@ -4868,8 +4868,8 @@
     "matched_keywords": "evals",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-13T14:28:36.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e014ac19",
@@ -4892,8 +4892,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-13T01:22:31.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c60a6d1d",
@@ -4916,8 +4916,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T23:45:58.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bf9bc1f8",
@@ -4940,8 +4940,8 @@
     "matched_keywords": "agentic; benchmark",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T19:57:19.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-fa07508b",
@@ -4964,8 +4964,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T11:13:38.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-ce3594dd",
@@ -4988,8 +4988,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T10:49:22.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c4887f00",
@@ -5012,8 +5012,8 @@
     "matched_keywords": "benchmarks; evals",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-11T09:31:27.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-3667f255",
@@ -5036,32 +5036,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-10T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-1647f515",
-    "published_date": "2026-09-10",
-    "title": "NexHealth Revenue 2023: $47.1M Est. ARR",
-    "summary": "",
-    "topic": "competitor_brand",
-    "focus": "Competitor",
-    "entity": "NexHealth",
-    "signal_type": "news",
-    "source_name": "GetLatka",
-    "source_type": "news_rss",
-    "collected_via": "gnews_nexhealth",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1EYl9EWnhTQVJ3dWw1aGpuWEk2WHctaWcwajVYaW9GREZFaDYteEVKRUlGSzhVbE1HUnd6NWlaRVpFY1QweFplOEE5emE3c2lZZ2YtcG9Jbw?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "NexHealth",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-10T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b98b688c",
@@ -5084,8 +5060,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-09T23:57:29.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-82a3d077",
@@ -5108,8 +5084,8 @@
     "matched_keywords": "safety; ai; anthropic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-09T08:43:27.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b3f0a298",
@@ -5132,8 +5108,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-08T19:25:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-e87a7151",
@@ -5156,32 +5132,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-08T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-2e8acd3c",
-    "published_date": "2026-09-08",
-    "title": "Local Marketing Plus SEO Launches AI Search Visibility Reviews",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "El Paso Times",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_grounding",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNanB4VmV2R3N3aGxLUWNUaHJhYkFMVWY1RVVDVjRWZmJybHFxak5PVm0tMGZjSzQ0RTNrN213dC1VUnBMaXMwLTVmSXhVR1p1SmNwRFFMdkZJdWFtZ3JTV05CNjYycExZclEwTFpKaFFGSVY5SndYY2VqVTl3eUJpN21iS3ZjWFUzR0xFLTl3ZHpZb1h5S3ZIWUV2R1RYdk01WVlqY3gyWk8yYVdacEtyWlRsSl9jQ2Q5Rnc?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-08T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-236c0a06",
@@ -5204,8 +5156,8 @@
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-08T02:58:16.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-268adffe",
@@ -5228,32 +5180,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-e3a3e731",
-    "published_date": "2026-09-07",
-    "title": "China’s top court clarifies liabilities for AI face-swapping, voice cloning and smart driving cases",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Global Times",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_grounding",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9NQkNZeXczZW9rMHhJTkxlWDcteVZEY2R5LWhSTFFQQllWVzBYbkUxU2VSd3NIRk16RFB6VFdzeXpkQlJuS1dzYnpSNEJCYXZVQ0c0UUdmUldDU21MdmpsQVpn?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-443a7e4a",
@@ -5276,8 +5204,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-8912fea8",
@@ -5300,8 +5228,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-3ebf244b",
@@ -5324,8 +5252,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-940d41cf",
@@ -5348,32 +5276,8 @@
     "matched_keywords": "agent; agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-05T22:15:52.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-f39cb31e",
-    "published_date": "2026-09-05",
-    "title": "Supreme Court sets aside ₹425 crore penalty over fake legal citations, says material appears to be ‘hallucination of AI’",
-    "summary": "",
-    "topic": "rag_grounding",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Livemint",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_grounding",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxNSm5OTURZLTVRaDhKUlRjUE5FeFBjX3hiVU12RVMyNi1WWndRTFJWbUY3bmlOTjlzdlhmaFpHMGY4TWgxcEJxSlBhTDhUMXJVOTBTUzFWM3FJUGtBSmNCNTdab2FBZkJ1ZGlTbEx2RTNZRWsyanJjVVE0YTVQUkZMSWE0RnZ0a2JwbVRNNGs5d1JLejJ3NGF4ekdjTDhNeFhPNndjcWNsQ09JMmc4Vy1xUlpBbUY1RUFlUTFXbm1BcURsREM4cWVaTkprUU5YS3FQMGFLdktYaGI1S0JxcnUteUJmc3d1OWhwRUtyNEJoaGFCUDBDQkc0Z1ZxZGFVNWJUYm1nX0xKNkhBbVdnNGVNbFNR0gGXAkFVX3lxTE5TYnFxeWFXMC0zRm5wS0l6V1dzWFBPWENNc2cxUHJOOGJmNFZRZV9hdmt1cmFSY0h3UW04MkZFM3JYd2NFeE0yUmxIbjc2eGJSeVlTOEtWU2txb1Fuc0ZqMEl0b3VXOWFlN25pSDAxS0RtM1RDZnhNbWxrZ2E0UF9haXRlTmtZU1RNTDN6eDh1UndZem1xMDA2SmpvelpwcUxMNjdOLUNBWWdxRXNKTUlSQkZWS1ZYQ2lPUWxNODJvVHVPMlRGYTM1bnVrM1p5NWRCS0p4X2RRMndWdmdoUVE5QTUwUjVYaDhSSXowTTVZZEI2TFlIRF91MkxRemgyQ2ZhWGFzVG5TNHpDQmNWazFoZkNrQUJCRQ?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "citations; hallucination; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-05T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-cdda538a",
@@ -5396,8 +5300,32 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-97ae783d",
+    "published_date": "2026-09-04",
+    "title": "AI hallucinations are a competence problem",
+    "summary": "",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "NY Daily Record",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_grounding",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNeG5GaW1jWi1mTnVqSENaSEhkcl9tcnlEX21hcnZmVWNFUi02WUhLb2NXRjgwVmstTDF4Umx4TXYtWlV1QmF3dHpYRGZuY1ZiRGRmRHNCU3pvUVlmZXJIOVQ2QVlSeDlPczdaYWFMSklTejI1bE9UN2FnTGJ0bldDR0dKekV5WXM?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "hallucinations; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-04T07:00:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-6b14aade",
@@ -5420,8 +5348,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-232cb013",
@@ -5444,8 +5372,32 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-06f89443",
+    "published_date": "2026-09-04",
+    "title": "Governing AI Hallucinations: Evaluating the Supreme Court’s Zero-Tolerance Rule",
+    "summary": "",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "SCC Online",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_grounding",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMDlCa2M5cWlKQU96LUU3RWlKQkhxY1lMZGo5TnhFYXcwOTh1Ni01LXRNTmR2M0lOcXN3bDJYaVpLNUg5WlpaV1VXR1pBS05jRmprdWFiaG9rbGhMMjhpWDNTdGhSYVdYU2pjc19kZ0hwY0pmSTVEQ1dtTWEzMi15TjB0aGdHbXkwYk4wdzA0MW14dmJ6THpucHVkLURWSmxt?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "hallucinations; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-04T07:00:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-f6a07905",
@@ -5468,8 +5420,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-03T16:24:13.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-ab8aac05",
@@ -5492,8 +5444,56 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-03T16:11:24.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-90658c92",
+    "published_date": "2026-09-03",
+    "title": "Combating AI Hallucinations: PR Strategy for 2026",
+    "summary": "",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "PR Newswire",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_grounding",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9SSnpfb1FuNHlUdFR4LUNZME9xajM0WHZKRGlKS20tbDF3LTVmMHREUWxXSS1hVjhGanBVS2ZHN2FuV1BCSGFmQ2xEanpLSnMtUDduUEhHUUhCZ1FBcHIzemtzZ2tocXZRb0ZXbHlQZlVVbDVjaEVCaXdsck8zU3c?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "hallucinations; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-03T15:34:11.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-b9104d5b",
+    "published_date": "2026-09-03",
+    "title": "Supreme Court Scraps ₹425 Crore Penalty over Fake Citations, AI Hallucinations in Customs Order",
+    "summary": "",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Moneylife",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_grounding",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPemM4OGxYOXVDYzFCM0tpQmhobXVfTmlOQkZ0UkIxNTdhazd4SzY4UlZoMzVLVHQzUHdMN1pseDdQNkVBSTNCWEZhOUkxZEdkSGJNdlRpbExHUldOWU1oTVAyRGl4NkI0MmJsT01tLVBMVlBiMzh6S0o0Slg3T0g5TUZiTDJVeG9Yb29OUHhjajV6b3ZVRWZWb2JSZVhpZnVnSVNzZFZvVU1kdWx5enNuNE1kSHhRRWpucDR5Z0dZMkZnOXlhWFJkVTVTVXcwMjRzcUJR?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "citations; hallucinations; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-03T07:33:56.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1ae76264",
@@ -5516,8 +5516,8 @@
     "matched_keywords": "eval",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-02T16:14:52.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-93fdd674",
@@ -5540,8 +5540,8 @@
     "matched_keywords": "agent",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-02T15:55:14.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-3e8a367a",
@@ -5564,32 +5564,8 @@
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-01T18:50:42.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
-  },
-  {
-    "record_id": "GL-3877b164",
-    "published_date": "2026-08-31",
-    "title": "Meta Security Researcher's AI Agent Accidentally Deleted Her Emails",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "community_discussion",
-    "source_name": "Hacker News",
-    "source_type": "community_api",
-    "collected_via": "hn_ai_agents",
-    "aggregator": "",
-    "author": "Bluestein",
-    "url": "https://au.pcmag.com/ai/116091/meta-security-researchers-ai-agent-accidentally-deleted-her-emails",
-    "discussion_url": "https://news.ycombinator.com/item?id=49506655",
-    "engagement_points": 60,
-    "engagement_comments": 61,
-    "matched_keywords": "agent; security; ai",
-    "completeness_pct": 86,
-    "published_at_utc": "2026-08-31T07:23:47.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-50effc2d",
@@ -5612,8 +5588,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-31T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-0232f1db",
@@ -5636,8 +5612,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-28T00:06:51.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-708b36d1",
@@ -5660,8 +5636,8 @@
     "matched_keywords": "rag; agents; evals; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-27T21:46:39.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-2f6895db",
@@ -5684,8 +5660,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-27T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-6e8b73ca",
@@ -5708,8 +5684,8 @@
     "matched_keywords": "Weave; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-27T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-586d3724",
@@ -5732,8 +5708,8 @@
     "matched_keywords": "Podium; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-27T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c761778b",
@@ -5756,11 +5732,11 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-26T19:45:59.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
-    "record_id": "GL-28745771",
+    "record_id": "GL-82c10b66",
     "published_date": "2026-08-26",
     "title": "'AI receptionist could not understand me after stroke'",
     "summary": "",
@@ -5773,15 +5749,15 @@
     "collected_via": "gnews_ai_customer_comms",
     "aggregator": "Google News",
     "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YMzAyTTJCY2ZHZ1Uwb3dNUkhfeXpTNVZ5VmF1Yi1fRHVOaHhNbkx0cTZRbk1KUm5TY3lvbVpWeC1SY0FGMHdoaFVUNDNpcENZQTkydkNlRVlNdw?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE4wZVJmOEEwdm84NHNpa28zTW5nOFBZZ1ptbEMwMVNPelhUZHlJb3ZJendENWlNcHZWMGZ3QUZ1ckFsSlgtV0RJMmxxYXNkc1RZQXhPa3ZMMnN2aG4x?oc=5",
     "discussion_url": "",
     "engagement_points": "",
     "engagement_comments": "",
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-26T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-33081899",
@@ -5804,8 +5780,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-26T02:35:25.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-59d27d73",
@@ -5828,8 +5804,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-9cef8c1b",
@@ -5852,8 +5828,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-64f6133d",
@@ -5876,8 +5852,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-40e2d1d8",
@@ -5900,8 +5876,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-dc75e2c0",
@@ -5924,8 +5900,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-df38bbbc",
@@ -5948,8 +5924,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-936b48de",
@@ -5972,8 +5948,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-22T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-382969be",
@@ -5996,8 +5972,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-21T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-632fb91b",
@@ -6020,8 +5996,8 @@
     "matched_keywords": "Podium; agents",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-21T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-2b8d5da4",
@@ -6044,8 +6020,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-20T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d9b266a9",
@@ -6068,8 +6044,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-20T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d15fef91",
@@ -6092,8 +6068,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-20T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-46ddd68e",
@@ -6116,8 +6092,56 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T12:16:41.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-28153e4b",
+    "published_date": "2026-08-19",
+    "title": "Doctor’s AI receptionist can’t understand Yorkshire accent",
+    "summary": "",
+    "topic": "ai_industry",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "The Telegraph",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_customer_comms",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOT0VieXZMMjgtS2RaNDJRUzg3MGxkUWNfX0xoUlBkNHV2dGJUUE1SOWxzaE82bW9qOWpNSm5sM3BlZmt4NHB4STJhTkVHR1FZV1paN1E5dV9Ja0ZZY3ZMQjhIUUNpT0hiT0FGNkJGN1dOVkF2ZGJDbzZzaTlEMVJiU1RlbXF4UHNWTmgxczBfNWpGSzJoeG5KTkUtZUptS29zLVRv?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-08-19T07:00:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
+  },
+  {
+    "record_id": "GL-a08a92ca",
+    "published_date": "2026-08-19",
+    "title": "GP's AI receptionist has trouble understanding patients' Yorkshire accents - leaving them struggling to get appointments",
+    "summary": "",
+    "topic": "ai_industry",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Daily Mail",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_customer_comms",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPbGwzM0pkY0NDTUROUmltci1sYlY2YUVRSnRVYVFHWG9fS25jR1BUcmk3QVlaVHAxaG5hOWhvLU5udnRWZndiWW9tUkk3Q2luU0duNVowNERtd3BHZHI4ZEk5WENFY3QzNXFscUM0QXhfUFZ5TmRPbWJ0TWVwWnpyM1ZNQ0RYZDljVVJ6aWpMckVsME5YNkRHUmRjTXY5TUV2ZVVxZEZsMGQ2TTA2cmUyQ1dtNzlZeWdt0gG-AUFVX3lxTE5aUXVBTkU4bFdEVWNkOGdVaU5GWW4xS0tnYzczT0N0YVpTM0t2SkdTekVHTEFUOWl1WXU5REoyZ0RKQk9vWElwQ1B3Zk94aFZXdDBvRGpJWEdGSDREemo2WGtDd08wTjdBTzE2NExsUGZiMm01dDFYVmhLcS1tREVJbFVZbHpfSUhCTktLT2tYb2VGWTMtLW9vQkx4N052aDBzR1lxR25PNE1IY0U4RDRkOENZVlg4STdaSWQtTGc?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-08-19T07:00:00.000Z",
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-5779e31b",
@@ -6140,8 +6164,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-41a632b3",
@@ -6164,8 +6188,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d1464026",
@@ -6188,8 +6212,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-727736c2",
@@ -6212,8 +6236,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bded1b74",
@@ -6236,8 +6260,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a307f792",
@@ -6260,8 +6284,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1d306159",
@@ -6284,8 +6308,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-429bbe37",
@@ -6308,8 +6332,8 @@
     "matched_keywords": "Weave; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-eef42bea",
@@ -6332,8 +6356,8 @@
     "matched_keywords": "Weave",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a57d3395",
@@ -6356,8 +6380,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1c38d408",
@@ -6380,8 +6404,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-5c9ff875",
@@ -6404,8 +6428,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a59114d5",
@@ -6428,8 +6452,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d7d307d6",
@@ -6452,8 +6476,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-960b15ab",
@@ -6476,8 +6500,8 @@
     "matched_keywords": "Weave Communications; WEAV; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-75024c21",
@@ -6500,8 +6524,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-923602ee",
@@ -6524,8 +6548,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-0e8c9c4d",
@@ -6548,8 +6572,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-d8528997",
@@ -6572,8 +6596,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-17T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-1b852384",
@@ -6596,8 +6620,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-08T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-aeaac22b",
@@ -6620,8 +6644,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-08T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-50e16263",
@@ -6644,8 +6668,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 100,
     "published_at_utc": "2026-08-07T14:59:03.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-dbaee3da",
@@ -6668,8 +6692,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-07T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-b17a0a67",
@@ -6692,8 +6716,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-06386425",
@@ -6716,8 +6740,8 @@
     "matched_keywords": "Weave",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-5abde9ea",
@@ -6740,8 +6764,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-cd549048",
@@ -6764,8 +6788,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-27aa30b9",
@@ -6788,8 +6812,8 @@
     "matched_keywords": "Birdeye; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-04T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-c585169c",
@@ -6812,8 +6836,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-03T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-2e12aea5",
@@ -6836,8 +6860,8 @@
     "matched_keywords": "Podium; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-03T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-0fec3313",
@@ -6860,8 +6884,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-29T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-ad49cad3",
@@ -6884,8 +6908,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-28T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-bd4ea6f0",
@@ -6908,8 +6932,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 100,
     "published_at_utc": "2026-07-28T04:52:37.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-a4659672",
@@ -6932,8 +6956,8 @@
     "matched_keywords": "Weave",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-20T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-4e1b013a",
@@ -6956,8 +6980,8 @@
     "matched_keywords": "NexHealth",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-18T02:10:45.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-48c4b8cb",
@@ -6980,8 +7004,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-15T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-35c05d11",
@@ -7004,8 +7028,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-13T07:00:00.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   },
   {
     "record_id": "GL-80df81f2",
@@ -7028,7 +7052,7 @@
     "matched_keywords": "Podium",
     "completeness_pct": 100,
     "published_at_utc": "2025-12-02T21:29:40.000Z",
-    "collected_at": "2026-10-08T19:06:48.534Z",
-    "run_id": "20261008T190648Z"
+    "collected_at": "2026-10-09T04:52:54.228Z",
+    "run_id": "20261009T045254Z"
   }
 ]

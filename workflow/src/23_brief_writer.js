@@ -125,7 +125,7 @@ const jobs = subjects.map((s) => async () => {
   if (!evidence.length) return { ...base, brief: rulesBrief(s, evidence, st), written_by: 'rules_fallback', write_error: 'no evidence' };
   try {
     const res = await AI.complete({
-      name: `brief:${s.key}`, system: WRITER_SYSTEM, effort: 'medium', maxTokens: 3500, timeoutMs: 150000, temperature: 0.3,
+      name: `brief:${s.key}`, role: 'writer', system: WRITER_SYSTEM, effort: 'medium', maxTokens: 12000, timeoutMs: 180000, temperature: 0.3,
       user: `BRIEF: ${s.title}\nFOCUS: ${s.focus}\nPERIOD: ${st.date_range}\n\nSTATS:\n${JSON.stringify(st, null, 1)}\n\nEVIDENCE:\n${JSON.stringify(allEvidence)}`,
       validate: validateBrief(allEvidence.map((e) => e.id)),
     });

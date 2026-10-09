@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b91c1c"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0f766e"/></marker>
+    <style>
+      .t{font-size:15px;font-weight:700;fill:#0f172a}.s{font-size:12px;fill:#475569}.k{font-size:11px;font-weight:700;letter-spacing:.08em;fill:#0f766e}
+      .box{fill:#fff;stroke:#cbd5e1;stroke-width:1.5}.ai{fill:#f0fdfa;stroke:#0f766e;stroke-width:2}.out{fill:#eff6ff;stroke:#1d4ed8;stroke-width:1.5}
+      .fail{fill:#fef2f2;stroke:#b91c1c;stroke-width:1.2;stroke-dasharray:5 3}.lane{fill:#f8fafc;stroke:#e2e8f0}
+      .ln{stroke:#334155;stroke-width:1.6;fill:none}.lr{stroke:#b91c1c;stroke-width:1.4;fill:none;stroke-dasharray:6 4}.lg{stroke:#0f766e;stroke-width:2;fill:none}
+      .badge{fill:#0f766e}.bt{font-size:11px;font-weight:700;fill:#fff}.ft{font-size:11.5px;fill:#7f1d1d}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" fill="#ffffff"/>
+
+  <!-- title -->
+  <text x="40" y="52" font-size="28" font-weight="800" fill="#0f172a">Groundline v2 — technical architecture</text>
+  <text x="40" y="80" font-size="14" fill="#475569">n8n orchestrates every step · Gemini models do the judging, writing and checking · every failure has a defined path (red)</text>
+  <rect x="1300" y="34" width="262" height="34" rx="17" class="badge"/><text x="1431" y="56" text-anchor="middle" class="bt" font-size="13">Built with n8n + Google Gemini</text>
+
+  <!-- lanes -->
+  <rect x="30" y="110" width="250" height="600" rx="14" class="lane"/><text x="50" y="136" class="k">1 · SOURCES · public APIs</text>
+  <rect x="300" y="110" width="250" height="600" rx="14" class="lane"/><text x="320" y="136" class="k">2 · COLLECT &amp; CLEAN · n8n (A3)</text>
+  <rect x="570" y="110" width="430" height="600" rx="14" class="lane"/><text x="590" y="136" class="k">3 · AI LAYER · n8n Code nodes → Gemini API</text>
+  <rect x="1020" y="110" width="250" height="600" rx="14" class="lane"/><text x="1040" y="136" class="k">4 · RENDER &amp; DELIVER</text>
+  <rect x="1290" y="110" width="280" height="600" rx="14" class="lane"/><text x="1310" y="136" class="k">5 · OUTPUTS · what people use</text>
+
+  <!-- sources -->
+  <g>
+    <rect x="50" y="155" width="210" height="78" rx="10" class="box"/><text x="64" y="180" class="t">News RSS (11 feeds)</text>
+    <text x="64" y="199" class="s">AI desks · Weave · Google News</text><text x="64" y="216" class="s">Podium · Birdeye · NexHealth</text>
+    <rect x="50" y="245" width="210" height="58" rx="10" class="box"/><text x="64" y="270" class="t">Reddit</text><text x="64" y="289" class="s">practice owners (optional)</text>
+    <rect x="50" y="315" width="210" height="58" rx="10" class="box"/><text x="64" y="340" class="t">arXiv API</text><text x="64" y="359" class="s">what is proven</text>
+    <rect x="50" y="385" width="210" height="58" rx="10" class="box"/><text x="64" y="410" class="t">Hacker News API</text><text x="64" y="429" class="s">what practitioners say</text>
+    <rect x="50" y="455" width="210" height="58" rx="10" class="box"/><text x="64" y="480" class="t">NewsAPI</text><text x="64" y="499" class="s">optional key</text>
+    <rect x="50" y="535" width="210" height="58" rx="10" class="box"/><text x="64" y="560" class="t">Schedule / manual</text><text x="64" y="579" class="s">every Monday 07:00</text>
+  </g>
+
+  <!-- collect -->
+  <rect x="320" y="155" width="210" height="78" rx="10" class="box"/><text x="334" y="180" class="t">Fetch · loop per feed</text><text x="334" y="199" class="s">retry 3× · never stops</text><text x="334" y="216" class="s">the run</text>
+  <rect x="320" y="255" width="210" height="58" rx="10" class="box"/><text x="334" y="280" class="t">Normalize</text><text x="334" y="299" class="s">one record shape</text>
+  <rect x="320" y="335" width="210" height="78" rx="10" class="box"/><text x="334" y="360" class="t">Validate &amp; dedupe</text><text x="334" y="379" class="s">fields · dates · topic · URL</text><text x="334" y="396" class="s">+ title dedupe · feed caps</text>
+  <rect x="320" y="435" width="210" height="58" rx="10" class="box"/><text x="334" y="460" class="t">Clean dataset</text><text x="334" y="479" class="s">~290 cited records</text>
+  <rect x="320" y="515" width="210" height="58" rx="10" class="box"/><text x="334" y="540" class="t">Quality report</text><text x="334" y="559" class="s">+ rejects log · raw snapshot</text>
+
+  <!-- AI layer -->
+  <rect x="590" y="155" width="185" height="58" rx="10" class="box"/><text x="604" y="180" class="t">Analysis cache</text><text x="604" y="199" class="s">judged before → reuse</text>
+  <rect x="590" y="232" width="390" height="92" rx="12" class="ai"/>
+  <rect x="604" y="244" width="66" height="20" rx="10" class="badge"/><text x="637" y="258" text-anchor="middle" class="bt">AI · 1</text>
+  <text x="680" y="259" class="t">AI Analyst — Gemini 3.5 Flash-Lite</text>
+  <text x="604" y="284" class="s">Per record: relevance 0–3 · entity · sentiment −2…+2 · theme ·</text>
+  <text x="604" y="302" class="s">risk / opportunity to Weave · brand archetype · key fact · why</text>
+  <text x="604" y="318" class="s" fill="#0f766e">batches of 25 · 2 parallel · model chain on quota</text>
+
+  <polygon points="785,345 860,385 785,425 710,385" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+  <text x="785" y="381" text-anchor="middle" class="t" font-size="13">Decide</text><text x="785" y="397" text-anchor="middle" class="s" font-size="11">Switch</text>
+  <text x="872" y="410" class="s" fill="#b91c1c" font-weight="700">high risk → alert</text>
+  <text x="872" y="427" class="s" fill="#15803d" font-weight="700">competitor stumble → alert</text>
+  <text x="872" y="444" class="s">else → weekly brief</text>
+
+  <rect x="590" y="452" width="390" height="80" rx="12" class="ai"/>
+  <rect x="604" y="464" width="66" height="20" rx="10" class="badge"/><text x="637" y="478" text-anchor="middle" class="bt">AI · 2</text>
+  <text x="680" y="479" class="t">Brief Writer — Gemini 3.8 Flash</text>
+  <text x="604" y="503" class="s">Weave + each competitor + market. Every claim cites record ids;</text>
+  <text x="604" y="520" class="s">every number is computed in code, never generated.</text>
+
+  <rect x="590" y="552" width="390" height="92" rx="12" class="ai"/>
+  <rect x="604" y="564" width="66" height="20" rx="10" class="badge"/><text x="637" y="578" text-anchor="middle" class="bt">AI · 3</text>
+  <text x="680" y="579" class="t">Fact-Checker — Gemini 3.5 Flash</text>
+  <text x="604" y="603" class="s">A different model rules each claim supported / partial / unsupported</text>
+  <text x="604" y="620" class="s">against its cited sources. Fake citations caught by rule.</text>
+  <text x="604" y="636" class="s" fill="#0f766e">unsupported claims removed · groundedness score</text>
+
+  <!-- render -->
+  <rect x="1040" y="232" width="210" height="80" rx="10" class="box"/><text x="1054" y="257" class="t">Compose alerts</text><text x="1054" y="276" class="s">new items only (repeat</text><text x="1054" y="293" class="s">alerts suppressed)</text>
+  <rect x="1040" y="452" width="210" height="80" rx="10" class="box"/><text x="1054" y="477" class="t">Render reports</text><text x="1054" y="496" class="s">HTML briefs · dashboard</text><text x="1054" y="513" class="s">CSV · chart · fact-check log</text>
+  <rect x="1040" y="552" width="210" height="58" rx="10" class="box"/><text x="1054" y="577" class="t">Compose digest</text><text x="1054" y="596" class="s">email-safe HTML</text>
+  <rect x="1040" y="630" width="210" height="58" rx="10" class="box"/><text x="1054" y="655" class="t">Run metrics</text><text x="1054" y="674" class="s">cost · tokens · delivery</text>
+
+  <!-- outputs -->
+  <rect x="1310" y="232" width="240" height="80" rx="10" class="out"/><text x="1324" y="257" class="t">Gmail alerts</text><text x="1324" y="276" class="s">brand risk · competitor opening</text><text x="1324" y="293" class="s">integration: SMTP + app password</text>
+  <rect x="1310" y="335" width="240" height="98" rx="10" class="out"/><text x="1324" y="360" class="t">Weekly digest email</text><text x="1324" y="379" class="s">Weave brief + key points + actions</text><text x="1324" y="396" class="s">+ chart · attachments: brief,</text><text x="1324" y="413" class="s">dashboard, scored CSV</text>
+  <rect x="1310" y="452" width="240" height="80" rx="10" class="out"/><text x="1324" y="477" class="t">outputs/ folder</text><text x="1324" y="496" class="s">briefs · dashboard · CSV · PNG</text><text x="1324" y="513" class="s">→ PDFs for sharing</text>
+  <rect x="1310" y="552" width="240" height="58" rx="10" class="out"/><text x="1324" y="577" class="t">Analyze API</text><text x="1324" y="596" class="s">same Analyst code as a webhook</text>
+  <rect x="1310" y="630" width="240" height="58" rx="10" class="out"/><text x="1324" y="655" class="t">Run history</text><text x="1324" y="674" class="s">data/runs · cache for next run</text>
+
+  <!-- main flow -->
+  <path class="ln" marker-end="url(#a)" d="M260 194 H320"/>
+  <path class="ln" marker-end="url(#a)" d="M260 274 C290 274 290 214 320 214"/>
+  <path class="ln" marker-end="url(#a)" d="M260 344 C292 344 292 220 320 220"/>
+  <path class="ln" marker-end="url(#a)" d="M260 414 C296 414 296 226 320 226"/>
+  <path class="ln" marker-end="url(#a)" d="M260 484 C300 484 300 230 320 230"/>
+  <path class="ln" marker-end="url(#a)" d="M260 564 C286 564 286 168 320 168"/>
+  <path class="ln" marker-end="url(#a)" d="M425 233 V255"/><path class="ln" marker-end="url(#a)" d="M425 313 V335"/>
+  <path class="ln" marker-end="url(#a)" d="M425 413 V435"/><path class="ln" marker-end="url(#a)" d="M425 493 V515"/>
+  <path class="lg" marker-end="url(#g)" d="M530 464 C560 464 560 184 590 184"/>
+  <path class="lg" marker-end="url(#g)" d="M682 213 V232"/>
+  <path class="lg" marker-end="url(#g)" d="M785 324 V345"/>
+  <path class="lg" marker-end="url(#g)" d="M860 385 C1000 385 990 272 1040 272"/>
+  <path class="lg" marker-end="url(#g)" d="M785 425 V452"/>
+  <path class="lg" marker-end="url(#g)" d="M785 532 V552"/>
+  <path class="lg" marker-end="url(#g)" d="M980 598 C1010 598 1010 492 1040 492"/>
+  <path class="ln" marker-end="url(#a)" d="M1145 532 V552"/><path class="ln" marker-end="url(#a)" d="M1145 610 V630"/>
+  <path class="ln" marker-end="url(#a)" d="M1250 272 H1310"/>
+  <path class="ln" marker-end="url(#a)" d="M1250 581 C1280 581 1280 384 1310 384"/>
+  <path class="ln" marker-end="url(#a)" d="M1250 492 H1310"/>
+  <path class="ln" marker-end="url(#a)" d="M1250 659 H1310"/>
+  
+
+  <!-- failure paths -->
+  <text x="40" y="772" font-size="17" font-weight="800" fill="#b91c1c">Failure paths — what happens when things go wrong</text>
+  <g>
+    <rect x="40" y="788" width="300" height="96" rx="10" class="fail"/>
+    <text x="54" y="802" font-size="10" font-weight="700" fill="#b91c1c" letter-spacing=".06em">FROM LANE 1–2</text>
+    <text x="54" y="818" class="t" font-size="13" fill="#7f1d1d">Source down / blocked</text>
+    <text x="54" y="838" class="ft">retry 3× → "source unavailable" row in</text><text x="54" y="854" class="ft">quality report → run continues with the</text><text x="54" y="870" class="ft">other sources (seen: Reddit, NewsAPI)</text>
+
+    <rect x="356" y="788" width="300" height="96" rx="10" class="fail"/>
+    <text x="370" y="802" font-size="10" font-weight="700" fill="#b91c1c" letter-spacing=".06em">FROM LANE 3 · AI 1–3</text>
+    <text x="370" y="818" class="t" font-size="13" fill="#7f1d1d">AI rate limit · overload · timeout</text>
+    <text x="370" y="838" class="ft">429 per-minute → wait retryDelay / backoff</text><text x="370" y="854" class="ft">429 daily quota → switch model immediately</text><text x="370" y="870" class="ft">503 / timeout → retry, then next model</text>
+
+    <rect x="672" y="788" width="300" height="96" rx="10" class="fail"/>
+    <text x="686" y="802" font-size="10" font-weight="700" fill="#b91c1c" letter-spacing=".06em">FROM LANE 3 · AI 1</text>
+    <text x="686" y="818" class="t" font-size="13" fill="#7f1d1d">AI unusable · broken JSON · budget</text>
+    <text x="686" y="838" class="ft">bad JSON → 1 repair round-trip; still bad →</text><text x="686" y="854" class="ft">keyword-rule fallback, labelled per record.</text><text x="686" y="870" class="ft">3 failed batches or $ cap → circuit breaker</text>
+
+    <rect x="988" y="788" width="280" height="96" rx="10" class="fail"/>
+    <text x="1002" y="802" font-size="10" font-weight="700" fill="#b91c1c" letter-spacing=".06em">FROM LANE 3 · AI 2–3</text>
+    <text x="1002" y="818" class="t" font-size="13" fill="#7f1d1d">AI writes something untrue</text>
+    <text x="1002" y="838" class="ft">fake citation → unsupported (rule)</text><text x="1002" y="854" class="ft">claim not in sources → removed;</text><text x="1002" y="870" class="ft">&lt;85% grounded → "needs review" badge</text>
+
+    <rect x="1284" y="788" width="286" height="96" rx="10" class="fail"/>
+    <text x="1298" y="802" font-size="10" font-weight="700" fill="#b91c1c" letter-spacing=".06em">FROM LANE 4–5</text>
+    <text x="1298" y="818" class="t" font-size="13" fill="#7f1d1d">Email fails · node crashes</text>
+    <text x="1298" y="838" class="ft">SMTP 3 tries → copy saved to outputs/,</text><text x="1298" y="854" class="ft">failure in run metrics. Crash → Error</text><text x="1298" y="870" class="ft">workflow emails details + writes a log</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(40,920)">
+    <rect width="18" height="14" rx="3" class="ai"/><text x="26" y="12" class="s">AI component (Gemini via OpenAI-compatible API)</text>
+    <rect x="360" width="18" height="14" rx="3" class="out"/><text x="386" y="12" class="s">human-usable output / integration point</text>
+    <line x1="690" y1="7" x2="730" y2="7" class="lr"/><text x="738" y="12" class="s">failure path</text>
+    <line x1="850" y1="7" x2="890" y2="7" class="lg"/><text x="898" y="12" class="s">AI data flow</text>
+    <text x="1030" y="12" class="s">Integrations: RSS/HTTP sources · Gemini API · Gmail SMTP · local files · webhook</text>
+  </g>
+  <text x="40" y="975" class="s">Groundline v2 · INFO 7375 Branding &amp; AI · Northeastern University · Fall 2026 · Agnel Salve</text>
+</svg>

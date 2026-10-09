@@ -138,13 +138,13 @@ m.sticky("Note: collect", sticky_collect, [220, -120], 1000, 1100, 5)
 m.sticky("Note: clean", "### ② Validate → Dedupe (A3)\nRejects records missing title / URL / source / date, bad dates, "
          "off-topic items and duplicates. Every rejection keeps its reason.", [1250, 200], 460, 480, 4)
 m.sticky("Note: save", "### ③ Save clean data (A3)\nDataset, quality report, rejects log, raw snapshot.", [1700, -120], 780, 1060, 6)
-m.sticky("Note: judge", "### ④ AI judges every record — Gemini 2.5 Flash\nCache → batches → parallel calls (Muse Spark optional).\n"
+m.sticky("Note: judge", "### ④ AI judges every record — Gemini 3.5 Flash-Lite\nCache → batches → parallel calls (Muse Spark optional).\n"
          "Retries with backoff, provider fallback, JSON repair, circuit breaker, $ budget cap; anything the AI can't judge falls back to "
          "A3's keyword rules **and is labelled**.", [2520, -340], 680, 300, 3)
 m.sticky("Note: route", "### ⑤ Decide → act\nHigh risk to Weave → **risk alert email**.\nCompetitor stumble → "
          "**opportunity email**.\nEverything else → weekly brief. Repeat alerts are suppressed.", [3240, -340], 860, 300, 2)
-m.sticky("Note: brief", "### ⑥ Write → fact-check → deliver\nGemini Flash writes cited briefs (numbers computed, not generated). "
-         "A **different model (Gemini Pro) fact-checks** every claim against its sources; unsupported claims are removed. "
+m.sticky("Note: brief", "### ⑥ Write → fact-check → deliver\nGemini 3.8 Flash writes cited briefs (numbers computed, not generated). "
+         "A **different model (Gemini 3.5 Flash) fact-checks** every claim against its sources; unsupported claims are removed. "
          "HTML briefs, dashboard, CSV, chart, and the weekly email.", [2520, 380], 1980, 300, 4)
 
 # ---------------------------------------------------------------- triggers + config
@@ -219,7 +219,7 @@ m.node("Read cache file", "n8n-nodes-base.readWriteFile", 1, [2560, -180],
        {"operation": "read", "fileSelector": "=" + DATA + "/cache/analysis_cache.json", "options": {}},
        "missing cache = cold start, not an error", executeOnce=True, alwaysOutputData=True, onError="continueRegularOutput")
 m.code("Load cache", "20_load_cache.js", [2780, -180])
-m.code("AI Analyst", "21_ai_analyst.js", [3000, -180], "Gemini · relevance, sentiment, risk, archetype", libs=("ai_client", "analyst_core"))
+m.code("AI Analyst", "21_ai_analyst.js", [3000, -180], "Gemini 3.5 Flash-Lite · relevance, sentiment, risk, archetype", libs=("ai_client", "analyst_core"))
 m.link("Final dataset", "Read cache file")
 m.link("Read cache file", "Load cache")
 m.link("Load cache", "AI Analyst")
@@ -243,8 +243,8 @@ for i, (kind, label) in enumerate([("urgent_risk", "risk"), ("opportunity", "opp
     m.write_items(f"Save {label} alert", [3780, y + 70], f"Compose {label} alert")
 
 # ---------------------------------------------------------------- ⑥ write → check → deliver
-m.code("AI Brief Writer", "23_brief_writer.js", [2780, 480], "Gemini Flash · cited briefs", libs=("ai_client", "render_kit"))
-m.code("AI Fact-Checker", "24_fact_checker.js", [3000, 480], "Gemini Pro · checks every claim", libs=("ai_client",))
+m.code("AI Brief Writer", "23_brief_writer.js", [2780, 480], "Gemini 3.8 Flash · cited briefs", libs=("ai_client", "render_kit"))
+m.code("AI Fact-Checker", "24_fact_checker.js", [3000, 480], "Gemini 3.5 Flash · checks every claim", libs=("ai_client",))
 m.code("Render reports", "25_render_reports.js", [3220, 480], "HTML · dashboard · CSV · chart", libs=("render_kit",))
 m.write_items("Write report files", [3440, 400], "Render reports")
 m.code("Compose digest email", "26_compose_digest.js", [3660, 480], libs=("render_kit",))

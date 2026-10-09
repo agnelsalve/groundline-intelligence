@@ -15,7 +15,8 @@ const clean = recs.map((r, i) => {
 }).filter(Boolean);
 if (!clean.length) return [{ json: { status: 422, response: { error: 'No valid records.', invalid: bad } } }];
 
-const { records, stats } = await analyzeRecords(clean, { useCache: body.use_cache === true, cache: {}, batchSize: Math.min(10, clean.length), maxAI: 100 });
+// "ai": false skips the model (keyword rules only) — used to measure n8n's own capacity separately from the AI quota.
+const { records, stats } = await analyzeRecords(clean, { useCache: body.use_cache === true, cache: {}, batchSize: Math.min(25, clean.length), maxAI: body.ai === false ? 0 : 100 });
 const ai = AI.summary();
 return [{ json: { status: 200, response: {
   results: records.map((r) => ({ record_id: r.record_id, relevance: r.relevance, entity: r.entity, sentiment: r.sentiment, theme: r.theme,

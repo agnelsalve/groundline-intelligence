@@ -1,39 +1,39 @@
 # Groundline run summary
 
-**Run** `20261008T190648Z` · 34.4s · 293 records judged · AI cost **$0.0000**
+**Run** `20261009T045254Z` · 118.9s · 294 records judged · AI cost **$0.0889**
 
 | Step | Seconds |
 |---|---|
-| analyst | 0 |
-| writer | 0 |
-| checker | 0 |
+| analyst | 3.9 |
+| writer | 34 |
+| checker | 57.8 |
 
 | AI usage | Value |
 |---|---|
-| Calls | 0 |
-| Retries / JSON repairs / provider fallbacks | 0 / 0 / 0 |
-| Tokens in / out | 0 / 0 |
-| Records from cache | 0 |
-| Records judged by AI / by keyword fallback | 0 / 293 |
-| Circuit breaker opened | yes |
+| Calls | 16 |
+| Retries / JSON repairs / provider fallbacks | 2 / 2 / 3 |
+| Tokens in / out | 27331 / 9552 |
+| Records from cache | 289 |
+| Records judged by AI / by keyword fallback | 5 / 0 |
+| Circuit breaker opened | no |
 
 | Brief | Written by | Groundedness | Status |
 |---|---|---|---|
-| weave | rules_fallback | — | ai_offline |
-| podium | rules_fallback | — | ai_offline |
+| weave | gemini:gemini-3.5-flash | 87% | verified |
+| podium | gemini:gemini-3.8-flash | 97% | verified |
+| birdeye | gemini:gemini-3.5-flash | 54% | failed |
+| market | gemini:gemini-3.5-flash | 94% | verified |
 
 | Email | Status |
 |---|---|
-| weekly_digest | failed — Gmail did not accept the message (credential missing or rejected; run scripts/setup-credentials.ps1) |
-| risk_alert | nothing_to_send |
-| opportunity_alert | nothing_to_send |
+| weekly_digest | sent |
+| risk_alert | sent |
+| opportunity_alert | sent |
 
-Routes: digest 293
+Routes: digest 267 · discard 14 · opportunity 12 · urgent_risk 1
 
 ## Errors handled
 
-- `analyze`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
-- `analyze`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
-- `analyze`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
-- `brief:weave`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
-- `brief:podium`  : no AI provider configured (set MUSE_API_KEY or GEMINI_API_KEY in .env)
+- `brief:weave` gemini-3.8-flash quota: Gemini 3.8-flash 429: {"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren
+- `brief:birdeye` gemini-3.8-flash quota: Gemini 3.8-flash 429: {"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren
+- `check:market` gemini-3.5-flash quota: Gemini 3.5-flash 429: {"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren

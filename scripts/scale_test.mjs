@@ -22,6 +22,7 @@ const PER_REQ = +arg('per-request', '1');
 const TIMEOUT_MS = +arg('timeout', '180000');
 const PID = arg('pid', '');
 const LABEL = arg('label', '');
+const NO_AI = process.argv.includes('--no-ai');       // measure n8n alone (keyword rules, no model calls)
 const BUDGET = +arg('budget', '5');               // stop the test once this many dollars have been spent
 
 const dataset = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/clean/groundline_dataset.json'), 'utf8'));
@@ -40,11 +41,11 @@ async function one(i) {
   const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
   try {
     const res = await fetch(URL_, { method: 'POST', headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ records: take(PER_REQ) }), signal: ctl.signal });
+      body: JSON.stringify({ records: take(PER_REQ), ...(NO_AI ? { ai: false } : {}) }), signal: ctl.signal });
     const ms = performance.now() - t0;
     let body = null; try { body = await res.json(); } catch { /* non-JSON error page */ }
     const results = (body && body.results) || [];
-    const degraded = results.filter((r) => !String(r.analysis_source).startsWith('ai:')).length;
+    const degraded = NO_AI ? 0 : results.filter((r) => !String(r.analysis_source).startsWith('ai:')).length;
     return { i, ms, http: res.status, ok: res.status === 200 && results.length === PER_REQ && degraded === 0,
       degraded, records: results.length, m: (body && body.metrics) || {}, err: res.status !== 200 ? (body && body.error) || res.statusText : null };
   } catch (e) {
@@ -91,9 +92,9 @@ for (const n of LEVELS) {
 
 const stamp = started.replace(/[-:]/g, '').slice(0, 15) + 'Z';
 const dir = path.join(ROOT, 'data/scale'); fs.mkdirSync(dir, { recursive: true });
-const meta = { started, url: URL_, per_request: PER_REQ, concurrency_cap: MAX_CONC || 'burst', label: LABEL, node: process.version };
+const meta = { started, url: URL_, per_request: PER_REQ, concurrency_cap: MAX_CONC || 'burst', label: LABEL, mode: NO_AI ? 'n8n only (no AI)' : 'n8n + Gemini', node: process.version };
 fs.writeFileSync(path.join(dir, `scale_${stamp}.json`), JSON.stringify({ meta, results }, null, 2));
-const md = [`# Scale test ${stamp}${LABEL ? ' — ' + LABEL : ''}`, '', `Endpoint \`${URL_}\` · ${PER_REQ} record(s) per request · concurrency ${MAX_CONC || 'all at once'}`, '',
+const md = [`# Scale test ${stamp}${LABEL ? ' — ' + LABEL : ''}`, '', `Mode: **${meta.mode}** · Endpoint \`${URL_}\` · ${PER_REQ} record(s) per request · concurrency ${MAX_CONC || 'all at once'}`, '',
   '| Requests | Concurrency | Wall time | Req/s | p50 | p95 | Max | Success | Degraded records | HTTP errors | AI errors | Retries | Cost | Cost / 100 req | Peak n8n MB |',
   '|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|',
   ...results.map((r) => `| ${r.requests} | ${r.concurrency} | ${r.wall_s}s | ${r.throughput_rps} | ${r.p50_ms}ms | ${r.p95_ms}ms | ${r.max_ms}ms | ${r.success_pct}% | ${r.degraded_records} | ${JSON.stringify(r.http_errors)} | ${JSON.stringify(r.ai_error_kinds)} | ${r.retries} | $${r.cost_usd} | $${r.cost_per_100_requests} | ${r.peak_n8n_mem_mb ?? '—'} |`)].join('\n');

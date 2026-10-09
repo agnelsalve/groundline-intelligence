@@ -32,7 +32,7 @@ ${chartOk ? `<div style="margin:20px 0 4px"><img src="${esc(chartUrl)}" width="5
 ${others ? `<div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:${C.accent};margin:18px 0 8px">Competitors &amp; market</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${others}</table>` : ''}
 <p style="margin:18px 0 0;font-size:13px;color:${C.muted}">Attached: the full Weave brief with every source linked, the competitor dashboard, and a spreadsheet of all ${records.length} judged records.</p>`;
 const footer = `Every claim was checked against its cited sources by ${esc(fc.checker)} before sending; unsupported claims were removed.<br>
-Run ${esc(cfg.run_id)} · written by ${esc(weave.written_by)} · Built with n8n + Muse Spark · Groundline v2`;
+Run ${esc(cfg.run_id)} · written by ${esc(weave.written_by)} · fact-checked by ${esc(fc.checker)} · Groundline v2 · INFO 7375`;
 const html = emailShell({ title: `Weave brand brief · ${cfg.run_date}`, preheader: p.headline, body, footer });
 
 const pick = (name) => { const f = files.find((x) => x.json.file.endsWith(name)); return f && f.binary && f.binary.data; };

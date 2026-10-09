@@ -2,8 +2,9 @@
 // Shared by every AI node. scripts/build_workflow.py pastes this file at the top
 // of each AI Code node, so the retry / fallback / cost rules live in one place.
 //
-// Provider chain: Muse Spark (Meta Model API) → Gemini (backup) → caller's rule fallback.
-// Both providers speak the OpenAI Chat Completions format, so one client covers both.
+// Provider chain: Gemini 2.5 Flash (primary) → Muse Spark (optional, if a key is set) → caller's rule fallback.
+// The fact-checker asks for a different model (Gemini 2.5 Pro) so it isn't grading its own work.
+// Every provider speaks the OpenAI Chat Completions format, so one client covers them all.
 //
 // What it handles:
 //   429 / 5xx / timeout / network  → retry with exponential backoff + jitter (honours Retry-After)
@@ -18,13 +19,20 @@ const AI = (() => {
   const env = (k, d = '') => { try { const v = $env[k]; return v === undefined || v === null || v === '' ? d : String(v); } catch (e) { return d; } };
   const real = (k) => k && !/^your_|_here$|^changeme$/i.test(k);
 
-  // USD per 1M tokens. Muse: Meta Model API list price. Gemini: free tier = $0.
-  const PROVIDERS = [
+  // USD per 1M tokens at PAID list prices. On Gemini's free tier the real bill is $0, but we meter
+  // at list price so cost-per-run and the budget cap reflect what production would pay.
+  const GEMINI_BASE = env('GEMINI_BASE_URL', 'https://generativelanguage.googleapis.com/v1beta/openai');
+  const ALL = [
+    { id: 'gemini', label: 'Gemini', base: GEMINI_BASE, key: env('GEMINI_API_KEY'),
+      model: env('GEMINI_MODEL', 'gemini-2.5-flash'), price: { in: +env('GEMINI_PRICE_IN', '0.30'), out: +env('GEMINI_PRICE_OUT', '2.50') } },
     { id: 'muse', label: 'Muse Spark', base: env('MUSE_BASE_URL', 'https://api.meta.ai/v1'), key: env('MUSE_API_KEY'),
       model: env('MUSE_MODEL', 'muse-spark-1.3'), price: { in: +env('MUSE_PRICE_IN', '1.25'), out: +env('MUSE_PRICE_OUT', '4.25') } },
-    { id: 'gemini', label: 'Gemini', base: env('GEMINI_BASE_URL', 'https://generativelanguage.googleapis.com/v1beta/openai'), key: env('GEMINI_API_KEY'),
-      model: env('GEMINI_MODEL', 'gemini-2.5-flash'), price: { in: +env('GEMINI_PRICE_IN', '0'), out: +env('GEMINI_PRICE_OUT', '0') } },
-  ].filter((p) => real(p.key));
+  ];
+  if (env('AI_PRIMARY') === 'muse') ALL.reverse();
+  const PROVIDERS = ALL.filter((p) => real(p.key));
+  // Second-opinion model, used only when a task asks for it (the fact-checker).
+  const CHECKER = real(env('GEMINI_API_KEY')) ? { id: 'gemini-check', label: 'Gemini (checker)', base: GEMINI_BASE, key: env('GEMINI_API_KEY'),
+    model: env('GEMINI_CHECK_MODEL', 'gemini-2.5-pro'), price: { in: +env('GEMINI_CHECK_PRICE_IN', '1.25'), out: +env('GEMINI_CHECK_PRICE_OUT', '10') } } : null;
 
   const MAX_TRIES = +env('AI_MAX_TRIES', '4');
   // Hard spending cap for one pipeline run (all AI steps together). Once reached, no more
@@ -126,7 +134,8 @@ const AI = (() => {
     }
     // task.prefer lets a caller pick a different model first — the fact-checker uses this
     // so that, when both keys exist, a second model checks the first one's work.
-    const order = task.prefer ? [...PROVIDERS].sort((a, b) => (b.id === task.prefer) - (a.id === task.prefer)) : PROVIDERS;
+    const order = task.prefer === 'gemini-check' && CHECKER ? [CHECKER, ...PROVIDERS]
+      : task.prefer ? [...PROVIDERS].sort((a, b) => (b.id === task.prefer) - (a.id === task.prefer)) : PROVIDERS;
     let last;
     for (let i = 0; i < order.length; i++) {
       try { return await callProvider(order[i], task); }

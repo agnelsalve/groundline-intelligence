@@ -1,7 +1,8 @@
 // AI Fact-Checker — Agent 4 from the A2 design ("Scorekeeper").
 // A second, independent AI pass reads each claim next to the exact source records it
-// cites and rules: supported / partial / unsupported. When a Gemini key is set, the
-// checker runs on Gemini so a different model checks Muse Spark's writing.
+// cites and rules: supported / partial / unsupported. It runs on a different model
+// (Gemini 2.5 Pro) from the writer (Gemini 2.5 Flash), so no model grades its own work;
+// if Pro is unavailable it falls back to the main chain and the report says which model checked.
 //
 // Two layers:
 //   1. Deterministic: a claim citing an id that isn't in the evidence is a fabricated
@@ -48,7 +49,7 @@ const jobs = briefs.map((b) => async () => {
       cited: c.cite.filter((id) => ev[id]).map((id) => ({ id, title: ev[id].title, key_fact: ev[id].key_fact, source: ev[id].source, date: ev[id].date })) }));
     try {
       const res = await AI.complete({ name: `check:${b.key}`, system: CHECKER_SYSTEM, user: JSON.stringify({ claims: payload }),
-        prefer: 'gemini', effort: 'low', maxTokens: 300 + 60 * toCheck.length, timeoutMs: 120000, temperature: 0,
+        prefer: 'gemini-check', effort: 'low', maxTokens: 300 + 60 * toCheck.length, timeoutMs: 120000, temperature: 0,
         validate: (d) => (!d || !Array.isArray(d.checks) ? 'missing "checks" array'
           : d.checks.filter((x) => x && VERDICTS.includes(x.verdict)).length < Math.ceil(toCheck.length * 0.8) ? 'a verdict is needed for every claim' : null) });
       checker = `${res.provider}:${res.model}`;

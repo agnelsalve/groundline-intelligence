@@ -1,4 +1,4 @@
-// AI Analyst — Muse Spark reads every clean record and judges it
+// AI Analyst — the AI (Gemini 2.5 Flash; Muse Spark optional) reads every clean record and judges it
 // (relevance, entity, sentiment, theme, risk, opportunity, archetype, key fact).
 // Logic lives in workflow/lib/analyst_core.js (pasted above by the build script).
 //

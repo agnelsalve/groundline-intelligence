@@ -11,6 +11,8 @@ const runs = ['AI Analyst', 'AI Brief Writer', 'AI Fact-Checker'].map((n) => $(n
 const analyst = runs[0];
 const aiCost = runs.reduce((s, r) => s + ((r && r.ai && r.ai.cost_usd) || 0), 0);
 const models = [...new Set(runs.flatMap((r) => (r && r.ai ? Object.keys(r.ai.by_provider) : [])))];
+const PRETTY = { gemini: 'Gemini', 'gemini-check': 'Gemini', muse: 'Muse Spark' };
+const builtWith = 'n8n + ' + ([...new Set(models.map((m) => PRETTY[m] || m))].join(' + ') || 'keyword rules');
 const recById = Object.fromEntries(records.map((r) => [r.record_id, r]));
 const out = [];
 const file = async (rel, content, mime) => out.push({ json: { file: rel, file_path: `${cfg.out_dir}/${rel}`, bytes: Buffer.byteLength(content) },
@@ -61,7 +63,7 @@ ${removed.length ? `<p class="small" style="margin:0 0 4px">Removed before publi
 ${fc.check_error ? `<p class="small">Checker error: ${esc(fc.check_error)}</p>` : ''}</div>
 <h2>Evidence used</h2><div class="card" style="overflow-x:auto"><table class="t"><tr><th>ID</th><th>Item</th><th>Source</th><th>Date</th><th>Tone</th></tr>${evidenceRows}</table></div>
 <footer>Written by ${esc(b.written_by)} · fact-checked by ${esc(fc.checker)} · run ${esc(cfg.run_id)} · every number on this page is computed from the records, not generated.<br>
-Built with n8n + Muse Spark · Groundline v2 · INFO 7375 Branding &amp; AI · Agnel Salve</footer>`);
+Built with ${esc(builtWith)} · Groundline v2 · INFO 7375 Branding &amp; AI · Agnel Salve</footer>`);
   await file(`briefs/${cfg.run_date}_${b.key}.html`, html, 'text/html');
 }
 
@@ -97,7 +99,7 @@ ${rows.map((r) => `<tr><td><b>${esc(r.e)}</b></td><td>${r.n}</td><td>${fmtSent(r
 <h2>Noise the AI filtered out</h2><div class="card"><p class="small" style="margin:0 0 6px">Items the keyword rules kept but the AI judged unrelated (relevance 0) — e.g. a sports "podium":</p>
 <ul class="claims">${discarded.slice(0, 8).map((r) => `<li>${esc(r.title)} <span class="small">— ${esc(r.why)}</span></li>`).join('') || '<li class="small">none</li>'}</ul></div>
 <h2>How each record was judged</h2><div class="card"><p style="margin:0">AI: ${src.ai_analyzed} · from cache: ${src.cache_hits} · keyword fallback: ${src.fallback}${Object.keys(src.fallback_reasons).length ? ` (${Object.entries(src.fallback_reasons).map(([k, v]) => `${esc(k)} ${v}`).join(', ')})` : ''}${src.circuit_open ? ' · <b>circuit breaker opened</b>' : ''}</p></div>
-<footer>Models used: ${esc(models.join(', ') || 'none (rules only)')} · Built with n8n + Muse Spark · Groundline v2 · INFO 7375 · Agnel Salve</footer>`);
+<footer>Models used: ${esc(models.join(', ') || 'none (rules only)')} · Built with ${esc(builtWith)} · Groundline v2 · INFO 7375 · Agnel Salve</footer>`);
 await file(`${cfg.run_date}_dashboard.html`, dash, 'text/html');
 
 // ---------------------------------------------------------------- scored CSV

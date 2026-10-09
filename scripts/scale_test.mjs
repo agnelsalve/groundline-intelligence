@@ -1,4 +1,4 @@
-// Scale test — fires real requests at the Analyze API (n8n webhook → Muse Spark) and records
+// Scale test — fires real requests at the Analyze API (n8n webhook → Gemini) and records
 // what happens at each volume. Nothing is simulated: every number comes from a response.
 //
 //   node scripts/scale_test.mjs                              # default levels 1,10,50,100,200

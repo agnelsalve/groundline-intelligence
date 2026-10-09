@@ -62,7 +62,7 @@ cold, warm, last = runs[0], runs[1], runs[-1]
 q = (ROOT / "data/clean/quality_report.md").read_text(encoding="utf-8")
 svg, n_nodes = canvas_svg()
 n8n_shots = sorted(glob.glob(str(IMG / "n8n_*.png")))
-gmail_shots = sorted(f for f in glob.glob(str(IMG / "*.png")) + glob.glob(str(IMG / "*.jpg")) if "n8n_" not in Path(f).name and "architecture" not in Path(f).name)
+gmail_shots = sorted(glob.glob(str(IMG / "gmail_*.png")))
 
 CSS = """*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",Inter,Arial,sans-serif;color:#334155}
 .s{width:1600px;height:900px;padding:44px 56px;position:relative;overflow:hidden;page-break-after:always;background:#fff}
@@ -136,9 +136,9 @@ slide("2:45 – 3:05 · Deliver", "What lands in the inbox", GAL / "06_weekly_di
       ["Weekly digest: headline, key points, 3 actions, chart, competitor one-liners.", "Attached: full brief, dashboard, 294-row spreadsheet.",
        "6 real emails delivered today — Gmail message ids in <code>data/runs/</code>.", "Copies of every email are also saved to <code>outputs/</code>."],
       "“A non-technical marketer gets this on Monday morning — no n8n, no JSON.”", "slide 8")
-slide("3:05 – 3:30 · Failure", "When things go wrong, it says so", GAL / "12_run_summary.png",
+slide("3:05 – 3:30 · Failure", "When things go wrong, it says so", (IMG / "gmail_2_inbox.png") if (IMG / "gmail_2_inbox.png").exists() else GAL / "12_run_summary.png",
       ["Real today: Gemini 3.8 Flash <b>503 overloaded</b> and <b>daily quota</b> exhausted → automatic switch to the next model.",
-       "Broken JSON → one repair round-trip → keyword-rule fallback, labelled per record.", "Circuit breaker, $1/run budget cap, error workflow email + log.",
+       "Broken JSON → one repair round-trip → keyword-rule fallback, labelled per record.", "Error workflow: <b>a FAILED email for every crashed run</b> (inbox row from the scale test) + JSON log; circuit breaker and $1/run cap.",
        "No AI key at all → the run still finishes, briefs say “AI offline”."],
       "“I didn't simulate these errors — the free tier produced them, and the log shows each one handled.”", "slide 9", contain=True)
 slide("3:30 – 4:00 · Scale", "Real load tests: what broke, and the fix", FIG / "4_scale_testing.png",

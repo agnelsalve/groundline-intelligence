@@ -199,7 +199,8 @@ GALLERY = [
     ("11_fact_check_log", "Fact-check log", f"outputs/{D}_fact_check.md", "Every claim, verdict and reason — auditable", "ok"),
     ("12_run_summary", "Run summary / monitoring", "outputs/run_summary.md + data/runs/*.json", "Cost, tokens, retries, fallbacks, delivery status", "ok"),
     ("13_ai_offline_brief", "Fallback brief (AI unavailable)", "outputs/examples/ai_offline_weave_brief.html", "Degrades to a labelled source list instead of failing", "warn"),
-    ("14_error_workflow_log", "Error-workflow log", "data/runs/errors/*.json (+ email)", "Real failure caught during the 50-request scale test", "warn"),
+    ("14_error_workflow_log", "Error workflow: log + emails", "data/runs/errors/*.json + a FAILED email per run", "Real failure caught during the 50-request scale test", "warn"),
+    ("15_gmail_inbox", "Gmail inbox: proof of delivery", "branding.and.ai@gmail.com", "Digest with 3 attachments, alerts and failure emails all arrived", "ok"),
 ]
 
 

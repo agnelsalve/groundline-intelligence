@@ -10,7 +10,7 @@ Every panel is a finished PNG at 2× resolution in [`figma/`](figma/). You only 
 | 1 | `figma/1_executive_summary.png` | **Executive summary** (one page): problem, approach, sample outputs, metrics, business value, "Built with n8n + Gemini" badge |
 | 2 | `figma/5_architecture.png` | **Technical architecture**: data flow, AI components labeled, integration points, failure paths |
 | 3 | `figma/4_scale_testing.png` | **Scale testing**: real results and breaking points |
-| 4 | `figma/3_output_gallery.png` | **Output gallery**: 14 examples |
+| 4 | `figma/3_output_gallery.png` | **Output gallery**: 15 examples |
 | 5 | `figma/2_before_after.png` | **Before/after** comparison with A3 |
 | 6 | your Gmail screenshots in `img/` | Proof the emails arrived |
 | 7 | `img/n8n_*.png` | The workflow in n8n |

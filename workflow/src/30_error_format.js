@@ -5,7 +5,8 @@
 const e = $input.first().json;
 const ex = e.execution || {}, wf = e.workflow || {}, err = ex.error || e.trigger?.error || {};
 const at = new Date().toISOString();
-const id = at.replace(/[-:]/g, '').slice(0, 15) + 'Z';
+// Execution id in the name: several runs can fail in the same second (seen in the scale test).
+const id = at.replace(/[-:]/g, '').slice(0, 15) + 'Z' + (ex.id ? `_exec${ex.id}` : '');
 let dataDir = ''; try { dataDir = ($env.GROUNDLINE_DATA_DIR || '').split('\\').join('/').replace(/\/$/, ''); } catch (x) { /* env blocked */ }
 
 const hint = /GROUNDLINE_|environment/i.test(err.message || '') ? 'Start n8n with scripts/start-n8n.ps1 so the environment variables are set.'

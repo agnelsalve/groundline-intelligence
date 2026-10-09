@@ -1,4 +1,4 @@
-# Output gallery: 14 real outputs (2026-10-09)
+# Output gallery: 15 real outputs (2026-10-09)
 
 Every item below was produced by an actual run of [`workflow/workflow_v2.json`](../workflow/workflow_v2.json). Nothing is a mock-up. The screenshots are in [`img/gallery/`](img/gallery/) and the files themselves are in [`../outputs/`](../outputs/). Everything here also appears as one image in [`figma/3_output_gallery.png`](figma/3_output_gallery.png).
 
@@ -88,7 +88,15 @@ Planned fix: require `entity ≠ Weave` for this route.
 **Quality check:** It degrades gracefully and honestly, with an "AI offline · source list only" badge and no false grounding score.
 
 ### Example 14: Error-workflow log
-**What was produced:** a structured failure record (workflow, failing node, error, n8n's explanation, execution id). The same workflow also emails these details.
+**What was produced:** a structured failure record (workflow, failing node, error, n8n's explanation, execution id), plus a **failure email for each failed run**. The inbox screenshot shows the row of `[Groundline] FAILED` emails from the scale test.
 **Where it went:** [`data/runs/errors/error_20261009T050105Z.json`](../data/runs/errors/)
 **Screenshot/File:** [`img/gallery/14_error_workflow_log.png`](img/gallery/14_error_workflow_log.png)
 **Quality check:** This is a real failure, `Task request timed out`, caught during the 50-request scale test. It led to the runner fix described in [`scale_test_results.md`](../scale_test_results.md).
+
+It also exposed a bug: logs written in the same second overwrote each other. The filenames now include the execution id.
+
+### Example 15: Gmail inbox (proof of delivery)
+**What was produced:** the real inbox of `branding.and.ai@gmail.com`. It shows the weekly digest with its 3 attachments (brief, dashboard, CSV), the opportunity alert ("11 competitor signals Weave can act on"), and the failure emails from the error workflow.
+**Where it went:** Gmail.
+**Screenshot/File:** [`img/gmail_1_weekly_digest.png`](img/gmail_1_weekly_digest.png) · [`img/gmail_2_inbox.png`](img/gmail_2_inbox.png) · [`img/gmail_3_opportunity_alert.png`](img/gmail_3_opportunity_alert.png)
+**Quality check:** The HTML renders correctly in Gmail and the attachments arrive. The real AI judgement is visible, for example "GP practice drops 'incredibly frustrating' AI receptionist", rated *Opportunity: high* with the reason stated.

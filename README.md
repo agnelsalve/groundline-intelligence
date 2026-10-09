@@ -18,7 +18,7 @@ Groundline v2 is an [n8n](https://n8n.io) + **Google Gemini** agent. It reads ev
 | `workflow_v2.json`, the enhanced n8n export | [`workflow/workflow_v2.json`](workflow/workflow_v2.json), plus [`error_handler.json`](workflow/error_handler.json) and [`analyze_api.json`](workflow/analyze_api.json) |
 | `scale_test_results.md`, real numbers | [`scale_test_results.md`](scale_test_results.md); raw data in [`data/scale/`](data/scale/) |
 | `outputs/`, sample output files | [`outputs/`](outputs/): briefs (HTML and PDF), dashboard, alerts, emails, CSV, chart, fact-check log |
-| Output gallery (14 examples) | [`docs/output_gallery.md`](docs/output_gallery.md) · panel [`docs/figma/3_output_gallery.png`](docs/figma/3_output_gallery.png) |
+| Output gallery (15 examples) | [`docs/output_gallery.md`](docs/output_gallery.md) · panel [`docs/figma/3_output_gallery.png`](docs/figma/3_output_gallery.png) |
 | Executive summary | [`docs/executive_summary.pdf`](docs/executive_summary.pdf) · panel [`docs/figma/1_executive_summary.png`](docs/figma/1_executive_summary.png) |
 | Technical architecture | [`docs/architecture.svg`](docs/architecture.svg) / [`.png`](docs/architecture.png) / [`.pdf`](docs/architecture.pdf) |
 | Demo walkthrough | [`docs/demo_walkthrough.pdf`](docs/demo_walkthrough.pdf) |
@@ -82,8 +82,8 @@ The full diagram, with failure paths, is in [`docs/architecture.png`](docs/archi
 - **Time and cost:** the run took 119 s and cost $0.089 at paid list prices. The cold-cache run before it took 301 s and $0.163. The free tier billed $0.
 
 **Proof that the output exists**
-- [`docs/output_gallery.md`](docs/output_gallery.md) and [`docs/figma/3_output_gallery.png`](docs/figma/3_output_gallery.png): 14 outputs with a quality check for each.
-- Gmail inbox screenshots: [`docs/img/`](docs/img/).
+- [`docs/output_gallery.md`](docs/output_gallery.md) and [`docs/figma/3_output_gallery.png`](docs/figma/3_output_gallery.png): 15 outputs with a quality check for each.
+- Gmail screenshots: [weekly digest](docs/img/gmail_1_weekly_digest.png), [inbox](docs/img/gmail_2_inbox.png), [opportunity alert](docs/img/gmail_3_opportunity_alert.png).
 - The `email` block in each [`data/runs/run_*.json`](data/runs/) records the SMTP acceptance and message id.
 
 **Today's three real runs:** 6 emails delivered, 12 briefs fact-checked, median groundedness 87% (range 54–97%).

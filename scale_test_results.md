@@ -61,7 +61,8 @@ The memory figures are the n8n process's working set, sampled once per second wi
 
 1. **n8n's Code-node runner, at about 10 concurrent slow requests.** By default n8n runs only 10 Code-node tasks at a time. Any task waiting more than 60 s in the queue is dropped, and the server log shows `Task request timed out` and "Webhook execution failed before a response was sent". With 50 simultaneous AI requests, each waiting on rate-limited Gemini calls, 15 requests timed out and returned HTTP 500.
    - **Fix:** in [`scripts/env.ps1`](scripts/env.ps1) I set `N8N_RUNNERS_MAX_CONCURRENCY=50` and `N8N_RUNNERS_TASK_REQUEST_TIMEOUT=300`. After that, 50 and 100 simultaneous requests both had **0 errors**.
-   - **A side effect worth knowing:** the error-handler workflow is also a Code node, so it competes for the same 10 slots. Only 1 of the 15 failures got an error log before the fix.
+   - **The error workflow worked under load:** it emailed every failure. The inbox shows a row of `[Groundline] FAILED: … at "AI Analyst (API)"` emails at 1:01 AM ([screenshot](docs/img/gmail_2_inbox.png)).
+   - **But it exposed a bug:** the log files were named by the second, so failures in the same second overwrote each other and only one JSON log survived. Fixed: the filename now includes the n8n execution id.
 2. **The Gemini free-tier quotas.** These are the real limit on volume.
    - **Per-minute limits:** 21 hits in the 100-request test, 61 retries in the 50-request test. All of them were absorbed by backoff and switching models.
    - **Daily limits:** on the free tier, Gemini 3.8 Flash and Gemini 3.5 Flash ran out after roughly 20 requests each. The pipeline log shows `429 You exceeded your current quota`. When that happens the client switches models immediately instead of waiting. Gemini 3.1 Pro and the latest Pro model have **zero** free quota.

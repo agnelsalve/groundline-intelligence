@@ -98,7 +98,7 @@ slide("0:30 – 1:00 · How", "Architecture: five lanes, every failure has a pat
        "Red boxes: what happens when sources, the AI, the email or n8n itself fail.", "Integrations: RSS/HTTP · Gemini API · Gmail SMTP · webhook API."],
       "“The important box is the third AI — a different model that checks the writer's claims against the sources before anything is sent.”", "slide 3", contain=True)
 if n8n_shots:
-    canvas = f"<div class='shot'><img src='{uri(n8n_shots[0])}'></div>"
+    canvas = f"<div class='shot' style='background:#1f1f1f'><img src='{uri(n8n_shots[0])}' style='object-fit:contain'></div>"
 else:
     canvas = None
     slides.append(f"""<div class='s'><div class='t'>slide 4</div><div class='k'>1:00 – 1:20 · The workflow</div><h1>{n_nodes} n8n nodes, one importable file</h1>
@@ -112,10 +112,17 @@ else:
 <div class='say'><b>Say:</b> “Everything is in workflow_v2.json — import it and press Execute.” <span class='n'>(Canvas drawn from the real workflow file.)</span></div></div>
 <div class='foot'>Groundline v2 · INFO 7375 A4 · Agnel Salve · github.com/agnelsalve/groundline-intelligence</div></div>""")
 if canvas: slide("1:00 – 1:20 · The workflow", f"{n_nodes} n8n nodes, one importable file", canvas,
-      ["Left: A3's collection and cleaning, unchanged and still tested.", "Teal: the three AI Code nodes · orange: the Switch · blue: Gmail nodes.",
+      ["Blue: A3's collection (RSS incl. competitors, arXiv, Hacker News, NewsAPI) · green: validate · purple: save.", "Red: the AI Analyst · orange: the Switch decision and alert emails · dark green: write → fact-check → deliver.",
        "Two more workflows: an <b>Error handler</b> and the <b>Analyze API</b> webhook used for load tests.", "Code lives in <code>workflow/src</code>; one build script makes the JSON."],
       "“Everything is in workflow_v2.json — import it and press Execute.”", "slide 4",
       extra="" if n8n_shots else "<p class='n' style='margin-top:12px'>Canvas drawn from workflow_v2.json (real node positions and connections).</p>")
+if (IMG / "n8n_3_execution_succeeded.png").exists():
+    slide("1:20 · Proof it ran", "Every run succeeded — even when the AI didn't", IMG / "n8n_3_execution_succeeded.png",
+          ["n8n's execution history for the main workflow: <b>7 runs, all Succeeded</b>.",
+           "Oct 9 runs used Gemini (e.g. 01:23 — 1 min 53 s with a warm cache). Oct 6 and 8 runs were the no-AI-key and plumbing tests.",
+           "“Succeeded” even on quota errors: failures are handled inside the flow and reported, not thrown.",
+           "Each run also writes <code>data/runs/run_*.json</code> with cost, tokens and delivery status."],
+          "“Seven executions, zero crashes — the bad days are in the logs, not in red nodes.”", "slide 5", contain=True)
 slide("1:20 – 1:45 · Judge", "Gemini judges every record — and throws out the noise", GAL / "09_scored_records_csv.png",
       [f"{cold['records_judged']} records: relevance 0–3, entity, sentiment −2…+2, risk, opportunity, archetype, key fact, reason.",
        f"<b>{cold['routes'].get('discard', 0)} off-topic items removed</b> — F1 and endurance-racing “podium” stories that A3's keyword rules kept.",
@@ -135,7 +142,7 @@ slide("2:10 – 2:45 · Write & check", "Every claim cited — and checked by an
 slide("2:45 – 3:05 · Deliver", "What lands in the inbox", GAL / "06_weekly_digest_email.png" if not gmail_shots else gmail_shots[0],
       ["Weekly digest: headline, key points, 3 actions, chart, competitor one-liners.", "Attached: full brief, dashboard, 294-row spreadsheet.",
        "6 real emails delivered today — Gmail message ids in <code>data/runs/</code>.", "Copies of every email are also saved to <code>outputs/</code>."],
-      "“A non-technical marketer gets this on Monday morning — no n8n, no JSON.”", "slide 8")
+      "“A non-technical marketer gets this on Monday morning — no n8n, no JSON.”", "slide 8", contain=bool(gmail_shots))
 slide("3:05 – 3:30 · Failure", "When things go wrong, it says so", (IMG / "gmail_2_inbox.png") if (IMG / "gmail_2_inbox.png").exists() else GAL / "12_run_summary.png",
       ["Real today: Gemini 3.8 Flash <b>503 overloaded</b> and <b>daily quota</b> exhausted → automatic switch to the next model.",
        "Broken JSON → one repair round-trip → keyword-rule fallback, labelled per record.", "Error workflow: <b>a FAILED email for every crashed run</b> (inbox row from the scale test) + JSON log; circuit breaker and $1/run cap.",
@@ -161,6 +168,8 @@ slides.append(f"""<div class='s'><div class='k'>If the live demo fails</div><h1>
 <div class='say' style='margin-top:30px'><b>Key points to land:</b> (1) three models with separate jobs, (2) every claim cited and independently checked, (3) real decisions → real emails, (4) honest scale limits with a fix, (5) ≈ $0.16 a run.</div>
 <div class='foot'>Groundline v2 · INFO 7375 A4 · Agnel Salve</div></div>""")
 
+import re
+slides = [re.sub(r"<div class='t'>slide \d+</div>", f"<div class='t'>slide {i + 1} / {len(slides)}</div>", sl) for i, sl in enumerate(slides)]
 doc = f"<!doctype html><html><head><meta charset='utf-8'><style>{CSS}@page{{size:1600px 900px;margin:0}}</style></head><body>{''.join(slides)}</body></html>"
 f = DOCS / "_demo.html"; f.write_text(doc, encoding="utf-8")
 with sync_playwright() as p:
@@ -169,7 +178,7 @@ with sync_playwright() as p:
     pg.pdf(path=str(DOCS / "demo_walkthrough.pdf"), width="1600px", height="900px", print_background=True)
     for i in range(len(slides)):
         pg.evaluate(f"window.scrollTo(0, {i * 900})"); pg.wait_for_timeout(150)
-        if i in (0, 3, 6):
+        if i in (3, 4, 8):
             pg.screenshot(path=str(DOCS / f"_demo_check_{i + 1}.png"))
     b.close()
 f.unlink()

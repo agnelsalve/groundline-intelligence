@@ -1,0 +1,16 @@
+{
+  "id": "20261009T050105Z",
+  "at": "2026-10-09T05:01:05.321Z",
+  "workflow": {
+    "id": "GroundlineApiV2x",
+    "name": "Groundline — Analyze API (scale test)"
+  },
+  "node": "AI Analyst (API)",
+  "error": {
+    "message": "Task request timed out",
+    "description": "Your Code node task was not matched to a runner within the timeout period (waited 60 seconds). This indicates that the task runner is currently down, or not ready, or at capacity, so it cannot service your task.<br/><br/>If you are repeatedly executing Code nodes with long-running tasks across your instance, please space them apart to give the runner time to catch up. If this does not describe your use case, please open a GitHub issue or reach out to support.<br/><br/>If needed, you can increase the timeout using the N8N_RUNNERS_TASK_REQUEST_TIMEOUT environment variable.",
+    "stack": "Error: Task request timed out\n    at LocalTaskRequester.requestExpired (C:\\Users\\salve\\AppData\\Roaming\\npm\\node_modules\\n8n\\src\\task-runners\\task-managers\\task-requester.ts:310:17)\n    at LocalTaskRequester.onMessage (C:\\Users\\salve\\AppData\\Roaming\\npm\\node_modules\\n8n\\src\\task-runners\\task-managers\\task-requester.ts:276:10)\n    at TaskBroker.handleRequestTimeout (C:\\Users\\salve\\AppData\\Roaming\\npm\\node_modules\\n8n\\src\\task-runners\\task-broker\\task-broker.service.ts:185:50)\n    at Timeout.<anonymous> (C:\\Users\\salve\\AppData\\Roaming\\npm\\node_modules\\n8n\\src\\task-runners\\task-broker\\task-broker.service.ts:151:9)\n    at listOnTimeout (node:internal/timers:605:17)\n    at processTimers (node:internal/timers:541:7)"
+  },
+  "execution_id": "143",
+  "hint": "Open the execution in n8n to see the failing node’s input."
+}

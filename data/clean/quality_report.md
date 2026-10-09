@@ -1,17 +1,17 @@
 # Groundline — Data Quality Report
 
-**Run:** `20261009T045254Z` · **Collected:** 2026-10-09 04:52 UTC · **Window:** 2026-07-11 → 2026-10-09 (45 days)
+**Run:** `20261009T052422Z` · **Collected:** 2026-10-09 05:24 UTC · **Window:** 2026-07-11 → 2026-10-09 (45 days)
 
 ## Summary
 
 | Metric | Value |
 | --- | --- |
-| Records collected (all sources) | 495 |
+| Records collected (all sources) | 496 |
 | Duplicates removed | 11 |
-| Unique records | 484 |
+| Unique records | 485 |
 | Failed a quality check | 93 |
 | **Quality pass rate** (unique records passing every check) | **80.8%** |
-| Trimmed for balance (passed, but over a per-feed cap) | 97 |
+| Trimmed for balance (passed, but over a per-feed cap) | 98 |
 | **Records in final dataset** | **294** |
 | Records with every optional field (summary + author) | 73 (24.8%) |
 | Date range of kept records | 2025-12-02 → 2026-10-09 |
@@ -38,7 +38,7 @@
 | `the_verge_ai` | news_rss | 🟢 ok | 10 | 8 | 2 | 0 |  |
 | `gnews_ai_agents` | news_rss | 🟢 ok | 100 | 35 | 4 | 61 |  |
 | `gnews_ai_grounding` | news_rss | 🟢 ok | 60 | 35 | 6 | 19 |  |
-| `gnews_ai_customer_comms` | news_rss | 🟢 ok | 52 | 35 | 0 | 17 |  |
+| `gnews_ai_customer_comms` | news_rss | 🟢 ok | 53 | 35 | 0 | 18 |  |
 | `gnews_weave` | news_rss | 🟢 ok | 38 | 35 | 3 | 0 |  |
 | `gnews_podium` | news_rss | 🟢 ok | 66 | 17 | 49 | 0 |  |
 | `gnews_birdeye` | news_rss | 🟢 ok | 10 | 2 | 8 | 0 |  |
@@ -76,7 +76,7 @@ Critical fields (title, URL, date, source) are enforced at 100%. `summary` and `
 | `duplicate_title` | 10 |
 | `duplicate_url` | 1 |
 
-Trimmed for balance: `feed_cap` 97.
+Trimmed for balance: `feed_cap` 98.
 
 ## Dataset composition
 

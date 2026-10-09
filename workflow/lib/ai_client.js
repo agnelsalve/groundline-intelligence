@@ -163,7 +163,10 @@ const AI = (() => {
       metrics.errors.push({ task: task.name, kind: 'budget', error: `AI budget of $${BUDGET_USD.toFixed(2)} (list price) reached for this run` });
       throw new AIError('AI budget reached', 'budget');
     }
-    const order = chain(task.role || 'analyst').filter((p) => !exhausted.has(p.model));
+    // task.avoid: a model that must not do this task if any other can (the fact-checker
+    // avoids whichever model wrote the brief, even when quota fallbacks changed the writer).
+    let order = chain(task.role || 'analyst').filter((p) => !exhausted.has(p.model));
+    if (task.avoid && order.some((p) => p.model !== task.avoid)) order = order.filter((p) => p.model !== task.avoid);
     if (!order.length) {
       metrics.failed++;
       const why = configured() ? 'every model is out of quota for today' : 'no AI provider configured (set GEMINI_API_KEY in .env)';

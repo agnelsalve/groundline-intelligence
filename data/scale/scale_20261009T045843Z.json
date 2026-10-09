@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "started": "2026-10-09T04:58:43.144Z",
+    "url": "http://localhost:5678/webhook/groundline/analyze",
+    "per_request": 1,
+    "concurrency_cap": "burst",
+    "label": "real AI, 1 record per request, burst",
+    "mode": "n8n + Gemini",
+    "node": "v24.13.0"
+  },
+  "results": [
+    {
+      "requests": 1,
+      "records": 1,
+      "concurrency": 1,
+      "wall_s": 14.38,
+      "throughput_rps": 0.07,
+      "p50_ms": 14375,
+      "p95_ms": 14375,
+      "max_ms": 14375,
+      "success": 0,
+      "success_pct": 0,
+      "degraded_records": 1,
+      "http_errors": {},
+      "ai_error_kinds": {
+        "rate_limit": 1
+      },
+      "ai_calls": 4,
+      "retries": 3,
+      "repairs": 0,
+      "provider_fallbacks": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0,
+      "cost_per_100_requests": 0,
+      "peak_n8n_mem_mb": 424,
+      "sample_errors": []
+    },
+    {
+      "requests": 10,
+      "records": 10,
+      "concurrency": 10,
+      "wall_s": 1.43,
+      "throughput_rps": 6.97,
+      "p50_ms": 1350,
+      "p95_ms": 1430,
+      "max_ms": 1430,
+      "success": 10,
+      "success_pct": 100,
+      "degraded_records": 0,
+      "http_errors": {},
+      "ai_error_kinds": {},
+      "ai_calls": 10,
+      "retries": 0,
+      "repairs": 0,
+      "provider_fallbacks": 0,
+      "tokens_in": 6276,
+      "tokens_out": 1370,
+      "cost_usd": 0.00362,
+      "cost_per_100_requests": 0.0362,
+      "peak_n8n_mem_mb": 449,
+      "sample_errors": []
+    },
+    {
+      "requests": 50,
+      "records": 50,
+      "concurrency": 50,
+      "wall_s": 174.9,
+      "throughput_rps": 0.29,
+      "p50_ms": 61437,
+      "p95_ms": 174483,
+      "max_ms": 174891,
+      "success": 35,
+      "success_pct": 70,
+      "degraded_records": 0,
+      "http_errors": {
+        "500": 15
+      },
+      "ai_error_kinds": {},
+      "ai_calls": 72,
+      "retries": 36,
+      "repairs": 1,
+      "provider_fallbacks": 0,
+      "tokens_in": 23613,
+      "tokens_out": 5324,
+      "cost_usd": 0.01389,
+      "cost_per_100_requests": 0.0278,
+      "peak_n8n_mem_mb": 898,
+      "sample_errors": [
+        "Internal Server Error"
+      ]
+    }
+  ]
+}

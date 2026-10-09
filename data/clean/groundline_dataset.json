@@ -20,8 +20,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-09T02:19:33.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1b9a542e",
@@ -44,8 +44,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-09T02:03:13.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c5a65be5",
@@ -68,8 +68,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-09T00:57:23.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-22841f4e",
@@ -92,32 +92,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-09T00:08:24.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
-  },
-  {
-    "record_id": "GL-1e6750fd",
-    "published_date": "2026-10-08",
-    "title": "Personal AI Agents Are Great—Until They Share Your Bank Statement in the Work Chat",
-    "summary": "",
-    "topic": "ai_agents",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "WSJ",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_agents",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOa19qU3JmcFUtZ2dfVlowT1NHZkNzQlE4LW8zZUxFc2hoMzF5RWhpWEFpQ2pFaHVCZDZ0b2NwTFVLalFyNU5IRHR2cHhBblZtTGk2UE9sNHRCRWFHMWFaTHg3dXA3a2JFc2pIU3NtNVJyOUN0Vk82VzRBSTNReUNjTlE0bmc?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "agents; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-08T23:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-4d8d837f",
@@ -140,8 +116,8 @@
     "matched_keywords": "security; anthropic; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T21:53:51.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-52f2becf",
@@ -164,8 +140,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T20:04:26.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0431c116",
@@ -188,8 +164,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T19:41:26.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-4331268d",
@@ -212,8 +188,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T19:00:24.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-7a91cc66",
@@ -236,8 +212,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:20:32.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e99e7f89",
@@ -260,8 +236,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:19:45.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-78876035",
@@ -284,8 +260,8 @@
     "matched_keywords": "openai; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:19:42.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e05c699d",
@@ -308,8 +284,8 @@
     "matched_keywords": "agentic; agent; ai; gemini",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:18:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-dec4dfb3",
@@ -332,8 +308,8 @@
     "matched_keywords": "anthropic; claude",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:16:24.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-3e228a1c",
@@ -356,8 +332,8 @@
     "matched_keywords": "openai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T18:10:55.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1aceef8b",
@@ -380,8 +356,8 @@
     "matched_keywords": "openai; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:58:33.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-79274232",
@@ -404,8 +380,8 @@
     "matched_keywords": "agents; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:58:13.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-2ab15163",
@@ -428,8 +404,8 @@
     "matched_keywords": "grok",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:57:01.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-052eda5b",
@@ -452,8 +428,8 @@
     "matched_keywords": "rag; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:51:11.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a62f670b",
@@ -476,8 +452,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T17:02:44.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-998ee85e",
@@ -500,8 +476,8 @@
     "matched_keywords": "anthropic; claude",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T17:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-173e24a6",
@@ -524,8 +500,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T16:32:22.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-97b4a004",
@@ -548,8 +524,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T16:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-532b5e7a",
@@ -572,8 +548,8 @@
     "matched_keywords": "agents; agent; rogue; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T16:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-76762efe",
@@ -596,8 +572,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T15:27:30.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bdf820e2",
@@ -620,8 +596,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T15:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-ca7343ae",
@@ -644,8 +620,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T14:55:43.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bd9808ae",
@@ -668,8 +644,8 @@
     "matched_keywords": "agent; gemini; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T14:28:03.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-54d0a615",
@@ -692,8 +668,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T14:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1ea8cf34",
@@ -716,8 +692,8 @@
     "matched_keywords": "agents; trust; openai; ai; grok",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T14:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-87221a43",
@@ -740,8 +716,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T13:51:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-be5de54b",
@@ -764,8 +740,8 @@
     "matched_keywords": "grounded; agents; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T13:38:12.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-8858153a",
@@ -788,8 +764,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T13:28:39.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c9c14830",
@@ -812,8 +788,8 @@
     "matched_keywords": "retrieval-augmented; autonomous; agent; copilot; llm; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T13:05:33.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d3c157ee",
@@ -836,8 +812,8 @@
     "matched_keywords": "retrieval-augmented; rag; grounding; security; language models; llms",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T13:03:42.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d0dd677e",
@@ -860,8 +836,8 @@
     "matched_keywords": "agents; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T12:06:54.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b9ae53aa",
@@ -884,8 +860,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-08T10:08:52.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-546a78ad",
@@ -908,8 +884,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T09:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f1481c00",
@@ -932,8 +908,8 @@
     "matched_keywords": "autonomous; agentic; analytics; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T08:17:32.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-fd55ef8b",
@@ -956,8 +932,8 @@
     "matched_keywords": "retrieval-augmented; language models; llms",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T07:03:24.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-fc55edf8",
@@ -980,8 +956,8 @@
     "matched_keywords": "rag; retrieval-augmented; agentic; language models",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T07:03:17.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-715d61ec",
@@ -1004,8 +980,8 @@
     "matched_keywords": "multi-agent; agents; autonomous; agent; llms; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T06:40:18.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0465051a",
@@ -1028,8 +1004,8 @@
     "matched_keywords": "retrieval-augmented; rag; agents; reliable; language models; llms",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-08T06:21:45.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-61b3f4e4",
@@ -1052,8 +1028,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T21:42:08.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c0c89846",
@@ -1076,8 +1052,8 @@
     "matched_keywords": "agents; agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T20:48:45.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-9cb56e2d",
@@ -1100,8 +1076,8 @@
     "matched_keywords": "agents; nvidia; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T20:22:37.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-aa999392",
@@ -1124,8 +1100,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T20:09:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-4eb5086c",
@@ -1148,8 +1124,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T19:46:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-75bc8cc1",
@@ -1172,8 +1148,8 @@
     "matched_keywords": "chatgpt; openai; chatbot; gpt",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T19:10:42.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a2347515",
@@ -1196,8 +1172,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T19:00:38.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-fb38ce83",
@@ -1220,8 +1196,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T18:30:57.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f0fa3aaa",
@@ -1244,8 +1220,8 @@
     "matched_keywords": "chatgpt; chatbot; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T18:15:28.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a4f1268b",
@@ -1268,8 +1244,8 @@
     "matched_keywords": "chatgpt; openai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T18:00:19.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d4f65001",
@@ -1292,8 +1268,8 @@
     "matched_keywords": "grounded; retrieval-augmented; rag; agentic; language models",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T17:51:08.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-19f861dd",
@@ -1311,13 +1287,13 @@
     "author": "screm",
     "url": "https://agent.reviews/",
     "discussion_url": "https://news.ycombinator.com/item?id=49995539",
-    "engagement_points": 67,
+    "engagement_points": 68,
     "engagement_comments": 47,
     "matched_keywords": "agent; agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-07T16:59:11.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f1f9d524",
@@ -1340,8 +1316,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T14:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-042c5055",
@@ -1364,8 +1340,8 @@
     "matched_keywords": "grounded; agents; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T13:50:33.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d1a0fa56",
@@ -1388,8 +1364,8 @@
     "matched_keywords": "ai; language models; llms",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T09:49:31.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-15f719f7",
@@ -1412,8 +1388,8 @@
     "matched_keywords": "agentic; agents; benchmarks; trust; language model; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T07:58:04.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-30fe8955",
@@ -1436,8 +1412,8 @@
     "matched_keywords": "citation; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T07:26:33.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b61e1b5f",
@@ -1460,8 +1436,8 @@
     "matched_keywords": "agents; benchmarking; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T06:59:54.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-921723d9",
@@ -1484,8 +1460,8 @@
     "matched_keywords": "agents; security; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-07T04:06:53.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-7546f6f6",
@@ -1508,8 +1484,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-07T03:30:44.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-ab692311",
@@ -1532,8 +1508,8 @@
     "matched_keywords": "retrieval-augmented; rag",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T03:16:06.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1adddf5d",
@@ -1556,8 +1532,8 @@
     "matched_keywords": "agents; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-07T01:42:39.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-666b023d",
@@ -1580,8 +1556,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-06T23:50:33.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f7ed9c4b",
@@ -1604,8 +1580,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T22:38:53.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-95a62d85",
@@ -1628,8 +1604,8 @@
     "matched_keywords": "autonomous; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T19:32:12.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f5138d8d",
@@ -1652,8 +1628,8 @@
     "matched_keywords": "grounded; retrieval-augmented",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T19:23:51.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-61020ab7",
@@ -1676,8 +1652,8 @@
     "matched_keywords": "agents; llm; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T17:26:26.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f4694331",
@@ -1700,8 +1676,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T16:52:56.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-7fde359d",
@@ -1724,8 +1700,8 @@
     "matched_keywords": "trustworthy; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T16:35:41.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e0d7fa4a",
@@ -1748,8 +1724,8 @@
     "matched_keywords": "agents; trusted; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T16:07:06.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-3347bdcf",
@@ -1772,8 +1748,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T15:38:55.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0289fc75",
@@ -1796,8 +1772,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T15:17:56.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-7d0d8dcb",
@@ -1820,8 +1796,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T15:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-83f2d3a3",
@@ -1844,8 +1820,8 @@
     "matched_keywords": "rag; retrieval-augmented; grounding; agentic; agents; language models",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T14:38:15.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-6848c17a",
@@ -1868,8 +1844,8 @@
     "matched_keywords": "agents; trusted; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T13:25:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-9325d708",
@@ -1892,8 +1868,8 @@
     "matched_keywords": "agents; trusted; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T13:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-6c15304e",
@@ -1916,8 +1892,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T13:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-4e8eaf6f",
@@ -1940,8 +1916,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T12:15:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bedd9a2d",
@@ -1964,8 +1940,8 @@
     "matched_keywords": "rag; grounded; retrieval-augmented; accuracy; benchmark",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T11:58:55.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b6cbd5c1",
@@ -1988,8 +1964,8 @@
     "matched_keywords": "rag; agentic",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T10:19:02.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-15094c19",
@@ -2012,8 +1988,8 @@
     "matched_keywords": "agents; security; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:45:46.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-2928fda5",
@@ -2036,8 +2012,8 @@
     "matched_keywords": "agents; privacy; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:33:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a454a25d",
@@ -2060,8 +2036,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:30:07.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d4b5a785",
@@ -2084,8 +2060,8 @@
     "matched_keywords": "agents; agent; evaluation; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T09:29:25.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1f2f6b90",
@@ -2108,8 +2084,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:02:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c7562630",
@@ -2132,8 +2108,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-487c494f",
@@ -2156,8 +2132,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T09:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-319d9588",
@@ -2180,8 +2156,8 @@
     "matched_keywords": "agents; agent; agentic; trust; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-06T08:22:14.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-9a9b6e4d",
@@ -2204,8 +2180,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T08:14:57.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-17224275",
@@ -2228,8 +2204,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T04:01:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-35a91253",
@@ -2252,8 +2228,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-06T02:50:22.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e8a2be40",
@@ -2276,8 +2252,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T23:31:22.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-cc1ecd0d",
@@ -2300,8 +2276,8 @@
     "matched_keywords": "agentic; privacy; security",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T21:10:13.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d489e2b3",
@@ -2324,8 +2300,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T20:56:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-33f7bc3b",
@@ -2348,8 +2324,8 @@
     "matched_keywords": "agents; llm; language model",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T20:46:22.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-706866dc",
@@ -2372,8 +2348,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T19:33:46.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-04d431fb",
@@ -2396,8 +2372,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T17:24:25.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-8d4ac500",
@@ -2420,8 +2396,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T15:47:52.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-9465a3a8",
@@ -2444,8 +2420,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T15:38:33.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a3d5be85",
@@ -2468,8 +2444,8 @@
     "matched_keywords": "agentic; autonomous; analytics; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T13:29:32.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-31780fb5",
@@ -2492,8 +2468,8 @@
     "matched_keywords": "agents; gemini; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T13:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-14e9cde1",
@@ -2516,8 +2492,8 @@
     "matched_keywords": "faithful; agentic; agents; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T10:32:28.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-50dcf6e9",
@@ -2540,8 +2516,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T09:31:08.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-274d3bcb",
@@ -2564,8 +2540,8 @@
     "matched_keywords": "grounded; agents; multi-agent; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T09:23:11.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e6825e9d",
@@ -2588,8 +2564,8 @@
     "matched_keywords": "agent; governance; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T08:34:18.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b7941174",
@@ -2612,8 +2588,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-05T08:12:55.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-11b4bf8f",
@@ -2636,32 +2612,8 @@
     "matched_keywords": "ai; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T08:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
-  },
-  {
-    "record_id": "GL-1647f515",
-    "published_date": "2026-10-05",
-    "title": "NexHealth Revenue 2023: $47.1M Est., $1B Valuation (2022)",
-    "summary": "",
-    "topic": "competitor_brand",
-    "focus": "Competitor",
-    "entity": "NexHealth",
-    "signal_type": "news",
-    "source_name": "GetLatka",
-    "source_type": "news_rss",
-    "collected_via": "gnews_nexhealth",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1EYl9EWnhTQVJ3dWw1aGpuWEk2WHctaWcwajVYaW9GREZFaDYteEVKRUlGSzhVbE1HUnd6NWlaRVpFY1QweFplOEE5emE3c2lZZ2YtcG9Jbw?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "NexHealth",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-10-05T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-51b4c856",
@@ -2684,8 +2636,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-05T04:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-18ff6d4a",
@@ -2708,8 +2660,8 @@
     "matched_keywords": "multi-agent; benchmarks; evaluation",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T21:12:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-6d3c974d",
@@ -2732,8 +2684,8 @@
     "matched_keywords": "autonomous; agents; benchmarking; benchmark; llm; machine learning",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T17:32:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-5e93ec95",
@@ -2756,8 +2708,32 @@
     "matched_keywords": "safety; governance; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-04T17:21:26.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
+  },
+  {
+    "record_id": "GL-4678ae14",
+    "published_date": "2026-10-04",
+    "title": "AI agents reshape identity security",
+    "summary": "",
+    "topic": "ai_agents",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "SiliconANGLE",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_agents",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWVB3N0plemVMbjgzM2ZIT3otdGNhckF5Ukt4Y0o0cE8wa28xZ1hNYm9oWnozTFBhR3V4dENUUS00c3ltdlNyM1I3SHZ6aVBVZHR4SU1ZZVllWndiWUVXdkxGN3ljMXh2WlNKNjE2Y1VaX3U3RVNIQVhDM0NWd0xhSW5QTHhBZHVRMUE?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "agents; security; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-10-04T16:27:00.000Z",
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d4b38598",
@@ -2780,8 +2756,8 @@
     "matched_keywords": "agent; agents; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T14:12:18.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-7d8cc076",
@@ -2804,8 +2780,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-04T10:50:27.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d6d9c3bd",
@@ -2828,8 +2804,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-04T09:30:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-352020b4",
@@ -2852,8 +2828,8 @@
     "matched_keywords": "grounded; agent; evaluation; language models; llms; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T08:30:26.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-19c2e041",
@@ -2876,8 +2852,8 @@
     "matched_keywords": "agentic; agents; agent; llm",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T05:42:22.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1fd1f43d",
@@ -2900,8 +2876,8 @@
     "matched_keywords": "grounding; agents; agent; evaluation; benchmarks; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-04T03:50:36.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-987edd91",
@@ -2924,8 +2900,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-03T22:18:13.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b3073f9e",
@@ -2948,8 +2924,8 @@
     "matched_keywords": "agents; a.i",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-03T12:00:06.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-50bc20dd",
@@ -2972,8 +2948,8 @@
     "matched_keywords": "Birdeye",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-03T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-2bea0b40",
@@ -2996,8 +2972,8 @@
     "matched_keywords": "agent",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-02T19:10:38.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1fd99273",
@@ -3020,8 +2996,8 @@
     "matched_keywords": "autonomous; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-02T15:49:04.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-4e916a24",
@@ -3044,8 +3020,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-02T15:19:56.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-23a1a6f2",
@@ -3068,8 +3044,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-02T14:25:38.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0df0c5f5",
@@ -3092,8 +3068,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-02T12:04:09.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-96d3e5ea",
@@ -3116,8 +3092,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-02T12:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bb164034",
@@ -3140,8 +3116,8 @@
     "matched_keywords": "llms",
     "completeness_pct": 100,
     "published_at_utc": "2026-10-02T08:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c068c920",
@@ -3164,8 +3140,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T17:41:38.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a2b250f2",
@@ -3188,8 +3164,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-10-01T15:11:10.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-36ad4893",
@@ -3212,32 +3188,32 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T11:18:18.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
-    "record_id": "GL-607017c8",
+    "record_id": "GL-fa717033",
     "published_date": "2026-10-01",
-    "title": "BT launches AI receptionist for businesses on any UK network",
+    "title": "Fancy an AI receptionist? BT Business will sell your company one",
     "summary": "",
     "topic": "ai_industry",
     "focus": "AI",
     "entity": "",
     "signal_type": "news",
-    "source_name": "mobilenewscwp.co.uk",
+    "source_name": "ISPreview UK",
     "source_type": "news_rss",
     "collected_via": "gnews_ai_customer_comms",
     "aggregator": "Google News",
     "author": "",
-    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNeENXS0JmUl9YT1dNVXhNUXF6MkZYbjFmdEd6OXFha19yZ084MjNaRTBDSWhwc0lQVTNZbGNtUm9aSVF5WS1HTlpnbG4xLWc0NGhSZEpvbzdYZy1maFZTYXJvWEZVLTdaemc0MUFMRWhFUnpOdGdONEE1YzlIMzFEd2hvT1piQnFIWnVGeUpka1hLcE14UnEwclR1OG1yejdBYk1kVw?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOaldicm1ObnhfbkFUTE9la0pyNG9KY014UExXajZNQ1lhY3o5Mi04d2NPN3hQU1RjRTREU2Q3MFJSS3pMNl84X3V3RmVTaDdKdkFJQ2stWHBjVzBoQ3hmc1lnSEpURFpVYjNtV1h1SGxkaTZuY050b3p5MUhfQnZVejlLcXZjU1d5dHB5M19oUHROVy1pSi16QkJVNkFZWW9TY1Q3U0JnZnI2Tko3Vlo2LVJSdGo?oc=5",
     "discussion_url": "",
     "engagement_points": "",
     "engagement_comments": "",
     "matched_keywords": "ai",
     "completeness_pct": 71,
-    "published_at_utc": "2026-10-01T09:43:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "published_at_utc": "2026-10-01T10:06:00.000Z",
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d1656b25",
@@ -3260,8 +3236,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T08:58:03.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c45e1463",
@@ -3284,8 +3260,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-dcc481b2",
@@ -3308,8 +3284,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-10-01T00:30:27.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b11d05b0",
@@ -3332,8 +3308,8 @@
     "matched_keywords": "hallucinations; agents; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-30T17:40:21.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f6b6850c",
@@ -3356,8 +3332,8 @@
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-30T16:58:24.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-af251868",
@@ -3380,8 +3356,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-30T14:38:57.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-77b61e86",
@@ -3404,8 +3380,8 @@
     "matched_keywords": "agents; openai; ai",
     "completeness_pct": 100,
     "published_at_utc": "2026-09-30T10:40:30.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-dd8e8b2a",
@@ -3428,8 +3404,8 @@
     "matched_keywords": "retrieval-augmented",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-30T07:24:02.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-5a85c3a8",
@@ -3452,8 +3428,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-30T03:16:52.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-51ced28f",
@@ -3476,8 +3452,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-29T23:50:11.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-09354289",
@@ -3500,8 +3476,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T14:15:24.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-20e83c33",
@@ -3524,8 +3500,8 @@
     "matched_keywords": "safety; mistral; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T12:01:07.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-efce631b",
@@ -3548,8 +3524,8 @@
     "matched_keywords": "agents; privacy; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T09:03:41.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-949488fa",
@@ -3572,8 +3548,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-29T08:06:40.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f7ca5509",
@@ -3596,8 +3572,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-28T22:07:59.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-21dc53b8",
@@ -3620,8 +3596,8 @@
     "matched_keywords": "agent; nvidia; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-28T15:46:36.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-4590936a",
@@ -3644,8 +3620,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-28T15:28:13.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f62ba0f7",
@@ -3668,8 +3644,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-28T10:27:23.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e7c2ee34",
@@ -3692,8 +3668,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-28T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0a98a379",
@@ -3716,8 +3692,8 @@
     "matched_keywords": "retrieval augmented",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-28T06:30:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b40a4e06",
@@ -3740,8 +3716,8 @@
     "matched_keywords": "agents; rogue; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-27T16:19:46.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-5f37ad7b",
@@ -3764,8 +3740,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-27T15:51:28.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e48be396",
@@ -3788,8 +3764,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-25T10:32:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a619753a",
@@ -3812,8 +3788,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-25T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-15f7621e",
@@ -3836,8 +3812,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-24T22:24:06.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-34dfa74f",
@@ -3860,8 +3836,8 @@
     "matched_keywords": "safety; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-24T14:38:31.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-cf6ab56f",
@@ -3884,8 +3860,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-24T14:16:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-736540f6",
@@ -3908,8 +3884,32 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-24T14:16:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
+  },
+  {
+    "record_id": "GL-f1d34e3d",
+    "published_date": "2026-09-24",
+    "title": "The Front Desk That Never Sleeps: Vosita Introduces AI Receptionist for Medical Practices",
+    "summary": "",
+    "topic": "ai_industry",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "EIN News",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_customer_comms",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTXhnemg5a2RTMkpheFZMQmZxS2FON1FvcS1BQVFjSUdfSFpXU2JYOEVhdXZXN0tEX0xVc2xwbUxoY0Ewc2lSNk1yLUcxVjZVQXVSLWl1SDA2X3NRVEhoaFM5dDJxaWxMSGdUYXBicE5GSkEyUkdoa0ozd1ZQVHpETzFvMndWSVd5LUFHWWJPNXd6a1pOZ0xyZktoT2FxX21sam1OLWpxZVljdEhITklsNkZRNkdHV3ZockFWejBTb0NWVFdVamtfa2pR?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-24T12:15:00.000Z",
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-697cf096",
@@ -3932,8 +3932,8 @@
     "matched_keywords": "agent; rogue; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-24T05:21:10.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b4733385",
@@ -3956,8 +3956,8 @@
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-23T19:42:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-772e97f6",
@@ -3980,8 +3980,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-23T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-aa6977d7",
@@ -4004,8 +4004,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-23T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0c0e8c63",
@@ -4028,8 +4028,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-23T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a283ea20",
@@ -4052,8 +4052,8 @@
     "matched_keywords": "rag; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-22T16:15:06.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1662bd60",
@@ -4076,8 +4076,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-22T14:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-907cbe07",
@@ -4100,8 +4100,8 @@
     "matched_keywords": "benchmark",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-22T13:01:03.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-ed21d5b6",
@@ -4124,32 +4124,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-22T11:00:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
-  },
-  {
-    "record_id": "GL-cc5675d5",
-    "published_date": "2026-09-22",
-    "title": "Prevailing-Party Attorneys’ Fees Include Reasonable Paralegal Fees (And AI-Hallucinations Are Bad!)",
-    "summary": "",
-    "topic": "rag_grounding",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "California Employment Law Update",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_grounding",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNejUzYktNYWVCa3ZESnNxdjJ4eEVnOEo0bkhqT3pBalVTS2FWdlBjd2xDM2NGNWFkcy1hdTJWTHJWc2o2b0pia2VwLXFFXzF0MnQ3elpvVnRTcmRKS3M3cTN0cUtWa2Y5bElOekdWdUVNSVlDa2pWSGlXWTZ5dFhpRlE0blFjM3JyOFlRU0l5elFpekl0Xy1pTG9JUjJVUk5WUmFjcVI5YVZKNTRGb29VVFZCdXRvdDdBQXdvRUgzVkFjaHhHR0VHTmFVZGVicndhYUs4X1N4ekZKQmtoZDJ5LVJxNA?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "hallucinations; ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-22T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-25a5658b",
@@ -4172,8 +4148,8 @@
     "matched_keywords": "retrieval augmented",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-21T18:30:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d147a552",
@@ -4196,8 +4172,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-21T17:00:23.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-89cebbb2",
@@ -4220,8 +4196,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-21T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f7efc753",
@@ -4244,8 +4220,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-20T22:32:43.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f4057075",
@@ -4268,8 +4244,8 @@
     "matched_keywords": "copilot",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-20T09:08:52.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a28960a4",
@@ -4292,8 +4268,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-20T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d0ce8796",
@@ -4316,8 +4292,8 @@
     "matched_keywords": "safety; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-19T14:36:28.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-6e17f34a",
@@ -4340,8 +4316,8 @@
     "matched_keywords": "WEAV; Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-19T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bac849d3",
@@ -4364,8 +4340,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-18T21:07:45.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-7251c415",
@@ -4388,8 +4364,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-18T15:04:54.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-65ec9cd0",
@@ -4412,8 +4388,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-18T13:10:17.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1dec1773",
@@ -4436,8 +4412,8 @@
     "matched_keywords": "chatgpt",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e68f075b",
@@ -4460,8 +4436,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-17T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f9b40999",
@@ -4484,8 +4460,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-17T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c4a64182",
@@ -4508,8 +4484,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-17T00:33:03.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a91ea3f1",
@@ -4532,8 +4508,32 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-16T21:05:19.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
+  },
+  {
+    "record_id": "GL-4ce500bd",
+    "published_date": "2026-09-16",
+    "title": "Medow Health raises $2.5M seed to build AI front desk for specialist clinics",
+    "summary": "",
+    "topic": "ai_industry",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "Dealroom",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_customer_comms",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQm9Ncy1UQUFFUTlGUElnZVF2eW9zLUNOLVlENXBaQlNHMTl1OEx3aEZxU1dkd0tleDhPS3NnMXhyM1BXOXhyM1ZGOGhGbTRPbXlQVF9CMjFfaVpuWGVvekF2Tm9vQUNqUVRwajdEZC1YeXZ2cl9CaXZ5YWJNUkVpblkwYm1TLWJabFhjbGdtaUFramJEc09vbkpnRXBSQXNreHlfbmJCNXFpX2wxMUE?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-16T18:11:10.000Z",
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-764680ab",
@@ -4556,32 +4556,8 @@
     "matched_keywords": "accuracy",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-16T14:24:05.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
-  },
-  {
-    "record_id": "GL-4ce500bd",
-    "published_date": "2026-09-16",
-    "title": "Medow Health raises $2.5M seed to build AI front desk for specialist clinics",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Dealroom",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_customer_comms",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQm9Ncy1UQUFFUTlGUElnZVF2eW9zLUNOLVlENXBaQlNHMTl1OEx3aEZxU1dkd0tleDhPS3NnMXhyM1BXOXhyM1ZGOGhGbTRPbXlQVF9CMjFfaVpuWGVvekF2Tm9vQUNqUVRwajdEZC1YeXZ2cl9CaXZ5YWJNUkVpblkwYm1TLWJabFhjbGdtaUFramJEc09vbkpnRXBSQXNreHlfbmJCNXFpX2wxMUE?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-09-16T13:01:02.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-6bc2b557",
@@ -4604,8 +4580,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-16T08:50:56.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-98e70ed8",
@@ -4628,8 +4604,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-16T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e5fbffcb",
@@ -4652,8 +4628,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-15T16:38:45.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-fae606fb",
@@ -4676,8 +4652,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-15T15:20:26.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-72d72db1",
@@ -4700,8 +4676,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-15T14:16:44.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-79ef8f66",
@@ -4724,8 +4700,8 @@
     "matched_keywords": "hallucinations; regulators; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-15T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-5a1d4dfa",
@@ -4748,8 +4724,8 @@
     "matched_keywords": "safety; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-14T16:18:17.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a80ae256",
@@ -4772,8 +4748,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-14T16:15:05.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-46f748e4",
@@ -4796,8 +4772,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-14T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-fb691274",
@@ -4820,8 +4796,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-14T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-08005044",
@@ -4844,8 +4820,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-14T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b9ba64bd",
@@ -4868,8 +4844,8 @@
     "matched_keywords": "evals",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-13T14:28:36.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e014ac19",
@@ -4892,8 +4868,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-13T01:22:31.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c60a6d1d",
@@ -4916,8 +4892,8 @@
     "matched_keywords": "agentic; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T23:45:58.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bf9bc1f8",
@@ -4940,8 +4916,8 @@
     "matched_keywords": "agentic; benchmark",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T19:57:19.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-fa07508b",
@@ -4964,8 +4940,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T11:13:38.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-ce3594dd",
@@ -4988,8 +4964,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-12T10:49:22.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c4887f00",
@@ -5012,8 +4988,8 @@
     "matched_keywords": "benchmarks; evals",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-11T09:31:27.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-3667f255",
@@ -5036,8 +5012,32 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-10T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
+  },
+  {
+    "record_id": "GL-1647f515",
+    "published_date": "2026-09-10",
+    "title": "NexHealth Revenue 2023: $47.1M Est. ARR",
+    "summary": "",
+    "topic": "competitor_brand",
+    "focus": "Competitor",
+    "entity": "NexHealth",
+    "signal_type": "news",
+    "source_name": "GetLatka",
+    "source_type": "news_rss",
+    "collected_via": "gnews_nexhealth",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1EYl9EWnhTQVJ3dWw1aGpuWEk2WHctaWcwajVYaW9GREZFaDYteEVKRUlGSzhVbE1HUnd6NWlaRVpFY1QweFplOEE5emE3c2lZZ2YtcG9Jbw?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "NexHealth",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-10T07:00:00.000Z",
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b98b688c",
@@ -5060,8 +5060,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-09T23:57:29.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-82a3d077",
@@ -5084,8 +5084,8 @@
     "matched_keywords": "safety; ai; anthropic",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-09T08:43:27.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b3f0a298",
@@ -5108,8 +5108,8 @@
     "matched_keywords": "agent; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-08T19:25:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-e87a7151",
@@ -5132,8 +5132,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-08T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-236c0a06",
@@ -5156,8 +5156,8 @@
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-08T02:58:16.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-268adffe",
@@ -5180,8 +5180,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-443a7e4a",
@@ -5204,8 +5204,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-8912fea8",
@@ -5228,8 +5228,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-3ebf244b",
@@ -5252,8 +5252,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-07T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-940d41cf",
@@ -5276,8 +5276,8 @@
     "matched_keywords": "agent; agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-05T22:15:52.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-cdda538a",
@@ -5300,8 +5300,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-97ae783d",
@@ -5324,8 +5324,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-6b14aade",
@@ -5348,8 +5348,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-232cb013",
@@ -5372,8 +5372,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-06f89443",
@@ -5396,8 +5396,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-04T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-f6a07905",
@@ -5420,8 +5420,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-03T16:24:13.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-ab8aac05",
@@ -5444,8 +5444,8 @@
     "matched_keywords": "safety; openai; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-03T16:11:24.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-90658c92",
@@ -5468,8 +5468,8 @@
     "matched_keywords": "hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-03T15:34:11.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b9104d5b",
@@ -5492,8 +5492,32 @@
     "matched_keywords": "citations; hallucinations; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-09-03T07:33:56.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
+  },
+  {
+    "record_id": "GL-5ad7060b",
+    "published_date": "2026-09-03",
+    "title": "Startup takes on AI hallucinations with $25M and an HQ rooted in a small Washington town",
+    "summary": "",
+    "topic": "rag_grounding",
+    "focus": "AI",
+    "entity": "",
+    "signal_type": "news",
+    "source_name": "GeekWire",
+    "source_type": "news_rss",
+    "collected_via": "gnews_ai_grounding",
+    "aggregator": "Google News",
+    "author": "",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNRGlVV3NTeERsaUdBVVBuYmpGU3k1bkppNnZ6Y3p0LW1QejB2OURTREl6NWFENTBzQlNMajJOVEZwbTR3WFdITjJwLWNkaUdRV1djWmh2RXpqMnRxMzVONG51NkU0MEp6VnI3TlBLeEF6VkpGWHVzWDBhbFc4ZC01cjVLY0t4X0FDaWhqM2JaclNZaGJwRzAxcnM2dFVKU0gyLTFZcy01SGZ4TnBzdGZlcUdqVkNiakV3VmgxMU1kZUtvdw?oc=5",
+    "discussion_url": "",
+    "engagement_points": "",
+    "engagement_comments": "",
+    "matched_keywords": "hallucinations; ai",
+    "completeness_pct": 71,
+    "published_at_utc": "2026-09-03T07:00:00.000Z",
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1ae76264",
@@ -5516,8 +5540,8 @@
     "matched_keywords": "eval",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-02T16:14:52.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-93fdd674",
@@ -5540,8 +5564,8 @@
     "matched_keywords": "agent",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-02T15:55:14.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-3e8a367a",
@@ -5564,8 +5588,8 @@
     "matched_keywords": "agents",
     "completeness_pct": 86,
     "published_at_utc": "2026-09-01T18:50:42.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-50effc2d",
@@ -5588,8 +5612,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-31T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0232f1db",
@@ -5612,8 +5636,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-28T00:06:51.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-708b36d1",
@@ -5636,8 +5660,8 @@
     "matched_keywords": "rag; agents; evals; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-27T21:46:39.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-2f6895db",
@@ -5660,8 +5684,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-27T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-6e8b73ca",
@@ -5684,8 +5708,8 @@
     "matched_keywords": "Weave; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-27T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-586d3724",
@@ -5708,8 +5732,8 @@
     "matched_keywords": "Podium; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-27T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c761778b",
@@ -5732,8 +5756,8 @@
     "matched_keywords": "agents; ai",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-26T19:45:59.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-82c10b66",
@@ -5756,8 +5780,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-26T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-33081899",
@@ -5780,8 +5804,8 @@
     "matched_keywords": "agentic",
     "completeness_pct": 86,
     "published_at_utc": "2026-08-26T02:35:25.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-59d27d73",
@@ -5804,8 +5828,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-9cef8c1b",
@@ -5828,8 +5852,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-64f6133d",
@@ -5852,8 +5876,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-40e2d1d8",
@@ -5876,8 +5900,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-dc75e2c0",
@@ -5900,8 +5924,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-df38bbbc",
@@ -5924,8 +5948,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-24T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-936b48de",
@@ -5948,8 +5972,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-22T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-382969be",
@@ -5972,8 +5996,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-21T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-632fb91b",
@@ -5996,8 +6020,8 @@
     "matched_keywords": "Podium; agents",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-21T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-2b8d5da4",
@@ -6020,8 +6044,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-20T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d9b266a9",
@@ -6044,8 +6068,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-20T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d15fef91",
@@ -6068,8 +6092,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-20T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-46ddd68e",
@@ -6092,8 +6116,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T12:16:41.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-28153e4b",
@@ -6116,32 +6140,8 @@
     "matched_keywords": "ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
-  },
-  {
-    "record_id": "GL-a08a92ca",
-    "published_date": "2026-08-19",
-    "title": "GP's AI receptionist has trouble understanding patients' Yorkshire accents - leaving them struggling to get appointments",
-    "summary": "",
-    "topic": "ai_industry",
-    "focus": "AI",
-    "entity": "",
-    "signal_type": "news",
-    "source_name": "Daily Mail",
-    "source_type": "news_rss",
-    "collected_via": "gnews_ai_customer_comms",
-    "aggregator": "Google News",
-    "author": "",
-    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPbGwzM0pkY0NDTUROUmltci1sYlY2YUVRSnRVYVFHWG9fS25jR1BUcmk3QVlaVHAxaG5hOWhvLU5udnRWZndiWW9tUkk3Q2luU0duNVowNERtd3BHZHI4ZEk5WENFY3QzNXFscUM0QXhfUFZ5TmRPbWJ0TWVwWnpyM1ZNQ0RYZDljVVJ6aWpMckVsME5YNkRHUmRjTXY5TUV2ZVVxZEZsMGQ2TTA2cmUyQ1dtNzlZeWdt0gG-AUFVX3lxTE5aUXVBTkU4bFdEVWNkOGdVaU5GWW4xS0tnYzczT0N0YVpTM0t2SkdTekVHTEFUOWl1WXU5REoyZ0RKQk9vWElwQ1B3Zk94aFZXdDBvRGpJWEdGSDREemo2WGtDd08wTjdBTzE2NExsUGZiMm01dDFYVmhLcS1tREVJbFVZbHpfSUhCTktLT2tYb2VGWTMtLW9vQkx4N052aDBzR1lxR25PNE1IY0U4RDRkOENZVlg4STdaSWQtTGc?oc=5",
-    "discussion_url": "",
-    "engagement_points": "",
-    "engagement_comments": "",
-    "matched_keywords": "ai",
-    "completeness_pct": 71,
-    "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-5779e31b",
@@ -6164,8 +6164,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-41a632b3",
@@ -6188,8 +6188,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d1464026",
@@ -6212,8 +6212,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-727736c2",
@@ -6236,8 +6236,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-19T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bded1b74",
@@ -6260,8 +6260,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a307f792",
@@ -6284,8 +6284,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1d306159",
@@ -6308,8 +6308,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-429bbe37",
@@ -6332,8 +6332,8 @@
     "matched_keywords": "Weave; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-eef42bea",
@@ -6356,8 +6356,8 @@
     "matched_keywords": "Weave",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a57d3395",
@@ -6380,8 +6380,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1c38d408",
@@ -6404,8 +6404,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-5c9ff875",
@@ -6428,8 +6428,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a59114d5",
@@ -6452,8 +6452,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d7d307d6",
@@ -6476,8 +6476,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-960b15ab",
@@ -6500,8 +6500,8 @@
     "matched_keywords": "Weave Communications; WEAV; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-75024c21",
@@ -6524,8 +6524,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-923602ee",
@@ -6548,8 +6548,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0e8c9c4d",
@@ -6572,8 +6572,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-18T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-d8528997",
@@ -6596,8 +6596,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-17T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-1b852384",
@@ -6620,8 +6620,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-08T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-aeaac22b",
@@ -6644,8 +6644,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-08T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-50e16263",
@@ -6668,8 +6668,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 100,
     "published_at_utc": "2026-08-07T14:59:03.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-dbaee3da",
@@ -6692,8 +6692,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-07T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-b17a0a67",
@@ -6716,8 +6716,8 @@
     "matched_keywords": "Weave Communications; WEAV",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-06386425",
@@ -6740,8 +6740,8 @@
     "matched_keywords": "Weave",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-5abde9ea",
@@ -6764,8 +6764,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-cd549048",
@@ -6788,8 +6788,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-06T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-27aa30b9",
@@ -6812,8 +6812,8 @@
     "matched_keywords": "Birdeye; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-04T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-c585169c",
@@ -6836,8 +6836,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-03T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-2e12aea5",
@@ -6860,8 +6860,8 @@
     "matched_keywords": "Podium; ai",
     "completeness_pct": 71,
     "published_at_utc": "2026-08-03T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-0fec3313",
@@ -6884,8 +6884,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-29T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-ad49cad3",
@@ -6908,8 +6908,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-28T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-bd4ea6f0",
@@ -6932,8 +6932,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 100,
     "published_at_utc": "2026-07-28T04:52:37.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-a4659672",
@@ -6956,8 +6956,8 @@
     "matched_keywords": "Weave",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-20T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-4e1b013a",
@@ -6980,8 +6980,8 @@
     "matched_keywords": "NexHealth",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-18T02:10:45.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-48c4b8cb",
@@ -7004,8 +7004,8 @@
     "matched_keywords": "Podium",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-15T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-35c05d11",
@@ -7028,8 +7028,8 @@
     "matched_keywords": "Weave Communications",
     "completeness_pct": 71,
     "published_at_utc": "2026-07-13T07:00:00.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   },
   {
     "record_id": "GL-80df81f2",
@@ -7052,7 +7052,7 @@
     "matched_keywords": "Podium",
     "completeness_pct": 100,
     "published_at_utc": "2025-12-02T21:29:40.000Z",
-    "collected_at": "2026-10-09T04:52:54.228Z",
-    "run_id": "20261009T045254Z"
+    "collected_at": "2026-10-09T05:24:22.897Z",
+    "run_id": "20261009T052422Z"
   }
 ]

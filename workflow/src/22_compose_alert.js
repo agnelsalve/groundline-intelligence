@@ -11,7 +11,7 @@ if (!fresh.length) return [];
 
 const isRisk = KIND === 'urgent_risk';
 const title = isRisk
-  ? `Brand risk: ${fresh.length} new item${fresh.length > 1 ? 's' : ''} need attention`
+  ? `Brand risk: ${fresh.length} new item${fresh.length > 1 ? 's need' : ' needs'} attention`
   : `Opportunity: ${fresh.length} competitor signal${fresh.length > 1 ? 's' : ''} Weave can act on`;
 const rule = isRisk
   ? 'relevance ≥ 2 and risk_to_weave = high (or a very negative Weave item rated medium)'

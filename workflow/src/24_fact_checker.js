@@ -49,7 +49,7 @@ const jobs = briefs.map((b) => async () => {
       cited: c.cite.filter((id) => ev[id]).map((id) => ({ id, title: ev[id].title, key_fact: ev[id].key_fact, source: ev[id].source, date: ev[id].date })) }));
     try {
       const res = await AI.complete({ name: `check:${b.key}`, system: CHECKER_SYSTEM, user: JSON.stringify({ claims: payload }),
-        role: 'checker', effort: 'low', maxTokens: 2000 + 150 * toCheck.length, timeoutMs: 150000, temperature: 0,
+        role: 'checker', avoid: String(b.written_by).split(':').pop(), effort: 'low', maxTokens: 2000 + 150 * toCheck.length, timeoutMs: 150000, temperature: 0,
         validate: (d) => (!d || !Array.isArray(d.checks) ? 'missing "checks" array'
           : d.checks.filter((x) => x && VERDICTS.includes(x.verdict)).length < Math.ceil(toCheck.length * 0.8) ? 'a verdict is needed for every claim' : null) });
       checker = `${res.provider}:${res.model}`;

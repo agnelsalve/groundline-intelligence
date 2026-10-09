@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "started": "2026-10-09T05:14:21.149Z",
+    "url": "http://localhost:5678/webhook/groundline/analyze",
+    "per_request": 10,
+    "concurrency_cap": "burst",
+    "label": "real AI, batch mode: 10 records per request",
+    "mode": "n8n + Gemini",
+    "node": "v24.13.0"
+  },
+  "results": [
+    {
+      "requests": 5,
+      "records": 50,
+      "concurrency": 5,
+      "wall_s": 7.8,
+      "throughput_rps": 0.64,
+      "p50_ms": 3610,
+      "p95_ms": 7774,
+      "max_ms": 7774,
+      "success": 5,
+      "success_pct": 100,
+      "degraded_records": 0,
+      "http_errors": {},
+      "ai_error_kinds": {},
+      "ai_calls": 6,
+      "retries": 0,
+      "repairs": 1,
+      "provider_fallbacks": 0,
+      "tokens_in": 10631,
+      "tokens_out": 8413,
+      "cost_usd": 0.01528,
+      "cost_per_100_requests": 0.3055,
+      "peak_n8n_mem_mb": 407,
+      "sample_errors": []
+    }
+  ]
+}

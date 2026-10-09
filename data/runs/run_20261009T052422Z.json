@@ -1,0 +1,173 @@
+{
+  "run_id": "20261009T052422Z",
+  "started_at": "2026-10-09T05:24:22.897Z",
+  "finished_at": "2026-10-09T05:25:48.627Z",
+  "duration_s": 85.7,
+  "records_judged": 294,
+  "routes": {
+    "digest": 269,
+    "discard": 13,
+    "opportunity": 11,
+    "urgent_risk": 1
+  },
+  "analysis": {
+    "cache_hits": 292,
+    "ai_analyzed": 2,
+    "fallback": 0,
+    "fallback_reasons": {},
+    "batches": 1,
+    "batches_failed": 0,
+    "circuit_open": false
+  },
+  "cache_status": "loaded: 299 analyses, 13 alerted records",
+  "ai": {
+    "calls": 19,
+    "retries": 0,
+    "repairs": 2,
+    "provider_fallbacks": 8,
+    "failed_tasks": 0,
+    "tokens_in": 29083,
+    "tokens_out": 11223,
+    "cost_usd": 0.04035,
+    "providers": [
+      "analyst:gemini-3.5-flash-lite",
+      "writer:gemini-3.8-flash",
+      "checker:gemini-3.5-flash"
+    ],
+    "step_seconds": {
+      "analyst": 1.6,
+      "writer": 17.3,
+      "checker": 43.8
+    },
+    "latency_p50_ms": 1547,
+    "latency_p95_ms": 1547,
+    "errors": [
+      {
+        "task": "brief:birdeye",
+        "provider": "gemini-3.8-flash",
+        "kind": "quota",
+        "error": "Gemini 3.8-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "brief:podium",
+        "provider": "gemini-3.8-flash",
+        "kind": "quota",
+        "error": "Gemini 3.8-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "brief:weave",
+        "provider": "gemini-3.8-flash",
+        "kind": "quota",
+        "error": "Gemini 3.8-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "brief:birdeye",
+        "provider": "gemini-3.5-flash",
+        "kind": "quota",
+        "error": "Gemini 3.5-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "brief:weave",
+        "provider": "gemini-3.5-flash",
+        "kind": "quota",
+        "error": "Gemini 3.5-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "brief:podium",
+        "provider": "gemini-3.5-flash",
+        "kind": "quota",
+        "error": "Gemini 3.5-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "check:podium",
+        "provider": "gemini-3.5-flash",
+        "kind": "quota",
+        "error": "Gemini 3.5-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      },
+      {
+        "task": "check:weave",
+        "provider": "gemini-3.5-flash",
+        "kind": "quota",
+        "error": "Gemini 3.5-flash 429: {\"code\":429,\"message\":\"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your curren"
+      }
+    ]
+  },
+  "briefs": [
+    {
+      "key": "weave",
+      "written_by": "gemini:gemini-3.1-flash-lite",
+      "write_error": null,
+      "checker": "gemini:gemini-3-flash-preview",
+      "check_error": null,
+      "status": "needs_review",
+      "groundedness": 0.833,
+      "claims_total": 15,
+      "supported": 12,
+      "partial": 1,
+      "unsupported": 2,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "podium",
+      "written_by": "gemini:gemini-3.1-flash-lite",
+      "write_error": null,
+      "checker": "gemini:gemini-3-flash-preview",
+      "check_error": null,
+      "status": "needs_review",
+      "groundedness": 0.769,
+      "claims_total": 13,
+      "supported": 10,
+      "partial": 0,
+      "unsupported": 3,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "birdeye",
+      "written_by": "gemini:gemini-3.1-flash-lite",
+      "write_error": null,
+      "checker": "gemini:gemini-3.5-flash",
+      "check_error": null,
+      "status": "verified",
+      "groundedness": 0.944,
+      "claims_total": 9,
+      "supported": 8,
+      "partial": 1,
+      "unsupported": 0,
+      "unverified": 0,
+      "fabricated_citations": 0
+    },
+    {
+      "key": "market",
+      "written_by": "gemini:gemini-3.1-flash-lite",
+      "write_error": null,
+      "checker": "gemini:gemini-3-flash-preview",
+      "check_error": null,
+      "status": "needs_review",
+      "groundedness": 0.773,
+      "claims_total": 11,
+      "supported": 8,
+      "partial": 1,
+      "unsupported": 2,
+      "unverified": 0,
+      "fabricated_citations": 0
+    }
+  ],
+  "email": {
+    "weekly_digest": {
+      "status": "sent",
+      "message_id": "<f4ae78c4-5c91-70b5-8304-ee32acf78437@gmail.com>",
+      "accepted": [
+        "branding.and.ai@gmail.com"
+      ],
+      "saved_to": "emails/2026-10-09_weekly_digest.html"
+    },
+    "risk_alert": {
+      "status": "nothing_to_send"
+    },
+    "opportunity_alert": {
+      "status": "nothing_to_send"
+    }
+  }
+}

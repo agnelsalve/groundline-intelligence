@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "started": "2026-10-09T05:03:35.504Z",
+    "url": "http://localhost:5678/webhook/groundline/analyze",
+    "per_request": 1,
+    "concurrency_cap": "burst",
+    "label": "n8n only (keyword rules), burst — find ceiling",
+    "mode": "n8n only (no AI)",
+    "node": "v24.13.0"
+  },
+  "results": [
+    {
+      "requests": 1000,
+      "records": 1000,
+      "concurrency": 1000,
+      "wall_s": 39.34,
+      "throughput_rps": 25.42,
+      "p50_ms": 24617,
+      "p95_ms": 37673,
+      "max_ms": 39104,
+      "success": 1000,
+      "success_pct": 100,
+      "degraded_records": 0,
+      "http_errors": {},
+      "ai_error_kinds": {},
+      "ai_calls": 0,
+      "retries": 0,
+      "repairs": 0,
+      "provider_fallbacks": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0,
+      "cost_per_100_requests": 0,
+      "peak_n8n_mem_mb": 10475,
+      "sample_errors": []
+    },
+    {
+      "requests": 2000,
+      "records": 2000,
+      "concurrency": 2000,
+      "wall_s": 85.03,
+      "throughput_rps": 23.52,
+      "p50_ms": 49689,
+      "p95_ms": 83785,
+      "max_ms": 84799,
+      "success": 1912,
+      "success_pct": 95.6,
+      "degraded_records": 0,
+      "http_errors": {
+        "500": 88
+      },
+      "ai_error_kinds": {},
+      "ai_calls": 0,
+      "retries": 0,
+      "repairs": 0,
+      "provider_fallbacks": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0,
+      "cost_per_100_requests": 0,
+      "peak_n8n_mem_mb": 21063,
+      "sample_errors": [
+        "Internal Server Error"
+      ]
+    }
+  ]
+}

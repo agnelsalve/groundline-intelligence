@@ -25,4 +25,8 @@ $env:GROUNDLINE_OUTPUT_DIR = $OutDir
 $env:N8N_RESTRICT_FILE_ACCESS_TO = "$DataDir;$OutDir"   # n8n may only touch these two folders
 $env:N8N_BLOCK_ENV_ACCESS_IN_NODE = "false"             # lets Code nodes read the .env values above
 $env:N8N_RUNNERS_TASK_TIMEOUT = "1800"                  # AI nodes can run for minutes on a cold cache
+# Scale-test finding: n8n runs only 10 Code-node tasks at once by default and drops tasks that wait >60 s
+# in the queue (HTTP 500 at 50 concurrent AI requests). Raised so bursts queue instead of failing.
+$env:N8N_RUNNERS_MAX_CONCURRENCY = "50"
+$env:N8N_RUNNERS_TASK_REQUEST_TIMEOUT = "300"
 $env:N8N_DIAGNOSTICS_ENABLED = "false"
